@@ -5,8 +5,8 @@
 ###########################################
 
 # Where the magic happens.
-PRIVATE_DIR="private"
 export DOTFILES=~/.dotfiles
+PRIVATE_DIR="$DOTFILES/private"
 LOCAL_MAGIC=".USE_LOCAL"
 
 # Logging stuff.
@@ -313,7 +313,7 @@ UpdateRepo() {
   PushToRemote $*
 
   if [[ -d "$PRIVATE_DIR" ]]; then
-    PushToRemote "$DOTFILES/$PRIVATE_DIR"
+    PushToRemote "$PRIVATE_DIR"
   fi
 }
 
