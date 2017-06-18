@@ -1,0 +1,25 @@
+#!/bin/bash
+# Author: Hongbo Liu <hbliu@freewheel.tv>
+# Date: 2017-05-29
+# Last Modified: 2017-05-29
+
+get_timestamp() {
+	gdate -d"$1" +%s
+}
+
+now() {
+	gdate +%F
+}
+
+main() {
+	local start=$1
+	local end=${2:-$(now)}
+
+	start=$(get_timestamp $start)
+	end=$(get_timestamp $end)
+
+	local diff=$((end-start))
+	echo "$((diff / 24 / 3600)) days, $((diff / 3600)) hours, $diff seconds"
+}
+
+main $*

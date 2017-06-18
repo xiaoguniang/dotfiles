@@ -1,0 +1,27 @@
+#!/bin/sh
+
+TAB_MAGIC="tabbed.tabbed"
+TABBED="tabbed -p-1 -c "
+
+raiseOrRun () {
+	if [ "$#" = 2 ]; then
+		wmctrl -x -a "$1" || $2 2> /dev/zero &
+	else
+		wmctrl -x -a "$1" || $1
+	fi
+}
+
+raiseOrRun "$TAB_MAGIC" "$TABBED"
+until wmctrl -lx | grep ${TAB_MAGIC}; do
+    sleep 0.5
+done
+
+TABBED_XID=$(wmctrl -lx | grep $TAB_MAGIC | cut -d' ' -f1)
+
+if [ "$#" = 0 ]; then
+    zathura -e $TABBED_XID
+else
+	for f in "$@"; do
+		zathura -e $TABBED_XID "$f" 2> /dev/zero &
+	done
+fi

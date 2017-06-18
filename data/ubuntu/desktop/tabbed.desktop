@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Zathura-tabbed
+Comment=A minimalistic document viewer
+StartupNotify=true
+Exec=zathura-tabbed %f
+Terminal=false
+Categories=GNOME;GTK;Office;Viewer;Graphics;2DGraphics;VectorGraphics;
+Icon=zathura

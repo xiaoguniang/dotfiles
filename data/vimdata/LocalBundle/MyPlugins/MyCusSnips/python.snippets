@@ -1,0 +1,68 @@
+snippet main "Python main" b
+if __name__ == "__main__":
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+endsnippet
+
+snippet jsonprint "pretty print python object in json format" b
+print json.dumps(${1:object}, indent=4)
+endsnippet
+
+snippet header "file encoding" b
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+endsnippet
+
+snippet getopt "argument parser" b
+import sys
+import getopt
+
+try:
+	opts, args = getopt.getopt(sys.argv[1:], "${1:ht:}")
+except Exception as e:
+	print str(e)
+
+for o, v in opts:
+	if o == "-h":
+		sys.exit()
+	elif o == "-t":
+		topic = v
+	else:
+		assert False, "unhandled option"
+endsnippet
+
+snippet soup "Beautiful soup" b
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(page, "lxml")
+node_list = soup.select('div#list')[0].select('div.col-xs-6')[0].find('a')
+endsnippet
+
+snippet cookie "set cookie" b
+opener = urllib2.build_opener()
+opener.addheaders.append(('Cookie', cookie_text))
+endsnippet
+
+snippet httpdownload "download file through http" b
+import urllib
+urllib.urlretrieve(url, filename=filepath)
+endsnippet
+
+snippet urllib "get html page" b
+import urllib2
+
+page = urllib2.urlopen($1).read()
+endsnippet
+
+snippet writefile "write to file" b
+outf = open(${1:filepath}, 'w')
+print >> outf, list
+endsnippet
+
+snippet readfile "readfile" b
+${1:infile} = open(${2:filepath})
+lines = $1.readlines()
+endsnippet
+
+snippet shell "run shell command" b
+${1:output} = subprocess.check_output("${2:shell command}", shell=True)
+endsnippet

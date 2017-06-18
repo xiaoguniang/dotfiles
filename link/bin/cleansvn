@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Description: clean svn files
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: 2015-10-21 21:34:03 CST
+
+if [[ $# < 1 ]]; then
+	echo "Usage: $0 filename"
+	exit
+fi
+
+for l in $(cat $1); do
+	if ! svn ls $l &> /dev/zero; then
+		rm -r $l
+	fi
+done

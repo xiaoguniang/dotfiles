@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=TopCoder
+Name[en]=TopCoder
+Exec=xdg-open /home/hbliu/bin/TopCoder/ContestAppletProd.jnlp
+Terminal=false
+Icon=/home/hbliu/.icons/topcoder.png
+Type=Application
+Categories=Development

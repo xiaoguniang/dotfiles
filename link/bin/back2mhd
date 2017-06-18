@@ -1,0 +1,15 @@
+#!/bin/sh
+
+DEST_DIR="/media/`whoami`/Seagate-hiberabyss"
+RSYNC_FLAG=" -a "
+# shouldn't have '/' in the end
+SYNCTED_FILES=(
+	"${HOME}/Pictures"
+	"${HOME}/EZMorning"
+	"${HOME}/Videos"
+	)
+
+for item in ${SYNCTED_FILES[*]}; do
+ 	echo rsync $RSYNC_FLAG $item "${DEST_DIR}"
+ 	rsync $RSYNC_FLAG $item "${DEST_DIR}"
+done	

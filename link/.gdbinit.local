@@ -1,0 +1,35 @@
+set auto-load safe-path /
+
+# breaks
+define sbreaks
+	save breakpoints breaks.gdb
+end
+define lbreaks
+	source breaks.gdb
+end
+
+define fwid
+	p $arg0<<16>>16
+end
+
+set startup-with-shell off
+
+# osx stl support
+python
+import sys 
+import os
+
+GDB_ROOT = "~/.gdb/"
+gdb.execute("source " + GDB_ROOT + "/command.py")
+
+if sys.platform.startswith('darwin'):
+	# gdb.execute("set $_OS_TYPE = \"darwin\"")
+	sys.path.insert(0, os.environ['HOME'] + '/.gdb/libcxx-pretty-printers/src') 
+	from libcxx.v1.printers import register_libcxx_printers 
+	register_libcxx_printers (None) 
+elif sys.platform.startswith('linux'):
+	# gdb.execute("set $_OS_TYPE = \"linux\"")
+	gdb.execute("source " + GDB_ROOT + "stl-views.gdb")
+end
+
+# vim:ft=gdb:

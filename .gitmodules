@@ -1,0 +1,15 @@
+[submodule "link/.tmux/plugins/tpm"]
+	path = link/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "data/vimdata/markdown2ctags"]
+	path = data/vimdata/markdown2ctags
+	url = https://github.com/jszakmeister/markdown2ctags.git
+[submodule "data/zgen"]
+	path = data/zgen
+	url = https://github.com/tarjoilija/zgen
+[submodule "link/.gdb/libcxx-pretty-printers"]
+	path = link/.gdb/libcxx-pretty-printers
+	url = https://github.com/koutheir/libcxx-pretty-printers
+[submodule "data/vimdata/bundle/vim-plug"]
+	path = data/vimdata/vim-plug
+	url = https://github.com/junegunn/vim-plug

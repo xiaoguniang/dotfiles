@@ -1,0 +1,15 @@
+let $CUSDATA = expand("$HOME/.dotfiles/data/vimdata")
+let $BUNDLE = expand("$CUSDATA/bundle")
+let $PLUG_DIR = expand("$BUNDLE/vim-plug")
+
+source $PLUG_DIR/plug.vim
+call plug#begin(expand($BUNDLE))
+
+Plug 'https://github.com/Shougo/deoplete.nvim'
+Plug 'https://github.com/wellle/tmux-complete.vim'
+
+let g:deoplete#enable_at_startup = 1
+
+call plug#end()
+filetype plugin indent on
+

@@ -1,0 +1,20 @@
+#!/bin/sh
+ORIGIN_PWD=
+TOMCAT_LOC="/home/hbliu/opt/apache-tomcat-7.0.27/bin/"
+START_FILE=${TOMCAT_LOC}"startup.sh"
+STOP_FILE=${TOMCAT_LOC}"shutdown.sh"
+
+case "$1" in
+    start)	
+	${START_FILE}
+	;;
+    stop)
+	${STOP_FILE}
+	;;
+    restart)
+	${STOP_FILE} 
+       	${START_FILE}
+	;;
+    *)
+	;;
+esac

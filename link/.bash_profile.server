@@ -1,0 +1,23 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+if [[ -z "$PS1" ]]; then
+	return
+fi
+
+SHELL=/bin/zsh
+export SHELL
+exec $SHELL
+
+export PATH

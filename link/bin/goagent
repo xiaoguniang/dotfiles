@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# display commands.
+#set -x
+
+GOAGENT_LOCAL_DIR="$HOME/github/goagent/local"
+PROXY_INI_PATH="${GOAGENT_LOCAL_DIR}/proxy.ini"
+PROXY_PY_PATH="${GOAGENT_LOCAL_DIR}/proxy.py"
+
+MODE=${1:-4}
+pkill -f $PROXY_PY_PATH
+
+# ln -sf ${PROXY_INI_PATH}.ipv${MODE} $PROXY_INI_PATH
+
+nohup python $PROXY_PY_PATH >/dev/null 2>&1 &

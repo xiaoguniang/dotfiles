@@ -1,0 +1,34 @@
+--exclude=.git
+
+--langmap=vim:+.vimrc
+--regex-vim=/"[[:space:]]*([0-9a-zA-Z\_\-\ ]+)[[:space:]]*"\{\{\{/\1/t,Tags/
+--vim-kinds=+mft
+
+--langmap=sh:+.zshrc
+--regex-sh=/[#][[:space:]]*([0-9a-zA-Z\-_\ ]+)[[:space:]]*[#\ ]*\{\{\{/\1/t,Section/
+--sh-kinds=+t+f
+
+--langdef=log
+--langmap=log:+.log
+--regex-log=/.*(PHASE\ [0-9][a-zA-Z0-9\ \:]+)[\ ]*$/\1/p,Phase/
+--log-kinds=+p
+
+--langmap=c++:+.inl.cpp.h
+--fields=+iakSm
+--extra=+q
+--c++-kinds=+LpmnsNd
+
+--python-kinds=-i
+
+--langdef=bib
+--langmap=bib:.bib
+--regex-bib=/^@[A-Za-z]+\{([^,]*)/\1/b,bib/
+
+--langdef=markdown
+--langmap=markdown:.md.mkd
+--regex-markdown=/^#[ \t]+(.*)/\1/h,Heading_L1/
+--regex-markdown=/^##[ \t]+(.*)/\1/i,Heading_L2/
+--regex-markdown=/^###[ \t]+(.*)/\1/k,Heading_L3/
+
+--langmap=sql:+.sql
+--regex-sql=/^[ \t]*INSERT[ \t]+INTO(.*)/\1/k,Insert/i

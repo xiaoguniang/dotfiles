@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Description: 
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: 2016-03-11 15:48:58 CST
+
+osascript ~/bin/applescript/iterm.scpt && vim $@
+

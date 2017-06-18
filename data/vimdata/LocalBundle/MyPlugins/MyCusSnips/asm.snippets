@@ -1,0 +1,17 @@
+snippet readsection "read fd section" b
+mov es, ${1:adress: es:bx}
+mov ch, ${2:cylindar-idx}
+mov dh, ${3:header-idx}
+mov cl, ${4:section-idx}
+
+mov ah, 0x02
+mov al, ${5:section-count}
+mov bx, ${6:memory-adress}
+mov dl, ${7:driver-idx}
+int 0x13
+jc error
+endsnippet
+
+snippet >= "above or equal" b
+jmp ${1:lable}
+endsnippet

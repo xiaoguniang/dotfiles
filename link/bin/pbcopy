@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Description: pbcopy wrapper
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: 2017-04-07 17:46:36 CST
+
+PREFIX=""
+
+if which reattach-to-user-namespacea 2> /dev/zero; then
+	PREFIX="reattach-to-user-namespacea"
+fi
+
+$PREFIX pbcopy $*

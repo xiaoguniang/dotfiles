@@ -1,0 +1,43 @@
+{
+  "lrc-back-color": "rgba(237, 221, 221, 0.28)", 
+  "lrc-text-color": "rgba(46, 52, 54, 0.999)", 
+  "lrc-highlighted-text-color": "rgba(52, 101, 164, 0.999)", 
+  "lrc-word-back-color": "rgba(237, 221, 221, 0.28)", 
+  "use-status-icon": true, 
+  "volume": 0.008181230025025223, 
+  "custom-shortcut": {
+    "VolumeDown": "<Ctrl><Shift>D", 
+    "Stop": "<Ctrl><Shift>Up", 
+    "Play": "<Ctrl><Shift>Down", 
+    "Launch": "<Ctrl><Shift>L", 
+    "VolumeUp": "<Ctrl><Shift>U", 
+    "Next": "<Ctrl><Shift>Right", 
+    "Pause": "<Ctrl><Shift>Down", 
+    "Previous": "<Ctrl><Shift>Left", 
+    "Mute": "<Ctrl><Shift>M"
+  }, 
+  "window-size": [
+    836, 
+    844
+  ], 
+  "lrc-img-back-color": "rgba(0, 0, 0, 1)", 
+  "lrc-text-size": 22, 
+  "shortcut-mode": 1, 
+  "default-shortcut": {
+    "VolumeDown": "XF86AudioLowerVolume", 
+    "Stop": "XF86AudioStop", 
+    "Play": "XF86AudioPlay", 
+    "Launch": "XF86AudioMedia", 
+    "VolumeUp": "XF86AudioRaiseVolume", 
+    "Next": "XF86AudioNext", 
+    "Pause": "XF86AudioPause", 
+    "Previous": "XF86AudioPrev", 
+    "Mute": "XF86AudioMute"
+  }, 
+  "song-dir": "/home/hbliu/.cache/kuwo/song", 
+  "lrc-highlighted-text-size": 26, 
+  "use-ape": false, 
+  "use-notify": false, 
+  "mv-dir": "/home/hbliu/.cache/kuwo/mv", 
+  "use-mkv": false
+}

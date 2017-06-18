@@ -1,0 +1,39 @@
+#!/bin/sh
+
+ROOT_FOLDER="/home/hbliu/"
+CHROME_DWN_FOLDER="Downloads"
+#CHROME_DWN_FOLDER="test"
+BAK_NAME=".${CHROME_DWN_FOLDER}.liuhongbo"
+
+LOC_CHROME_DWN=${ROOT_FOLDER}${CHROME_DWN_FOLDER}
+LOC_BAK=${ROOT_FOLDER}${BAK_NAME}
+LOC_LINK=${PWD}
+
+if [ $# -gt 1 ]; then
+    echo "$#using input path!"
+    LOC_LINK=$2
+fi
+
+case "$1" in
+    m)
+	if [ ! -d ${LOC_BAK} ]; then
+	    sudo mv -v ${LOC_CHROME_DWN} ${LOC_BAK}
+	    sudo ln -vs ${LOC_LINK} ${ROOT_FOLDER}${CHROME_DWN_FOLDER}
+	else
+	    echo "Error! The bak folder has existed!"
+	fi
+	;;
+    u)
+	if [ -d ${ROOT_FOLDER}${BAK_NAME} ]; then
+	    sudo rm -rv ${LOC_CHROME_DWN}
+	    sudo mv -v ${LOC_BAK} ${LOC_CHROME_DWN}
+	else
+	    echo "Error! The real folder doesn't exist!"
+	fi
+	;;
+    -h)
+    	echo "command [u/m]"
+	;;
+    *)
+	;;
+esac

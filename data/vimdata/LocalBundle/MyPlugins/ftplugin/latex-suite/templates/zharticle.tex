@@ -1,0 +1,27 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+% arara: xelatex: {options: "-file-line-error -interaction=nonstopmode"}
+% % arara: biber
+\documentclass[a4paper]{article}
+
+\usepackage{xeCJK}
+\usepackage{float}
+\usepackage{CJKnumb}
+\usepackage[left=1in,right=1in,top=1.25in,bottom=1.25in]{geometry}
+\usepackage[indentafter,pagestyles]{titlesec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[colorlinks,linkcolor=black,citecolor=black]{hyperref}
+\usepackage{paralist}
+\usepackage{booktabs}
+
+\setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{SimSun}
+
+\begin{document}
+<SE>
+\end{document}

@@ -1,0 +1,3 @@
+warn_only = True
+colorize_errors = True
+use_ssh_config = yes

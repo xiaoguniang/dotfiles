@@ -1,0 +1,41 @@
+# zathurarc
+
+# colors
+# set statusbar-bg "#00FF00"
+# set statusbar-fg red
+
+# settings
+# set window-height 900
+# set window-width 1600
+set adjust-open width
+
+# set window-icon "./zathura.svg"
+set window-title-basename true
+
+# scroll settings
+set scroll-full-overlap 0.02
+set scroll-step 80
+
+# use sqlite as bookmarks database backend
+set database sqlite
+
+# set font "monospace normal 9"
+
+# key bindings
+map <C-d> toggle_page_mode
+
+map <PageUp> navigate previous
+map <PageDown> navigate next
+
+map d scroll half-down
+map u scroll half-up
+
+map p navigate previous
+map n navigate next
+
+map w adjust_window width
+map + zoom in
+map - zoom out
+
+map <C-q> quit
+

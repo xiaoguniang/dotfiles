@@ -1,0 +1,9 @@
+build
+Makefile.in
+aclocal.m4
+autom4te.cache
+src/config.h.in~
+configure
+Build.inl
+*.swo
+*.swp

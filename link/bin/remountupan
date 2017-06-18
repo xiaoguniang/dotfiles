@@ -1,0 +1,6 @@
+#!/bin/sh
+DIRECTORY=~/.VirtualBox/vmdk/
+UPAN_DISKFILE=testdisk.vmdk
+DEV_UPAN=/tmp/vmdk/testdisk
+sudo rm -f $UPAN_DISKFILE
+sudo VBoxManage internalcommands createrawvmdk -filename ${DIRECTORY}$UPAN_DISKFILE -rawdisk $DEV_UPAN

@@ -1,0 +1,14 @@
+snippet host "ssh host setting" b
+Host ${1:alias}
+	Hostname ${2:hostname or ip adress}
+	User ${3:username}
+endsnippet
+
+snippet fwnycdev01 "jump via nycdev01" b
+Host ${1:alias}
+	Hostname ${2:hostname or ip adress}
+	User ${3:username}
+	ProxyCommand ssh -q -W %h:%p hbliu@nycdev01
+	IdentityFile ~/.ssh/nycdev01/id_rsa
+$0
+endsnippet

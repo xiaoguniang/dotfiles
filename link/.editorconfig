@@ -1,0 +1,11 @@
+; .editorconfig
+
+root = true
+
+[**.json]
+indent_style = space
+indent_size = 4
+brace_style = expand
+
+[**.html]
+brace_style = expand

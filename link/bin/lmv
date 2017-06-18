@@ -1,0 +1,45 @@
+#!/bin/bash
+# Author: Hongbo Liu <hbliu@freewheel.tv>
+# Date: 2017-05-09
+# Last Modified: 2017-05-09
+
+usage() {
+	cat << EOF
+Usage: $(basename "$0") source [dest|-p|-l]
+
+-l		# link to $HOME/.dotfiles/link
+-p		# link to $HOME/.dotfiles/private
+EOF
+exit 0
+}
+
+lmv() {
+	if dir=$(realpath $2); then
+		src="$dir/$(basename $1)"
+		mv "$1" "$2" && ln -sf $src "$1"
+		echo ln -sf $src "$1"
+	else
+		echo "$2 don't exist !"
+	fi
+}
+
+main() {
+	local source dest="$HOME/.dotfiles/link"
+	local OPT OPTARG OPTIND
+
+	source=$1
+
+	while getopts 'plh' OPT; do
+		case $OPT in
+			p) dest="$HOME/.dotfiles/private" ;;
+			l) dest="$HOME/.dotfiles/link" ;;
+			h) usage ;;
+			?) usage ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
+
+	lmv "$source" "$dest"
+}
+
+main $*

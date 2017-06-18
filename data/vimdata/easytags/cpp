@@ -1,0 +1,32 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+CLR_BIT	/tmp/ProTest/test.cpp	8;"	d	language:C++	file:
+ecfs_init_req_for_update_write_log	/tmp/snode32/src/osd/osd_op.c	/^ecfs_init_req_for_update_write_log(amp_request_t **req, ecfs_msg_t **msg)$/;"	f	language:C++
+ecfs_osd_close	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_close(amp_request_t *req)$/;"	f	language:C++
+ecfs_osd_degrade_read	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_degrade_read(amp_request_t *req)$/;"	f	language:C++
+ecfs_osd_disk_recovery	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_disk_recovery(amp_request_t *req) {$/;"	f	language:C++
+ecfs_osd_getobj	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_getobj(amp_request_t *oreq) {$/;"	f	language:C++
+ecfs_osd_read	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_read(amp_request_t *req)$/;"	f	language:C++
+ecfs_osd_recobj	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_recobj(amp_request_t *req) {$/;"	f	language:C++
+ecfs_osd_recovery	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_recovery(amp_request_t *req)$/;"	f	language:C++
+ecfs_osd_write	/tmp/snode32/src/osd/osd_op.c	/^ecfs_osd_write(amp_request_t *req)$/;"	f	language:C++
+fail_blks	/tmp/snode32/src/osd/osd_op.c	/^struct fail_blks {$/;"	s	language:C++	file:
+fail_blks	/tmp/snode32/src/osd/osd_op.c	/^} fail_blks;$/;"	v	language:C++	typeref:struct:fail_blks
+flow_buf	/tmp/snode32/src/osd/osd_op.c	/^char flow_buf[FLOW_BLK_SIZE];$/;"	v	language:C++
+get_all_blkid	/tmp/snode32/src/osd/osd_op.c	/^void get_all_blkid() {$/;"	f	language:C++
+GET_BIT	/tmp/ProTest/test.cpp	9;"	d	language:C++	file:
+get_request_log_path	/tmp/snode32/src/osd/osd_op.c	/^void get_request_log_path(char *path, ecfs_msg_t *msg)$/;"	f	language:C++
+get_request_obj_path	/tmp/snode32/src/osd/osd_op.c	/^void get_request_obj_path(char *path, ecfs_msg_t *msg)$/;"	f	language:C++
+get_single_recov_need_objids	/tmp/snode32/src/osd/osd_op.c	/^ecfs_s32_t get_single_recov_need_objids(ecfs_s32_t failed_objid, ecfs_s32_t *recov_objid_table)$/;"	f	language:C++
+hello	/tmp/ProTest/hello.cpp	/^void hello() {$/;"	f	language:C++
+hello	/tmp/ProTest/hello.h	/^void hello();$/;"	p	language:C++
+Hiberabyss	/tmp/ProTest/test.cpp	/^struct Hiberabyss {$/;"	s	language:C++	file:
+main	/tmp/ProTest/test.cpp	/^int main(int argc, char *argv[]) {$/;"	f	language:C++
+MAX_BLK_CNT	/tmp/snode32/src/osd/osd_op.c	32;"	d	language:C++	file:
+push_pool	/tmp/snode32/src/osd/osd_op.c	/^void push_pool(const char str[]) {$/;"	f	language:C++
+run_xor_iov	/tmp/snode32/src/osd/osd_op.c	/^void run_xor_iov(ecfs_s32_t niov, amp_kiov_t *src_iov, amp_kiov_t *dst_iov)$/;"	f	language:C++
+sayWorld	/tmp/ProTest/hello.cpp	/^void sayWorld() {$/;"	f	language:C++
+SET_BIT	/tmp/ProTest/test.cpp	7;"	d	language:C++	file:
+_GNU_SOURCE	/tmp/snode32/src/osd/osd_op.c	1;"	d	language:C++	file:
+__free_degrade_recov_data	/tmp/snode32/src/osd/osd_op.c	/^__free_degrade_recov_data(char ** recov_buf_table, ecfs_s32_t recov_obj_count)$/;"	f	language:C++
+__gather_degrade_recov_data	/tmp/snode32/src/osd/osd_op.c	/^__gather_degrade_recov_data(ecfs_msg_t *msg, char ** recov_buf_table, \\$/;"	f	language:C++
+__send_update_write_log	/tmp/snode32/src/osd/osd_op.c	/^void __send_update_write_log(ecfs_u64_t ino, ecfs_u32_t stripe_id, \\$/;"	f	language:C++

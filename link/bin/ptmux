@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Description: quick start tmux with specific session name
+# Author: hiberabyss
+# Email: liuhb90@gmail.com
+# CreatTime: 2014-04-25 15:19:08 CST
+
+SESSION_NAME=${1:-def}
+NULL="/dev/zero"
+
+TMUX="tmux"
+
+if $TMUX ls &> $NULL; then
+    $TMUX a
+else
+    $TMUX new -s ${SESSION_NAME}
+fi
+

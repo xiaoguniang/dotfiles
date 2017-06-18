@@ -1,0 +1,728 @@
+2015-04-06 12:56:36,977 WARNING module `mutagen` was not found!
+2015-04-06 12:56:37,833 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-04-06 12:56:37,833 WARNING No python3-keybinder module found.
+2015-04-18 18:26:20,217 WARNING module `mutagen` was not found!
+2015-04-18 18:26:21,468 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-04-18 18:26:21,468 WARNING No python3-keybinder module found.
+2015-04-18 18:26:46,028 ERROR Net.get_image: url is invalid, None
+2015-04-18 18:26:46,028 ERROR Net.get_image: url is invalid, None
+2015-04-18 18:26:46,029 ERROR Net.get_image: url is invalid, None
+2015-04-18 18:26:47,636 ERROR Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Widgets.py", line 52, in set_tooltip_with_song_tips
+    results.append(fmt.format(escape(item[1]), escape(item[3])))
+IndexError: list index out of range
+
+2015-04-18 18:26:47,636 ERROR Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Widgets.py", line 52, in set_tooltip_with_song_tips
+    results.append(fmt.format(escape(item[1]), escape(item[3])))
+IndexError: list index out of range
+
+2015-04-18 18:30:33,870 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 117, in urlopen
+    if content and len(content) > 10:
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-04-18 18:30:33,871 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-04-18 18:30:37,295 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 117, in urlopen
+    if content and len(content) > 10:
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-04-18 18:30:37,295 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-04-18 18:30:37,363 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 117, in urlopen
+    if content and len(content) > 10:
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-04-18 18:30:37,364 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-04-18 18:33:51,737 WARNING module `mutagen` was not found!
+2015-04-18 18:33:51,959 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-04-18 18:33:51,959 WARNING No python3-keybinder module found.
+2015-04-18 18:58:58,919 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-04-18 18:58:58,919 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQ9pcRDL6w6WT/C0A3/Phs+8DDMbOfS+5gPKppjvlzT5tBrqt54f8fEeo8DDZXoofM9+VV2x3j7aoLclFwNXDea7Qci+XeVmrs
+2015-04-18 18:58:58,956 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-04-18 18:58:58,956 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQ9pcRDL6w6WT/C0A3/Phs+8DDMbOfS+5gPKppjvlzT5tBrqt54f8fEeo8DDZXoofM9+VV2x3j7aoLclFwNXDea7Qci+XeVmrs
+2015-04-18 18:58:59,003 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-04-18 18:58:59,004 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQ9pcRDL6w6WT/C0A3/Phs+8DDMbOfS+5gPKppjvlzT5tBrqt54f8fEeo8DDZXoofM9+VV2x3j7aoLclFwNXDea7Qci+XeVmrs
+2015-04-18 19:41:25,459 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 502: Bad Gateway
+
+2015-04-18 19:41:25,460 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQ2z4zv+MmDGP/C0A3/Phs+8DDMbOfS+5gPKppjvlzT5tBrqt54f8fEeo8DDZXoofM9+VV2x3j7aoLclFwNXDea7Qci+XeVmrs
+2015-04-18 19:45:11,946 ERROR get_mv_link(): None, timed out
+2015-04-18 20:03:36,788 WARNING Player.on_playbin_error(): (GLib.Error('Your GStreamer installation is missing a plug-in.', 'gst-core-error-quark', 12), 'gsturidecodebin.c(990): no_more_pads_full (): /GstPlayBin:playbin0/GstURIDecodeBin:uridecodebin22:\nno suitable plugins found').
+2015-04-18 20:03:55,141 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 461, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 571, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 499, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-04-18 20:03:55,141 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-04-18 20:04:25,195 ERROR get_mv_link(): None, timed out
+2015-05-06 20:06:01,443 WARNING module `mutagen` was not found!
+2015-05-06 20:06:02,401 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-05-06 20:06:02,402 WARNING No python3-keybinder module found.
+2015-05-06 20:07:33,825 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 20:07:33,826 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-05-06 20:07:33,917 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 20:07:33,917 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-05-06 20:07:33,957 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 20:07:33,957 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-05-06 20:23:51,567 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 20:23:51,568 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/89/70/290060411.jpg
+2015-05-06 20:23:51,758 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 20:23:51,758 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/89/70/290060411.jpg
+2015-05-06 20:23:52,167 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 20:23:52,168 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/89/70/290060411.jpg
+2015-05-06 21:49:40,585 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:49:40,923 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:49:53,811 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:49:53,811 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/53/95/284996700.jpg
+2015-05-06 21:49:55,692 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:49:55,692 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/53/95/284996700.jpg
+2015-05-06 21:49:55,832 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:49:55,833 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/53/95/284996700.jpg
+2015-05-06 21:49:57,682 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:49:57,682 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/7/3/2303219695.jpg
+2015-05-06 21:49:58,888 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:49:59,782 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:49:59,943 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:49:59,944 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:49:59,944 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:50:06,382 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:06,383 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/7/3/2303219695.jpg
+2015-05-06 21:50:12,083 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:12,083 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/7/3/2303219695.jpg
+2015-05-06 21:50:12,473 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:12,474 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/86/11/1572034863.jpg
+2015-05-06 21:50:12,624 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:12,624 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/86/11/1572034863.jpg
+2015-05-06 21:50:12,762 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:12,763 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/86/11/1572034863.jpg
+2015-05-06 21:50:13,844 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:13,844 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/46/71/590717420.jpg
+2015-05-06 21:50:14,102 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:14,103 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/46/71/590717420.jpg
+2015-05-06 21:50:14,272 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-06 21:50:14,272 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/46/71/590717420.jpg
+2015-05-06 21:50:43,489 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:50:43,489 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:56:43,016 ERROR Net.get_image: url is invalid, None
+2015-05-06 21:56:43,017 ERROR Net.get_image: url is invalid, None
+2015-05-08 23:13:41,534 WARNING module `mutagen` was not found!
+2015-05-08 23:13:42,206 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-05-08 23:13:42,206 WARNING No python3-keybinder module found.
+2015-05-08 23:14:53,487 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3.4/urllib/request.py", line 1182, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1088, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1126, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.4/http/client.py", line 1084, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.4/http/client.py", line 922, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.4/http/client.py", line 857, in send
+    self.connect()
+  File "/usr/lib/python3.4/http/client.py", line 834, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.4/socket.py", line 494, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.4/socket.py", line 533, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 463, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.4/urllib/request.py", line 481, in _open
+    '_open', req)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 1210, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.4/urllib/request.py", line 1184, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+
+2015-05-08 23:14:53,488 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-05-08 23:15:49,542 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3.4/urllib/request.py", line 1182, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1088, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1126, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.4/http/client.py", line 1084, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.4/http/client.py", line 922, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.4/http/client.py", line 857, in send
+    self.connect()
+  File "/usr/lib/python3.4/http/client.py", line 834, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.4/socket.py", line 494, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.4/socket.py", line 533, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 463, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.4/urllib/request.py", line 481, in _open
+    '_open', req)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 1210, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.4/urllib/request.py", line 1184, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+
+2015-05-08 23:15:49,543 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-05-08 23:16:45,597 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3.4/urllib/request.py", line 1182, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1088, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1126, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.4/http/client.py", line 1084, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.4/http/client.py", line 922, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.4/http/client.py", line 857, in send
+    self.connect()
+  File "/usr/lib/python3.4/http/client.py", line 834, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.4/socket.py", line 494, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.4/socket.py", line 533, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 463, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.4/urllib/request.py", line 481, in _open
+    '_open', req)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 1210, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.4/urllib/request.py", line 1184, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+
+2015-05-08 23:16:45,597 WARNING Net.urlopen, url: http://mobi.kuwo.cn/mobi.s?f=kuwo&q=VH0YmBjTIqOcgA13rwnO1X7lUHE/58mfHbUI3IEkHufDgtSE0LwjffcBeI2LwQtkxQskru/aVoIUso/mnMHPsU0utlE6RQAvCVXIpBpBZG1E4P9lovYYvxOs8l3FpNHd18NsawlyRySZ3PRcWHjDeL6pWBIIDdvQLrgwKFkBkcv03shhRoJW8G5N1nfqQWjJGD2cNW7nHDlKcjfFHvkS2IxoP/XOo3YeQVhu+04UpFuMsvIfgZLb5RT6LrMEzKeH
+2015-05-11 21:12:08,192 WARNING module `mutagen` was not found!
+2015-05-11 21:12:08,816 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-05-11 21:12:08,816 WARNING No python3-keybinder module found.
+2015-05-11 21:24:53,944 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-11 21:24:54,030 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/35/97/1778281780.jpg
+2015-05-11 21:24:54,303 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-11 21:24:54,304 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/35/97/1778281780.jpg
+2015-05-11 21:24:54,474 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Net.py", line 128, in urlopen
+    req = request.urlopen(url, timeout=TIMEOUT)
+  File "/usr/lib/python3.4/urllib/request.py", line 161, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 469, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.4/urllib/request.py", line 579, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.4/urllib/request.py", line 507, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 441, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 587, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+
+2015-05-11 21:24:54,474 WARNING Net.urlopen, url: http://img1.kuwo.cn/star/starheads120/35/97/1778281780.jpg
+2015-05-15 12:51:16,102 WARNING module `mutagen` was not found!
+2015-05-15 12:51:16,995 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-05-15 12:51:16,995 WARNING No python3-keybinder module found.
+2015-05-17 14:10:36,929 WARNING module `mutagen` was not found!
+2015-05-17 14:10:38,868 WARNING Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/kuwo/Shortcut.py", line 16, in <module>
+    from keybinder.keybinder_gtk import KeybinderGtk
+ImportError: No module named 'keybinder'
+
+2015-05-17 14:10:38,869 WARNING No python3-keybinder module found.

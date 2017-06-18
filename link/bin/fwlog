@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Description: 
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: 2016-03-11 17:59:51 CST
+
+host=${1:-dr01}
+LOG_FILE=$(ssh $host 'ls -t /regression/regression/regression/adserver/debug-ads*.log | head -1')
+echo "scp://$host/$LOG_FILE"

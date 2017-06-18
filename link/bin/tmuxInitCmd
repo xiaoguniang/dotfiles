@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Description: executed when create pane or window in tmux
+# Author: hiberabyss
+# Email: liuhb90@gmail.com
+# CreatTime: 2015-07-28 11:44:56 CST
+
+dads

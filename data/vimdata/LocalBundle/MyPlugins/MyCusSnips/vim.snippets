@@ -1,0 +1,45 @@
+snippet fun "function" b
+function! ${VISUAL}${0}
+endfunction
+endsnippet
+
+snippet plug "add new plugin" b
+Plug '`!v @*`'
+endsnippet
+
+snippet command "vim command" b
+command! -nargs=${1:0} ${2:CommandName} ${3:action <f-args>}
+endsnippet
+
+snippet nmap "nmap" b
+nmap ${1:<buffer>} ${2:<silent>} ${3:keys} ${4:action}
+endsnippet
+
+snippet plugft "Plug for filetype"
+{'for': '${1:filetype}'}
+endsnippet
+
+snippet plugdo "do after installing plugin"
+{'do': '${1:command}'}
+endsnippet
+
+snippet plugon "only load when run specific command"
+{'on': '${1:vim-command}'}
+endsnippet
+
+snippet ctagsopt "ctags options" b
+let g:tags4proj_tagsopt = {
+			\ 'opt': ['${1:-R}'],
+			\ 'inc': ['${2:path}'],
+			\}
+endsnippet
+
+snippet modeline "vim modeline" b
+" `v! echo "vim"`:fdm=marker:
+endsnippet
+
+snippet sect "vim section" b
+" ${1:section name} "{{{
+${VISUAL}$0
+"}}}
+endsnippet

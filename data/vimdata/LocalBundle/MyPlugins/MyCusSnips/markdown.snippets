@@ -1,0 +1,44 @@
+snippet more "Description" b
+<!--more-->
+endsnippet
+
+snippet toc "markdown toc tag" b
+<!-- toc -->
+endsnippet
+
+snippet nolayout "Hexo: no layout page" b
+---
+layout: false
+sitemap: false
+---
+$0
+endsnippet
+
+snippet cleaver "Cleaver head" b
+title: ${1:Basic Example}
+author:
+  name: Hongbo Liu
+  url: https://github.com/hiberabyss
+output: `!v expand('%:t:r') . '.html'`
+controls: true
+theme: ${2:sjaakvandenberg/cleaver-dark}
+
+$0
+endsnippet
+
+snippet csec "cleaver section" b
+--
+
+### ${1:title}
+
+${2:content}
+
+$0
+endsnippet
+
+snippet code "code snip" b
+\`\`\`${1:cpp}
+${2}
+\`\`\`
+${0}
+endsnippet

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+CONFIG_FILE="/etc/apache2/sites-available/000-default.conf"
+DOC_ROOT="DocumentRoot"
+SED_SEP="#"
+
+sudo sed -i "s#${DOC_ROOT}.*#${DOC_ROOT}\ ${PWD}#g" $CONFIG_FILE
+
+sudo service apache2 restart

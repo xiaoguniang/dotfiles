@@ -1,0 +1,28 @@
+#!/usr/bin/python
+
+import sys
+import urllib2
+from bs4 import BeautifulSoup
+
+url_name = "urls"
+
+url = sys.argv[1]
+# url = 'http://v.163.com/special/opencourse/paradigms.html'
+
+page = urllib2.urlopen(url).read()
+soup = BeautifulSoup(page, from_encoding="GB18030")
+# print soup.original_encoding
+
+videoURLs = soup.find('table', attrs={"id":"list2"}).find_all('td', attrs={'class':'u-cdown'})
+videoTitles = soup.find('table', attrs={"id":"list2"}).find_all('td', attrs={'class':'u-ctitle'})
+
+outfile = open(url_name, 'w')
+for i in range(len(videoURLs)):
+    line = videoURLs[i].a['href']
+    line += '\n'
+    outfile.write(line)
+    title = videoTitles[i].a.string
+    options = ' out=%02d'%(i+1) + title.encode('utf-8') + '.' + line.split('.')[-1]
+    outfile.write(options)
+
+outfile.close()

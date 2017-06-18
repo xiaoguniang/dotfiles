@@ -1,0 +1,14 @@
+~/gitlab/rd:
+  201: 201/~/gitlab/rd
+~/gitlab/AdserverRegressionTestTool:
+  d32: root@d32//regression/regression/regression
+  dr01: root@dr01//regression/regression/regression
+~/FreeWheel:
+  32: 32/FreeWheel
+  r01: r01/FreeWheel
+~/.dotfiles:
+  r01: r01/.dotfiles
+  32: 32/.dotfiles
+~:
+  r01: r01/
+  32: 32/

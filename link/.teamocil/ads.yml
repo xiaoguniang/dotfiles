@@ -1,0 +1,11 @@
+name: def
+windows:
+  - name: ads
+    root: ~/FreeWheel/code/trunk/src
+    layout: even-vertical
+    panes:
+        - commands:
+            - tmux resize-pane -t0 -Z
+            - vim
+        - commands:
+            - tmux send-keys -t 1 "dads" Enter "wd src" Enter "clear" Enter

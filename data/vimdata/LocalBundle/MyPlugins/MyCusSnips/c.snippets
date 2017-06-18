@@ -1,0 +1,145 @@
+###########################################################################
+#                            TextMate Snippets                            #
+###########################################################################
+
+global !p
+def sep():
+	if snip.opt('g:cfamily_style_sep') == ' ':
+		snip.rv = " "
+	else:
+		snip.rv += '\n' + snip.mkline('')
+endglobal
+
+snippet mdprint "debug printf"
+#define __DEBUG__  
+#ifdef __DEBUG__  
+#define DPRINTF(format,...) printf("File:"__FILE__", Fun:%s, Line:%d: "format"\n", __func__, __LINE__, ##__VA_ARGS__)  
+#else  
+#define  DPRINTF(format,...)  
+#endif
+endsnippet
+
+snippet dprintf "DPRINT"
+DPRINTF("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet mnass "disable assert"
+#define NDEBUG
+endsnippet
+
+snippet Inc "#include local header (inc)"
+#include "${1:`!p snip.rv = snip.basename + '.h'`}"
+endsnippet
+
+snippet inc "#include <> (Inc)"
+#include <${1:.h}>
+endsnippet
+
+snippet main "main() (main)"
+int main(int argc, char *argv[])`!p sep()`{
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+	return 0;
+}
+endsnippet
+
+snippet for "for loop (for)"
+for (${2:i} = 0; $2 < ${1:count}; ${3:++$2})`!p sep()`{
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+endsnippet
+
+snippet once "Include header once only guard"
+#ifndef ${1:`!p
+if not snip.c:
+	import string
+	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+	snip.rv = ('%s' % name).upper()
+else:
+    snip.rv = snip.c`}
+#define $1
+
+${0}
+
+#endif /* end of include guard: $1 */
+
+endsnippet
+
+snippet if "if .. (if)"
+if (${1:/* condition */})`!p sep()`{
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+endsnippet
+
+snippet printf "printf .. (printf)"
+printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet printff "printf function"
+printf("%s:%d ${1:Error}", __func__, __LINE__);
+endsnippet
+
+snippet st "struct"
+struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`}`!p sep()`{
+	${0:/* data */}
+};
+endsnippet
+
+snippet fun "function" b
+${1:void} ${2:function_name}(${3})`!p sep()`{
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+endsnippet
+
+snippet pefun "print enter function info"
+DPRINTF("Entering %s\n", __func__);
+endsnippet
+
+snippet plfun "print leave function info"
+DPRINTF("Leaving %s\n", __func__);
+endsnippet
+
+snippet mdoff "macro debug off"
+#undef DPRINTF  
+#define  DPRINTF(format,...)  
+endsnippet
+
+snippet /* "for function comment"
+/* 
+ * ${0}
+ */
+endsnippet
+
+############
+#  custom  #
+############
+snippet arrlen "length of array"
+sizeof(${1:array})/sizeof(*$1);
+endsnippet
+
+snippet #min "macro of min" !b
+#define MIN(x, y)    ( (x) < (y) ? (x) : (y) )
+endsnippet
+
+snippet #max "macro of min" !b
+#define MAX(x, y)    ( (x) > (y) ? (x) : (y) )
+endsnippet
+
+snippet hdef "test" !b
+#ifndef	 __`!v toupper(expand("%:t:r"))`_H__
+#define	 __`!v toupper(expand("%:t:r"))`_H__
+${1}
+#endif
+endsnippet
+
+snippet sw "switch" !b
+switch (${VISUAL}${1})`!p sep()`{
+	case ${2:pattern}:
+	default: break;
+}
+endsnippet
+
+snippet todo "TODO" !b
+// TODO(hiberabyss): ${1}
+endsnippet
+
+# vim:ft=snippets:

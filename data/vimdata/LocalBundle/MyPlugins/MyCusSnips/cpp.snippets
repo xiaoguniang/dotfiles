@@ -1,0 +1,259 @@
+extends c
+
+global !p
+def sep():
+	if snip.opt('g:cfamily_style_sep') == ' ':
+		snip.rv = " "
+	else:
+		snip.rv += '\n' + snip.mkline('')
+endglobal
+
+###########################################################################
+#                            TextMate Snippets                            #
+###########################################################################
+snippet bend "$1.begin(), $1.end() (beginend)" i
+${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
+endsnippet
+
+snippet cl "class .. (class)"
+class ${1:`!p snip.rv = snip.basename or "name"`}`!p sep()`{
+public:
+	${1/(\w+).*/$1/} (${2:}) {}
+	~${1/(\w+).*/$1/} () {}
+
+private:
+	${0:/* data */}
+};
+endsnippet
+
+snippet ns "namespace .. (namespace)"
+namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
+{
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}${1/.+/ \/* /m}$1${1/.+/ *\/ /m}
+endsnippet
+
+snippet readfile "read file (readF)"
+std::vector<char> v;
+if (FILE *fp = fopen(${1:"filename"}, "r"))
+{
+	char buf[1024];
+	while(size_t len = fread(buf, 1, sizeof(buf), fp))
+		v.insert(v.end(), buf, buf + len);
+	fclose(fp);
+}
+endsnippet
+
+snippet map "std::map (map)"
+map<${1:key}, ${2:value}> map$0;
+endsnippet
+
+snippet vector "std::vector (v)"
+vector<${1:char}> v_$0;
+endsnippet
+
+snippet forit "for int loop (fori)"
+for (${4:auto} ${2:it} = ${1:container}.begin(); $2 != $1.end(); ${3:++$2}) {
+}
+endsnippet
+
+snippet "for([b-z])=" "begin{} / end{}" br
+for (${3:int} ${4:`!p snip.rv = match.group(1)`} = ${2:0}; $4 <= ${1:count}; ++$4) {
+}
+endsnippet
+
+snippet "forst" "begin{} / end{}" br
+for (size_t ${3:i} = ${2:0}; $3 < ${1:count}; ++$3 ) {
+}
+endsnippet
+
+snippet "for([b-z])" "begin{} / end{}" br
+for (${3:int} ${4:`!p snip.rv = match.group(1)`} = ${2:0}; $4 < ${1:count}; ++$4) {
+}
+endsnippet
+
+snippet "for([a-z])-" "begin{} / end{}" br
+for (${3:int} ${4:`!p snip.rv = match.group(1)`} = ${1:end}; $4 >= ${2:0}; --$4) {
+}
+endsnippet
+
+snippet iterate "iterate"
+vector<${1:char}>::iterate it_$0;
+endsnippet
+
+snippet cpp "cpp header" !b
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+endsnippet
+
+snippet cpptest "cpp header" !b
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+#include <cpp_free_mock.h>
+
+using namespace std;
+using namespace ::testing;
+endsnippet
+
+snippet tp "template <typename ..> (template)"
+template <typename ${1:_InputIter}>
+endsnippet
+
+##############
+#  Ultility  #
+##############
+snippet <<e "cout <<endl;"
+<<endl;
+endsnippet
+
+snippet fora "Description"
+for (auto ${1:i} : ${2:vec}) {
+}
+endsnippet
+
+snippet forap "Description"
+for (auto ${1:i} : ${2:res}) cout << $1 << " ";
+cout <<endl;
+endsnippet
+snippet foraap "Description"
+for (auto ${2:ct} : ${1:res}) {
+	for (auto ${3:i} : $2){
+		cout << $3 << ${4:" "};
+	}
+	cout <<endl;
+}
+endsnippet
+
+snippet leet "LeetCode"
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+
+using namespace std;
+
+${VISUAL}${1:class Solution {
+public:
+	${2:void} ${3:function_name}(${4}) {
+		${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+	}
+};}
+
+int main(int argc, char *argv[]) {
+    Solution sol;
+    return 0;
+}
+
+endsnippet
+
+snippet codejam "Description" b
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+
+using namespace std;
+
+${1:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+
+int main(int argc, char *argv[]) {
+	freopen("`!v expand("%:t:r")`.txt", "r", stdin);
+	int T;
+	cin >> T;
+
+	for ( int t = 1; t <= T; t++ ) {
+		cout << "Case #" << t << ": ";
+	}
+}
+endsnippet
+
+snippet tore "Description" b
+// ToReview
+endsnippet
+
+snippet "(\()?itbe" "begin(item) end(item)" ir
+`!p
+matchChar = match.group(1)
+if matchChar is not None:
+	snip.rv = matchChar
+`${VISUAL}.begin(), ${VISUAL}.end()
+endsnippet
+
+snippet oj "redirect cin" b
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+#include <sstream>
+#include <climits>
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+	freopen("`!v expand("%:t:r")`.in", "r", stdin);
+	// freopen("`!v expand("%:t:r")`.out", "w", stdout);
+	ios::sync_with_stdio(false);
+	${0:/* code */}
+	return 0;
+}
+endsnippet
+
+snippet cout "Description" b
+cout << ${1} << endl;
+endsnippet
+
+snippet scout "Description" b
+std::cout << ${1} << std::endl;
+endsnippet
+
+snippet osit "ostream_iterator<int>" 
+ostream_iterator<${1:int}>(cout, "${2: }");
+endsnippet
+
+snippet inarray "input array as a string" b
+string S;
+while ( getline(cin, S) ) {
+	int num;
+	istringstream iss(S);
+	vector<int> A;
+	while ( iss >> num ) {
+		A.push_back(num);
+	}
+}
+endsnippet
+
+snippet defll "typedef long long" b
+typedef long long ll;
+endsnippet
+
+snippet defvec "typedef vector" b
+typedef vector<${1:int}> vec;
+endsnippet
+
+snippet up "Unique Pointer" i
+std::unique_ptr<${1:`!p
+snip.rv = snip.v.text.strip("*") or "klass"
+`}>
+endsnippet
+
+# vim:ft=snippets:

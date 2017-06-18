@@ -1,0 +1,64 @@
+snippet getopt "Description" b
+local OPT OPTARG OPTIND
+while getopts '$1' OPT; do
+	case $OPT in
+		?) ;;
+	esac
+done
+shift $(($OPTIND - 1))
+endsnippet
+
+snippet msg "Description" b
+msgSuccess()  { echo -e " \033[1;32m✔\033[0m  $@"; }
+msgError()    { echo -e " \033[1;31m✖ $@ \033[0m " >&2; }
+msgHint()     { echo -e " \033[1;32m➜ $@ \033[0m "; }
+endsnippet
+
+snippet todo "Google Style TODO" b
+# TODO(Hongbo): $1
+endsnippet
+
+snippet cdcurrent "cd to the script directory" b
+cd "$(dirname "\$0")"
+endsnippet
+
+snippet usage "shell usage function" b
+usage() {
+cat << EOF
+Usage: $(basename \$0) $1
+EOF
+exit 0
+}
+endsnippet
+
+snippet heredoc "Here Documentation" b
+cat << ${1:EOF}
+${2:documentation here}
+$1
+endsnippet
+
+snippet cdmerr "command error handle" b
+${1:command} || {
+	${2:error handle code}
+}
+endsnippet
+
+snippet main "shell main function" b
+main() {
+}
+
+main $*
+endsnippet
+
+snippet lineit "line iterate" b
+while read l; do
+	${1:echo $l}
+done << EOF
+$(${2:command})
+EOF
+$0
+endsnippet
+
+snippet modeline "vim modeline" b
+# vim:et sw=2 ts=4 fmr={,} fdm=marker:
+endsnippet

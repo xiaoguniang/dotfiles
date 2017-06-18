@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# Description: upgrade packages
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: 2016-04-19 19:27:44 CST
+
+upgradeNeovim() {
+	brew reinstall neovim --HEAD
+	pip2 install --upgrade neovim
+	pip3 install --upgrade neovim
+}
+
+usage() {
+cat << EOF
+Usage: $(basename "$0") neovim|ctags
+EOF
+exit 0
+}
+
+install_tap() {
+	brew tap universal-ctags/universal-ctags
+	brew tap neovim/neovim
+}
+
+upgrade() {
+	case $1 in
+		neovim|nvim ) upgradeNeovim ;;
+		ctags ) brew reinstall --HEAD universal-ctags ;;
+		tmux ) brew reinstall --HEAD tmux ;;
+		i|-i|install ) install_tap ;;
+		* ) usage ;;
+	esac
+}
+
+upgrade $*

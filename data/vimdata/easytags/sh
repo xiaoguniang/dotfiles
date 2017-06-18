@@ -1,0 +1,6 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+get_netid	/home/hbliu/.backup_cus/home/bin/android	/^function get_netid() {$/;"	f	language:Sh
+Usage	/home/hbliu/.backup_cus/home/bin/ezurl-gen	/^Usage() {$/;"	f	language:Sh
+usage	/home/hbliu/.backup_cus/home/bin/html-manual	/^usage() {$/;"	f	language:Sh
+usage	/home/hbliu/.backup_cus/home/bin/mkbackup	/^usage() {$/;"	f	language:Sh
+usage	/tmp/snode32/tools/bin/ecfs-start	/^usage() {$/;"	f	language:Sh

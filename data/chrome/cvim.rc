@@ -1,0 +1,122 @@
+" Hiberabyss's cvim Settings
+
+" Config file settings
+set localconfig
+let homedirectory = '/Users/hbliu'
+let configpath = "~/.dotfiles/data/chrome/cvim.rc"
+
+" Vim editor
+let vimcommand = 'itermvim '
+" let vimcommand = 'vim -f'
+imap <C-o> editWithVim
+
+" set showtabindices
+set noautofocus
+set smoothscroll
+set completeonopen
+" set nosortlinkhints
+let mapleader = ','
+" blacklists prefixed by '@' act as a whitelist
+let blacklists = ["https://mail.google.com/*","*://mail.google.com/*","@https://mail.google.com/mail/*"]
+map gb :buffer<Space>
+map <Leader>l lastUsedTab
+map gc :execute xJ<cr>
+
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+            function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+map ci :call getIP<CR>
+
+searchWith(se) -> {{
+    var query = window.getSelection().toString();
+    RUNTIME('openLink', {
+        tab: {tabbed:true},
+        url: se+encodeURI(query)
+    });
+}}
+
+map <Leader>gh :call searchWith("https://github.com/")<CR>
+
+searchSelected() -> {{
+    var query = window.getSelection().toString();
+    RUNTIME('sendLastSearch', {action: 'updateLastSearch', value: _.lastSearch});
+}}
+
+" Script hints
+echo(link) -> {{
+  alert(link.href);
+}}
+
+set cncpcompletion
+set nomatchfrombegin
+set autohidecursor
+set typelinkhints
+let searchlimit = 40
+let searchengine mdn = "https://developer.mozilla.org/en-US/search?q="
+let searchengine stackoverflow = "http://stackoverflow.com/search?q="
+let searchalias s = "stackoverflow"
+let searchalias g = "google"
+" Open all of these in a tab with `gnb` or open one of these with <N>goa 
+let qmark q = ["http://mail.qq.com/"]
+
+" FreeWheel SearchEngine
+let searchengine stg = "https://mrm.stg.freewheel.tv/new_admin/networks?utf8=%E2%9C%93&network_type=FULL&network_keyword=%s&commit=Search"
+let searchengine stgsu = "https://mrm.stg.freewheel.tv/new_admin/networks/%s/mrm_su_list"
+let searchengine stgnf = "https://mrm.stg.freewheel.tv/new_admin/networks/%s/edit_network_functions"
+let searchengine prd = "https://mrm.freewheel.tv/new_admin/networks?utf8=%E2%9C%93&network_type=FULL&network_keyword=%s&commit=Search"
+let searchengine prdsu = "https://mrm.freewheel.tv/new_admin/networks/%s/mrm_su_list"
+let searchengine prdnf = "https://mrm.freewheel.tv/new_admin/networks/%s/edit_network_functions"
+
+let searchengine muip = "http://screen.fwmrm.net/placement/?plcid=%s"
+let searchengine muia = "http://screen.fwmrm.net/assets/?nwid=&assetid=%s&upstreamid=&assettag="
+let searchengine muiaa = "http://screen.fwmrm.net/assetgroups/?nwid=&agid=%s&agname=&atype=&status=&uagid=&tuagid="
+let qmark m = ["https://mrm.stg.freewheel.tv/new_admin/sessions/new", "https://mrm.freewheel.tv/new_admin/sessions/new"]
+
+" May overflow for some string
+let previousmatchpattern = "((?!last|最后一页|尾页)(prev(ious)?|上一页|上一题|前一页|back|后退|less|更少|«|《|<|‹|<上一页| )+)"
+let nextmatchpattern = "((?!first|第一页|首页)(next|下一页|下一题|后一页|forward|前进|>|›|»|》|下一页>| )+)"
+
+" Mappings
+unmap a
+map <C-s> openLastHint
+map <C-u> rootFrame
+map af F
+
+" tab manipulate
+unmap R
+map R reloadAllTabs
+unmap D
+map D :tabdetach<CR>
+map A :tabattach<Space>
+
+map I :history!<Space> 
+
+imap <C-w> deleteWord
+iunmap <C-k>
+imap <C-k> deleteToEnd
+imap <A-d> deleteForwardWord
+
+" settings for specific site
+site '*://*.inoreader.com/*' {
+   unmap n
+   unmap p
+   unmap j
+   unmap k
+   unmap o
+   set numerichints
+}
+
+site '*://*github.com/*' {
+  unmap ?
+}
+
+
+site '*://*wiki.dev.fwmrm.net/*' {
+  unmap ?
+  unmap [[
+  unmap [
+  unmap e
+}
+
+" vim:ft=vim:cms=\"%s

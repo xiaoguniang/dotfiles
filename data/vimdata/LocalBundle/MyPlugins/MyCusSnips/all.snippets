@@ -1,0 +1,163 @@
+# This file contains snippets that are always defined. I personally
+# have snippets for signatures and often needed texts
+
+priority -10
+
+##############
+# NICE BOXES #
+##############
+global !p
+import string, vim
+
+""" Maps a filetype to comment format used for boxes.
+Automatically filled during usage"""
+_commentDict = { }
+
+def _parse_comments(s):
+    """ Parses vim's comments option to extract comment format """
+    i = iter(s.split(","))
+
+    rv = []
+    try:
+        while True:
+            # get the flags and text of a comment part
+            flags,text = i.next().split(':', 1)
+
+            if len(flags) == 0:
+                if len(text) == 1:
+                    rv.append((text,text,text, ""))
+            # parse 3-part comment, but ignore those with O flag
+            elif flags[0] == 's' and 'O' not in flags:
+                ctriple = []
+                indent = ""
+
+                if flags[-1] in string.digits:
+                    indent = " " * int(flags[-1])
+                ctriple.append(text)
+
+                flags,text = i.next().split(':', 1)
+                assert(flags[0] == 'm')
+                ctriple.append(text)
+
+                flags,text = i.next().split(':', 1)
+                assert(flags[0] == 'e')
+                ctriple.append(text)
+                ctriple.append(indent)
+
+                rv.append(ctriple)
+
+            elif flags[0] == 'b':
+                if len(text) == 1:
+                    rv.insert(0, (text,text,text, ""))
+
+    except StopIteration:
+       return rv
+
+def _get_comment_format():
+    """ Returns a 4-element tuple representing the comment format for
+    the current file. """
+
+    ft = vim.eval("&filetype")
+    # check if the comment dict has the format for the current file
+    if _commentDict.has_key(ft):
+        return _commentDict[ft]
+
+    # otherwise parse vim's comments and add it for later use
+    commentformat = _parse_comments(vim.eval("&comments"))[0]
+    _commentDict[ft] = commentformat
+
+    return commentformat
+
+
+def make_box(twidth, bwidth=None):
+    b, m, e, i = _get_comment_format()
+    bwidth_inner = bwidth - 3 - max(len(b), len(i + e)) if bwidth else twidth + 2
+    sline = b + m + bwidth_inner * m + 2 * m
+    nspaces = (bwidth_inner - twidth) // 2
+    mlines = i + m + " " + " " * nspaces
+    mlinee = " " + " "*(bwidth_inner - twidth - nspaces) + m
+    eline = i + 2 * m + bwidth_inner * m + m + e
+    return sline, mlines, mlinee, eline
+
+def foldmarker():
+    "Return a tuple of (open fold marker, close fold marker)"
+    return vim.eval("&foldmarker").split(",")
+
+def cus_make_box(twidth, bwidth=None):
+    b, m, e, i = _get_comment_format()
+    bwidth_inner = bwidth - 3 - max(len(b), len(i + e)) if bwidth else twidth + 2
+    m = '='
+    sline = b + m + bwidth_inner * m + 2 * m
+    nspaces = (bwidth_inner - twidth) // 2
+    mlines = b + " " + " " * nspaces
+    eline = b + m + bwidth_inner * m + 2 * m
+    #eline = i + 2 * m + bwidth_inner * m + m + e
+    return sline, mlines, eline
+
+def get_max_linelen(lines):
+    lst_line = lines.split('\n')
+    length = 0
+    for item in lst_line:
+        length = max(length, len(item))
+    return length
+
+#def get_todo():
+	#ft = vim.eval("&filetype")
+	#b, m , e, i = _get_comment_format()
+	#return b
+
+endglobal
+
+snippet cbox "A nice box with the current comment symbol" b
+`!p
+box = cus_make_box(get_max_linelen(t[1]))
+snip.rv = box[0] + '\n' + box[1]
+`${1:content}`!p
+box = cus_make_box(get_max_linelen(t[1]))
+snip.rv = '\n' + box[2]`
+$0
+endsnippet
+
+##############################
+#  header for shell scripts  #
+##############################
+snippet shell "shell header" !b
+#!/bin/bash
+#
+# Description: ${1}
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: `!v strftime("%F %T %Z")`
+${0}
+endsnippet
+
+snippet \date "insert date" !b
+`!v strftime("%F %T %Z")`
+endsnippet
+
+snippet tagi "Make a new tag item" b
+${1:Name}	${2:$HOME}/${3:filename}	${4:/vim ex command}
+endsnippet
+
+# Chinese-English punctuation convert
+snippet × "Convert to *" i
+*
+endsnippet
+
+snippet ￥ "Convert to $" i
+$
+endsnippet
+
+snippet 、 "Convert to \" i
+\
+endsnippet
+
+snippet ， "Convert to ," i
+,
+endsnippet
+
+snippet modeline "vim modeline" b
+`!v echo "vim"`:${1:ft=vim}:
+endsnippet
+
+# vim:ft=snippets:

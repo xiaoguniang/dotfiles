@@ -1,0 +1,4 @@
+#! /bin/sh
+sudo mount -tntfs /dev/sda1 /media/win_c
+sudo mount -tntfs /dev/sda5 /media/win_d
+sudo mount -tntfs /dev/sda6 /media/win_e

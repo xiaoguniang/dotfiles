@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# Description: rebase last commits
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: 2017-02-08 13:25:51 EST
+
+username="`git config user.name`"
+
+firstOtherCommitIdx() {
+	idx=0
+	for (( i = 0; i < 100; i++ )); do
+		current_user="$(git log --format="%an" -n 1 --skip $i)"
+		if [[ $current_user != $username ]]; then
+			idx=$i
+			break
+		fi
+	done
+	echo $idx
+}
+
+function main() {
+	local idx="$(firstOtherCommitIdx)"
+	if [[ $idx == 0 ]]; then
+		echo "There is no commit for user: $username"
+		exit 0
+	fi
+	local other_commit="$(git log --format="%H" -n 1 --skip $idx)"
+	git rebase -i $other_commit
+}
+
+main

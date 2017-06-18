@@ -1,0 +1,28 @@
+#!/bin/bash
+
+OCTOPRESS_DIR="~/octopress/"
+cd ~/octopress/
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+while (( $# > 0 )); do
+    token="$1"
+    shift
+    case "$token" in
+	new_post)
+	    echo "$*"
+	    rake new_post["$*"]
+	    exit 0
+	    ;;
+	lgdeploy)
+	    rake lgdeploy
+	    ;;
+	gen_deploy)
+	    rake gen_deploy
+	    ;;
+	preview)
+	    rake preview
+	    ;;
+    esac
+done

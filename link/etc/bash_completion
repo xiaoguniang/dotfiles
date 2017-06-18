@@ -1,0 +1,30 @@
+# bash completion file, loaded by .bashrc
+
+_ppa_lists(){
+    local cur
+	_init_completion || return
+
+    COMPREPLY=( $( find /etc/apt/sources.list.d/ -name "*$cur*.list" \
+-exec basename {} \; 2> /dev/null ) )
+    return 0
+} &&
+complete -F _ppa_lists update-repo
+
+_octopress_completion() {
+  local cur  
+  COMPREPLY=()  
+  cur=${COMP_WORDS[COMP_CWORD]}  
+  COMPREPLY=($( compgen -W 'new_post gen_deploy lgdeploy preview' -- $cur ))  
+
+  return 0  
+}
+complete -F _octopress_completion octo-rake
+
+_showhtml_manual_completion() {
+    local cur
+    _init_completion || return
+    COMPREPLY=( $( find /usr/share/doc -maxdepth 1 -type d -name "$cur*" -exec basename '{}' \; 2> /dev/null ) )
+
+    return 0
+} &&
+complete -F _showhtml_manual_completion html-manual

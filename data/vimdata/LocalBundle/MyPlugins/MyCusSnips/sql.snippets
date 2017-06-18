@@ -1,0 +1,35 @@
+snippet fwtransaction "freewheel transaction" b
+select transaction_id, server_id, request_event_date
+from transaction
+where request_event_date >= timestamp '${1:2017-04-07} 00:00:00'
+and request_event_date <= timestamp '$1 23:59:59'
+order by request_event_date
+limit ${2:100}
+endsnippet
+
+snippet order "order by item" b
+order by ${1:item} desc
+endsnippet
+
+snippet fwdc "freewheel datacenter" b
+substr(server_id, 1, 1)
+endsnippet
+
+snippet timegroup "group by time: hour minute second"
+date_trunc('${1:hour}', request_event_date)
+endsnippet
+
+snippet fwjoin "logquery left join" b
+left join d_${1:ad_tree_node} ad on ${2:condition}
+endsnippet
+
+snippet fwrule "mrm rule fron network to reseller" b
+select a.`id`, p.`id`, a.`network_id`, r.`reseller_network_id`, a.`volume_control_guarantee`
+from `mrm_access_rule` a, `mrm_rule_application` p, `mrm_rule_application_resellers` r
+where a.`id` = p.`mrm_rule_id`
+and p.`id` = r.`mrm_rule_application_id`
+and p.`status` = "ACTIVE" and a.`status` = "ACTIVE"
+and a.`network_id` = ${1:from_network}
+and r.`reseller_network_id` = ${2:reseller};
+endsnippet
+

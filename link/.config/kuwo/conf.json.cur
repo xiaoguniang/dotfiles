@@ -1,0 +1,43 @@
+{
+  "lrc-img-back-color": "rgba(0, 0, 0, 1)", 
+  "default-shortcut": {
+    "Play": "XF86AudioPlay", 
+    "VolumeDown": "<Ctrl><Shift>Down", 
+    "Previous": "XF86AudioPrev", 
+    "Next": "XF86AudioNext", 
+    "VolumeUp": "<Ctrl><Shift>Up", 
+    "Pause": "XF86AudioPause", 
+    "Stop": "XF86AudioStop", 
+    "Mute": "XF86AudioMute", 
+    "Launch": "XF86AudioMedia"
+  }, 
+  "lrc-highlighted-text-color": "rgba(52, 101, 164, 0.999)", 
+  "use-mkv": false, 
+  "use-ape": false, 
+  "lrc-highlighted-text-size": 26, 
+  "lrc-word-back-color": "rgba(237, 221, 221, 0.28)", 
+  "window-size": [
+    1535, 
+    876
+  ], 
+  "use-notify": false, 
+  "mv-dir": "/home/hbliu/.cache/kuwo/mv", 
+  "lrc-back-color": "rgba(237, 221, 221, 0.28)", 
+  "lrc-text-color": "rgba(46, 52, 54, 0.999)", 
+  "shortcut-mode": 1, 
+  "use-status-icon": true, 
+  "lrc-text-size": 22, 
+  "song-dir": "/home/hbliu/.cache/kuwo/song", 
+  "volume": 0.5430375530039964, 
+  "custom-shortcut": {
+    "Play": "<Ctrl><Shift>Down", 
+    "VolumeDown": "<Ctrl><Shift>D", 
+    "Previous": "<Ctrl><Shift>Left", 
+    "Next": "<Ctrl><Shift>Right", 
+    "VolumeUp": "<Ctrl><Shift>U", 
+    "Pause": "<Ctrl><Shift>Down", 
+    "Stop": "<Ctrl><Shift>Up", 
+    "Mute": "<Ctrl><Shift>M", 
+    "Launch": "<Ctrl><Shift>L"
+  }
+}

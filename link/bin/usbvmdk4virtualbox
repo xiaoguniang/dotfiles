@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#Create raw vmdk for physical disk to be used in virtualbox.
+#To boot from usb disk.
+
+# Shouldn't umount the disk, then there will 
+# be an eroor like:
+# VBoxManage: error: Cannot open the raw disk '/dev/sdb': VERR_MEDIA_NOT_PRESENT
+
+if [[ $# < 2  ]]; then
+    echo "Usage: usbvmdk4virtualbox /dev/sd? filename"
+    return
+fi
+
+sudo VBoxManage internalcommands createrawvmdk -rawdisk $1 -filename $2
+

@@ -1,0 +1,21 @@
+snippet go "Description" b
+package main
+
+endsnippet
+
+snippet defer "defer function" b
+defer func() {
+	$0
+}()
+endsnippet
+
+snippet test "Description" b
+import "testing"
+import "github.com/stretchr/testify/assert"
+endsnippet
+
+snippet tfun "Description" b
+func Test${1:name}(t *testing.T) {
+	${2:body}
+}
+endsnippet

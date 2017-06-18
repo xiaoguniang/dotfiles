@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author: Hongbo Liu <hbliu@freewheel.tv>
+# Date: 2017-05-09
+# Last Modified: 2017-05-09
+
+CLI_DIR="$HOME/opt/atlassian-cli-6.1.0"
+FW_JIRA_URL="http://jira.freewheel.tv"
+
+KEYCHAIN_LABEL="FW_LDAP"
+USERNAME=$(whoami)
+PASSWORD=$(security find-generic-password -wl $KEYCHAIN_LABEL)
+
+java -jar $CLI_DIR/lib/jira-cli-6.1.0.jar --server $FW_JIRA_URL --user $USERNAME --password $PASSWORD "$@"

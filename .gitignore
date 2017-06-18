@@ -1,0 +1,11 @@
+copy
+backups
+caches
+/private
+*.swp
+.DS_Store
+*.un\~
+.easytags
+*.swn
+*.swo
+.ropeproject

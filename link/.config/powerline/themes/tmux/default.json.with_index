@@ -1,0 +1,34 @@
+{
+	"segments": {
+		"right": [
+			{
+				"function": "powerline.segments.common.vcs.branch",
+				"args": {
+					"ignore_statuses": ["U"],
+					"status_colors": true
+				}
+			},
+			{
+				"function": "powerline.segments.tmux.pane_numbers"
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"name": "time",
+				"args": {
+					"format": "%H:%M",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"args": {
+					"format": "%m-%d",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.net.hostname"
+			}
+		]
+	}
+}

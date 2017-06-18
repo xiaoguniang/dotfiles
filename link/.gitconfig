@@ -1,0 +1,35 @@
+[user]
+	email = hbliu@freewheel.tv
+	name = Hongbo Liu
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[core]
+	excludesfile = /Users/hbliu/.gitignore_global
+[merge]
+	tool = vimdiff
+[alias]
+	st = status
+	af = archive-file
+	br = !git-br
+	hist = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	mt = mergetool
+	conflict = !git --no-pager diff --name-only --diff-filter=U
+[merge "ours"]
+	driver = true
+[log]
+	date = local
+[github]
+	user = hiberabyss
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

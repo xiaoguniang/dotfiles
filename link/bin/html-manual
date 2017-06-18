@@ -1,0 +1,23 @@
+#!/bin/sh
+
+DOC_PATH="/usr/share/doc"
+
+usage() {
+    echo "Usage: html-manual item"
+}
+
+if [[ $# != 1 ]]; then
+    usage
+    exit
+fi
+
+ROOT_PATH="${DOC_PATH}/$1/html"
+
+if [[ -d $ROOT_PATH ]]; then
+    cd ${ROOT_PATH}
+    setroot4apache
+    xdg-open "http://localhost"
+else
+    echo "html manual not exists!"
+fi
+

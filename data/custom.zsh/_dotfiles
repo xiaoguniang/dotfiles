@@ -1,0 +1,7 @@
+#compdef dotfiles
+
+_arguments "1: :(push)"
+_arguments "1: :(install)"
+_arguments "1: :(sync)"
+_arguments "1: :(status)" "2: :->host"
+_arguments "1: :(git)" "2: :(status)"

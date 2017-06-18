@@ -1,0 +1,31 @@
+snippet des "Create New describe" b
+describe("${1:TestSuiteName}", function(){
+	${VISUAL}$0
+});
+endsnippet
+
+snippet it "What's the action" b
+it("${1:what}", function(){
+	${VISUAL}$0
+});
+endsnippet
+
+snippet bet "toBeTruthy" w
+toBeTruthy
+endsnippet
+
+snippet bef "toBeFalsy" w
+toBeFalsy
+endsnippet
+
+snippet before "beforeEach" b
+beforeEach(function() {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet after "afterEach" b
+afterEach(function() {
+	${VISUAL}$0
+});
+endsnippet

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<root>
+  <appdef>
+    <appname>PREVIEW</appname>
+    <equal>com.apple.Preview</equal>
+  </appdef>
+
+  <item>
+    <name>Vi Navigation in Preview</name>
+    <identifier>private.preview.vinav</identifier>
+    <only>PREVIEW</only>
+    <uielementrole_not>AXTextField, AXTextArea</uielementrole_not>
+    <modifier_only>
+        ModifierFlag::NONE,
+        ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+        ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+    </modifier_only>
+    <appendix>Navigate using the HJKL keys</appendix>
+    <autogen>__KeyToKey__ KeyCode::J, KeyCode::CURSOR_DOWN</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, KeyCode::CURSOR_UP</autogen>
+    <autogen>__KeyToKey__ KeyCode::H, KeyCode::CURSOR_LEFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, KeyCode::CURSOR_RIGHT</autogen>
+    <autogen>__KeyToKey__ KeyCode::U, KeyCode::CURSOR_UP, VK_SHIFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, KeyCode::CURSOR_DOWN, VK_SHIFT</autogen>
+  </item>
+
+  <item>
+    <name>Vi Zoom in Preview</name>
+    <identifier>private.preview.vizoom</identifier>
+    <only>PREVIEW</only>
+    <uielementrole_not>AXTextField, AXTextArea</uielementrole_not>
+    <modifier_only>
+        ModifierFlag::NONE,
+        ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+        ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+    </modifier_only>
+    <appendix>Zoom using E/R: out/in</appendix>
+    <appendix>Zoom to fit: F</appendix>
+    <appendix>Zoom to 100%: D</appendix>
+    <autogen>__KeyToKey__ KeyCode::F, KeyCode::KEYPAD_9, VK_COMMAND</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, KeyCode::KEYPAD_0, VK_COMMAND</autogen>
+    <autogen>__KeyToKey__ KeyCode::R, KeyCode::KEYPAD_PLUS, VK_COMMAND</autogen>
+    <autogen>__KeyToKey__ KeyCode::E, KeyCode::KEYPAD_MINUS, VK_COMMAND</autogen>
+  </item>
+
+  <appdef>
+    <appname>REEDER</appname>
+    <equal>com.reederapp.rkit2.mac</equal>
+  </appdef>
+
+  <item>
+    <name>Vi Navigation in Reeder</name>
+    <identifier>private.reeder.vinav</identifier>
+    <only>REEDER</only>
+    <uielementrole_not>AXTextField, AXTextArea</uielementrole_not>
+    <modifier_only>
+        ModifierFlag::NONE,
+        ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+        ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+    </modifier_only>
+    <appendix>Navigate using the HJKL keys</appendix>
+    <autogen>__KeyToKey__ KeyCode::J, KeyCode::CURSOR_DOWN</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, KeyCode::CURSOR_UP</autogen>
+    <autogen>__KeyToKey__ KeyCode::H, KeyCode::CURSOR_LEFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, KeyCode::CURSOR_RIGHT</autogen>
+    <autogen>__KeyToKey__ KeyCode::U, KeyCode::CURSOR_UP, VK_OPTION</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, KeyCode::CURSOR_DOWN, VK_OPTION</autogen>
+  </item>
+
+  <appdef>
+    <appname>Dash</appname>
+    <equal>com.kapeli.dashdoc</equal>
+  </appdef>
+
+  <item>
+    <name>Vi Navigation in Dash</name>
+    <identifier>private.dash.vinav</identifier>
+    <only>Dash</only>
+    <uielementrole_not>AXTextField, AXTextArea</uielementrole_not>
+    <modifier_only>
+        ModifierFlag::NONE,
+        ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+        ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+    </modifier_only>
+    <appendix>Navigate using the HJKL keys</appendix>
+    <autogen>__KeyToKey__ KeyCode::J, KeyCode::CURSOR_DOWN</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, KeyCode::CURSOR_UP</autogen>
+    <autogen>__KeyToKey__ KeyCode::H, KeyCode::CURSOR_LEFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, KeyCode::CURSOR_RIGHT</autogen>
+	<autogen>__KeyToKey__ KeyCode::U, KeyCode::CURSOR_UP, ModifierFlag::FN</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, KeyCode::CURSOR_DOWN, ModifierFlag::FN</autogen>
+  </item>
+
+</root>

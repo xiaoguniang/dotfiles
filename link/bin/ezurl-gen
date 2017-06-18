@@ -1,0 +1,31 @@
+#!/bin/sh
+
+START_DAY="${1:-2014-01-01}"
+END_DAY="${2:-`date +%F`}"
+SHOW_FORMAT="+%m%d"
+URL_FILE="urls"
+YEAR=$(date +%Y)
+URL_BASE="http://mod.cri.cn/eng/ez/morning/${YEAR}/ezm"
+FILE_EXT=".mp3"
+FULL_URL=
+
+Usage() {
+    echo $0 [start_day] [end_day]
+    echo Exp: 2014-01-01
+}
+
+case $1 in
+    -h ) 
+        Usage
+        exit
+        ;;
+esac
+
+THIS_DAY=$START_DAY
+echo -n > ${URL_FILE}
+until [[ "$THIS_DAY" > "$END_DAY" ]]; do
+  FULL_URL=$URL_BASE"`date -d "$THIS_DAY" +%y%m%d`"${FILE_EXT}
+  echo $FULL_URL >> $URL_FILE
+  THIS_DAY=`date -d "$THIS_DAY 1 days" "+%F"`
+done
+

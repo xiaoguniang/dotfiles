@@ -1,0 +1,57 @@
+"file:///home/hbliu/.dotfiles/data/chrome/vromerc
+" add custom quick marks
+set qm_ce=chrome://extensions
+set qm_ca=chrome://apps/
+set qm_cp=chrome://plugins/
+set qm_cw=https://chrome.google.com/webstore
+set qm_pp=http://www.ppurl.com/
+set qm_12=https://kyfw.12306.cn/otn/leftTicket/init
+set qm_bm=http://map.baidu.com/
+set qm_bp=http://pan.baidu.com
+set qm_qm=https://mail.qq.com
+set qm_wx=https://wx.qq.com/
+set qm_xm=http://www.xiami.com/play
+" For shopping
+set qm_jd=http://www.jd.com/
+set qm_tb=http://www.taobao.com/
+set qm_id=http://id.qq.com/
+set qm_gm=https://www.gmail.com
+
+" Define search engines. the value should be valid json looks like below.
+" Please remember the first searchengine is the default one. in the below one, it is google
+set searchengines={"google":"http://www.google.com/search?q={{keyword}}", "yahoo":"http://search.yahoo.com/search?p={{keyword}}","wikipedia":"http://en.wikipedia.org/wiki/{{keyword}}","answers":"http://www.answers.com/main/ntquery?s={{keyword}}","yubnub":"http://yubnub.org/parser/parse?command={{keyword}}"}
+
+" You could also add some new searchengines without overwrite build in.
+set searchengines+={"baidu":"http://www.baidu.com/s?wd={{keyword}}"}
+
+" Change default search engine, default is google.
+set defaultsearch=wikipedia
+
+" Moving
+map j 10j
+map k 10k
+map u <C-u>
+map d <C-d>
+
+" Tabmap
+map K gt
+map J gT
+map x dc
+
+map , gn
+
+map gs <C-6>
+map <Space> go
+unmap <C-j>
+unmap <C-f>
+
+set disable_autofocus
+set showstatus=0
+
+" Change enable vrome keybinding, default is <C-Esc>
+set enable_vrome_key=<C-z>
+
+set nextpattern+=^NextPage|››|下一页|下一节|next$
+set previouspattern+=^PrevPage|‹‹|上一页|上一节|pre|prev$
+
+" vim:ft=vim

@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# Description: jenkins cli tool
+# Author: Hongbo Liu
+# Email: hbliu@freewheel.com
+# CreatTime: 2017-03-10 17:43:58 CST
+
+export JENKINS_URL="http://localhost:8080"
+CLI_FILE="jenkins-cli.jar"
+JOBS_DIR="/Users/hbliu/gitlab/CICD/salt/jenkins_home/jobs"
+
+cd "$(dirname "$0")"
+
+if [[ ! -f jenkins-cli.jar ]]; then
+    wget "$JENKINS_URL/jnlpJars/jenkins-cli.jar"
+fi
+
+open_job_build() {
+    local job_name="$1"
+    local url="$JENKINS_URL/blue/organizations/jenkins/$job_name/detail/$job_name"
+
+    local build_id=$(cat "$JOBS_DIR/$job_name/nextBuildNumber")
+    let build_id=build_id-1
+
+    shift 1
+    local OPT OPTARG OPTIND
+    while getopts 'rln:' OPT; do
+        case $OPT in
+            n) build_id=$OPTARG ;;
+            r)
+                main build $job_name
+                let build_id=build_id+1
+                ;;
+            ?) ;;
+        esac
+    done
+    shift $(($OPTIND - 1))
+
+    open "$url/$build_id"
+}
+
+main() {
+    if [[ "$1" == "open" ]]; then
+        shift 1
+        open_job_build $*
+    else
+        java -jar $CLI_FILE $*
+    fi
+}
+
+main $*
+
