@@ -32,7 +32,7 @@ function! CompileCCpp(gdb_flag, msg) "{{{
 
 	if a:gdb_flag == 0
 		let &makeprg = b:makeprg['gdb']
-	elseif a:gdb_flag == 1
+	elseif a:gdb_flag == 2
 		let &makeprg = b:makeprg['gtest']
 	else
 		let &makeprg = b:makeprg[&filetype]

@@ -6,6 +6,7 @@ elseif has('lua')
 endif
 Plug 'https://github.com/Shougo/neoinclude.vim'
 Plug 'https://github.com/wellle/tmux-complete.vim'
+Plug 'https://github.com/zchee/deoplete-jedi'
 
 " Neocomplete "{{{
 " let g:neocomplete_fnpath = './include,./fig,./figure'

@@ -320,7 +320,7 @@ bindkey "^Xy" _copy-to-clipboard
 # export CPLUS_INCLUDE_PATH=~/.local/include:$CPLUS_INCLUDE_PATH
 # # }}}
 
-# Gmock# {{{
+# Gmock # {{{
 if [[ -z "$SSH_CLIENT" ]] && [[ ! "$CPATH" =~ "$HOME/github/CppFreeMock" ]]; then
 	export CPATH=$CPATH:$HOME/github/CppFreeMock
 fi

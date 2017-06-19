@@ -1,5 +1,5 @@
 " Python "{{{
-Plug 'https://github.com/davidhalter/jedi-vim', {'for': ['py', 'python']}
+" Plug 'https://github.com/davidhalter/jedi-vim', {'for': ['py', 'python']}
 Plug 'https://github.com/klen/python-mode.git', {'for': ['py', 'python']}
 
 " pythonmode "{{{
