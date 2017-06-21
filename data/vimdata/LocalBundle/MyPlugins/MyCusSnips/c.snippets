@@ -142,4 +142,10 @@ snippet todo "TODO" !b
 // TODO(hiberabyss): ${1}
 endsnippet
 
+snippet test "Gtest test function" b
+TEST(${1:testname}, ${2:subname}) {
+	$0
+}
+endsnippet
+
 # vim:ft=snippets:

@@ -11,6 +11,11 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/jsfaint/gen_tags.vim'
 
+
+" ale "{{{
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"}}}
+
 " Plug 'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py --clang-completer --system-libclang --gocode-completer'}
 
 " YouCompleteMe "{{{
