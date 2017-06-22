@@ -15,7 +15,7 @@
 
 --langmap=c++:+.inl.cpp.h
 --fields=+iakSm
---extra=+q
+--extras=+q
 --c++-kinds=+LpmnsNd
 
 --python-kinds=-i

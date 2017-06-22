@@ -272,7 +272,6 @@ alias adsdb='mysql -uads -pads -h'
 # alias mysql='mysql --defaults-group-suffix='
 alias ycmconf='~/.dotfiles/data/MyVimData/bundle/YCM-Generator/config_gen.py'
 alias smux='teamocil 2>/dev/zero'
-alias vmtimesync='boot2docker ssh "date; sudo ntpd -q -p 0.uk.pool.ntp.org; date"'
 alias lcd='cd $(ls -t | head -1)'
 
 alias -s pptx="xdg-open &> /dev/zero"
@@ -386,6 +385,10 @@ secureSource "$GITHUB_DIR/tmuxinator/completion/tmuxinator.zsh"
 # compdef __tmux-sessions ptmux
 # }}}
 
+rsceen() {
+	ssh "$@" -t 'screen -rd hbliu'
+}
+
 alias clip="nc localhost 8377"
 
 copypath() {
@@ -489,6 +492,8 @@ compctl -M 'm:{a-zA-Z}={A-Za-z}' -g "$VIMWIKI_DIR/*(:t:r)" vwiki
 # }}}
 
 # Docker # {{{
+COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
+
 # export DOCKER_TLS_VERIFY="1"
 # export DOCKER_HOST="tcp://192.168.99.100:2376"
 # export DOCKER_CERT_PATH="/Users/hbliu/.docker/machine/machines/default"
