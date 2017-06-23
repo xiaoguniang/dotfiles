@@ -157,7 +157,13 @@ snippet ， "Convert to ," i
 endsnippet
 
 snippet modeline "vim modeline" b
-`!v echo "vim"`:${1:ft=vim}:
+`!v "vim"`:${1:ft=vim}:
+endsnippet
+
+snippet sect "vim section" b
+# ${1:section name} #{{{
+${VISUAL}$0
+# }}}
 endsnippet
 
 # vim:ft=snippets:
