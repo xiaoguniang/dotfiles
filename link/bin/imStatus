@@ -6,7 +6,8 @@
 # CreatTime: 2015-09-16 20:02:56 CST
 
 DEFAULT="com.apple.keylayout.US"
-IM_BIN="reattach-to-user-namespace im-select"
+# IM_BIN="reattach-to-user-namespace im-select"
+IM_BIN="im-select"
 if [[ $($IM_BIN) != $DEFAULT ]]; then
 	echo "中"
 fi
