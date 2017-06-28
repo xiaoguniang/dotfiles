@@ -2,6 +2,7 @@ Plug 'https://github.com/arecarn/vim-selection' " Required by crunch
 Plug 'https://github.com/arecarn/vim-crunch'
 " Plug 'https://github.com/sk1418/HowMuch'
 
+" Plug 'https://github.com/christoomey/vim-run-interactive'
 Plug 'https://github.com/vim-scripts/a.vim.git'
 Plug 'https://github.com/DataWraith/auto_mkdir'
 Plug 'https://github.com/tpope/vim-unimpaired.git'

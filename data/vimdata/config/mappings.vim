@@ -173,9 +173,13 @@ function! CloseTab(cmdFlg)
 endfunction
 
 " Switch to last-active tab
-let g:Lasttab = 1
-nmap <silent> ,gl :exe "tabn " . g:Lasttab<cr>
-autocmd! TabLeave * let g:Lasttab = tabpagenr()
+if !exists('g:Lasttab')
+	let g:Lasttab = 1
+	let g:Lasttab_backup = 1
+endif
+autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
+autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+nmap <silent> <A-`> :exe "tabn " . g:Lasttab<cr>
 
 nmap <Space>gc :call CloseTab('')<cr>
 nmap <Space>gC :call CloseTab('!')<cr>
