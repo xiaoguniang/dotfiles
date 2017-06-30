@@ -37,6 +37,7 @@ open_client_ui() {
 }
 
 connect() {
+	# sudo /opt/cisco/anyconnect/bin/vpnagentd
 	kill_anyconnect_ui
 
 $VPN_BIN -s << EOF
