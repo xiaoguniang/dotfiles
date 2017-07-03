@@ -19,6 +19,10 @@ Plug 'https://github.com/dohsimpson/vim-macroeditor'
 Plug 'https://github.com/dahu/VimLocalMacros'
 "}}}
 
+" vim header "{{{
+let g:header_auto_add_header = 0
+"}}}
+
 " CommaDown "{{{
 " command! -range CommaDown call CommaDown()<cr>
 "}}}

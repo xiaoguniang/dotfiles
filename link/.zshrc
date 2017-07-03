@@ -140,6 +140,12 @@ secureAddPath "$HOME/Library/ActivePerl-5.22/bin"
 # Project Management # {{{
 proj_sig=( _config.yml .proj .git .svn)
 
+p() {
+	(wd $1 ; shift 1 ; zsh -i -c "$*")
+}
+
+compdef _wd.sh p
+
 pjroot() {
     curdir=$(pwd)
 	root=''
