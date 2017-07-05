@@ -14,6 +14,9 @@ Plug 'https://github.com/tpope/vim-commentary'
 
 " ale "{{{
 " let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = {
+			\ 'cpp': ['clang', 'cppcheck', 'cpplint', 'g++']
+			\ }
 "}}}
 
 " Plug 'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py --clang-completer --system-libclang --gocode-completer'}
