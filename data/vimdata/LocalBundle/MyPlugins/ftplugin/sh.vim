@@ -10,4 +10,6 @@ function! RunScript()
 	startinsert
 endfunction
 
+let b:did_indent = 1
+
 map <buffer> <silent> ,rr :call RunScript()<cr>

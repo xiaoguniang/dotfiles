@@ -508,11 +508,13 @@ COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
 
 dsh() {
 	if [[ -z "$1" ]]; then
-		echo "Usage: dsh hostname"
+		echo "Usage: dsh container_name"
 		return 1
 	fi
 	docker exec -it "$@" bash
 }
+
+compdef _docker dsh=_docker_contains
 
 alias dips="docker ps -a -q | xargs docker inspect --format '{{ .Name }} -- {{ .NetworkSettings.Networks.docker_default.IPAddress }}'"
 # }}}

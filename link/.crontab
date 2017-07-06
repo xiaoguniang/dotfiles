@@ -1,5 +1,5 @@
 PATH=/usr/bin:/bin:/usr/local/bin:$HOME/bin
 
 0 11 * * * $HOME/bin/dotfiles p
-5 10 * * * sep start
-0 18 * * * sep stop
+5 10 * * * $HOME/bin/sep start
+0 18 * * * $HOME/bin/sep stop

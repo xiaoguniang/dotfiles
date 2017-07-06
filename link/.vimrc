@@ -63,7 +63,6 @@ Plug 'https://github.com/Raimondi/delimitMate.git'
 " NeoBundle 'https://github.com/rdnetto/YCM-Generator', 'stable'
 Plug 'https://github.com/bruno-/vim-man'
 Plug 'https://github.com/zenbro/mirror.vim'
-Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/hiberabyss/vim-gradle'
 " NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'
 " NeoBundle 'https://github.com/MattesGroeger/vim-bookmarks'
@@ -196,10 +195,6 @@ nmap <silent> <leader>L :TestLast<CR>
 nmap <silent> <leader>G :TestVisit<CR>
 
 let test#strategy = 'neovim'
-"}}}
-
-" polyglot"{{{
-let g:polyglot_disabled = ['python']
 "}}}
 
 " Line Diff"{{{

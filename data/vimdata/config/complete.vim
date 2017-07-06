@@ -24,7 +24,8 @@ let g:neoinclude#paths = {'cpp': ".,include,/usr/include,/usr/local/include/c++/
 "}}}
 
 " deoplete "{{{
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
 " let g:deoplete#auto_complete_delay = 125
 
 " let g:deoplete#complete_method = "omnifunc"

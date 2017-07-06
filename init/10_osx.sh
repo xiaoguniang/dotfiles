@@ -8,6 +8,9 @@ if [[ ! -d "$('xcode-select' -print-path 2>/dev/null)" ]]; then
   sudo xcode-select -switch /usr/bin
 fi
 
+# Install Monaco Font
+open ~/.dotfiles/data/Mac/Monaco+for+Powerline.otf
+
 # Count Lines of Code https://github.com/AlDanial/cloc
 brew tap neovim/neovim
 brew install neovim

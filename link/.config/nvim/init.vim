@@ -1,1 +1,1 @@
-/Users/hbliu/.vimrc
+../../.vimrc

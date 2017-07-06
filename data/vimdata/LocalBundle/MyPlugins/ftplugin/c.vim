@@ -30,7 +30,7 @@ function! CompileCCpp(gdb_flag, msg) "{{{
 		return s:ErrReturn("Delete " . b:binary_filename . " failed")
     endif
 
-	if a:gdb_flag == 0
+	if a:gdb_flag == 1
 		let &makeprg = b:makeprg['gdb']
 	elseif a:gdb_flag == 2
 		let &makeprg = b:makeprg['gtest']

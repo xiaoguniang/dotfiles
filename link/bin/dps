@@ -1,0 +1,24 @@
+#!/bin/bash
+# Author: Hongbo Liu <hbliu@freewheel.tv>
+# Date: 2017-07-05
+# Last Modified Date: 2017-07-05
+# Last Modified By: Hongbo Liu <hbliu@freewheel.tv>
+
+main() {
+	local OPT OPTARG OPTIND
+	local format_name="{{ .Names }}," format_id format_status
+
+	while getopts 'ins' OPT; do
+		case $OPT in
+			i) format_id="{{ .ID }}," ;;
+			n) format_name="{{ .Names }}," ;;
+			s) format_status="{{ .Status }}," ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
+
+	# set -x
+	docker ps -a --format "${format_id}${format_name}${format_status}" | column -s',' -t
+}
+
+main $*

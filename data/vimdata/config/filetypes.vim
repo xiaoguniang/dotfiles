@@ -1,3 +1,9 @@
+Plug 'https://github.com/sheerun/vim-polyglot'
+
+" polyglot"{{{
+let g:polyglot_disabled = ['python']
+"}}}
+
 " Python "{{{
 " Plug 'https://github.com/davidhalter/jedi-vim', {'for': ['py', 'python']}
 Plug 'https://github.com/klen/python-mode.git', {'for': ['py', 'python']}

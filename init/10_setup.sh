@@ -7,6 +7,7 @@
 
 ZSH_BIN="/bin/zsh"
 ZGENRC="$HOME/.dotfiles/data/zgen/zgen.zsh"
+ZGEN_DIR="$HOME/.zgen"
 
 if [[ -f "$ZSH_BIN" ]]; then
 	chsh -s $ZSH_BIN
@@ -26,11 +27,20 @@ install_zsh_plugins() {
 	source "$ZGENRC"
 	zgen update
 	~/.dotfiles/link/.zgen/junegunn/fzf-master/install --all
+	sudo $ZGEN_DIR/petronny/pinyin-completion-master/setup.py install
 }
 
 install_tmux_plugins() {
 	sh -c '$HOME/.tmux/plugins/tpm/bindings/install_plugins'
 }
 
+install_vim_plugins() {
+	pip install --upgrade neovim
+	pip3 install --upgrade neovim
+
+	nvim +'PlugInstall | qa'
+}
+
 install_zsh_plugins
 install_tmux_plugins
+install_vim_plugins
