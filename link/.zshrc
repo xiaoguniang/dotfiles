@@ -146,6 +146,8 @@ p() {
 
 compdef _wd.sh p
 
+compdef fwcd=ssh
+
 pjroot() {
     curdir=$(pwd)
 	root=''
@@ -233,7 +235,7 @@ gbdboth() {
 	fi
 }
 
-# compdef _git gbdiff=git-diff
+# compdef _git gbdiff=git_branch
 alias gbcur='git rev-parse --abbrev-ref HEAD'
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 # }}}
@@ -514,7 +516,9 @@ dsh() {
 	docker exec -it "$@" bash
 }
 
-compdef _docker dsh=_docker_contains
+alias docker-exec="docker exec"
+
+compdef dsh=docker-exec
 
 alias dips="docker ps -a -q | xargs docker inspect --format '{{ .Name }} -- {{ .NetworkSettings.Networks.docker_default.IPAddress }}'"
 # }}}

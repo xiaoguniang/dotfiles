@@ -1,0 +1,22 @@
+#!/bin/bash
+# Author: Hongbo Liu <hbliu@freewheel.tv>
+# Date: 2017-07-07
+# Last Modified Date: 2017-07-07
+# Last Modified By: Hongbo Liu <hbliu@freewheel.tv>
+
+get_real_path() {
+	case "$1" in
+		log ) echo "/mnt/log-ads" ;;
+		* ) echo "$1" ;;
+	esac
+}
+
+main() {
+	local host=$1
+	local dir=$2
+	local realdir=$(get_real_path $dir)
+
+	ssh -t $host "cd $realdir ; exec \$SHELL"
+}
+
+main $*
