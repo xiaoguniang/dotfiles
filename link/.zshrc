@@ -516,9 +516,7 @@ dsh() {
 	docker exec -it "$@" bash
 }
 
-alias docker-exec="docker exec"
-
-compdef dsh=docker-exec
+# compdef dsh=docker-exec
 
 alias dips="docker ps -a -q | xargs docker inspect --format '{{ .Name }} -- {{ .NetworkSettings.Networks.docker_default.IPAddress }}'"
 # }}}
@@ -549,6 +547,11 @@ export GOPATH="$HOME/go"
 # secureAddGoPath "$HOME/go" start
 secureAddPath "$HOME/go/bin" start
 secureSource "$HOME/.dotfiles/private/freewheel/plugin.zsh"
+# }}}
+
+# aws #{{{
+alias ecs-cli='aws-mfa ecs-cli'
+alias aws='aws-mfa aws'
 # }}}
 
 secureSource "$DOTFILES/private/freewheel/slack.zsh"
