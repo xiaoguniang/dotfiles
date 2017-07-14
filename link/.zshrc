@@ -394,7 +394,7 @@ secureSource "$GITHUB_DIR/tmuxinator/completion/tmuxinator.zsh"
 # compdef __tmux-sessions ptmux
 # }}}
 
-rsceen() {
+rscreen() {
 	ssh "$@" -t 'screen -rd hbliu'
 }
 
