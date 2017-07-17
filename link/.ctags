@@ -13,7 +13,7 @@
 --regex-log=/.*(PHASE\ [0-9][a-zA-Z0-9\ \:]+)[\ ]*$/\1/p,Phase/
 --log-kinds=+p
 
---langmap=c++:+.inl.cpp.h
+--langmap=c++:+.inl.cpp.h.txx
 --fields=+iakSm
 --extras=+q
 --c++-kinds=+LpmnsNd
