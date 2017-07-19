@@ -238,6 +238,8 @@ gbdboth() {
 # compdef _git gbdiff=git_branch
 alias gbcur='git rev-parse --abbrev-ref HEAD'
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+secureAddPath "$HOME/github/depot_tools"
 # }}}
 
 # vim# {{{
