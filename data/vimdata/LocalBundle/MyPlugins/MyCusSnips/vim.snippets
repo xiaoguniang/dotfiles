@@ -43,3 +43,9 @@ snippet sect "vim section" b
 ${VISUAL}$0
 "}}}
 endsnippet
+
+snippet ver "vim version dependencies" b
+if v:version >= 800 || has('nvim')
+	${VISUAL}$0
+endif
+endsnippet

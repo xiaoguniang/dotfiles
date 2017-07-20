@@ -12,7 +12,11 @@ execute('set backupdir=' . s:vim_backdir)
 " Overall Preference settings"{{{
 set hidden
 set shortmess+=A
-set shortmess+=c
+
+if v:version >= 800 || has('nvim')
+	set shortmess+=c
+	set nofixendofline
+endif
 
 set undofile
 set backupext=.bak
@@ -27,7 +31,6 @@ set wildignore+=*.o
 set wildignore+=*.elf
 
 set backspace=indent,eol,start
-set nofixendofline
 
 " set nostartofline
 
@@ -150,6 +153,7 @@ if !&sidescrolloff
 	set sidescrolloff=5
 endif
 "}}}
+
 "}}}
 
  " vim:fdm=marker

@@ -178,7 +178,11 @@ if !exists('g:Lasttab')
 	let g:Lasttab_backup = 1
 endif
 autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
-autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+
+if v:version >= 800 || has('nvim')
+	autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+endif
+
 nmap <silent> <A-`> :exe "tabn " . g:Lasttab<cr>
 
 nmap <Space>gc :call CloseTab('')<cr>

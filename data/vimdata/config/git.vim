@@ -5,6 +5,7 @@ Plug 'https://github.com/jreybert/vimagit'
 " Plug 'https://github.com/idanarye/vim-merginal'
 Plug 'https://github.com/kmnk/vim-unite-giti'
 Plug 'https://github.com/shumphrey/fugitive-gitlab.vim' ", {'on': 'Gbrowse'}
+Plug 'https://github.com/tpope/vim-rhubarb'
 
 " gitlab "{{{
 let g:fugitive_gitlab_domains = ['https://git.dev.fwmrm.net']

@@ -18,7 +18,9 @@ Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/bling/vim-airline.git', {'as': 'airline'}
 Plug 'https://github.com/jszakmeister/vim-togglecursor'
 Plug 'https://github.com/itchyny/vim-cursorword'
-Plug 'https://github.com/machakann/vim-highlightedyank'
+if v:version >= 800 || has('nvim')
+	Plug 'https://github.com/machakann/vim-highlightedyank'
+endif
 "}}}
 
 " vim airline "{{{
