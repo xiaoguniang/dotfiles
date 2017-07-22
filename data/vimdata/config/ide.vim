@@ -11,6 +11,12 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/jsfaint/gen_tags.vim'
 
+" Run Command "{{{
+Plug 'https://github.com/tpope/vim-dispatch.git'
+Plug 'https://github.com/radenling/vim-dispatch-neovim'
+
+let g:dispatch_neovim_fixedsize = 1
+"}}}
 
 " ale "{{{
 " let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'

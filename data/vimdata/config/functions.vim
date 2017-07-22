@@ -49,7 +49,7 @@ function! WinRun(cmd, ...)
     endif
 
 	let filename = expand('%')
-	botright new | res 15
+	botright new | res 15 " | setl nonu | setl nornu
 	call termopen(a:cmd ." ". filename. " " .args)
 	startinsert
 endfunction

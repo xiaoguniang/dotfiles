@@ -5,7 +5,7 @@ let b:loaded_go_vim = 1
 
 setl fdm=syntax
 
-map <buffer> <silent> ,ll :call WinRun("go run")<cr>
+map <buffer> <silent> ,rr :call WinRun("go run")<cr>
 map <buffer> <silent> ,gi :GoImports<cr>
 map <buffer> <silent> ,rt :GoTest<cr>
 nmap <buffer> <silent> gd :GoDef<CR>

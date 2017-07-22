@@ -2,6 +2,8 @@ Plug 'https://github.com/kassio/neoterm'
 " Plug 'https://github.com/jalvesaq/vimcmdline'
 " Plug 'https://github.com/brettanomyces/nvim-editcommand'
 
+highlight TermCursor ctermfg=red guifg=red
+
 " neoterm "{{{
 let g:neoterm_size = '12'
 let g:neoterm_fixedsize = 1
@@ -60,15 +62,19 @@ nnoremap <silent> <A-K> <esc>:call ScrollOtherWindow("\<lt>C-u>")<cr>
 
 " terminal "{{{
 function! TermInit()
-    silent setl winfixheight
+    call LoadMotionMap()
+	setlocal winfixheight winfixwidth
+
     setl nonumber
     setl norelativenumber
-    startinsert
-    call LoadMotionMap()
+	normal G
+	" startinsert
 endfunction
 
-autocmd! WinEnter term://* call TermInit()
-autocmd! BufWinLeave term://* wincmd p
+autocmd! WinEnter term://* startinsert
+autocmd! TermOpen * call TermInit()
+" autocmd! BufWinLeave term://* wincmd p
+autocmd! WinLeave term://* wincmd p
 "}}}
 
  " vim:fdm=marker
