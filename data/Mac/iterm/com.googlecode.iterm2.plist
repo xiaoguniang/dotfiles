@@ -454,7 +454,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>450 286 445 77 0 0 1440 877 </string>
+	<string>216 410 445 77 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>468 418 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
@@ -466,7 +466,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 76 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>129 196 796 473 0 0 1440 877 </string>
+	<string>213 247 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 900 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -1004,7 +1004,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 14</string>
+			<string>Monaco 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1503,7 +1503,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-06-27T15:42:03Z</date>
+	<date>2017-07-22T04:21:07Z</date>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>Secure Input</key>
