@@ -19,6 +19,24 @@ Plug 'https://github.com/dohsimpson/vim-macroeditor'
 Plug 'https://github.com/dahu/VimLocalMacros'
 "}}}
 
+" swap "{{{
+
+" let g:swap#rules = g:swap#default_rules
+" let g:swap#rules += [
+			" \ {
+			" \   'body': '\%(\h\w*\s\+\)\+\h\w*',
+			" \   'delimiter': ['\s\+', ',', ':'],
+			" \ },
+			" \ {
+			" \   'surrounds' : ['\[', '\]', 1],
+			" \   'delimiter' : [':', ';'],
+			" \   'braket'    : [['(', ')'], ['[', ']']],
+			" \   'quotes'    : [['"', '"']],
+			" \   'literal_quotes': [["'", "'"]],
+			" \ }
+			" \ ]
+"}}}
+
 " vim header "{{{
 let g:header_auto_add_header = 0
 "}}}
