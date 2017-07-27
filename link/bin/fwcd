@@ -7,6 +7,7 @@
 get_real_path() {
 	case "$1" in
 		log ) echo "/mnt/log-ads" ;;
+		counter) echo "/home/eng/counter_check/counter/data" ;;
 		* ) echo "$1" ;;
 	esac
 }
