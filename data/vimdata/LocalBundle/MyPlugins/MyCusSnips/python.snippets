@@ -66,3 +66,8 @@ endsnippet
 snippet shell "run shell command" b
 ${1:output} = subprocess.check_output("${2:shell command}", shell=True)
 endsnippet
+
+snippet fun "define python function" b
+def ${1:name}($2):
+	$0
+endsnippet

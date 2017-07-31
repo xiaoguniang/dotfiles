@@ -2,8 +2,6 @@ Plug 'https://github.com/kassio/neoterm'
 " Plug 'https://github.com/jalvesaq/vimcmdline'
 " Plug 'https://github.com/brettanomyces/nvim-editcommand'
 
-highlight TermCursor ctermfg=red guifg=red
-
 " neoterm "{{{
 let g:neoterm_size = '12'
 let g:neoterm_fixedsize = 1

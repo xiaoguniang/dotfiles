@@ -549,4 +549,6 @@ if has('vim_starting')
 	autocmd BufWritePost $VIMCONFIG/* source ~/.vimrc
 endif
 
+highlight TermCursor ctermfg=red guifg=red
+
 " vim:set fdm=marker:
