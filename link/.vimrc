@@ -42,7 +42,7 @@ Plug 'https://github.com/vim-scripts/ingo-library' " need by PatternsOnText
 Plug 'https://github.com/vim-scripts/ExtractMatches'
 " Plug 'https://github.com/mtth/scratch.vim'
 Plug 'https://github.com/AndrewRadev/linediff.vim'
-" Plug 'https://github.com/wincent/vim-clipper'
+Plug 'https://github.com/wincent/vim-clipper'
 Plug 'chrisbra/vim-diff-enhanced'
 " NeoBundle 'https://github.com/junegunn/goyo.vim'
 " NeoBundle 'https://github.com/junegunn/limelight.vim'
