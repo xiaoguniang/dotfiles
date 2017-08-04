@@ -36,7 +36,7 @@ cnoreabbrev Ack Ack!
 
 " Ag "{{{
 let g:ag_highlight=1
-cnoreabbrev Ag Ag!
+" cnoreabbrev Ag Ag!
 nmap ,ag :Ag! -Q 
 "}}}
 
