@@ -28,7 +28,7 @@ vmap ,zy :CopyFolds<cr>
 function! OpenFile(filepath, args)
 	let cmd = ":tabnew"
 	if len(a:args) > 1
-		let cmd = a:args[1]
+		let cmd = join(a:args[1:])
 	endif
 	execute(cmd ." ". a:filepath)
 endfunction

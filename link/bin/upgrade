@@ -9,6 +9,7 @@ upgradeNeovim() {
 	brew reinstall neovim --HEAD
 	pip2 install --upgrade neovim
 	pip3 install --upgrade neovim
+	gem install neovim
 }
 
 usage() {

@@ -16,6 +16,11 @@ secureSource() {
 
 secureAddPath() {
 	if [[ ! $PATH =~ "$1" ]]; then
+		if [[ -z "$PATH" ]]; then
+			export PATH=$1
+			return 0
+		fi
+
 		if [[ "$2" == "start" ]]; then
 			export PATH=$1:$PATH
 		else
@@ -26,6 +31,11 @@ secureAddPath() {
 
 secureAddGoPath() {
 	if [[ ! $GOPATH =~ "$1" ]]; then
+		if [[ -z "$GOPATH" ]]; then
+			export GOPATH=$1
+			return 0
+		fi
+
 		if [[ "$2" == "start" ]]; then
 			export GOPATH=$1:$GOPATH
 		else

@@ -13,6 +13,7 @@ Plug 'https://github.com/brooth/far.vim'
 Plug 'https://github.com/benmills/vim-commadown' ", {'on': 'CommaDown'}
 Plug 'https://github.com/sjl/gundo.vim.git', {'on' : ['GundoToggle']}
 " Plug 'https://github.com/mbbill/undotree', {'on' : ['UndotreeToggle']}
+Plug 'https://github.com/christoomey/vim-sort-motion'
 
 " Macro {{{
 Plug 'https://github.com/dohsimpson/vim-macroeditor'

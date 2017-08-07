@@ -6,9 +6,9 @@ autocmd FileType html setl sw=2 | setl fdm=syntax
 autocmd FileType json,ruby setl fdm=syntax
 
 " restore cursor position
-autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+autocmd bufreadpost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
 
 " vim:fdm=marker:
