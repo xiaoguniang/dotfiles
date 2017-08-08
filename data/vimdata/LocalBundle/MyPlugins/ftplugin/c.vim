@@ -55,7 +55,8 @@ function! NormalRun(flag) "{{{
     if CompileCCpp(a:flag, "") < 0 | return | endif
 	let binary = b:binary_filename
 	botright new | res 12
-	call termopen(binary)
+	let cmd = binary ." ; if [[ $? == 139 ]]; then echo 'Segmentation Fault'; fi"
+	call termopen(cmd)
 	startinsert
 endfunction "}}}
 

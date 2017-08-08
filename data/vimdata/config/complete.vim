@@ -28,7 +28,9 @@ let g:deoplete#enable_at_startup = 0
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#buffer#require_same_filetype = 0
 
-autocmd InsertEnter * call deoplete#enable()
+if has('nvim')
+	autocmd InsertEnter * call deoplete#enable()
+endif
 " let g:deoplete#auto_complete_delay = 125
 
 " let g:deoplete#complete_method = "omnifunc"
