@@ -5,9 +5,15 @@ let b:loaded_go_vim = 1
 
 setl fdm=syntax
 
+function! DebugRun()
+	let b:binary_filename = expand('%:p:r') . '.bin'
+	let &makeprg = printf("go build -gcflags '-N -l' -o %s %s", b:binary_filename, expand('%:p'))
+    execute "silent make!"
+endfunction
+
 map <buffer> <silent> ,rr :call WinRun("go run")<cr>
-map <buffer> <silent> ,gi :GoImports<cr>
 map <buffer> <silent> ,rt :GoTest<cr>
+map <buffer> <silent> ,gi :GoImports<cr>
 nmap <buffer> <silent> gd :GoDef<CR>
 
 command! -buffer -nargs=0 -bang A call go#alternate#Switch(<bang>0, 'edit')

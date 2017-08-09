@@ -12,6 +12,9 @@ Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/jsfaint/gen_tags.vim'
 Plug 'https://github.com/tyru/capture.vim'
 
+Plug 'https://github.com/hiberabyss/NeovimGdb'
+Plug 'https://github.com/dbgx/lldb.nvim'
+
 " Run Command "{{{
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/radenling/vim-dispatch-neovim'
@@ -26,7 +29,10 @@ let g:ale_linters = {
 			\ }
 "}}}
 
+" let g:loaded_youcompleteme = 1
+
 " Plug 'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py --clang-completer --system-libclang --gocode-completer'}
+" Plug 'https://github.com/rdnetto/YCM-Generator', 'stable'
 
 " YouCompleteMe "{{{
 " let g:ycm_global_ycm_extra_conf = expand("$CUSDATA/conf/ycm/cpp/.ycm_extra_conf.py")
@@ -48,7 +54,7 @@ let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 " let g:ycm_use_ultisnips_completer = 0
 
-" let g:ycm_disable_for_files_larger_than_kb = 1000
+let g:ycm_disable_for_files_larger_than_kb = 1500
 
 "Disable syntaxcheck of ycm
 let g:ycm_show_diagnostics_ui = 0
@@ -59,6 +65,7 @@ let g:ycm_filetype_whitelist = {
 "\ '*': 1,
 
 let g:ycm_filetype_blacklist = {
+			\ 'go': 1,
             \ 'tagbar' : 1,
             \ 'qf' : 1,
             \ 'notes' : 1,

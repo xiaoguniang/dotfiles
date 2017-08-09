@@ -20,8 +20,6 @@ endif
 source $VIMCONFIG/functions.vim
 "}}}
 
-let g:loaded_youcompleteme = 1
-
 " Include Plug "{{{
 source $PLUG_DIR/plug.vim
 call plug#begin(expand($BUNDLE))
@@ -57,7 +55,6 @@ Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/vim-scripts/VisIncr.git'
 Plug 'https://github.com/triglav/vim-visual-increment'
 Plug 'https://github.com/Raimondi/delimitMate.git'
-" NeoBundle 'https://github.com/rdnetto/YCM-Generator', 'stable'
 Plug 'https://github.com/bruno-/vim-man'
 Plug 'https://github.com/zenbro/mirror.vim'
 Plug 'https://github.com/hiberabyss/vim-gradle'
@@ -81,7 +78,6 @@ Plug 'https://github.com/google/vim-codefmt'
 " Coding plugins "{{{
 " NeoBundle 'https://github.com/neovimhaskell/haskell-vim'
 " NeoBundle 'https://github.com/eagletmt/neco-ghc'
-Plug 'https://github.com/hiberabyss/NeovimGdb'
 "}}}
 
 if has('mac')
