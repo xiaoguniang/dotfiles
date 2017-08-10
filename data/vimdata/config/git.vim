@@ -13,6 +13,7 @@ let g:fugitive_gitlab_domains = ['https://git.dev.fwmrm.net']
 
 " fugitive "{{{
 nmap <silent> <Leader>gd :Gdiff<cr>
+nmap <silent> ,ob :Gbrowse<cr>
 "}}}
 
 nmap <silent> ,gb :Unite giti/branch<cr>

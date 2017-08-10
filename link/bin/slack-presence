@@ -1,0 +1,27 @@
+#!/bin/bash
+# Author: Hongbo Liu <hbliu@freewheel.tv>
+# Date: 2017-08-10
+# Last Modified Date: 2017-08-10
+# Last Modified By: Hongbo Liu <hbliu@freewheel.tv>
+
+PRESENCE_API_URL="https://slack.com/api/users.setPresence?token=%s&presence=%s&pretty=1"
+
+main() {
+	if [[ -z "$SLACK_TOKEN" ]]; then
+		echo "Error: please set SLACK_TOKEN environment!"
+	fi
+
+	local presence_mode="away"
+	local OPT OPTARG OPTIND
+	while getopts 'yn' OPT; do
+		case $OPT in
+			y) presence_mode="auto" ;;
+			n) presence_mode="away" ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
+
+	curl -s "$(printf $PRESENCE_API_URL $SLACK_TOKEN $presence_mode)"
+}
+
+main $@

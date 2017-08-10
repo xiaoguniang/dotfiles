@@ -38,10 +38,6 @@ Plug 'https://github.com/dahu/VimLocalMacros'
 			" \ ]
 "}}}
 
-" vim header "{{{
-let g:header_auto_add_header = 0
-"}}}
-
 " CommaDown "{{{
 " command! -range CommaDown call CommaDown()<cr>
 "}}}
@@ -118,11 +114,14 @@ let g:username = 'Hongbo Liu'
 let g:templates_no_builtin_templates = 1
 "}}}
 
-" File Header {{{
+" header {{{
+let g:header_auto_add_header = 0
 let g:header_field_author = 'Hongbo Liu'
 let g:header_field_author_email = 'hbliu@freewheel.tv'
 let g:header_field_filename = 0
 let g:header_field_timestamp_format = '%Y-%m-%d'
+
+nmap <silent> ,ah :AddHeader<cr>
 "}}}
 
 " remove next or previous line

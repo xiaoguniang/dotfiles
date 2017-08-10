@@ -57,6 +57,8 @@ nmap ,cd :lcd %:p:h<CR>
 nmap <silent> ,cw :cd $ORIG_PWD<cr>
 nmap ,rc :tabnew ~/.vimrc<cr>
 
+nmap ,co :Capture 
+
 function! QuickfixItemJump(direction, mode, count)
   norm! m'
   if a:mode ==# 'v'

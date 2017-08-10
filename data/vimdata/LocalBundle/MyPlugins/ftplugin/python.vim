@@ -14,7 +14,7 @@ setl tabstop=4
 map <buffer> <silent> ,rr :call WinRun("python")<cr>
 map <buffer> <silent> ,ra :call WinRun("python", 1)<cr>
 map <buffer> <silent> ,ri :call WinRun("python -i")<cr>
-map <buffer> <silent> ,sh :T ipython<cr>
+map <buffer> <silent> ,ti :T ipython<cr>
 
 " textobj python {{{
 call textobj#user#map('python', {
