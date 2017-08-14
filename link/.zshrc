@@ -521,11 +521,12 @@ COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
 # export DOCKER_MACHINE_NAME="default"
 
 dsh() {
+	local shell=${2:-bash}
 	if [[ -z "$1" ]]; then
 		echo "Usage: dsh container_name"
 		return 1
 	fi
-	docker exec -it "$@" bash
+	docker exec -it "$1" "$shell"
 }
 
 # compdef dsh=docker-exec
@@ -559,6 +560,10 @@ export GOPATH="$HOME/go"
 # secureAddGoPath "$HOME/go" start
 secureAddPath "$HOME/go/bin" start
 secureSource "$HOME/.dotfiles/private/freewheel/plugin.zsh"
+# }}}
+
+# qemu #{{{
+alias qemu='qemu-system-i386'
 # }}}
 
 # aws #{{{
