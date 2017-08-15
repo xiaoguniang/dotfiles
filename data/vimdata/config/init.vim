@@ -9,6 +9,9 @@ endif
 execute('set undodir=' . s:vim_undodir)
 execute('set backupdir=' . s:vim_backdir)
 
+" Lazy Redraw
+" set lazyredraw " :redraw to force draw
+
 " Overall Preference settings"{{{
 set hidden
 set shortmess+=A

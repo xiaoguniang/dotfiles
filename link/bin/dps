@@ -7,18 +7,20 @@
 main() {
 	local OPT OPTARG OPTIND
 	local format_name="{{ .Names }}," format_id format_status
+	local show_all=""
 
-	while getopts 'ins' OPT; do
+	while getopts 'ains' OPT; do
 		case $OPT in
 			i) format_id="{{ .ID }}," ;;
 			n) format_name="{{ .Names }}," ;;
 			s) format_status="{{ .Status }}," ;;
+			a) show_all="-a" ;;
 		esac
 	done
 	shift $(($OPTIND - 1))
 
 	# set -x
-	docker ps -a --format "${format_id}${format_name}${format_status}" | column -s',' -t
+	docker ps $show_all --format "${format_id}${format_name}${format_status}" | column -s',' -t
 }
 
 main $*
