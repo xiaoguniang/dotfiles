@@ -92,8 +92,6 @@ endif
 " Plug 'https://github.com/terryma/vim-expand-region'
 " NeoBundle 'https://github.com/xolox/vim-notes.git'
 " Plug 'https://github.com/tpope/vim-speeddating.git'
-" Plug 'https://github.com/mattn/webapi-vim'
-" Plug 'https://github.com/mattn/gist-vim' ", {'depends': 'mattn/webapi-vim'}
 " NeoBundle 'https://github.com/benmills/vimux.git'
 Plug 'https://github.com/chrisbra/NrrwRgn.git'
 " NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'

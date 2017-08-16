@@ -62,6 +62,25 @@ command! -nargs=+ -bar -complete=customlist,ListSnipItems Gusnips  call Gusnips(
 map ,gu :Gusnips 
 "}}}
 
+" AddBinary "{{{
+function! ListBinItems(lead, ...) abort
+	let default_complete_dir = expand('$HOME/bin')
+	return map(split(globpath(default_complete_dir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
+endfunction
+
+function! Gbin(...) abort
+	let filepath = expand("$HOME/bin") ."/". a:1
+	call OpenFile(filepath, a:000)
+	if !filereadable(filepath)
+		setl ft=sh
+		execute(':AddHeader')
+		execute(':w')
+		call system('chmod +x ' .expand('%'))
+	endif
+endfunction
+
+command! -nargs=+ -bar -complete=customlist,ListBinItems Gbin  call Gbin(<f-args>)
+"}}}
 
 " goto ftplugin files "{{{
 function! ListFtpluginItems(lead, ...) abort
@@ -74,7 +93,15 @@ function! Gftplugin(...) abort
 	call OpenFile(filepath, a:000)
 endfunction
 
-command! -nargs=+ -bar -complete=customlist,ListFtpluginItems Gftplugin  call Gftplugin(<f-args>)
+command! -nargs=+ -bar -complete=customlist,ListFtpluginItems Gftplugin call Gftplugin(<f-args>)
+"}}}
+
+" slack "{{{
+function! SlackSendToUser(username)
+	call system(printf('slacksend -u %s -t %s %s &', a:username, &ft, expand('%')))
+endfunction
+
+command! -nargs=1 SlackSend call SlackSendToUser(<f-args>)
 "}}}
 
 " vim:fdm=marker:

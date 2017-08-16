@@ -1,0 +1,30 @@
+#!/bin/bash
+# Author: Hongbo Liu <hbliu@freewheel.tv>
+# Date: 2017-08-15
+# Last Modified Date: 2017-08-15
+# Last Modified By: Hongbo Liu <hbliu@freewheel.tv>
+
+main() {
+	local OPT OPTARG OPTIND
+	local receiver="hbliu"
+	local filetype=""
+
+	while getopts 'u:t:' OPT; do
+		case $OPT in
+			u) receiver="$OPTARG" ;;
+			t) filetype="$OPTARG" ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
+
+	local filename=$1
+	local basename=$(basename $filename)
+	local title=${basename%.*}
+	if [[ -z "$filetype" ]]; then
+		filetype=${filename##*.}
+	fi
+
+	slackcat -t "$filetype" -T "$title" -u "$receiver" "$filename"
+}
+
+main $@

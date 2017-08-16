@@ -293,7 +293,7 @@ let g:NERDTreeAutoDeleteBuffer=1
 " let g:NERDTreeChDirMode = 0
 " let NERDTreeBookmarksFile = expand("$CUSDATA/NERDTreeBookmarks")
 
-let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeQuitOnOpen = 0
 let g:NERDTreeShowLineNumbers = 0
 
 nmap <silent> <Space>d :NERDTreeToggle<CR>
