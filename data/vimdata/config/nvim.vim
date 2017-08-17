@@ -27,6 +27,7 @@ tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
+tnoremap <A-;> <C-\><C-n><C-w>p
 tnoremap <A-q> <C-\><C-n><C-w>c
 " tnoremap <A-\> <c-\><c-n>"*pi
 " tnoremap <C-v> <c-\><c-n>"*pi
@@ -37,6 +38,7 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+" nnoremap <A-;> <C-w>p
 
 inoremap <A-h> <ESC><C-w>h
 inoremap <A-j> <ESC><C-w>j
@@ -69,10 +71,11 @@ function! TermInit()
 	" startinsert
 endfunction
 
-autocmd! WinEnter term://* startinsert
-autocmd! TermOpen * call TermInit()
-" autocmd! BufWinLeave term://* wincmd p
+" autocmd! TermOpen * call TermInit()
+autocmd! BufEnter term://* startinsert
+autocmd! BufLeave term://* stopinsert
 autocmd! WinLeave term://* wincmd p
+" autocmd! BufWinLeave term://* wincmd p
 "}}}
 
  " vim:fdm=marker

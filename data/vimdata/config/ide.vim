@@ -138,6 +138,7 @@ hi link CtrlSpaceNormal   Normal
 " Tagbar "{{{
 " let g:tagbar_width = 30
 let g:tagbar_singleclick = 1
+let g:tagbar_zoomwidth = 0
 let g:tagbar_foldlevel        = 0
 let g:tagbar_autoshowtag      = 1
 let g:tagbar_map_showproto    = "d"
