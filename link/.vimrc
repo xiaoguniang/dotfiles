@@ -104,7 +104,6 @@ Plug 'https://github.com/hiberabyss/changesqlcase.vim', {'on': 'ChangeSqlCase'}
 " Plug 'https://github.com/junegunn/vim-peekaboo'
 
 Plug 'https://github.com/saltstack/salt-vim', {'for': 'sls'}
-Plug 'https://github.com/Shougo/vinarise.vim'
 
 source $VIMCONFIG/ctrlp.vim
 " source $VIMCONFIG/sqlclient.vim

@@ -15,8 +15,8 @@ let g:motionKeyMaps = {
             \ '<Up>': '<C-y>',
             \ '<Down>': '<C-e>',
             \ 'p': '<C-b>',
-            \ '<Left>': '<C-b>',
-            \ '<Right>': '<C-f>',
+            \ '<Left>': 'zh',
+            \ '<Right>': 'zl',
             \ 'q': ':q<CR>',
             \}
 
@@ -39,6 +39,10 @@ nmap <silent> ,qm :call LoadMotionMap()<cr>:call ShowMsg("Enable Motion Keybingd
 nmap <silent> ,qM :call UnloadMotionMap()<cr>:call ShowMsg("Disable Motion Keybingds")<CR>
 
 autocmd! FileType help,man call LoadMotionMap()
+"}}}
+
+" mouse scroll "{{{
+" map <ScrollWheelLeft> zh
 "}}}
 
 " Window Management"{{{

@@ -39,15 +39,6 @@ let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_listsyms = '✗○◐●✓'
 let g:vimwiki_use_mouse = 1
 
-function! ListWikiItems(lead, ...) abort
-  return map(split(globpath(g:myvimwikidir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
-endfunction
-
-function! Vwiki(...) abort
-	let filepath = g:myvimwikidir ."/". a:1 . '.wiki'
-	call OpenFile(filepath, a:000)
-endfunction
-
 function! VimwikiBufferMap()
     " nmap <nowait> <silent> <buffer> qq :q<CR>
     nmap <silent> <buffer> <leader>tt <Plug>VimwikiToggleListItem
@@ -55,9 +46,7 @@ function! VimwikiBufferMap()
     setl noswapfile
 endfunction
 
-command! -nargs=+ -bar -complete=customlist,ListWikiItems Vwiki     call Vwiki(<f-args>)
 
-nmap <leader>wg :Vwiki 
 nmap <leader>td :execute('new ' . g:myvimwikidir . '/Tasks.wiki')<cr>
 
 autocmd! FileType vimwiki call VimwikiBufferMap()

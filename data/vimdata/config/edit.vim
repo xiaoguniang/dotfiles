@@ -15,9 +15,15 @@ Plug 'https://github.com/sjl/gundo.vim.git', {'on' : ['GundoToggle']}
 " Plug 'https://github.com/mbbill/undotree', {'on' : ['UndotreeToggle']}
 Plug 'https://github.com/christoomey/vim-sort-motion'
 
+Plug 'https://github.com/Shougo/vinarise.vim'
+
 " Macro {{{
 Plug 'https://github.com/dohsimpson/vim-macroeditor'
 Plug 'https://github.com/dahu/VimLocalMacros'
+"}}}
+
+" Vinarise "{{{
+let g:vinarise_enable_auto_detect = 1
 "}}}
 
 " swap "{{{

@@ -24,28 +24,53 @@ com! -range=% CopyFolds :<line1>,<line2>call CopyNonFolded()
 vmap ,zy :CopyFolds<cr>
 "}}}
 
-" goto vimconfig files "{{{
 function! OpenFile(filepath, args)
 	let cmd = ":tabnew"
-	if len(a:args) > 1
-		let cmd = join(a:args[1:])
+	if len(a:args) > 0
+		let cmd = join(a:args)
 	endif
 	execute(cmd ." ". a:filepath)
 endfunction
 
+" goto vimconfig files "{{{
 function! ListDirItems(lead, ...) abort
 	let default_complete_dir = expand('$VIMCONFIG')
 	return map(split(globpath(default_complete_dir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
 endfunction
 
-function! Gvimconfig(...) abort
-	let filepath = expand("$VIMCONFIG") ."/". a:1 . '.vim'
-	call OpenFile(filepath, a:000)
+function! Gvimconfig(...)
+	let filepath = printf("%s/%s.vim", expand("$VIMCONFIG"), a:1)
+	call OpenFile(filepath, a:000[1:])
 endfunction
 
 command! -nargs=+ -bar -complete=customlist,ListDirItems Gvimconfig  call Gvimconfig(<f-args>)
 map ,gv :Gvimconfig 
 "}}}
+
+" vimwiki "{{{
+function! ListWikiItems(lead, ...) abort
+  return map(split(globpath(g:myvimwikidir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
+endfunction
+
+function! Vwiki(...)
+	let filepath = printf("%s/%s.wiki", g:myvimwikidir, a:1)
+	call OpenFile(filepath, a:000[1:])
+endfunction
+
+command! -nargs=+ -bar -complete=customlist,ListWikiItems Gwiki call Vwiki(<f-args>)
+nmap <leader>wg :Gwiki 
+"}}}
+
+function! EditBinaryFile(...)
+	let cmd = "tabnew"
+	if a:0 > 1
+		let cmd = join(a:000[1:])
+	endif
+	let cmd = cmd . '| Vinarise'
+	execute(printf("%s %s", cmd, a:1))
+endfunction
+
+command! -nargs=+ -complete=file BinEdit call EditBinaryFile(<f-args>)
 
 " gotto ultisnips files "{{{
 function! ListSnipItems(lead, ...) abort
@@ -55,7 +80,7 @@ endfunction
 
 function! Gusnips(...) abort
 	let filepath = expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips") ."/". a:1 . '.snippets'
-	call OpenFile(filepath, a:000)
+	call OpenFile(filepath, a:000[1:0])
 endfunction
 
 command! -nargs=+ -bar -complete=customlist,ListSnipItems Gusnips  call Gusnips(<f-args>)
@@ -70,7 +95,7 @@ endfunction
 
 function! Gbin(...) abort
 	let filepath = expand("$HOME/bin") ."/". a:1
-	call OpenFile(filepath, a:000)
+	call OpenFile(filepath, a:000[1:0])
 	if !filereadable(filepath)
 		setl ft=sh
 		execute(':AddHeader')
@@ -90,7 +115,7 @@ endfunction
 
 function! Gftplugin(...) abort
 	let filepath = expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin") ."/". a:1 . '.vim'
-	call OpenFile(filepath, a:000)
+	call OpenFile(filepath, a:000[1:0])
 endfunction
 
 command! -nargs=+ -bar -complete=customlist,ListFtpluginItems Gftplugin call Gftplugin(<f-args>)

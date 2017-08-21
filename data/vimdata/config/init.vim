@@ -30,7 +30,7 @@ set path+=../include
 set virtualedit=block
 
 set define=^\(#\s*define\|[a-z]*\s*const\s*[a-z]*\)
-set wildignore+=*.o
+" set wildignore+=*.o
 set wildignore+=*.elf
 
 set backspace=indent,eol,start
@@ -79,6 +79,12 @@ endif
 
 if !empty(&viminfo)
 	set viminfo^=!
+endif
+
+if !has('nvim')
+	execute('set viminfo+=n' .s:vim_backdir)
+else
+	set shada+=%
 endif
 
 if &shell =~# 'fish$'
