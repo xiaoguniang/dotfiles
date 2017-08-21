@@ -306,7 +306,7 @@ PushToRemote() {
   git commit -am 'regular backup'
   git push $_remote master $*
   git submodule update --remote
-  cd -
+  # cd -
 }
 
 UpdateRepo() {
