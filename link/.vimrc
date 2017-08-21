@@ -537,6 +537,16 @@ nmap <silent> ,zk :<c-u>RepeatFunc NavigateFolds(0, 1)<cr>
 let g:scratch_insert_autohide = 0
 "}}}
 
+" dirfile completion "{{{
+let g:dir_file_completion = {
+			\ "Gbin": {'dir': expand("$HOME/bin"), 'extension': '', 'handler': 'ShFileHandler'},
+			\ "Gwiki": {'dir': g:myvimwikidir, 'extension': '.wiki', 'keymap': '<Leader>wg'},
+			\ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'extension': '.vim', 'keymap': ',gv'},
+			\ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin"), 'extension': '.vim'},
+			\ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips"), 'extension': '.snippets'}
+			\ }
+"}}}
+
 if has('vim_starting')
 	source $VIMCONFIG/autocmds.vim
 	autocmd BufWritePost $VIMCONFIG/* source ~/.vimrc

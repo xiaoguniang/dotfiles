@@ -24,6 +24,14 @@ com! -range=% CopyFolds :<line1>,<line2>call CopyNonFolded()
 vmap ,zy :CopyFolds<cr>
 "}}}
 
+function! ShFileHandler(filepath)
+	if !filereadable(a:filepath)
+		setl ft=sh
+		execute(':AddHeader')
+		execute(':normal G')
+	endif
+endfunction
+
 function! OpenFile(filepath, args)
 	let cmd = ":tabnew"
 	if len(a:args) > 0
@@ -32,34 +40,43 @@ function! OpenFile(filepath, args)
 	execute(cmd ." ". a:filepath)
 endfunction
 
-" goto vimconfig files "{{{
-function! ListDirItems(lead, ...) abort
-	let default_complete_dir = expand('$VIMCONFIG')
-	return map(split(globpath(default_complete_dir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
+function! DirFileCompletionList(lead, cmdline, ...) abort
+	let cmd = split(a:cmdline)[0]
+	if has_key(g:dir_file_completion, cmd)
+		let complete_dir = g:dir_file_completion[cmd].dir
+	endif
+
+	return map(split(globpath(complete_dir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
 endfunction
 
-function! Gvimconfig(...)
-	let filepath = printf("%s/%s.vim", expand("$VIMCONFIG"), a:1)
+function! GotoDirItem(cmdname, ...)
+	if !has_key(g:dir_file_completion, a:cmdname)
+		echoerr printf('Could not find %s setting!', a:cmdname)
+	endif
+
+	let completion_entry = g:dir_file_completion[a:cmdname]
+	let dir = completion_entry.dir
+	let extension = completion_entry.extension
+
+	let filepath = printf("%s/%s%s", dir, a:1, extension)
 	call OpenFile(filepath, a:000[1:])
+
+	if !has_key(completion_entry, 'handler') | return | endif
+	execute(printf("call %s('%s')", completion_entry.handler, filepath))
 endfunction
 
-command! -nargs=+ -bar -complete=customlist,ListDirItems Gvimconfig  call Gvimconfig(<f-args>)
-map ,gv :Gvimconfig 
-"}}}
+function! DefineDirFileCompletionCommand()
+	if !exists('g:dir_file_completion') | return | endif
 
-" vimwiki "{{{
-function! ListWikiItems(lead, ...) abort
-  return map(split(globpath(g:myvimwikidir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
+	for cmd in keys(g:dir_file_completion)
+		execute(printf("command! -nargs=+ -bar -complete=customlist,DirFileCompletionList %s call GotoDirItem('%s', <f-args>)", cmd, cmd))
+		if has_key(g:dir_file_completion[cmd], 'keymap')
+			execute(printf('nmap %s :%s ', g:dir_file_completion[cmd].keymap, cmd))
+		endif
+	endfor
 endfunction
 
-function! Vwiki(...)
-	let filepath = printf("%s/%s.wiki", g:myvimwikidir, a:1)
-	call OpenFile(filepath, a:000[1:])
-endfunction
-
-command! -nargs=+ -bar -complete=customlist,ListWikiItems Gwiki call Vwiki(<f-args>)
-nmap <leader>wg :Gwiki 
-"}}}
+call DefineDirFileCompletionCommand()
 
 function! EditBinaryFile(...)
 	let cmd = "tabnew"
@@ -71,55 +88,6 @@ function! EditBinaryFile(...)
 endfunction
 
 command! -nargs=+ -complete=file BinEdit call EditBinaryFile(<f-args>)
-
-" gotto ultisnips files "{{{
-function! ListSnipItems(lead, ...) abort
-	let default_complete_dir = expand('$CUSDATA/LocalBundle/MyPlugins/MyCusSnips')
-	return map(split(globpath(default_complete_dir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
-endfunction
-
-function! Gusnips(...) abort
-	let filepath = expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips") ."/". a:1 . '.snippets'
-	call OpenFile(filepath, a:000[1:0])
-endfunction
-
-command! -nargs=+ -bar -complete=customlist,ListSnipItems Gusnips  call Gusnips(<f-args>)
-map ,gu :Gusnips 
-"}}}
-
-" AddBinary "{{{
-function! ListBinItems(lead, ...) abort
-	let default_complete_dir = expand('$HOME/bin')
-	return map(split(globpath(default_complete_dir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
-endfunction
-
-function! Gbin(...) abort
-	let filepath = expand("$HOME/bin") ."/". a:1
-	call OpenFile(filepath, a:000[1:0])
-	if !filereadable(filepath)
-		setl ft=sh
-		execute(':AddHeader')
-		execute(':w')
-		call system('chmod +x ' .expand('%'))
-	endif
-endfunction
-
-command! -nargs=+ -bar -complete=customlist,ListBinItems Gbin  call Gbin(<f-args>)
-"}}}
-
-" goto ftplugin files "{{{
-function! ListFtpluginItems(lead, ...) abort
-	let default_complete_dir = expand('$CUSDATA/LocalBundle/MyPlugins/ftplugin')
-	return map(split(globpath(default_complete_dir, a:lead . '*'), '\n'), 'fnamemodify(v:val, ":t:r")')
-endfunction
-
-function! Gftplugin(...) abort
-	let filepath = expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin") ."/". a:1 . '.vim'
-	call OpenFile(filepath, a:000[1:0])
-endfunction
-
-command! -nargs=+ -bar -complete=customlist,ListFtpluginItems Gftplugin call Gftplugin(<f-args>)
-"}}}
 
 " slack "{{{
 function! SlackSendToUser(username)

@@ -10,6 +10,15 @@ function! RunScript()
 	startinsert
 endfunction
 
+function! AddExecutePerm()
+	if getfperm('.') =~ 'x'
+		return
+	endif
+	call system('chmod +x' .expand('%'))
+endfunction
+
 let b:did_indent = 1
+
+autocmd! BufWritePost call AddExecutePerm()
 
 map <buffer> <silent> ,rr :call RunScript()<cr>

@@ -26,6 +26,10 @@ snippet usage "shell usage function" b
 usage() {
 cat << EOF
 Usage: $(basename \$0) $1
+
+Options:
+  -h show this help
+  $2
 EOF
 exit 0
 }
