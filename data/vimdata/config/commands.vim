@@ -1,3 +1,13 @@
+" dirfile completion "{{{
+let g:dir_file_completion = {
+			\ "Gbin": {'dir': expand("$HOME/bin"), 'extension': '', 'handler': 'ShFileHandler'},
+			\ "Gwiki": {'dir': g:myvimwikidir, 'extension': '.wiki', 'keymap': '<Leader>wg'},
+			\ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'extension': '.vim', 'keymap': ',gv'},
+			\ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin"), 'extension': '.vim'},
+			\ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips"), 'extension': '.snippets'}
+			\ }
+"}}}
+
 " RD report "{{{
 command! -nargs=0 TSReport RE 201 ~/gitlab/rd/ts_regression/report/
 command! -nargs=0 APIReport RE 201 ~/gitlab/rd/api_regression/report/
@@ -31,6 +41,25 @@ function! ShFileHandler(filepath)
 		execute(':normal G')
 	endif
 endfunction
+
+function! EditBinaryFile(...)
+	let cmd = "tabnew"
+	if a:0 > 1
+		let cmd = join(a:000[1:])
+	endif
+	let cmd = cmd . '| Vinarise'
+	execute(printf("%s %s", cmd, a:1))
+endfunction
+
+command! -nargs=+ -complete=file BinEdit call EditBinaryFile(<f-args>)
+
+" slack "{{{
+function! SlackSendToUser(username)
+	call system(printf('slacksend -u %s -t %s %s &', a:username, &ft, expand('%')))
+endfunction
+
+command! -nargs=1 SlackSend call SlackSendToUser(<f-args>)
+"}}}
 
 function! OpenFile(filepath, args)
 	let cmd = ":tabnew"
@@ -77,24 +106,5 @@ function! DefineDirFileCompletionCommand()
 endfunction
 
 call DefineDirFileCompletionCommand()
-
-function! EditBinaryFile(...)
-	let cmd = "tabnew"
-	if a:0 > 1
-		let cmd = join(a:000[1:])
-	endif
-	let cmd = cmd . '| Vinarise'
-	execute(printf("%s %s", cmd, a:1))
-endfunction
-
-command! -nargs=+ -complete=file BinEdit call EditBinaryFile(<f-args>)
-
-" slack "{{{
-function! SlackSendToUser(username)
-	call system(printf('slacksend -u %s -t %s %s &', a:username, &ft, expand('%')))
-endfunction
-
-command! -nargs=1 SlackSend call SlackSendToUser(<f-args>)
-"}}}
 
 " vim:fdm=marker:
