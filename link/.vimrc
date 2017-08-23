@@ -170,6 +170,12 @@ command! -nargs=0 FilterComment call FilterComment()
 call unite#custom#profile('default', 'context', g:unite_profile_default_context)
 "}}}
 
+" dcomplete "{{{
+call deoplete#custom#source('clang_complete', 'rank', 9999)
+call deoplete#custom#source('vim', 'rank', 9999)
+call deoplete#custom#source('buffer', 'dup', 1)
+"}}}
+
 " vim test"{{{
 " nmap <silent> <leader>N :TestNearest<CR>
 function! CreateNewTest()

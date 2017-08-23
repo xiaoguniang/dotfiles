@@ -107,4 +107,25 @@ endfunction
 
 call DefineDirFileCompletionCommand()
 
+function! CaptureWithCmd(cmd, bang, ...)
+	let default_cmd = "bel new"
+	if exists('g:capture_open_command')
+		let default_cmd = g:capture_open_command
+	endif
+	let g:capture_open_command = a:cmd
+
+	execute(printf(':Capture%s %s', a:bang, join(a:000)))
+
+	let g:capture_open_command = default_cmd
+endfunction
+
+" capture "{{{
+autocmd! FileType capture call LoadMotionMap()
+command! -nargs=+ -bang -complete=shellcmd Ecapture call CaptureWithCmd('bel new', "<bang>", '!', <f-args>)
+command! -nargs=+ -complete=shellcmd Evcapture call CaptureWithCmd('bel vnew', "<bang>", '!', <f-args>)
+command! -nargs=+ -complete=shellcmd Etcapture call CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)
+
+command! -nargs=+ -complete=command Tcapture call CaptureWithCmd('tabnew', "<bang>", <f-args>)
+"}}}
+
 " vim:fdm=marker:

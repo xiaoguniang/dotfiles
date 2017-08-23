@@ -5,7 +5,6 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 " Plug 'https://github.com/scrooloose/syntastic.git', {'on': ['SyntasticCheck', 'Errors', 'SyntasticToggleMode']}
 Plug 'https://github.com/w0rp/ale'
 " Plug 'https://github.com/neomake/neomake'
-Plug 'https://github.com/Shougo/echodoc.vim'
 Plug 'https://github.com/Yggdroot/indentLine', {'on' : 'IndentLinesToggle'}
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-commentary'
@@ -99,15 +98,12 @@ let g:NERDUsePlaceHolders = 1
 "}}}
 
 " IndentLine "{{{
-let g:indentLine_char = '┊'
+" let g:indentLine_char = '┊'
+let g:indentLine_char = '|'
 let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 let g:indentLine_fileTypeExclude = ['text', 'help']
 
 nmap <silent> <Leader>il :IndentLinesToggle<cr>
-"}}}
-
-" echodoc"{{{
-let g:echodoc_enable_at_startup = 1
 "}}}
 
 " ctrlspace 5 "{{{

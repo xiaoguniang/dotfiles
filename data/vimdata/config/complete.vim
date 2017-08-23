@@ -7,6 +7,11 @@ endif
 Plug 'https://github.com/Shougo/neoinclude.vim'
 Plug 'https://github.com/wellle/tmux-complete.vim'
 Plug 'https://github.com/zchee/deoplete-jedi'
+" Plug 'https://github.com/Shougo/context_filetype.vim'
+" Plug 'https://github.com/zchee/deoplete-asm'
+
+Plug 'https://github.com/Rip-Rip/clang_complete'
+Plug 'https://github.com/Shougo/echodoc.vim'
 
 " Neocomplete "{{{
 " let g:neocomplete_fnpath = './include,./fig,./figure'
@@ -27,6 +32,7 @@ let g:neoinclude#paths = {'cpp': ".,include,/usr/include,/usr/local/include/c++/
 let g:deoplete#enable_at_startup = 0
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#buffer#require_same_filetype = 0
+let g:context_filetype#same_filetypes = 1
 
 if has('nvim')
 	autocmd InsertEnter * call deoplete#enable()
@@ -49,10 +55,13 @@ endif
             " \ pumvisible() ? "\<C-n>" :
             " \ deoplete#mappings#manual_complete()
 " call deoplete#custom#set('_', 'matchers', ['matcher_head'])
-" let g:clang_complete_auto = 0
-" let g:clang_auto_select = 0
-" let g:clang_omnicppcomplete_compliance = 0
-" let g:clang_make_default_keymappings = 0
+
+let g:clang_library_path = '/usr/local/Cellar/llvm/4.0.0/lib'
 "}}}
+
+" echodoc"{{{
+let g:echodoc_enable_at_startup = 1
+"}}}
+
 
 " vim:fdm=marker
