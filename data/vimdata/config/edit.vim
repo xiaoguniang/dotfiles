@@ -17,10 +17,24 @@ Plug 'https://github.com/christoomey/vim-sort-motion'
 
 Plug 'https://github.com/Shougo/vinarise.vim'
 
+if has('python') && empty($SSH_CLIENT)
+Plug 'https://github.com/SirVer/ultisnips.git'
+" Plug 'https://github.com/reconquest/vim-pythonx'
+endif
+
+Plug 'https://github.com/honza/vim-snippets.git'
+
 " Macro {{{
 Plug 'https://github.com/dohsimpson/vim-macroeditor'
 Plug 'https://github.com/dahu/VimLocalMacros'
 "}}}
+
+" Ultisnip"{{{
+" default priority is 0
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "MyCusSnips"]
+let g:cfamily_style_sep = ' '
+"}}}
+
 
 " Vinarise "{{{
 let g:vinarise_enable_auto_detect = 1

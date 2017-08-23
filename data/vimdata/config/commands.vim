@@ -120,12 +120,15 @@ function! CaptureWithCmd(cmd, bang, ...)
 endfunction
 
 " capture "{{{
-autocmd! FileType capture call LoadMotionMap()
+autocmd FileType capture call LoadMotionMap()
 command! -nargs=+ -bang -complete=shellcmd Ecapture call CaptureWithCmd('bel new', "<bang>", '!', <f-args>)
 command! -nargs=+ -complete=shellcmd Evcapture call CaptureWithCmd('bel vnew', "<bang>", '!', <f-args>)
 command! -nargs=+ -complete=shellcmd Etcapture call CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)
 
 command! -nargs=+ -complete=command Tcapture call CaptureWithCmd('tabnew', "<bang>", <f-args>)
 "}}}
+
+command! -range=0 -complete=customlist,man#complete -nargs=* Tman call man#open_page(v:count, v:count1, <q-mods>, <f-args>) | normal <c-w>T
+autocmd FileType man nmap <buffer> g/ /^\v\s+
 
 " vim:fdm=marker:

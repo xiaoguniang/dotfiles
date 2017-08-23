@@ -44,10 +44,6 @@ Plug 'https://github.com/wincent/vim-clipper'
 Plug 'chrisbra/vim-diff-enhanced'
 " NeoBundle 'https://github.com/junegunn/goyo.vim'
 " NeoBundle 'https://github.com/junegunn/limelight.vim'
-if has('python') && empty($SSH_CLIENT)
-Plug 'https://github.com/SirVer/ultisnips.git'
-endif
-Plug 'https://github.com/honza/vim-snippets.git'
 Plug 'https://github.com/junegunn/vim-easy-align'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
@@ -261,12 +257,6 @@ let g:nvimgdb_host_cmd = {
             \ 'ts1' : ['Docker', 'gdb -q -f --pid `pgrep transcoding`'],
             \ 'ts' : ['Docker', 'gdb -q -f --pid `pgrep transcoding`'],
             \ }
-"}}}
-
-" Ultisnip"{{{
-" default priority is 0
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "MyCusSnips"]
-let g:cfamily_style_sep = ' '
 "}}}
 
 " EasyAlign "{{{

@@ -3,8 +3,10 @@ function! ${VISUAL}${0}
 endfunction
 endsnippet
 
+# post_jump "vim.command('stopinsert')"
+# post_expand "vim.command('normal <ESC>')"
 snippet plug "add new plugin" b
-Plug '`!v @*`'
+Plug '`!v @*`'$1
 endsnippet
 
 snippet command "vim command" b
@@ -34,9 +36,9 @@ let g:tags4proj_tagsopt = {
 			\}
 endsnippet
 
-snippet modeline "vim modeline" b
-" `v! "vim"`:fdm=marker:
-endsnippet
+# snippet modeline "vim modeline" b
+# " `v! "vim"`:fdm=marker:
+# endsnippet
 
 snippet sect "vim section" b
 " ${1:section name} "{{{

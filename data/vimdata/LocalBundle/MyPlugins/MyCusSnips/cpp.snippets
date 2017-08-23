@@ -1,6 +1,7 @@
 extends c
 
 global !p
+import px.snippets
 def sep():
 	if snip.opt('g:cfamily_style_sep') == ' ':
 		snip.rv = " "
@@ -90,7 +91,14 @@ snippet cpp "cpp header" !b
 using namespace std;
 endsnippet
 
-snippet cpptest "cpp header" !b
+post_jump "vim.eval('feedkeys("\<C-R>=UltiSnips#ExpandSnippet()\<CR>")')"
+snippet cppmain "" b
+cpp$1
+
+main$2
+endsnippet
+
+snippet cpptest "cpp test header" !b
 #include <iostream>
 #include <cstdio>
 #include <algorithm>

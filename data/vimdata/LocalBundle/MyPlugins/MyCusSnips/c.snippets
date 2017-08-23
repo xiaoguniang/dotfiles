@@ -148,4 +148,10 @@ TEST(${1:testname}, ${2:subname}) {
 }
 endsnippet
 
+snippet rand "generate rand number" b
+srand((unsigned)time(NULL));
+int ${1:n} = rand();
+$0
+endsnippet
+
 # vim:ft=snippets:

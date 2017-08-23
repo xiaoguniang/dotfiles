@@ -38,7 +38,7 @@ endfunction
 nmap <silent> ,qm :call LoadMotionMap()<cr>:call ShowMsg("Enable Motion Keybingds")<CR>
 nmap <silent> ,qM :call UnloadMotionMap()<cr>:call ShowMsg("Disable Motion Keybingds")<CR>
 
-autocmd! FileType help,man call LoadMotionMap()
+autocmd FileType help,man call LoadMotionMap()
 "}}}
 
 " mouse scroll "{{{
