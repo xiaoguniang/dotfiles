@@ -27,6 +27,8 @@ set backupext=.bak
 set path+=include
 set path+=../include
 
+" set cpoptions+=W
+
 set virtualedit=block
 
 set define=^\(#\s*define\|[a-z]*\s*const\s*[a-z]*\)

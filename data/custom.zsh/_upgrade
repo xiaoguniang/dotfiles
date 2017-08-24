@@ -1,4 +1,3 @@
 #compdef upgrade
 
-_arguments "1: upgrade neovim, include python-neovim :(nvim)"
-_arguments "1: :(ctags)"
+_arguments "1: upgrade brew packages :($(upgrade -l))"

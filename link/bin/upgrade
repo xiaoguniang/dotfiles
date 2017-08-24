@@ -24,14 +24,19 @@ install_tap() {
 	brew tap neovim/neovim
 }
 
-upgrade() {
+upgrade_list() {
+	echo "neovim nvim ctags tmux"
+}
+
+main() {
 	case $1 in
 		neovim|nvim ) upgradeNeovim ;;
 		ctags ) brew reinstall --HEAD universal-ctags ;;
 		tmux ) brew reinstall --HEAD tmux ;;
 		i|-i|install ) install_tap ;;
+		-l) upgrade_list ;;
 		* ) usage ;;
 	esac
 }
 
-upgrade $*
+main $*

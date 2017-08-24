@@ -137,9 +137,10 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # }}}
 
 # completion# {{{
-# autoload -U compinit && compinit -u
+autoload -U compinit
+compinit
 # zstyle ':completion:*' rehash true
-# zstyle ':completion:*' menu select=2
+zstyle ':completion:*' menu select=2
 fpath=($ZSH_CUSTOM $fpath)
 # }}}
 
@@ -520,18 +521,12 @@ COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
 # export DOCKER_CERT_PATH="/Users/hbliu/.docker/machine/machines/default"
 # export DOCKER_MACHINE_NAME="default"
 
-dsh() {
-	local shell=${2:-bash}
-	if [[ -z "$1" ]]; then
-		echo "Usage: dsh container_name"
-		return 1
-	fi
-	docker exec -it "$1" "$shell"
-}
-
 # compdef dsh=docker-exec
 
 alias dips="docker ps -a -q | xargs docker inspect --format '{{ .Name }} -- {{ .NetworkSettings.Networks.docker_default.IPAddress }}'"
+
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # }}}
 
 # hook chpwd

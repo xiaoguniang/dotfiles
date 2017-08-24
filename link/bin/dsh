@@ -1,0 +1,16 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-08-24
+# Last Modified Date: 2017-08-24
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+dsh() {
+	local shell=${2:-bash}
+	if [[ -z "$1" ]]; then
+		echo "Usage: dsh container_name"
+		return 1
+	fi
+	docker exec -it "$1" "$shell"
+}
+
+dsh $@
