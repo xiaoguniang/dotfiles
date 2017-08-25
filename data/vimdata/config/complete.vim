@@ -34,6 +34,14 @@ let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#buffer#require_same_filetype = 0
 let g:context_filetype#same_filetypes = 1
 
+function! DeopleteInit()
+	call deoplete#custom#source('clang_complete', 'rank', 9999)
+	call deoplete#custom#source('vim', 'rank', 9999)
+	call deoplete#custom#source('buffer', 'dup', 1)
+endfunction
+
+autocmd VimEnter * call DeopleteInit()
+
 if has('nvim')
 	autocmd InsertEnter * call deoplete#enable()
 endif

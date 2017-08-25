@@ -14,6 +14,11 @@ Plug 'https://github.com/tyru/capture.vim'
 Plug 'https://github.com/hiberabyss/NeovimGdb'
 Plug 'https://github.com/dbgx/lldb.nvim'
 
+" Plug 'https://github.com/xolox/vim-session'
+" Plug 'https://github.com/xolox/vim-misc'
+
+Plug 'https://github.com/hiberabyss/ProjectConfig'
+
 " Run Command "{{{
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/radenling/vim-dispatch-neovim'

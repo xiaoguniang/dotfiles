@@ -129,7 +129,6 @@ if has('nvim')
 endif
 
 " Should run at last
-Plug 'https://github.com/hiberabyss/ProjectConfig'
 call plug#end()
 
 " vim plug "{{{
@@ -160,16 +159,6 @@ function! FilterComment()
 endfunction
 
 command! -nargs=0 FilterComment call FilterComment()
-"}}}
-
-" unite "{{{
-call unite#custom#profile('default', 'context', g:unite_profile_default_context)
-"}}}
-
-" dcomplete "{{{
-call deoplete#custom#source('clang_complete', 'rank', 9999)
-call deoplete#custom#source('vim', 'rank', 9999)
-call deoplete#custom#source('buffer', 'dup', 1)
 "}}}
 
 " vim test"{{{

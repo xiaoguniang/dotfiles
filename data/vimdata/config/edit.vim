@@ -17,6 +17,8 @@ Plug 'https://github.com/christoomey/vim-sort-motion'
 
 Plug 'https://github.com/Shougo/vinarise.vim'
 
+Plug 'https://github.com/tpope/vim-endwise' " wisely add endfunction/endif/more in vim script
+
 if has('python') && empty($SSH_CLIENT)
 Plug 'https://github.com/SirVer/ultisnips.git'
 " Plug 'https://github.com/reconquest/vim-pythonx'

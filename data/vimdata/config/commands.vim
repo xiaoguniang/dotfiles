@@ -128,7 +128,12 @@ command! -nargs=+ -complete=shellcmd Etcapture call CaptureWithCmd('tabnew', "<b
 command! -nargs=+ -complete=command Tcapture call CaptureWithCmd('tabnew', "<bang>", <f-args>)
 "}}}
 
-command! -range=0 -complete=customlist,man#complete -nargs=* Tman call man#open_page(v:count, v:count1, <q-mods>, <f-args>) | normal <c-w>T
+" man "{{{
+" function! s:NewTabManPage()
+	
+" endfunction
+command! -range=0 -complete=customlist,man#complete -nargs=* Tman execute(":tab Man " . <q-args>)
 autocmd FileType man nmap <buffer> g/ /^\v\s+
+"}}}
 
 " vim:fdm=marker:

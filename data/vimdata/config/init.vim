@@ -1,6 +1,8 @@
 let $VIMCACHE = expand("$HOME/.vimcache/")
 let s:vim_undodir = expand("$VIMCACHE") . "undo"
 let s:vim_backdir = expand("$VIMCACHE") . "backup"
+let g:default_session_file = expand("$VIMCACHE") . "session.vim"
+
 if !isdirectory(expand("$VIMCACHE")) && exists("*mkdir")
     call mkdir(s:vim_undodir, "p")
     call mkdir(s:vim_backdir, "p")
