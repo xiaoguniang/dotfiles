@@ -282,7 +282,7 @@ let g:tagbar_type_coffee = {
 \ }
 
 map <silent> <Space>t :let b:tagbar_ignore=0<cr>:TagbarToggle<cr>
-map <silent> ,tf :let b:tagbar_ignore=0<cr>:TagbarOpenAutoClose<cr>
+nmap <silent> <Space>T :let b:tagbar_ignore=0<cr>:TagbarOpenAutoClose<cr>
 nmap <Leader>t/ :TagbarOpenAutoClose<cr>/
 vmap <Leader>t/ :TagbarOpenAutoClose<cr>/
 map <silent> <Leader>tp :TagbarTogglePause<cr>
@@ -299,6 +299,7 @@ let g:NERDTreeQuitOnOpen = 0
 let g:NERDTreeShowLineNumbers = 0
 
 nmap <silent> <Space>d :NERDTreeToggle<CR>
+nmap <silent> <Space>D :NERDTreeFocus<CR>
 nmap <silent> <Leader>dc :NERDTreeCWD<CR>
 nmap <silent> <Leader>df :NERDTreeFind<cr>
 nmap <Leader>db :NERDTreeFromBookmark 

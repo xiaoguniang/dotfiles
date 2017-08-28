@@ -154,4 +154,10 @@ int ${1:n} = rand();
 $0
 endsnippet
 
+snippet asm "inline asm code" b
+__asm__ __volatile__ (
+		"${1:hlt};"
+		);
+endsnippet
+
 # vim:ft=snippets:

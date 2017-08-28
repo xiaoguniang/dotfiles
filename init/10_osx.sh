@@ -8,6 +8,9 @@ if [[ ! -d "$('xcode-select' -print-path 2>/dev/null)" ]]; then
   sudo xcode-select -switch /usr/bin
 fi
 
+# Install brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # Install Monaco Font
 open ~/.dotfiles/data/Mac/Monaco+for+Powerline.otf
 
