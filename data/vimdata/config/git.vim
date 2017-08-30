@@ -17,6 +17,8 @@ nmap <silent> ,ob :Gbrowse<cr>
 "}}}
 
 nmap <silent> ,gb :Unite giti/branch<cr>
+nmap <silent> <space>gs :Gstatus<cr><c-n>
+nmap <silent> <space>gm :Magit<cr>
 
 " vim Gitgutter"{{{
 let g:gitgutter_enabled = 0

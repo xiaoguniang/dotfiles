@@ -552,7 +552,7 @@ export FZF_DEFAULT_OPTS="--extended"
 
 # FreeWheel # {{{
 export GOPATH="$HOME/go"
-# secureAddGoPath "$HOME/go" start
+secureAddGoPath "$HOME/go" start
 secureAddPath "$HOME/go/bin" start
 secureSource "$HOME/.dotfiles/private/freewheel/plugin.zsh"
 # }}}
