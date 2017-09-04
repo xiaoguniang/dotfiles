@@ -25,7 +25,7 @@ install_tap() {
 }
 
 upgrade_list() {
-	echo "neovim nvim ctags tmux"
+	echo "neovim nvim ctags tmux zgen gocode"
 }
 
 main() {
@@ -33,6 +33,8 @@ main() {
 		neovim|nvim ) upgradeNeovim ;;
 		ctags ) brew reinstall --HEAD universal-ctags ;;
 		tmux ) brew reinstall --HEAD tmux ;;
+		zgen ) zgen selfupdate; zgen update ;;
+		gocode ) go get -u github.com/nsf/gocode ;;
 		i|-i|install ) install_tap ;;
 		-l) upgrade_list ;;
 		* ) usage ;;
