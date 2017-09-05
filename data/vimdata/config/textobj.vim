@@ -16,7 +16,7 @@ Plug 'https://github.com/kana/vim-textobj-lastpat'
 Plug 'https://github.com/saaguero/vim-textobj-pastedtext'
 Plug 'https://github.com/bps/vim-textobj-python', {'for': 'python'}
 Plug 'https://github.com/christoomey/vim-system-copy'
-Plug 'https://github.com/kana/vim-textobj-line'
+" Plug 'https://github.com/kana/vim-textobj-line'
 " Plug 'https://github.com/kana/vim-operator-user'
 " Plug 'https://github.com/machakann/vim-operator-insert'
 " Plug 'https://github.com/kana/vim-textobj-fold'
@@ -26,8 +26,10 @@ Plug 'https://github.com/kana/vim-textobj-line'
 " Plug 'https://github.com/libclang-vim/vim-textobj-clang'
 " let g:textobj_clang_more_mappings = 1
 
-" textobj pastedtext 
+" textobj pastedtext
 " let g:pastedtext_select_key = 'ip'
+
+nmap <silent> cpl ^cp$
 
 " textobj python
 let g:textobj_python_no_default_key_mappings = 1

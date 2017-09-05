@@ -204,7 +204,7 @@ alias mmv='noglob zmv -W'
 autoload -U zsh-mime-setup
 zsh-mime-setup
 
-zle_bracketed_paste=()
+# zle_bracketed_paste=()
 
 ZSH_HIGHLIGHT_MAXLENGTH=300
 HISTSIZE=50000
