@@ -16,7 +16,7 @@ Plug 'https://github.com/sjl/vitality.vim'
 " Plug 'https://github.com/mattn/webapi-vim'
 " Plug 'https://github.com/heavenshell/vim-slack'
 " Plug 'https://github.com/mattn/gist-vim' ", {'depends': 'mattn/webapi-vim'}
-Plug 'https://github.com/yaasita/edit-slack.vim'
+" Plug 'https://github.com/yaasita/edit-slack.vim'
 
 let g:yaasita_slack_token = expand("$SLACK_TOKEN")
 

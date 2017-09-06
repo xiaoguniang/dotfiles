@@ -40,6 +40,12 @@ function! LoadLatestFile()
 	endif
 endfunction
 
+function! CloseNeoTerminal()
+	if exists(":TcloseAll")
+		execute(":TcloseAll")
+	endif
+endfunction
+
 function! WinRun(cmd, ...)
     let need_input = (a:0 >= 1) ? a:1 : 0
 
@@ -48,6 +54,7 @@ function! WinRun(cmd, ...)
         let args .= input("Please input the arguments: ")
     endif
 
+	call CloseNeoTerminal()
 	let filename = expand('%')
 	botright new | res 15 " | setl nonu | setl nornu
 	call termopen(a:cmd ." ". filename. " " .args)

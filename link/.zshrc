@@ -193,7 +193,7 @@ pcd() {
 
 # Vim Man support # {{{
 vman() {
-	vim -c "Man $1 $2" -c 'silent only'
+	nvim -c "Man $*" -c 'silent only'
 }
 # }}}
 
