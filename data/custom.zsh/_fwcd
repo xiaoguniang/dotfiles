@@ -1,0 +1,3 @@
+#compdef fwcd
+
+_arguments "2: remote directories :(log counter access access-current)"

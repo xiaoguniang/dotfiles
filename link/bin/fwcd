@@ -7,15 +7,30 @@
 get_real_path() {
 	case "$1" in
 		log ) echo "/mnt/log-ads" ;;
-		counter) echo "/home/eng/counter_check/counter/data" ;;
+		counter ) echo "/home/eng/counter_check/counter/data" ;;
+		access ) echo "/mnt/log-ads/archive" ;;
+		access-current ) echo "/mnt/log-ads/current" ;;
 		* ) echo "$1" ;;
 	esac
+}
+
+dir_bookmark_list() {
+	echo log counter access access-current
+	exit 0
 }
 
 main() {
 	local host=$1
 	local dir=$2
 	local realdir=$(get_real_path $dir)
+
+	local OPT OPTARG OPTIND
+	while getopts 'l' OPT; do
+		case $OPT in
+			l) dir_bookmark_list ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
 
 	ssh -t $host "cd $realdir ; \$SHELL"
 }

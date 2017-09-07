@@ -21,7 +21,7 @@ Plug 'https://github.com/tpope/vim-endwise' " wisely add endfunction/endif/more 
 
 if has('python') && empty($SSH_CLIENT)
 Plug 'https://github.com/SirVer/ultisnips.git'
-Plug 'https://github.com/reconquest/vim-pythonx'
+" Plug 'https://github.com/reconquest/vim-pythonx'
 endif
 
 Plug 'https://github.com/honza/vim-snippets.git'

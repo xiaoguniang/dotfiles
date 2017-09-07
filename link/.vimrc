@@ -63,10 +63,7 @@ Plug 'https://github.com/alepez/vim-gtest'
 "}}}
 
 " Google Plugins"{{{
-Plug 'https://github.com/google/vim-maktaba'
-Plug 'google/vim-glaive'
 " Plug 'google/vim-syncopate'
-Plug 'https://github.com/google/vim-codefmt'
 "}}}
 
 " NeoBundle 'https://github.com/jiangmiao/auto-pairs.git'

@@ -3,11 +3,16 @@
 Plug 'https://github.com/Shougo/unite.vim.git'
 Plug 'https://github.com/Shougo/neoyank.vim'
 Plug 'https://github.com/thinca/vim-unite-history.git'
+
+Plug 'https://github.com/kmnk/vim-unite-giti'
+
 " Plug 'https://github.com/Shougo/unite-outline'
 " Plug 'https://github.com/zeero/vim-ctrlp-help'
 " Plug 'https://github.com/tsukkee/unite-tag'
 " Plug 'https://github.com/Shougo/junkfile.vim'
 "}}}
+
+nmap <silent> ,gb :Unite giti/branch<cr>
 
 " unite "{{{
 let g:unite_source_bookmark_directory = expand("$CUSDATA/UnitBookmark/")

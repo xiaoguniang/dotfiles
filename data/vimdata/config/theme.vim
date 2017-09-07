@@ -53,3 +53,7 @@ let g:airline#extensions#syntastic#enabled = 0
 " let g:airline_section_z = '%3p%% %#__accent_bold#%{g:airline_symbols.linenr}%#__accent_bold#%2{bufnr("")}%#__restore__#%#__restore__#:%3v' 
 nmap <silent> ,af :AirlineRefresh<cr>
 "}}}
+
+" icon "{{{
+" Plug 'https://github.com/ryanoasis/vim-devicons'
+"}}}

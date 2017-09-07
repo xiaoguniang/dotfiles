@@ -3,7 +3,6 @@ Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/jreybert/vimagit'
 " Plug 'https://github.com/idanarye/vim-merginal'
-Plug 'https://github.com/kmnk/vim-unite-giti'
 Plug 'https://github.com/shumphrey/fugitive-gitlab.vim' ", {'on': 'Gbrowse'}
 Plug 'https://github.com/tpope/vim-rhubarb'
 
@@ -16,7 +15,6 @@ nmap <silent> <Leader>gd :Gdiff<cr>
 nmap <silent> ,ob :Gbrowse<cr>
 "}}}
 
-nmap <silent> ,gb :Unite giti/branch<cr>
 nmap <silent> <space>gs :Gstatus<cr><c-n>
 nmap <silent> <space>gm :Magit<cr>
 
