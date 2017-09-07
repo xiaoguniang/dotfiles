@@ -133,6 +133,7 @@ command! -nargs=+ -complete=command Tcapture call CaptureWithCmd('tabnew', "<ban
 	
 " endfunction
 command! -range=0 -complete=customlist,man#complete -nargs=* Tman execute(":tab Man " . <q-args>)
+command! -range=0 -complete=customlist,man#complete -nargs=* Vman execute(":vertical botright Man " . <q-args>)
 autocmd FileType man nmap <buffer> g/ /^\v\s+
 "}}}
 
