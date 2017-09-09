@@ -32,7 +32,7 @@ tnoremap <A-q> <C-\><C-n><c-w>c<c-w>p
 " tnoremap <A-\> <c-\><c-n>"*pi
 " tnoremap <C-v> <c-\><c-n>"*pi
 " tnoremap <D-v> <c-\><c-n>"*pi
-tnoremap <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
+tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
 
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
