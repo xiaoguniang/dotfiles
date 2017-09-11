@@ -82,12 +82,13 @@ if &tabpagemax < 50
 endif
 
 if !empty(&viminfo)
-	set viminfo^=!
+	set viminfo+=!
 endif
 
-if !has('nvim')
-	execute('set viminfo+=n' .s:vim_backdir)
-else
+" if !has('nvim')
+	" execute('set viminfo+=n' .s:vim_backdir)
+" else
+if has('nvim')
 	set shada+=%
 endif
 

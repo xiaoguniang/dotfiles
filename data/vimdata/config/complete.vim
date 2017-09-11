@@ -40,9 +40,8 @@ function! DeopleteInit()
 	call deoplete#custom#source('buffer', 'dup', 1)
 endfunction
 
-autocmd VimEnter * call DeopleteInit()
-
 if has('nvim')
+	autocmd VimEnter * call DeopleteInit()
 	autocmd InsertEnter * call deoplete#enable()
 endif
 " let g:deoplete#auto_complete_delay = 125
