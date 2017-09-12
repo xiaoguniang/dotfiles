@@ -19,6 +19,15 @@ Plug 'https://github.com/Shougo/vinarise.vim'
 
 Plug 'https://github.com/tpope/vim-endwise' " wisely add endfunction/endif/more in vim script
 
+if has('mac')
+	Plug 'https://github.com/ybian/smartim.git' ", {'on': 'SmartIM'}
+	let g:smartim_disable = 1
+	command! -nargs=0 SmartIM let g:smartim_disable = 0
+	command! -nargs=0 SmartIMdisable let g:smartim_disable = 1
+else
+	" Plug 'https://github.com/vim-scripts/fcitx.vim.git'
+endif
+
 if has('python') && empty($SSH_CLIENT)
 Plug 'https://github.com/SirVer/ultisnips.git'
 " Plug 'https://github.com/reconquest/vim-pythonx'

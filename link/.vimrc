@@ -73,15 +73,6 @@ Plug 'https://github.com/alepez/vim-gtest'
 " NeoBundle 'https://github.com/eagletmt/neco-ghc'
 "}}}
 
-if has('mac')
-    " Plug 'https://github.com/ybian/smartim.git'
-    Plug 'https://github.com/rizzatti/dash.vim.git'
-    nmap <silent> <leader>z <Plug>DashSearch
-else
-    Plug 'https://github.com/KabbAmine/zeavim.vim'
-	" Plug 'https://github.com/vim-scripts/fcitx.vim.git'
-endif
-
 " Plug 'https://github.com/terryma/vim-expand-region'
 " NeoBundle 'https://github.com/xolox/vim-notes.git'
 " Plug 'https://github.com/tpope/vim-speeddating.git'

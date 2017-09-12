@@ -110,7 +110,6 @@ secureAddPath "$HOME/.gem/ruby/2.0.0/bin"
 secureAddPath "/usr/local/bin" start
 secureAddPath "/usr/local/sbin"
 secureAddPath "$HOME/.local/bin" start
-secureAddPath /usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/bin
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export LC_ALL=en_US.UTF-8
@@ -258,6 +257,8 @@ alias vlarge='nvim -n -u NONE -i NONE -N'
 if which nvim &> /dev/zero; then
 	alias vim='nvim'
 fi
+
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 vimprofiler() {
 	local dir=$(pre_require "https://github.com/bchretien/vim-profiler")

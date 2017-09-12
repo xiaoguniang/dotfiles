@@ -33,10 +33,19 @@ Plug 'google/vim-glaive', {'on': ['FormatCode', 'FormatLines', 'AutoFormatBuffer
 Plug 'https://github.com/google/vim-codefmt', {'on': ['FormatCode', 'FormatLines', 'AutoFormatBuffer']}
 "}}}
 
+" document "{{{
+if has('mac')
+    Plug 'https://github.com/rizzatti/dash.vim.git'
+    nmap <silent> <leader>z <Plug>DashSearch
+else
+    Plug 'https://github.com/KabbAmine/zeavim.vim'
+endif
+"}}}
+
 " ale "{{{
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
-			\ 'cpp': ['clang', 'cppcheck', 'cpplint', 'g++']
+			\ 'cpp': ['clang', 'cppcheck', 'cpplint', 'g++'],
+			\ 'go' : ['gofmt', 'golint', 'gometalinter', 'go vet', 'staticcheck']
 			\ }
 "}}}
 
