@@ -289,7 +289,7 @@ function preCheck() {
 
 InitRepo() {
   local with_private="$1"
-  PRIVATE_REPO="git@git.coding.net:hbliu/dotfiles_private.git"
+  PRIVATE_REPO="https://git.coding.net/hbliu/dotfiles_private.git"
   git submodule update --recursive
   if [[ $with_private == "true" ]]; then
     git clone $PRIVATE_REPO "$PRIVATE_DIR"

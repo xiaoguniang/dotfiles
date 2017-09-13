@@ -3,12 +3,15 @@
 # Date: 2017-05-09
 # Last Modified: 2017-05-09
 
+g_private_link="$HOME/.dotfiles/private/link"
+g_link="$HOME/.dotfiles/link"
+
 usage() {
 	cat << EOF
 Usage: $(basename "$0") source [dest|-p|-l]
 
--l		# link to $HOME/.dotfiles/link
--p		# link to $HOME/.dotfiles/private
+-l		# link to $g_link
+-p		# link to $g_private_link
 EOF
 exit 0
 }
@@ -31,8 +34,8 @@ main() {
 
 	while getopts 'plh' OPT; do
 		case $OPT in
-			p) dest="$HOME/.dotfiles/private" ;;
-			l) dest="$HOME/.dotfiles/link" ;;
+			p) dest="$g_private_link" ;;
+			l) dest="$g_link" ;;
 			h) usage ;;
 			?) usage ;;
 		esac

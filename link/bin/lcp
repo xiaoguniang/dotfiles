@@ -1,0 +1,52 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-09-13
+# Last Modified Date: 2017-09-13
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+g_private_link="$HOME/.dotfiles/private/link"
+g_link="$HOME/.dotfiles/link"
+
+usage() {
+cat << EOF
+Usage: $(basename $0) -pla
+
+Options:
+  -h	show this help
+  -p	Make link of private/link into home directory
+  -l	Make link of link into home directory
+  
+EOF
+exit 0
+}
+
+lcp() {
+	local src_dir="$1"
+
+	for f in $src_dir/{.*,*}; do
+		local base=${f##*/}
+		if [[ $base == "." || $base == ".." ]]; then
+			continue
+		fi
+		ln -sf "$f" $HOME/
+	done
+}
+
+main() {
+	local srcdir="$g_link"
+
+	local OPT OPTARG OPTIND
+	while getopts 'pl' OPT; do
+		case $OPT in
+			p) srcdir="$g_private_link" ;;
+			l) srcdir="$g_link" ;;
+			h) usage ;;
+			?) ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
+
+	lcp "$srcdir"
+}
+
+main $@

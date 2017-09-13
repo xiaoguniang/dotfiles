@@ -53,7 +53,7 @@ EOPLUGINS
 
     # completions
 	zgen load zsh-users/zsh-completions src
-	zgen load petronny/pinyin-completion shell
+	# zgen load petronny/pinyin-completion shell
 
 	zgen oh-my-zsh themes/robbyrussell
 
