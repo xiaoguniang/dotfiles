@@ -253,12 +253,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # }}}
 
 # vim# {{{
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
 alias vlarge='nvim -n -u NONE -i NONE -N'
 if which nvim &> /dev/zero; then
-	alias vim='nvim'
+	alias nvr='env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr'
+	alias vim='env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvim'
 fi
-
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 vimprofiler() {
 	local dir=$(pre_require "https://github.com/bchretien/vim-profiler")
@@ -401,8 +402,10 @@ tcd() {
 	cd $(tmux display-message -p -F '#{pane_current_path}' -t'!')
 }
 
+export TMUX_WINDOW_ID="$(tmux display -p '#S_#I' 2> /dev/zero)"
+
 # tmuxinator
-secureSource "$GITHUB_DIR/tmuxinator/completion/tmuxinator.zsh"
+# secureSource "$GITHUB_DIR/tmuxinator/completion/tmuxinator.zsh"
 
 # autoload -U __tmux-sessions
 # compdef __tmux-sessions ptmux
@@ -549,7 +552,7 @@ export FZF_DEFAULT_OPTS="--extended"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # }}}
 
-[[ -s "/Users/hbliu/.gvm/scripts/gvm" ]] && source "/Users/hbliu/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # FreeWheel # {{{
 export GOPATH="$HOME/go"

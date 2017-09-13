@@ -1,0 +1,23 @@
+#!/bin/zsh
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-09-12
+# Last Modified Date: 2017-09-12
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+NVR=""
+
+main() {
+	local defautl_cmd="e"
+
+	local OPT OPTARG OPTIND
+	while getopts 'c' OPT; do
+		case $OPT in
+			c) defautl_cmd="" ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
+
+	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr -cc ':wincmd w' -c "${defautl_cmd} $*"
+}
+
+main $@

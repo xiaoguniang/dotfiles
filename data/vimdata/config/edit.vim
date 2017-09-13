@@ -103,7 +103,8 @@ endfunction
 " Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
     let g:deoplete#disable_auto_complete = 0
-    unlet g:smartim_disable
+    let g:smartim_disable = 0
+    " unlet g:smartim_disable
 endfunction
 
 function! TextObjectMultipleCursors(type, ...)
