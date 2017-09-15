@@ -29,3 +29,5 @@ core:~/FreeWheel/core_common/src
 11253:~/FreeWheel/INK-11253/src
 regression:~/github/AdserverRegressionTestTool
 fwcode:~/FreeWheel
+adr:~/FreeWheel/BCHIP
+ca:~/FreeWheel/BCHIP/src/bchip/ca

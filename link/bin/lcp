@@ -7,6 +7,8 @@
 g_private_link="$HOME/.dotfiles/private/link"
 g_link="$HOME/.dotfiles/link"
 
+backup_dir="$DOTFILES/backups/$(date "+%Y_%m_%d-%H_%M_%S")/"
+
 usage() {
 cat << EOF
 Usage: $(basename $0) -pla
@@ -28,7 +30,16 @@ lcp() {
 		if [[ $base == "." || $base == ".." ]]; then
 			continue
 		fi
-		ln -sf "$f" $HOME/
+
+		local dest_file="$HOME/$base"
+
+		if [[ -e "$dest_file" ]]; then
+			mkdir -p "$backup_dir"
+			mv $dest_file $backup_dir
+		fi
+
+		echo "Linking $f into $HOME/"
+		ln -s "$f" $HOME/
 	done
 }
 

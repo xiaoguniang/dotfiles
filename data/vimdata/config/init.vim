@@ -88,9 +88,9 @@ endif
 " if !has('nvim')
 	" execute('set viminfo+=n' .s:vim_backdir)
 " else
-if has('nvim')
-	set shada+=%
-endif
+" if has('nvim')
+	" set shada+=%
+" endif
 
 if &shell =~# 'fish$'
 	set shell=/bin/bash

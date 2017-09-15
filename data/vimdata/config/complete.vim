@@ -63,7 +63,7 @@ endif
             " \ deoplete#mappings#manual_complete()
 " call deoplete#custom#set('_', 'matchers', ['matcher_head'])
 
-let g:clang_library_path = '/usr/local/Cellar/llvm/4.0.0/lib'
+let g:clang_library_path = '/usr/local/Cellar/llvm/5.0.0/lib'
 "}}}
 
 " echodoc"{{{
