@@ -31,6 +31,7 @@ main() {
 	local OPT OPTARG OPTIND
 
 	source=$1
+	shift 1
 
 	while getopts 'plh' OPT; do
 		case $OPT in

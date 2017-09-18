@@ -1,6 +1,6 @@
 " Plug 'https://github.com/rhysd/vim-grammarous'
 
-Plug 'https://github.com/eaglelzy/vim-hexo'
+Plug 'https://github.com/hiberabyss/vim-hexo'
 
 let g:hexoRootPath = expand("$HOME/Projects/Hexo/blog/")
 

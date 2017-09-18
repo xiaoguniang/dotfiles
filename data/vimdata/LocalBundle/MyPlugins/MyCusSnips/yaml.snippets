@@ -1,0 +1,12 @@
+snippet service "docker service" b
+${1:ServiceName}:
+  image: ${2:ImageName}
+  container_name: $1
+  hostname: $1
+  tty: true
+  ports:
+    - "${3:8080}:${4:8080}"
+  volumes:
+    - ${5:host:docker}
+  entrypoint: $6
+endsnippet
