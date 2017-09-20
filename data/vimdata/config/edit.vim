@@ -126,9 +126,11 @@ nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
 " Switch "{{{
 let g:switch_mapping = "-"
 
-let g:switch_custom_definitions =
+autocmd VimEnter * let g:switch_custom_definitions =
 			\ [
 			\ 	['$HOME', expand('$HOME')],
+			\	switch#NormalizedCase(['disabled', 'enabled']),
+			\	switch#NormalizedCase(['disable', 'enable'])
 			\ ]
 "}}}
 

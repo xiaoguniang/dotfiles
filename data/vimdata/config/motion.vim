@@ -1,5 +1,6 @@
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'rhysd/clever-f.vim'
+Plug 'https://github.com/terryma/vim-expand-region'
 " Plug 'https://github.com/vim-scripts/camelcasemotion.git'
 
 " Easymotion"{{{

@@ -320,6 +320,12 @@ else
 fi
 # }}}
 
+# fasd #{{{
+bindkey '^X^A' fasd-complete    # C-x C-a to do fasd-complete (fils and directories)
+bindkey '^X^F' fasd-complete-f  # C-x C-f to do fasd-complete-f (only files)
+bindkey '^X^D' fasd-complete-d  # C-x C-d to do fasd-complete-d (only directories)
+# }}}
+
 # Key bindings # {{{
 # man zshzle
 bindkey \^U backward-kill-line # default: kill-whole-line ^x^k

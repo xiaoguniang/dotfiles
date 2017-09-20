@@ -73,7 +73,6 @@ Plug 'https://github.com/alepez/vim-gtest'
 " NeoBundle 'https://github.com/eagletmt/neco-ghc'
 "}}}
 
-" Plug 'https://github.com/terryma/vim-expand-region'
 " NeoBundle 'https://github.com/xolox/vim-notes.git'
 " Plug 'https://github.com/tpope/vim-speeddating.git'
 " NeoBundle 'https://github.com/benmills/vimux.git'

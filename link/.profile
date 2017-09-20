@@ -22,3 +22,5 @@ if [[ -d $HOME_BIN ]]; then
 	export PATH=$PATH:$HOME_BIN
 fi
 export __PROFILE=".profile Loaded"
+
+[[ -s "/Users/hbliu/.gvm/scripts/gvm" ]] && source "/Users/hbliu/.gvm/scripts/gvm"
