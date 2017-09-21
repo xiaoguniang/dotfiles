@@ -56,8 +56,11 @@ function! WinRun(cmd, ...)
 
 	call CloseNeoTerminal()
 	let filename = expand('%')
+	let old_dir = getcwd()
+	cd %:p:h
 	botright new | res 15 " | setl nonu | setl nornu
 	call termopen(a:cmd ." ". filename. " " .args)
+	execute("cd " .old_dir)
 	startinsert
 endfunction
 

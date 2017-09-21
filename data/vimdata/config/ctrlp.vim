@@ -61,6 +61,13 @@ nmap <silent> <Leader>pb :CtrlPBookmarkDir<cr>
 nmap <silent> <Leader>pf :CtrlPCurWD<cr>
 nmap <silent> <Leader>pl :CtrlPLine<cr>
 
+" ctrlpz "{{{
+Plug 'https://github.com/vim-scripts/ctrlp-z'
+nmap <silent> <Space>pf :CtrlPF<cr>
+nmap <silent> <Space>pz :CtrlPZ<cr>
+let g:ctrlp_z_nerdtree = 1
+"}}}
+
 let g:ctrlp_help_default_mode = 't'
 nmap <silent> ,ph :CtrlPHelp<cr>
 nnoremap <A-f>  :<C-u>CtrlPCurWD<CR>

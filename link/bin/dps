@@ -12,6 +12,7 @@ Options:
   -i     add container ID info
   -c	 add container command info
   -s     add container Status info
+  -p	 show port info
   -h     show this help
 EOF
 exit 0
@@ -22,19 +23,20 @@ main() {
 	local format_name="{{ .Names }}," format_id format_status
 	local show_all=""
 
-	while getopts 'hainsc' OPT; do
+	while getopts 'hainscp' OPT; do
 		case $OPT in
 			h) usage ;;
 			i) format_id="{{ .ID }}," ;;
 			n) format_name="{{ .Names }}," ;;
 			s) format_status="{{ .Status }}," ;;
 			c) format_command="{{ .Command }},"; notrunc="--no-trunc" ;;
+			p) format_port="{{ .Ports }}," ;;
 			a) show_all="-a" ;;
 		esac
 	done
 	shift $(($OPTIND - 1))
 
-	docker ps $show_all ${notrunc} --format "${format_id}${format_name}${format_command}${format_status}" | column -s',' -t
+	docker ps $show_all ${notrunc} --format "${format_id}${format_name}${format_command}${format_status}${format_port}" | column -s',' -t
 }
 
 main $@

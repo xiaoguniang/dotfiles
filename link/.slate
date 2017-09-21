@@ -2,6 +2,7 @@
 config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
+# config menuBarIconHidden true
 
 bind r:ctrl;alt;cmd relaunch
 
@@ -83,8 +84,8 @@ bind x:shift;cmd;alt layout texteditquadrants
 bind w:shift;cmd;alt layout texteditquadrants2
 
 # focus
-bind s:alt focus 'Sequel Pro'
-bind a:alt focus 'App Store'
-bind m:alt focus 'Movist'
+# bind s:alt focus 'Sequel Pro'
+bind s:alt focus 'Slack'
+# bind m:alt focus 'Movist'
 
 # vim:set ft=conf:

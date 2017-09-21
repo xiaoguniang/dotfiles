@@ -17,7 +17,7 @@ main() {
 	done
 	shift $(($OPTIND - 1))
 
-	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr -cc ':wincmd w' -c "${defautl_cmd} $*"
+	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr -cc ':wincmd w' -c ":lcd $PWD" -c "${defautl_cmd} $*"
 }
 
 main $@
