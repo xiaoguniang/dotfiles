@@ -5,8 +5,8 @@ autocmd FileType tex setl sw=2 " | setl iskeyword+=:
 autocmd FileType html setl sw=2 | setl fdm=syntax
 autocmd FileType json,ruby setl fdm=syntax
 
+			" \ "*.pem,*.cert": "cert",
 let g:extension_filtype_map = {
-			\ "*.pem,*.cert": "cert",
 			\ "*.txx": "cpp"
 			\ }
 

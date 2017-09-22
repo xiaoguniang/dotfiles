@@ -104,7 +104,6 @@ let g:instant_markdown_allow_unsafe_content = 1
 
 " go {{{
 Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
-Plug 'zchee/deoplete-go', {'do': 'make'}
 Plug 'https://github.com/tenfyzhong/golint-fixer.vim'
 
 " vimgo "{{{

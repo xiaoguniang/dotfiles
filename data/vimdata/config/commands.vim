@@ -115,6 +115,8 @@ function! CaptureWithCmd(cmd, bang, ...)
 	let g:capture_open_command = a:cmd
 
 	execute(printf(':Capture%s %s', a:bang, join(a:000)))
+	execute("resize " .min([line('$') + 1, winheight('.')]))
+	" resize min([line('$') + 1, winheight('.')])
 
 	let g:capture_open_command = default_cmd
 endfunction

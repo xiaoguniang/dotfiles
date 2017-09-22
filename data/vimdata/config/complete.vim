@@ -7,6 +7,7 @@ endif
 Plug 'https://github.com/Shougo/neoinclude.vim'
 Plug 'https://github.com/wellle/tmux-complete.vim'
 Plug 'https://github.com/zchee/deoplete-jedi'
+Plug 'zchee/deoplete-go', {'do': 'make'}
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 " Plug 'https://github.com/zchee/deoplete-asm'
 
@@ -37,6 +38,7 @@ let g:context_filetype#same_filetypes = 1
 function! DeopleteInit()
 	call deoplete#custom#source('clang_complete', 'rank', 9999)
 	call deoplete#custom#source('vim', 'rank', 9999)
+	call deoplete#custom#source('go', 'rank', 9999)
 	call deoplete#custom#source('buffer', 'dup', 1)
 endfunction
 
