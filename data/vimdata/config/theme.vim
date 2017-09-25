@@ -57,3 +57,5 @@ nmap <silent> ,af :AirlineRefresh<cr>
 " icon "{{{
 " Plug 'https://github.com/ryanoasis/vim-devicons'
 "}}}
+
+Plug 'https://github.com/powerman/vim-plugin-AnsiEsc', {'on': 'AnsiEsc'}

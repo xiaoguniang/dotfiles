@@ -31,6 +31,7 @@ Plug 'https://github.com/google/vim-maktaba', {'on': ['FormatCode', 'FormatLines
 Plug 'google/vim-glaive', {'on': ['FormatCode', 'FormatLines', 'AutoFormatBuffer']}
 " Pre-requirement: vim-glaive vim-maktaba
 Plug 'https://github.com/google/vim-codefmt', {'on': ['FormatCode', 'FormatLines', 'AutoFormatBuffer']}
+" Plug 'https://github.com/Chiel92/vim-autoformat'
 "}}}
 
 " document "{{{

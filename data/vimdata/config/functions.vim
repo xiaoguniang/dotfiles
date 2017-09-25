@@ -55,7 +55,7 @@ function! WinRun(cmd, ...)
     endif
 
 	call CloseNeoTerminal()
-	let filename = expand('%')
+	let filename = expand('%:p')
 	let old_dir = getcwd()
 	cd %:p:h
 	botright new | res 15 " | setl nonu | setl nornu

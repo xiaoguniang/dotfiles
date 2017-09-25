@@ -57,6 +57,7 @@ let g:ctrlp_mruf_exclude = '*.o\|*.bin\|*.elf\|*.swp'
 let g:ctrlp_arg_map = 1
 nmap <silent> <C-P> :<C-U>call CtrlPModeSwitch()<cr>
 nmap <silent> <C-j> :CtrlPBufTag<cr>
+imap <silent> <C-j> <Down>
 nmap <silent> <Leader>pb :CtrlPBookmarkDir<cr>
 nmap <silent> <Leader>pf :CtrlPCurWD<cr>
 nmap <silent> <Leader>pl :CtrlPLine<cr>
