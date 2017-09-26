@@ -41,3 +41,10 @@ if _, err := os.Stat("/path/to/whatever"); os.IsNotExist(err) {
 	// path/to/whatever does not exist
 }
 endsnippet
+
+snippet getcurdir "get current diretory" b
+func getCurrentDir() string {
+	_, filename, _, _ := runtime.Caller(0)
+	return filepath.Dir(filename)
+}
+endsnippet

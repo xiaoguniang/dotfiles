@@ -24,7 +24,7 @@ map <buffer> <silent> ,rr :call WinRun("go run")<cr>
 nmap <buffer> <silent> ,rd :call GoDebugRun()<cr>
 map <buffer> <silent> ,rt :GoTest<cr>
 map <buffer> <silent> ,gi :GoImports<cr>
-nmap <buffer> <silent> gd :GoDef<CR>
+" nmap <buffer> <silent> gd :GoDef<CR>
 
 command! -buffer -nargs=0 -bang A call go#alternate#Switch(<bang>0, 'edit')
 command! -buffer -nargs=0 -bang AV call go#alternate#Switch(<bang>0, 'vsplit')

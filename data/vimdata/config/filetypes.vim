@@ -110,7 +110,7 @@ Plug 'https://github.com/tenfyzhong/golint-fixer.vim'
 let g:go_autodetect_gopath = 1
 let g:go_term_mode = "botright split"
 let g:go_fmt_autosave = 0
-let g:go_def_mapping_enabled = 0
+let g:go_def_mapping_enabled = 1
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_enabled = ['vet', 'errcheck']
 let g:go_metalinter_autosave_enabled = ['vet']
