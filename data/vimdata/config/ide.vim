@@ -246,16 +246,6 @@ let g:tagbar_type_vim = {
     \ 'sort': 1,
 \ }
 
-let g:tagbar_type_zsh = {
-    \ 'ctagstype': 'sh',
-    \ 'kinds' : [
-        \ 't:Section',
-        \ 'f:functions',
-        \ 'a:aliases'
-    \ ],
-    \ 'sort': 0,
-\ }
-
 let g:tagbar_type_bib = {
     \ 'ctagstype': 'bib',
     \ 'kinds' : [

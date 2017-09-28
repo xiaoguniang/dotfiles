@@ -526,6 +526,8 @@ compctl -M 'm:{a-zA-Z}={A-Za-z}' -g "$VIMWIKI_DIR/*(:t:r)" vwiki
 # Docker # {{{
 COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
 
+alias mydc="COMPOSE_FILE=$HOME/.docker-compose.yaml docker-compose"
+
 # export DOCKER_TLS_VERIFY="1"
 # export DOCKER_HOST="tcp://192.168.99.100:2376"
 # export DOCKER_CERT_PATH="/Users/hbliu/.docker/machine/machines/default"
@@ -541,9 +543,14 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # hook chpwd
 function precmd() {
-  if [ -r $PWD/.zsh_config ]; then
-    source $PWD/.zsh_config
-  fi
+	local project_root="$(git rev-parse --show-toplevel 2> /dev/zero)/.git"
+	if [[ -r "$project_root/zshrc" ]]; then
+		source "$project_root/zshrc"
+	fi
+
+	if [[ -r $PWD/.zsh_config ]]; then
+		source $PWD/.zsh_config
+	fi
 }
 
 # Video Convert

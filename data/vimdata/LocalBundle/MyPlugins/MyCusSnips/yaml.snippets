@@ -10,3 +10,15 @@ ${1:ServiceName}:
     - ${5:host:docker}
   entrypoint: $6
 endsnippet
+
+snippet mysql "mysql docker service" b
+db:
+  image: mysql:latest
+  container_name: db
+  hostname: db
+  tty: true
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+  ports:
+    - "3306:3306"
+endsnippet
