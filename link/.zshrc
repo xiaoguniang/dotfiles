@@ -356,6 +356,10 @@ fi
 secureAddPath "/usr/local/opt/llvm/bin" "start"
 # }}}
 
+nvm() {
+	source $HOME/.nvm/nvm.sh && nvm $*
+}
+
 # Useful functions # {{{
 smount() {
 	NODE="${1:-dfw32}"
@@ -542,6 +546,7 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # }}}
 
 # hook chpwd
+
 function precmd() {
 	local project_root="$(git rev-parse --show-toplevel 2> /dev/zero)/.git"
 	if [[ -r "$project_root/zshrc" ]]; then
