@@ -6,6 +6,7 @@ services:
     container_name: db
     hostname: db
     tty: true
+    restart: always
     volumes:
       - $HOME/.docker-compose/mysql:/var/lib/mysql
     environment:

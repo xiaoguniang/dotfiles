@@ -42,9 +42,31 @@ if _, err := os.Stat("/path/to/whatever"); os.IsNotExist(err) {
 }
 endsnippet
 
+snippet httpget "http get request" b
+res, err := http.Get(fmt.Sprintf("http://localhost:8055/getcert?serial=%s&cn=%s", serialNumber, commonName))
+if err != nil {
+	fmt.Printf("Send get request error: %s\n", err)
+}
+
+cert, err := ioutil.ReadAll(res.Body)
+res.Body.Close()
+endsnippet
+
 snippet getcurdir "get current diretory" b
 func getCurrentDir() string {
 	_, filename, _, _ := runtime.Caller(0)
 	return filepath.Dir(filename)
+}
+endsnippet
+
+snippet http "http server" b
+func hello(w http.ResponseWriter, r *http.Request) {
+	// userName : r.URL.Query().Get("name") // get the first value
+	io.WriteString(w, "Hello world!")
+}
+
+func main() {
+	http.HandleFunc("/", hello)
+	http.ListenAndServe(":8000", nil)
 }
 endsnippet
