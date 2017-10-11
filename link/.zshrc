@@ -275,6 +275,10 @@ function = {
 alias c='noglob ='
 # }}}
 
+# minikube #{{{
+alias minikenv='eval $(minikube docker-env)'
+# }}}
+
 # Aliases # {{{
 alias ql='qlmanage -p &> /dev/null'
 alias -g NF='*(.om[1])'

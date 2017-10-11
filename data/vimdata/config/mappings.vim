@@ -123,6 +123,7 @@ endfunction
 
 if empty($SSH_CLIENT)
     nmap <expr> <silent> ,ya ':%yank ' . g:clipboard_reg . '<CR>'
+    nmap <silent> ,yc :let @+ = printf("```\n%s\n```", @+)<CR>
     vmap <expr> <silent> ,y '"' .g:clipboard_reg. 'y'
     nmap <expr> <silent> ]v ':call PasteFromClipboard()<cr>"' .g:clipboard_reg. 'p'
     nmap <expr> <silent> [v ':call PasteFromClipboard()<cr>"' .g:clipboard_reg. 'P'
