@@ -88,7 +88,7 @@ TABTITLE_CUSTOM_IGNORE_PATTERN="rmux"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$DOTDATA/custom.zsh"
+ZSH_CUSTOM="$DOTDATA/custom.zsh.d"
 
 # source $ZSH/oh-my-zsh.sh
 # }}}
