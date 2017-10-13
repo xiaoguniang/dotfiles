@@ -3,6 +3,10 @@ package main
 
 endsnippet
 
+snippet getenv "Get System Environment" b
+os.Getenv("${1:HOME}")
+endsnippet
+
 snippet defer "defer function" b
 defer func() {
 	$0

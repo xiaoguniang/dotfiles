@@ -275,8 +275,9 @@ function = {
 alias c='noglob ='
 # }}}
 
-# minikube #{{{
+# kubernetes minikube #{{{
 alias minikenv='eval $(minikube docker-env)'
+export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/config-bjo
 # }}}
 
 # Aliases # {{{
