@@ -14,6 +14,7 @@ Plug 'https://github.com/benmills/vim-commadown' ", {'on': 'CommaDown'}
 Plug 'https://github.com/sjl/gundo.vim.git', {'on' : ['GundoToggle']}
 " Plug 'https://github.com/mbbill/undotree', {'on' : ['UndotreeToggle']}
 Plug 'https://github.com/christoomey/vim-sort-motion'
+" Plug 'https://github.com/vim-scripts/DrawIt'
 
 Plug 'https://github.com/Shougo/vinarise.vim'
 
