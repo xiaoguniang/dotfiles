@@ -426,10 +426,6 @@ export TMUX_WINDOW_ID="$(tmux display -p '#S_#I' 2> /dev/zero)"
 # compdef __tmux-sessions ptmux
 # }}}
 
-rscreen() {
-	ssh "$@" -t 'screen -rd hbliu'
-}
-
 alias clip="nc localhost 8377"
 
 copypath() {
@@ -451,7 +447,6 @@ tproxyoff() {
 	unset http_proxy
 	unset https_proxy
 }
-
 
 mkbak() {
 	cp "$1"{,.bak}

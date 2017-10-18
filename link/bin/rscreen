@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-10-17
+# Last Modified Date: 2017-10-17
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+rscreen() {
+	local host=$1
+	local session_name=${2:-hbliu}
+	ssh "$host" -t "screen -rd $session_name"
+}
+
+rscreen $*
