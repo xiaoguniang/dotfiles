@@ -2,9 +2,9 @@ Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/mileszs/ack.vim'
 Plug 'https://github.com/dyng/ctrlsf.vim'
 Plug 'https://github.com/google/vim-searchindex'
-Plug 'https://github.com/mhinz/vim-grepper'
+" Plug 'https://github.com/mhinz/vim-grepper'
 Plug 'https://github.com/sk1418/QFGrep'
-" Plug 'https://github.com/dkprice/vim-easygrep'
+Plug 'https://github.com/dkprice/vim-easygrep'
 " Plug 'https://github.com/salsifis/vim-qfmanip'
 
 " ctrlSF"{{{
@@ -23,11 +23,11 @@ inoremap <Leader>ft <Esc>:CtrlSFToggle<CR>
 "}}}
 
 " vim grepper {{{
-nmap ,s  <plug>(GrepperOperator)
-xmap ,s  <plug>(GrepperOperator)
-let g:grepper           = {}
-let g:grepper.highlight = 1
-let g:grepper.prompt = 0
+" nmap ,s  <plug>(GrepperOperator)
+" xmap ,s  <plug>(GrepperOperator)
+" let g:grepper           = {}
+" let g:grepper.highlight = 1
+" let g:grepper.prompt = 0
 "}}}
 
 " Ack "{{{

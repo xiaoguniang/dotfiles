@@ -63,7 +63,7 @@ func getCurrentDir() string {
 }
 endsnippet
 
-snippet http "http server" b
+snippet server "http server" b
 func hello(w http.ResponseWriter, r *http.Request) {
 	// userName : r.URL.Query().Get("name") // get the first value
 	io.WriteString(w, "Hello world!")

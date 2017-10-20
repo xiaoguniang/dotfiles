@@ -13,6 +13,8 @@ Plug 'https://github.com/tpope/vim-eunuch'
 Plug 'https://github.com/djoshea/vim-autoread'
 Plug 'https://github.com/sjl/vitality.vim'
 
+" Plug 'https://github.com/roxma/vim-tmux-clipboard'
+
 " Plug 'https://github.com/mattn/webapi-vim'
 " Plug 'https://github.com/heavenshell/vim-slack'
 " Plug 'https://github.com/mattn/gist-vim' ", {'depends': 'mattn/webapi-vim'}

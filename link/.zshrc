@@ -532,6 +532,12 @@ COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
 
 alias mydc="COMPOSE_FILE=$HOME/.docker-compose.yaml docker-compose"
 
+dhset() {
+	local hostid=$1
+	source $HOME/.dhmap
+	export DOCKER_HOST="$docker_host_map[$hostid]"
+}
+
 # export DOCKER_TLS_VERIFY="1"
 # export DOCKER_HOST="tcp://192.168.99.100:2376"
 # export DOCKER_CERT_PATH="/Users/hbliu/.docker/machine/machines/default"
