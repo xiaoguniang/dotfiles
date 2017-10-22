@@ -46,11 +46,18 @@ if _, err := os.Stat("/path/to/whatever"); os.IsNotExist(err) {
 }
 endsnippet
 
+snippet getbody "get http body" b
+cert, err := ioutil.ReadAll(res.Body)
+res.Body.Close()
+endsnippet
+
 snippet httpget "http get request" b
 res, err := http.Get(fmt.Sprintf("http://localhost:8055/getcert?serial=%s&cn=%s", serialNumber, commonName))
 if err != nil {
 	fmt.Printf("Send get request error: %s\n", err)
 }
+
+http.Post(postUrl, "text/plain", bytes.NewBuffer([]byte(errStr)))
 
 cert, err := ioutil.ReadAll(res.Body)
 res.Body.Close()

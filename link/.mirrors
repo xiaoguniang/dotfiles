@@ -13,3 +13,5 @@
   r01: r01/
   32: 32/
   123: 123/
+~/FreeWheel/ADR/BCHIP/src/bchip/blockchain/chaincode/ad_track:
+  123: 123/go/src/github.com/hyperledger/fabric/examples/fabric-docker-compose-svt/examples/chaincode/go/ad_track

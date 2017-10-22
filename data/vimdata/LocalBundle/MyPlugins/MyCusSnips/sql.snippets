@@ -33,3 +33,6 @@ and a.`network_id` = ${1:from_network}
 and r.`reseller_network_id` = ${2:reseller};
 endsnippet
 
+snippet update "update clause" b
+UPDATE table_name SET field1 = new-value1, field2 = new-value2 [WHERE Clause]
+endsnippet
