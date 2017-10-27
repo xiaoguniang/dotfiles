@@ -3,6 +3,11 @@ package main
 
 endsnippet
 
+snippet regex "go regex" b
+re := regexp.MustCompile(`((?im)^[a-zA-Z]{2,4})-?[0-9]+`)
+transactionID := re.FindString(inputStr)
+endsnippet
+
 snippet getenv "Get System Environment" b
 os.Getenv("${1:HOME}")
 endsnippet
@@ -47,20 +52,22 @@ if _, err := os.Stat("/path/to/whatever"); os.IsNotExist(err) {
 endsnippet
 
 snippet getbody "get http body" b
-cert, err := ioutil.ReadAll(res.Body)
+bodyBytes, err := ioutil.ReadAll(res.Body)
 res.Body.Close()
 endsnippet
 
+snippet httppost "Http Post Request" b
+resp, err := http.Post(postUrl, "text/plain", bytes.NewBuffer([]byte(errStr)))
+endsnippet
+
 snippet httpget "http get request" b
-res, err := http.Get(fmt.Sprintf("http://localhost:8055/getcert?serial=%s&cn=%s", serialNumber, commonName))
+resp, err := http.Get(fmt.Sprintf("http://localhost:8055/getcert?serial=%s&cn=%s", serialNumber, commonName))
 if err != nil {
 	fmt.Printf("Send get request error: %s\n", err)
 }
 
-http.Post(postUrl, "text/plain", bytes.NewBuffer([]byte(errStr)))
-
-cert, err := ioutil.ReadAll(res.Body)
-res.Body.Close()
+bodyBytes, err := ioutil.ReadAll(resp.Body)
+resp.Body.Close()
 endsnippet
 
 snippet getcurdir "get current diretory" b
@@ -70,9 +77,37 @@ func getCurrentDir() string {
 }
 endsnippet
 
+snippet template "go template"
+template, err := template.New("SlackMsgTemplate").Parse("{{.Content}} is here")
+if err != nil {
+	fmt.Printf("Get slack message error: %s\n", err)
+		return ""
+}
+
+var buf bytes.Buffer
+if err = template.Execute(&buf, content); err != nil {
+	fmt.Printf("Create template error: %s\n", err)
+		return ""
+}
+
+return buf.String()
+endsnippet
+
+snippet getpara "get parameter from url"
+userName := r.URL.Query().Get("name")
+endsnippet
+
+snippet atoi "convert to int" b
+value, err := strconv.Atoi(str)
+endsnippet
+
+snippet respwrite "http response write" b
+io.WriteString(w, "Hello world!")
+endsnippet
+
 snippet server "http server" b
 func hello(w http.ResponseWriter, r *http.Request) {
-	// userName : r.URL.Query().Get("name") // get the first value
+	// userName := r.URL.Query().Get("name") // get the first value
 	io.WriteString(w, "Hello world!")
 }
 
