@@ -3,6 +3,10 @@ package main
 
 endsnippet
 
+snippet append "Slice Append"
+${1:slice} = append($1, ${2:element})
+endsnippet
+
 snippet regex "go regex" b
 re := regexp.MustCompile(`((?im)^[a-zA-Z]{2,4})-?[0-9]+`)
 transactionID := re.FindString(inputStr)

@@ -151,7 +151,7 @@ set ttimeout
 set ttimeoutlen=10 " Reduce delay when vim in tmux
 "}}}
 
-set fileencodings=utf-8,ucs-bom,latin1,gbk,gb18030,gb2312
+set fileencodings=ucs-bom,utf-8,cp936,gbk,gb18030,gb2312,latin1 " Choose encoding one by one, strictest should be first
 
 set fileformats+=mac
 " set fileformat=unix " set ff=mac

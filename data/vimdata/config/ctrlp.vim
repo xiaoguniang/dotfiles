@@ -94,6 +94,7 @@ nnoremap <Leader>pu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 "}}}
 
 " CtrlPCmdPalette {{{
+let g:ctrlp_cmdpalette_execute = 1
 nmap <silent> <A-x> :CtrlPCmdPalette<cr>
 "}}}
 
