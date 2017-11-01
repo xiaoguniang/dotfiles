@@ -1,5 +1,5 @@
 0.1.0
-sshconfig	/Users/hbliu/.dotfiles/private/.ssh/config	1	^# avoid tcp connection for same server$
+sshconfig	/Users/hbliu/.ssh/config	8	^# Compression yes$
 tmux.conf	/Users/hbliu/.tmux.conf	1	^# if-shell '\[\[ \"\$OSTYPE\" =\~ \^darwin \]\]' 'source \~/\.tmux/\.tmux-osx\.conf'$
 surfingconf	/Users/hbliu/.dotfiles/data/chrome/surfing.conf	1	^// an example to create a new mapping `ctrl-y`$
 zshrc	/Users/hbliu/.zshrc		

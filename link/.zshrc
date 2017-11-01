@@ -136,11 +136,12 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # }}}
 
 # completion# {{{
-autoload -U compinit
-compinit
 # zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu select=2
 fpath=($ZSH_CUSTOM $fpath)
+
+autoload -U compinit
+compinit
 # }}}
 
 # ActivePerl# {{{
@@ -277,7 +278,7 @@ alias c='noglob ='
 
 # kubernetes minikube #{{{
 alias minikenv='eval $(minikube docker-env)'
-export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/config-bjo
+export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/config-bjo:$HOME/.kube/config-aws
 # }}}
 
 # Aliases # {{{

@@ -1,0 +1,25 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-10-31
+# Last Modified Date: 2017-10-31
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+function get_real_url() {
+	local url="$1"
+
+	if [[ "$url" =~ "^http" ]]; then
+		echo "$url"
+	else
+		local project="$(echo $url | cut -d':' -f2)"
+		local host="$(echo $url | cut -d':' -f1 | cut -d'@' -f2)"
+		echo "http://$host/$project"
+	fi
+}
+
+main() {
+	local remote_name="${1:-origin}"
+	local current_url=$(git remote get-url "$remote_name")
+	open $(get_real_url $current_url)
+}
+
+main $@

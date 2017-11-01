@@ -38,6 +38,7 @@ let g:ctrlp_buftag_types = {
             \ 'zsh'        : '--sh-kinds=+t',
             \ 'cpp'         : '--fields=+iaKSz --extra=+q --c++-kinds=+L-p',
             \ 'sql'         : '--sql-kinds=+Insert',
+			\ 'go' : '--go-kinds=+t+s+i+p',
             \ 'javascript' : {
             \ 'bin': 'jsctags',
             \ 'args': '-f -',

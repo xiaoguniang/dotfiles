@@ -23,6 +23,7 @@ let g:unite_profile_default_context = {
             \ 'number': 1,
             \ 'direction': 'botright',
             \ 'sync': 1,
+			\ 'start_insert': 1,
             \ }
 
 autocmd VimEnter * call unite#custom#profile('default', 'context', g:unite_profile_default_context)
@@ -42,6 +43,7 @@ nnoremap <silent> ,ul  :<C-u>Unite -buffer-name=search
 
 " nmap <silent> ,uc :<c-u>Unite history/command<cr>
 nmap <silent> ,uc :<c-u>Unite change<cr>
+nmap <silent> <space>c :<c-u>Unite command<cr>
 nmap <silent> ,us :<c-u>Unite history/search<cr>
 "}}}
 

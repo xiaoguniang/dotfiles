@@ -8,6 +8,7 @@ Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/Yggdroot/indentLine', {'on' : 'IndentLinesToggle'}
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-commentary'
+" Plug 'https://github.com/tomtom/tcomment_vim'
 " Plug 'https://github.com/jsfaint/gen_tags.vim'
 Plug 'https://github.com/tyru/capture.vim'
 

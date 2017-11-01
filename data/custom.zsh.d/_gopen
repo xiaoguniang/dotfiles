@@ -1,0 +1,3 @@
+#compdef gopen
+
+_arguments "1: browse remote repositories :($(git remote -v | cut -f1 | uniq))"
