@@ -22,6 +22,7 @@ endfunction
 
 map <buffer> <silent> ,rr :call WinRun("go run")<cr>
 nmap <buffer> <silent> ,rd :call GoDebugRun()<cr>
+nmap <buffer> <silent> ,rb :GoBuild<cr>
 map <buffer> <silent> ,rt :GoTest<cr>
 map <buffer> <silent> ,gi :GoImports<cr>
 " nmap <buffer> <silent> gd :GoDef<CR>

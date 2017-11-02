@@ -33,7 +33,6 @@ main() {
 		neovim|nvim ) upgradeNeovim ;;
 		ctags ) brew reinstall --HEAD universal-ctags ;;
 		tmux ) brew reinstall --HEAD tmux ;;
-		zgen ) zgen selfupdate; zgen update ;;
 		gocode ) go get -u github.com/nsf/gocode ;;
 		wechat ) $HOME/github/WeChatPlugin-MacOS/Other/Install.sh ;;
 		i|-i|install ) install_tap ;;

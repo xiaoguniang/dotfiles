@@ -45,10 +45,12 @@ endif
 "}}}
 
 " ale "{{{
+let g:ale_set_highlights = 0
 let g:ale_linters = {
 			\ 'cpp': ['clang', 'cppcheck', 'cpplint', 'g++'],
 			\ 'go' : ['gofmt', 'golint', 'gometalinter', 'go vet', 'staticcheck']
 			\ }
+			" \ 'python' : ['mypy', 'pylint']
 "}}}
 
 " let g:loaded_youcompleteme = 1

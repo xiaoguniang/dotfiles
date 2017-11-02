@@ -155,7 +155,7 @@ p() {
 	(wd $1 ; shift 1 ; zsh -i -c "$*")
 }
 
-compdef _wd.sh p
+# compdef _wd.sh p
 
 compdef fwcd=ssh
 
@@ -597,5 +597,11 @@ alias aws='aws-mfa aws'
 
 secureSource "$DOTFILES/private/freewheel/slack.zsh"
 secureSource "$DOTFILES/private/private_info.zsh"
+
+# kubenetes #{{{
+if which helm &> /dev/zero; then
+  source <(helm completion zsh)
+fi
+# }}}
 
 # vim:set fdm=marker:
