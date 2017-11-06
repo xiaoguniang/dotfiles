@@ -1,0 +1,40 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-11-04
+# Last Modified Date: 2017-11-04
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+main() {
+	local OPT OPTARG OPTIND
+	local dest_dir=""
+
+	while getopts 'd:' OPT; do
+		case $OPT in
+			d) dest_dir=$OPT ;;
+		esac
+	done
+	shift $(($OPTIND - 1))
+
+	root="~/RetroPie/roms"
+
+	if [[ -z "$dest_dir" ]]; then
+		for file in $@; do
+			dest_dir="${file##*.}"
+			scp -r "$file" rasp:"$root/$dest_dir"
+		done
+	else
+		scp -r "$@" rasp:"$root/$dest_dir"
+	fi
+
+	local err_code=$?
+
+	if which terminal-notifier &> /dev/zero; then
+		if [[ "$err_code" == "0" ]]; then
+			terminal-notifier -title 'Copy into Raspretro PI' -message "$@"
+		else
+			terminal-notifier -title 'Copy into Raspretro PI' -message "Copy File Error!"
+		fi
+	fi
+}
+
+main $@
