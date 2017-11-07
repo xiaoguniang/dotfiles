@@ -6,6 +6,7 @@ Plug 'https://github.com/kassio/neoterm'
 let g:neoterm_size = '12'
 let g:neoterm_fixedsize = 1
 let g:neoterm_autoinsert = 1
+let g:neoterm_split_on_tnew = 0
 let g:neoterm_open_in_all_tabs = 1
 " let g:neoterm_focus_when_tests_fail = 1
 let g:neoterm_keep_term_open = 1
@@ -16,6 +17,20 @@ nmap <buffer> ,rl :TREPLSendLine<cr>
 nmap <buffer> ,rs :TREPLSendSelection<cr>
 nmap <buffer> ,rf :TREPLSendFile<cr>
 "}}}
+
+function! PreviousTerminal()
+	:bprevious
+	while &buftype != "terminal"
+		:bprevious
+	endw
+endfunction
+
+function! NextTerminal()
+	:bnext
+	while &buftype != "terminal"
+		:bnext
+	endw
+endfunction
 
 " neovim "{{{
 if exists('&inccommand')
@@ -33,12 +48,18 @@ tnoremap <A-q> <C-\><C-n><c-w>c<c-w>p
 " tnoremap <C-v> <c-\><c-n>"*pi
 " tnoremap <D-v> <c-\><c-n>"*pi
 tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
+tnoremap <A-o> <c-\><c-n>:Unite -no-start-insert buffer:t<cr>
+" tnoremap <A-o> <c-\><c-n>:CtrlSpace a/term/<cr>
+tnoremap <silent> <A-'> <c-\><c-n><c-^>
+tnoremap <silent> <A-[> <c-\><c-n>:call PreviousTerminal()<cr>
+tnoremap <silent> <A-]> <c-\><c-n>:call NextTerminal()<cr>
 
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 nnoremap <A-;> <C-w>p
+
 
 inoremap <A-h> <ESC><C-w>h
 inoremap <A-j> <ESC><C-w>j
@@ -73,7 +94,7 @@ endfunction
 
 autocmd! TermOpen * call TermInit()
 autocmd! BufDelete term://* wincmd p
-autocmd! BufEnter term://* startinsert
+autocmd! BufEnter,BufWinEnter term://* startinsert
 autocmd! BufLeave term://* stopinsert
 " autocmd! WinLeave term://* wincmd p
 " autocmd! BufWinLeave term://* wincmd p

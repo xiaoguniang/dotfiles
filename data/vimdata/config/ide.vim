@@ -134,7 +134,6 @@ nmap <silent> <Leader>il :IndentLinesToggle<cr>
 " ctrlspace 5 "{{{
 " let g:CtrlSpaceUseTabline = 1
 let g:CtrlSpaceSetDefaultMapping = 1
-" let g:CtrlSpaceDefaultMappingKey = ",bm"
 let g:CtrlSpaceDefaultMappingKey = "<A-Space>"
 " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1

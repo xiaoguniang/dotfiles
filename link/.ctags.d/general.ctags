@@ -2,7 +2,7 @@
 
 --langmap=vim:+.vimrc
 --regex-vim=/"[[:space:]]*([0-9a-zA-Z\_\-\ ]+)[[:space:]]*"\{\{\{/\1/t,Tags/
---vim-kinds=+mft
+--vim-kinds=+mcft
 
 --langmap=sh:+.zshrc
 --regex-sh=/[#][[:space:]]*([0-9a-zA-Z\-_\ ]+)[[:space:]]*[#\ ]*\{\{\{/\1/t,Section/
