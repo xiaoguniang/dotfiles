@@ -6,7 +6,7 @@ Plug 'https://github.com/kassio/neoterm'
 let g:neoterm_size = '12'
 let g:neoterm_fixedsize = 1
 let g:neoterm_autoinsert = 1
-let g:neoterm_split_on_tnew = 0
+let g:neoterm_split_on_tnew = 1
 let g:neoterm_open_in_all_tabs = 1
 " let g:neoterm_focus_when_tests_fail = 1
 let g:neoterm_keep_term_open = 1
@@ -53,6 +53,7 @@ tnoremap <A-o> <c-\><c-n>:Unite -no-start-insert buffer:t<cr>
 tnoremap <silent> <A-'> <c-\><c-n><c-^>
 tnoremap <silent> <A-[> <c-\><c-n>:call PreviousTerminal()<cr>
 tnoremap <silent> <A-]> <c-\><c-n>:call NextTerminal()<cr>
+tnoremap <silent> <S-A-n> <c-\><c-n><c-w>c:Tnew<cr>
 
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j

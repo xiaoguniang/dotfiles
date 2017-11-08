@@ -607,6 +607,8 @@ fi
 # }}}
 
 # kubenetes #{{{
+alias kexe='kubectl exec -it'
+alias klog='kubectl logs'
 if which helm &> /dev/zero; then
   source <(helm completion zsh)
 fi
