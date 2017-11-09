@@ -11,6 +11,11 @@ Plug 'zchee/deoplete-go', {'do': 'make'}
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 " Plug 'https://github.com/zchee/deoplete-asm'
 
+Plug 'https://github.com/Shougo/neco-syntax'
+" Plug 'https://github.com/thalesmello/webcomplete.vim'
+
+Plug 'https://github.com/Shougo/neco-syntax'
+
 Plug 'https://github.com/Rip-Rip/clang_complete'
 Plug 'https://github.com/Shougo/echodoc.vim'
 
