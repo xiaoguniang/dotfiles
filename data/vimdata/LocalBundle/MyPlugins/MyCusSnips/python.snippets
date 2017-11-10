@@ -34,6 +34,10 @@ for o, v in opts:
 		assert False, "unhandled option"
 endsnippet
 
+snippet getfiledirectory "Get script file directory" b
+os.path.dirname(os.path.realpath(__file__))
+endsnippet
+
 snippet soup "Beautiful soup" b
 from bs4 import BeautifulSoup
 
