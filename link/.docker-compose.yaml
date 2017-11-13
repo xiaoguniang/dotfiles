@@ -13,3 +13,11 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - "4306:3306"
+
+  centos:
+    image: centos:latest
+    container_name: centos
+    hostname: hello
+    tty: true
+    restart: always
+    depends_on: ['db']

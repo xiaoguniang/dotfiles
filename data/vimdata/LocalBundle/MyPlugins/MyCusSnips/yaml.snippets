@@ -26,3 +26,11 @@ endsnippet
 snippet restart "docker always restart" b
 restart: always
 endsnippet
+
+snippet depend "depends on" b
+depends_on: ["${1:container_name}"]
+endsnippet
+
+snippet network "same as --net" b
+network_mode: "container:${1:container_name/id}"
+endsnippet

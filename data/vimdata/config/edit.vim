@@ -47,6 +47,7 @@ Plug 'https://github.com/dahu/VimLocalMacros'
 " default priority is 0
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "MyCusSnips"]
 let g:cfamily_style_sep = ' '
+nmap <silent> ,es :execute("Gsnips " . &ft . " vnew")<cr>
 "}}}
 
 
