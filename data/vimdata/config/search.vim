@@ -64,7 +64,7 @@ let g:EasyGrepHidden = 0
 "}}}
 
 " Config File Search {{{
-command! -nargs=1 Sconfig Ag! <args> $VIMCONFIG $HOME/.vimrc
+command! -nargs=+ Sconfig Ag! <args> $VIMCONFIG $HOME/.vimrc
 command! -nargs=+ Swiki Ag! <args> $HOME/vimwiki
 "}}}
 
