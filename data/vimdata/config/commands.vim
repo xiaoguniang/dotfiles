@@ -4,7 +4,8 @@ let g:dir_file_completion = {
 			\ "Gwiki": {'dir': g:myvimwikidir, 'extension': '.wiki', 'keymap': '<Leader>wg'},
 			\ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'extension': '.vim', 'keymap': ',gv'},
 			\ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin"), 'extension': '.vim'},
-			\ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips"), 'extension': '.snippets'}
+			\ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips"), 'extension': '.snippets'},
+			\ "Gblog": {'dir': expand("$HOME/Projects/Hexo/blog/source/_posts"), 'extension': '.md'}
 			\ }
 "}}}
 
