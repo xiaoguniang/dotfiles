@@ -25,6 +25,7 @@ source $PLUG_DIR/plug.vim
 call plug#begin(expand($BUNDLE))
 Plug expand('$CUSDATA/LocalBundle/tags4proj')
 Plug expand('$CUSDATA/LocalBundle/MyPlugins')
+" Plug 'git@git.dev.fwmrm.net:vim/deoplete-fwlqs.git'
 Plug expand('$CUSDATA/LocalBundle/paste')
 
 " Highligts multiple words

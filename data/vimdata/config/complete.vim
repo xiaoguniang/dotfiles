@@ -4,6 +4,9 @@ if has('nvim')
 elseif has('lua')
     Plug 'https://github.com/Shougo/neocomplete.vim'
 endif
+
+Plug expand('$CUSDATA/LocalBundle/deoplete-fwlqs')
+
 Plug 'https://github.com/Shougo/neoinclude.vim'
 Plug 'https://github.com/wellle/tmux-complete.vim'
 Plug 'https://github.com/zchee/deoplete-jedi'

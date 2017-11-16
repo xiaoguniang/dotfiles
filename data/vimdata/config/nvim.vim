@@ -38,34 +38,15 @@ if exists('&inccommand')
 endif
 
 tnoremap <Esc> <C-\><C-n>
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-tnoremap <A-;> <C-\><C-n><C-w>p
 tnoremap <A-q> <C-\><C-n><c-w>c<c-w>p
-" tnoremap <A-\> <c-\><c-n>"*pi
-" tnoremap <C-v> <c-\><c-n>"*pi
-" tnoremap <D-v> <c-\><c-n>"*pi
-tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
+
 tnoremap <A-o> <c-\><c-n>:Unite -no-start-insert buffer:t<cr>
+tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
 " tnoremap <A-o> <c-\><c-n>:CtrlSpace a/term/<cr>
 tnoremap <silent> <A-'> <c-\><c-n><c-^>
 tnoremap <silent> <A-[> <c-\><c-n>:call PreviousTerminal()<cr>
 tnoremap <silent> <A-]> <c-\><c-n>:call NextTerminal()<cr>
 tnoremap <silent> <S-A-n> <c-\><c-n><c-w>c:Tnew<cr>
-
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-nnoremap <A-;> <C-w>p
-
-
-inoremap <A-h> <ESC><C-w>h
-inoremap <A-j> <ESC><C-w>j
-inoremap <A-k> <ESC><C-w>k
-inoremap <A-l> <ESC><C-w>l
 
 " scroll other window
 function! ScrollOtherWindow(scroll_cmd)
@@ -78,8 +59,8 @@ endfunction
 
 nnoremap <silent> <A-y> <esc>:call ScrollOtherWindow("\<lt>C-y>")<cr>
 nnoremap <silent> <A-e> <esc>:call ScrollOtherWindow("\<lt>C-e>")<cr>
-nnoremap <silent> <A-J> <esc>:call ScrollOtherWindow("\<lt>C-d>")<cr>
-nnoremap <silent> <A-K> <esc>:call ScrollOtherWindow("\<lt>C-u>")<cr>
+nnoremap <silent> <S-A-J> <esc>:call ScrollOtherWindow("\<lt>C-d>")<cr>
+nnoremap <silent> <S-A-K> <esc>:call ScrollOtherWindow("\<lt>C-u>")<cr>
 "}}}
 
 " terminal "{{{

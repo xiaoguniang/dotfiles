@@ -9,8 +9,15 @@ function! WindowMaxToggle()
         res 1000
     else
         execute('res ' . w:winmax_height)
-        let w:winmax_height = -1
+        unlet w:winmax_height
     endif
+endfunction
+
+function! RestoreWindowSize()
+	if exists('w:winmax_height')
+        execute('res ' . w:winmax_height)
+        unlet w:winmax_height
+	endif
 endfunction
 
 function! EditCmdOutFile(...)

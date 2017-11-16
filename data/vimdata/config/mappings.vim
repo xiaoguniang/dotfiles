@@ -46,6 +46,26 @@ autocmd FileType help,man call LoadMotionMap()
 "}}}
 
 " Window Management"{{{
+
+let g:winMoveKeyMap = {
+			\ '<A-j>': 'j',
+			\ '<A-k>': 'k',
+			\ '<A-h>': 'h',
+			\ '<A-l>': 'l',
+			\ '<A-;>': 'p',
+			\ }
+
+function! LoadWinMoveMap()
+	for [k, v] in items(g:winMoveKeyMap)
+		execute(printf("inoremap <silent> %s <ESC>:call RestoreWindowSize()<cr><C-w>%s", k, v))
+		execute(printf("nnoremap <silent> %s :call RestoreWindowSize()<cr><C-w>%s", k, v))
+		if has('nvim')
+			execute(printf("tnoremap <silent> %s \<C-\><C-n>:call RestoreWindowSize()<cr><C-w>%s", k, v))
+		endif
+	endfor
+endfunction
+call LoadWinMoveMap()
+
 nmap <silent> [wq :copen<cr>
 nmap <silent> ]wq :cclose<cr>
 nmap <silent> [wl :lopen<cr>
@@ -56,7 +76,6 @@ map <silent> <A-w> <ESC><C-w>w:call WindowMaxToggle()<cr>
 
 nmap ,c/ :History:<cr>
 nmap ,s/ :History/<cr>
-nmap ,m/ /<<<<<<<<cr>
 nmap ,cd :lcd %:p:h<CR>
 nmap <silent> ,cw :cd $ORIG_PWD<cr>
 nmap ,rc :tabnew ~/.vimrc<cr>
