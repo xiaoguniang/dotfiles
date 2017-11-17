@@ -18,20 +18,6 @@ nmap <buffer> ,rs :TREPLSendSelection<cr>
 nmap <buffer> ,rf :TREPLSendFile<cr>
 "}}}
 
-function! PreviousTerminal()
-	:bprevious
-	while &buftype != "terminal"
-		:bprevious
-	endw
-endfunction
-
-function! NextTerminal()
-	:bnext
-	while &buftype != "terminal"
-		:bnext
-	endw
-endfunction
-
 " neovim "{{{
 if exists('&inccommand')
 	set inccommand=split
@@ -39,13 +25,16 @@ endif
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-q> <C-\><C-n><c-w>c<c-w>p
+tnoremap <silent> <S-A-q> <c-\><c-n>:bd!<cr>:sleep 80m<cr>:Ttoggle<cr>
+" tnoremap <S-A-m> <c-d>:Topen<cr>
 
 tnoremap <A-o> <c-\><c-n>:Unite -no-start-insert buffer:t<cr>
 tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
 " tnoremap <A-o> <c-\><c-n>:CtrlSpace a/term/<cr>
-tnoremap <silent> <A-'> <c-\><c-n><c-^>
-tnoremap <silent> <A-[> <c-\><c-n>:call PreviousTerminal()<cr>
-tnoremap <silent> <A-]> <c-\><c-n>:call NextTerminal()<cr>
+
+tnoremap <silent> <A-[> <c-\><c-n>:Tprevious<cr>
+tnoremap <silent> <A-]> <c-\><c-n>:Tnext<cr>
+
 tnoremap <silent> <S-A-n> <c-\><c-n><c-w>c:Tnew<cr>
 
 " scroll other window

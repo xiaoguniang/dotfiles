@@ -7,7 +7,8 @@ autocmd FileType json,ruby setl fdm=syntax
 
 			" \ "*.pem,*.cert": "cert",
 let g:extension_filtype_map = {
-			\ "*.txx": "cpp"
+			\ "*.txx": "cpp",
+			\ "*.base64": "base64",
 			\ }
 
 function! SetFileTypes()
