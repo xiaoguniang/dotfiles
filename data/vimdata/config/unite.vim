@@ -29,7 +29,7 @@ let g:unite_profile_default_context = {
 autocmd VimEnter * call unite#custom#profile('default', 'context', g:unite_profile_default_context)
 
 " <TAB> select from actions
-nmap <silent> ,ub <ESC>:Unite bookmark:_<cr>
+nmap <silent> ,ub <ESC>:Unite -no-start-insert bookmark:_<cr>
 nmap <silent> ,uf :Unite buffer<cr>
 nmap <silent> ,ur :Unite register<cr>
 nmap <silent> ,uj :Unite jump<cr>

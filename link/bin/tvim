@@ -4,10 +4,8 @@
 # Last Modified Date: 2017-09-12
 # Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
 
-NVR=""
-
 main() {
-	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr -cc ':wincmd w' -c ":lcd $PWD" $* # -c "${defautl_cmd} $*"
+	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr -s --remote-wait-silent -cc ':wincmd w' -c ":lcd $PWD" $* # -c "${defautl_cmd} $*"
 }
 
 main $@

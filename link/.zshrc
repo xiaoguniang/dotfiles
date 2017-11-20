@@ -94,7 +94,7 @@ ZSH_CUSTOM="$DOTDATA/custom.zsh.d"
 # }}}
 
 # System Environment # {{{
-export EDITOR='nvim'
+
 export LESS="$LESS -FRX"
 export TERM="xterm-256color"
 if is_osx; then
@@ -255,6 +255,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # vim# {{{
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+export TMUX_WINDOW_ID="$(tmux display -p '#S_#I' 2> /dev/zero)"
 
 alias vlarge='nvim -n -u NONE -i NONE -N'
 if which nvim &> /dev/zero; then
@@ -266,6 +267,15 @@ vimprofiler() {
 	local dir=$(pre_require "https://github.com/bchretien/vim-profiler")
 	$dir/vim-profiler.py $*
 }
+
+
+# for edit in nvim; do
+	# if which $edit &> /dev/zero; then
+		# export EDITOR="$edit"
+		# break
+	# fi
+# done
+export EDITOR="tvim"
 # }}}
 
 # calculator {{{
@@ -417,8 +427,6 @@ rmux() {
 tcd() {
 	cd $(tmux display-message -p -F '#{pane_current_path}' -t'!')
 }
-
-export TMUX_WINDOW_ID="$(tmux display -p '#S_#I' 2> /dev/zero)"
 
 # tmuxinator
 # secureSource "$GITHUB_DIR/tmuxinator/completion/tmuxinator.zsh"

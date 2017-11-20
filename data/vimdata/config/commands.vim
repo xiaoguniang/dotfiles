@@ -140,4 +140,21 @@ command! -range=0 -complete=customlist,man#complete -nargs=* Vman execute(":vert
 autocmd FileType man,capture nmap <buffer> g/ /^\v\s+
 "}}}
 
+function! NvrReturn(...)
+	let resCode = 0
+	if a:0 > 0
+		let resCode = a:1
+	endif
+
+	w
+	if exists('b:nvr')
+		for chanid in b:nvr
+			silent! call rpcnotify(chanid, 'Exit', resCode)
+		endfor
+	endif
+	e # | bd #
+endfunction
+
+command! -nargs=? NvrReturn call NvrReturn(<f-args>)
+
 " vim:fdm=marker:

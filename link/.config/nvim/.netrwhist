@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='scp://201/~/gitlab/rd/api_regression/report/'
-let g:netrw_dirhist_2='scp://201/~/gitlab/rd/ts_regression/report/'
-let g:netrw_dirhist_3='/Users/hbliu/.dotfiles/data/custom.zsh'
-let g:netrw_dirhist_4='/Users/hbliu/.dotfiles/data/vimdata/bundle/NeovimGdb'
-let g:netrw_dirhist_5='/Users/hbliu/.dotfiles/data/vimdata/bundle/NeovimGdb/plugin'
-let g:netrw_dirhist_6='/Users/hbliu/gitlab/rd/common/src/go/src/freewheel/monitor/transaction'
-let g:netrw_dirhist_7='/Users/hbliu/Projects/Hexo/blog'

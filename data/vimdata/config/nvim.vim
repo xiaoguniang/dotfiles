@@ -23,10 +23,14 @@ if exists('&inccommand')
 	set inccommand=split
 endif
 
+" if has('nvim')
+  " let $VISUAL = 'nvr -cc split --remote-wait'
+" endif
+
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-q> <C-\><C-n><c-w>c<c-w>p
 tnoremap <silent> <S-A-q> <c-\><c-n>:bd!<cr>:sleep 80m<cr>:Ttoggle<cr>
-" tnoremap <S-A-m> <c-d>:Topen<cr>
+tnoremap <silent> <S-A-p> <c-\><c-n>:execute(printf(":T cd %s", getcwd()))<cr>
 
 tnoremap <A-o> <c-\><c-n>:Unite -no-start-insert buffer:t<cr>
 tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
