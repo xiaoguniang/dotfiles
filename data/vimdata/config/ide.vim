@@ -27,6 +27,16 @@ Plug 'https://github.com/radenling/vim-dispatch-neovim'
 let g:dispatch_neovim_fixedsize = 1
 "}}}
 
+" lsp "{{{
+" Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
+" let g:LanguageClient_serverCommands = {
+			" \ 'javascript': ['$HOME/github/javascript-typescript-langserver/lib/language-server-stdio.js'],
+			" \ }
+
+let g:LanguageClient_autoStart = 1
+"}}}
+
 " code format "{{{
 Plug 'https://github.com/google/vim-maktaba', {'on': ['FormatCode', 'FormatLines', 'AutoFormatBuffer']}
 Plug 'google/vim-glaive', {'on': ['FormatCode', 'FormatLines', 'AutoFormatBuffer']}

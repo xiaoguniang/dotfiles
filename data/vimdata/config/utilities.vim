@@ -46,3 +46,5 @@ let g:sw_config_dir = '/Users/hbliu/.sqlworkbench'
 let g:dbext_default_profile_mySQL = 'type=MYSQL:user=ads:passwd=ads:host=192.168.0.32:port=23306:dbname=fwmrm_oltp' 
 let g:dbext_default_profile_fwprd = 'type=MYSQL:user=qa:passwd=Qa0602@@:host=OLTPdb1a.fwmrm.net:dbname=fwmrm_oltp' 
 "}}}
+
+Plug 'https://github.com/hiberabyss/changesqlcase.vim', {'on': 'ChangeSqlCase'}

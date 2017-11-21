@@ -1,0 +1,16 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-11-20
+# Last Modified Date: 2017-11-20
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+kexe() {
+	local shell=${2:-bash}
+	if [[ -z "$1" ]]; then
+		echo "Usage: kexe container_name"
+		return 1
+	fi
+	kubectl exec -it "$1" "$shell"
+}
+
+kexe $@

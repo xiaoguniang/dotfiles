@@ -143,7 +143,7 @@ set smarttab
 set shiftwidth=4
 set shiftround
 set cino=N-sg0
-set noexpandtab
+set expandtab
 "}}}
 
 " timout settings"{{{

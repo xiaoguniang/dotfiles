@@ -542,6 +542,7 @@ compctl -M 'm:{a-zA-Z}={A-Za-z}' -g "$VIMWIKI_DIR/*(:t:r)" vwiki
 COMPOSE_FILE="docker-compose.yml:docker-compose.prod.yml"
 
 alias mydc="COMPOSE_FILE=$HOME/.docker-compose.yaml docker-compose"
+alias drun="docker run --rm -it"
 
 dhset() {
 	local hostid=$1
@@ -617,7 +618,6 @@ fi
 # }}}
 
 # kubenetes #{{{
-alias kexe='kubectl exec -it'
 alias klog='kubectl logs'
 if which helm &> /dev/zero; then
   source <(helm completion zsh)

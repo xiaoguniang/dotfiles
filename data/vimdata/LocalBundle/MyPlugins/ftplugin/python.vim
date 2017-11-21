@@ -10,6 +10,7 @@ endif
 let b:loaded_py_vim = 1
 
 setl tabstop=4
+setl expandtab
 
 map <buffer> <silent> ,rr :call WinRun("python")<cr>
 map <buffer> <silent> ,ra :call WinRun("python", 1)<cr>

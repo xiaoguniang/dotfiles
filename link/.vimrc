@@ -63,12 +63,6 @@ Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/alepez/vim-gtest'
 "}}}
 
-" Google Plugins"{{{
-" Plug 'google/vim-syncopate'
-"}}}
-
-" NeoBundle 'https://github.com/jiangmiao/auto-pairs.git'
-
 " Coding plugins "{{{
 " NeoBundle 'https://github.com/neovimhaskell/haskell-vim'
 " NeoBundle 'https://github.com/eagletmt/neco-ghc'
@@ -84,37 +78,34 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 " NeoBundle 'https://github.com/roxma/vim-tmux-clipboard'
 "}}}
 " Plug 'https://github.com/kshenoy/vim-signature.git', { 'on': ['SignatureToggle']}
-Plug 'https://github.com/hiberabyss/changesqlcase.vim', {'on': 'ChangeSqlCase'}
 " Plug 'https://github.com/junegunn/vim-peekaboo'
 
 Plug 'https://github.com/saltstack/salt-vim', {'for': 'sls'}
 
-source $VIMCONFIG/ctrlp.vim
 " source $VIMCONFIG/sqlclient.vim
-source $VIMCONFIG/unite.vim
-source $VIMCONFIG/ide.vim
+" source $VIMCONFIG/ctrlp.vim
+" source $VIMCONFIG/unite.vim
+" source $VIMCONFIG/ide.vim
 
-" source $VIMCONFIG/filetype.vim
-source $VIMCONFIG/theme.vim
-source $VIMCONFIG/edit.vim
-source $VIMCONFIG/search.vim
-source $VIMCONFIG/motion.vim
-" source $VIMCONFIG/integration.vim
+" source $VIMCONFIG/theme.vim
+" source $VIMCONFIG/edit.vim
+" source $VIMCONFIG/search.vim
+" source $VIMCONFIG/motion.vim
 
-source $VIMCONFIG/website.vim
-source $VIMCONFIG/writting.vim
-source $VIMCONFIG/notes.vim
-source $VIMCONFIG/git.vim
-" source $VIMCONFIG/VersionControlSystem.vim
+" source $VIMCONFIG/website.vim
+" source $VIMCONFIG/writting.vim
+" source $VIMCONFIG/notes.vim
+" source $VIMCONFIG/git.vim
+" " source $VIMCONFIG/VersionControlSystem.vim
 
-source $VIMCONFIG/textobj.vim
+" source $VIMCONFIG/textobj.vim
 
-source $VIMCONFIG/filetypes.vim
-source $VIMCONFIG/utilities.vim
+" source $VIMCONFIG/filetypes.vim
+" source $VIMCONFIG/utilities.vim
 
-if has('nvim')
-    source $VIMCONFIG/nvim.vim
-endif
+" if has('nvim')
+    " source $VIMCONFIG/nvim.vim
+" endif
 
 " Should run at last
 call plug#end()
