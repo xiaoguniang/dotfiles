@@ -209,7 +209,7 @@ if v:version >= 800 || has('nvim')
 	autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
 endif
 
-nmap <silent> <A-`> :exe "tabn " . g:Lasttab<cr>
+nmap <silent> <A-'> :exe "tabn " . g:Lasttab<cr>
 
 nmap <Space>gc :call CloseTab('')<cr>
 nmap <Space>gC :call CloseTab('!')<cr>

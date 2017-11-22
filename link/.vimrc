@@ -83,29 +83,29 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 Plug 'https://github.com/saltstack/salt-vim', {'for': 'sls'}
 
 " source $VIMCONFIG/sqlclient.vim
-" source $VIMCONFIG/ctrlp.vim
-" source $VIMCONFIG/unite.vim
-" source $VIMCONFIG/ide.vim
+source $VIMCONFIG/ctrlp.vim
+source $VIMCONFIG/unite.vim
+source $VIMCONFIG/ide.vim
 
-" source $VIMCONFIG/theme.vim
-" source $VIMCONFIG/edit.vim
-" source $VIMCONFIG/search.vim
-" source $VIMCONFIG/motion.vim
+source $VIMCONFIG/theme.vim
+source $VIMCONFIG/edit.vim
+source $VIMCONFIG/search.vim
+source $VIMCONFIG/motion.vim
 
-" source $VIMCONFIG/website.vim
-" source $VIMCONFIG/writting.vim
-" source $VIMCONFIG/notes.vim
-" source $VIMCONFIG/git.vim
-" " source $VIMCONFIG/VersionControlSystem.vim
+source $VIMCONFIG/website.vim
+source $VIMCONFIG/writting.vim
+source $VIMCONFIG/notes.vim
+source $VIMCONFIG/git.vim
+" source $VIMCONFIG/VersionControlSystem.vim
 
-" source $VIMCONFIG/textobj.vim
+source $VIMCONFIG/textobj.vim
 
-" source $VIMCONFIG/filetypes.vim
-" source $VIMCONFIG/utilities.vim
+source $VIMCONFIG/filetypes.vim
+source $VIMCONFIG/utilities.vim
 
-" if has('nvim')
-    " source $VIMCONFIG/nvim.vim
-" endif
+if has('nvim')
+    source $VIMCONFIG/nvim.vim
+endif
 
 " Should run at last
 call plug#end()

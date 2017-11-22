@@ -275,7 +275,7 @@ vimprofiler() {
 		# break
 	# fi
 # done
-export EDITOR="tvim"
+export EDITOR="env NVR_WAIT=1 tvim"
 # }}}
 
 # calculator {{{
@@ -608,7 +608,7 @@ secureSource "$DOTFILES/private/private_info.zsh"
 secureSource /usr/local/bin/aws_zsh_completer.sh
 export KOPS_STATE_STORE=s3://kube.adsdev.aws.fwmrm.net
 alias ecs-cli='aws-mfa ecs-cli'
-# alias aws='aws-mfa aws'
+alias aws='aws-mfa aws'
 # alias kops='aws-mfa kops'
 
 if which kops &> /dev/zero; then
