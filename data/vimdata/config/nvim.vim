@@ -12,6 +12,15 @@ let g:neoterm_open_in_all_tabs = 1
 let g:neoterm_keep_term_open = 1
 let g:neoterm_autoscroll = 1
 nmap <silent> ,to :Topen<cr>
+nmap <silent> ,t1 :Topen1<cr>
+nmap <silent> ,t2 :Topen2<cr>
+nmap <silent> ,t3 :Topen3<cr>
+nmap <silent> ,t4 :Topen4<cr>
+nmap <silent> ,t5 :Topen5<cr>
+nmap <silent> ,t6 :Topen6<cr>
+nmap <silent> ,t7 :Topen7<cr>
+nmap <silent> ,t8 :Topen8<cr>
+nmap <silent> ,t9 :Topen9<cr>
 " nmap <silent> ,tt :Ttoggle<cr>
 nmap <buffer> ,rl :TREPLSendLine<cr>
 nmap <buffer> ,rs :TREPLSendSelection<cr>

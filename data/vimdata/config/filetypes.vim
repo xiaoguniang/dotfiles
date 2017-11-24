@@ -1,7 +1,7 @@
 Plug 'https://github.com/sheerun/vim-polyglot'
 
 " polyglot"{{{
-let g:polyglot_disabled = ['python']
+let g:polyglot_disabled = ['python', 'latex', 'tex']
 "}}}
 
 " Python "{{{
@@ -33,12 +33,7 @@ au FileType asm setl filetype=nasm
 "}}}
 
 " LaTex {{{
-" PlugLazy 'git://git.code.sf.net/p/vim-latex/vim-latex', {
-            " \ 'filetypes' : ['tex', 'latex']
-            " \}
-" PlugLazy 'https://github.com/lervag/vimtex', {
-            " \ 'filetypes' : ['tex', 'latex']
-            " \}
+Plug 'https://github.com/lervag/vimtex', {'for': ['tex', 'latex']}
 
 " LatexSuit "{{{
 " set grepprg=grep\ -nH\ $*
@@ -64,16 +59,6 @@ let Imap_PlaceHolderEnd = 'E>'
 let g:Tex_GotoError = 0
 let g:Tex_UseMakefile = 0
 " imap <c-]> <Plug>Tex_InsertItemOnThisLine
-let g:Tex_IgnoredWarnings = 
-    \"Underfull\n".
-    \"Overfull\n".
-    \"specifier changed to\n".
-    \"You have requested\n".
-    \"Missing number, treated as zero.\n".
-    \"There were undefined references\n" .
-    \"Citation %.%# undefined\n" .
-    \"Font Warning"
-let g:Tex_IgnoreLevel = 8
 "}}}
 
 "}}}
