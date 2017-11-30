@@ -80,5 +80,21 @@ let g:clang_library_path = '/usr/local/Cellar/llvm/5.0.0/lib'
 let g:echodoc_enable_at_startup = 1
 "}}}
 
+" fzf "{{{
+let $ZGEN_FZF = expand("$HOME/.zgen/junegunn/fzf-master/")
+Plug 'https://github.com/junegunn/fzf.vim.git' ", { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+
+if has('vim_starting')
+    set runtimepath+=$ZGEN_FZF
+endif
+
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+inoremap <expr> <c-x><c-k> fzf#complete('cat /usr/share/dict/words')
+
+autocmd! FileType fzf nmap <buffer> <silent> q :quit<cr>
+"}}}
 
 " vim:fdm=marker

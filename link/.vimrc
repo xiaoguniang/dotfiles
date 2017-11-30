@@ -1,7 +1,6 @@
 " Variables "{{{
 let $DOTPATH = expand("$HOME/.dotfiles")
 let $CUSDATA = expand("$HOME/.dotfiles/data/vimdata")
-let $ZGEN_FZF = expand("$HOME/.zgen/junegunn/fzf-master/")
 if isdirectory(expand("$HOME/.vim/bundle"))
     let $BUNDLE = expand("$HOME/.vim/bundle")
 else
@@ -35,7 +34,6 @@ Plug 'https://github.com/dimasg/vim-mark'
 " Plug 'https://github.com/vim-scripts/DirDiff.vim.git', {'on': ['DirDiff']}
 
 " BundleList "{{{
-Plug 'https://github.com/junegunn/fzf.vim.git' ", { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'https://github.com/vim-scripts/ingo-library' " need by PatternsOnText
 " Plug 'https://github.com/vim-scripts/PatternsOnText'
 Plug 'https://github.com/vim-scripts/ExtractMatches'
@@ -163,20 +161,6 @@ autocmd User LinediffBufferReady nnoremap <buffer> q :LinediffReset<cr>
 autocmd User LinediffBufferReady setl wrap
 nmap <Leader>ld :Linediff<cr>
 vmap <Leader>ld :Linediff<cr>
-"}}}
-
-" fzf "{{{
-if has('vim_starting')
-    set runtimepath+=$ZGEN_FZF
-endif
-
-" imap <c-x><c-k> <plug>(fzf-complete-word)
-" imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-inoremap <expr> <c-x><c-k> fzf#complete('cat /usr/share/dict/words')
-
-autocmd! FileType fzf nmap <buffer> <silent> q :quit<cr>
 "}}}
 
 " text edit "{{{

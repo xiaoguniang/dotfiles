@@ -28,6 +28,13 @@ let g:unite_profile_default_context = {
 
 autocmd VimEnter * call unite#custom#profile('default', 'context', g:unite_profile_default_context)
 
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+imap <buffer> <c-k> <Plug>(unite_select_previous_line)
+imap <buffer> <c-j> <Plug>(unite_select_next_line)
+endfunction
+
 " <TAB> select from actions
 nmap <silent> ,ub <ESC>:Unite -no-start-insert bookmark:_<cr>
 nmap <silent> ,uf :Unite buffer<cr>

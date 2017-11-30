@@ -74,8 +74,8 @@ nmap <silent> ]wl :lclose<cr>
 map <silent> <A-\> :call WindowMaxToggle()<cr>
 map <silent> <A-w> <ESC><C-w>w:call WindowMaxToggle()<cr>
 
-nmap ,c/ :History:<cr>
-nmap ,s/ :History/<cr>
+nmap ,c/ :Unite history/command<cr>
+nmap ,s/ :Unite history/search<cr>
 nmap ,cd :lcd %:p:h<CR>
 nmap <silent> ,cw :cd $ORIG_PWD<cr>
 nmap ,rc :tabnew ~/.vimrc<cr>

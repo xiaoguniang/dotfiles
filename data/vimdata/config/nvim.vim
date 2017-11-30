@@ -76,9 +76,11 @@ function! TermInit()
 	" startinsert
 endfunction
 
+
+
 autocmd! TermOpen * call TermInit()
-autocmd! BufDelete term://* wincmd p
-autocmd! BufEnter,BufWinEnter term://* startinsert
+" autocmd! BufDelete term://* if &ft != 'fzf' | wincmd p | endif
+autocmd! BufEnter term://* startinsert
 autocmd! BufLeave term://* stopinsert
 " autocmd! WinLeave term://* wincmd p
 " autocmd! BufWinLeave term://* wincmd p
