@@ -15,6 +15,10 @@ snippet fwdc "freewheel datacenter" b
 substr(server_id, 1, 1)
 endsnippet
 
+snippet now "timestamp now function"
+now()
+endsnippet
+
 snippet timegroup "group by time: hour minute second"
 date_trunc('${1:hour}', request_event_date)
 endsnippet
