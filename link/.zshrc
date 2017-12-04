@@ -421,7 +421,7 @@ pdate() { gdate --date="@$1" +'%F %T %Z'}
 
 # tmux # {{{
 rmux() {
-    ssh "$@" -t 'bash -l -c ptmux'
+    ssh "$@" -t 'env LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 tmux new -A -s def' 
 }
 
 tcd() {

@@ -4,10 +4,27 @@
 # Last Modified Date: 2017-10-17
 # Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
 
+MAGIC_STR="hiberabyss-screen"
+SCREENRC_PATH="~/.screenrc"
+
+APPEND_SCREENRC="cat >> $SCREENRC_PATH << EOF
+# $MAGIC_STR
+startup_message off 
+vbell off  
+term linux
+shelltitle 'bash'
+
+hardstatus alwayslastline 
+# caption always '%{= kw}%-w%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+w %=%d %M %0c %{g}%H%{-}'
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG}'
+EOF
+"
+
 rscreen() {
 	local host=$1
 	local session_name=${2:-hbliu}
-	ssh "$host" -t "screen -rd $session_name"
+    # ssh "$host" -t "screen -dR $session_name"
+    ssh "$host" -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; screen -dR $session_name"
 }
 
 rscreen $*
