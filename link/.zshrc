@@ -611,10 +611,9 @@ alias ecs-cli='aws-mfa ecs-cli'
 alias aws='aws-mfa aws'
 # alias kops='aws-mfa kops'
 
-if which kops &> /dev/zero; then
-  source <(kops completion zsh)
-fi
-
+# if which kops &> /dev/zero; then
+  # source <(kops completion zsh)
+# fi
 # }}}
 
 # kubenetes #{{{
