@@ -23,6 +23,11 @@ EOF
 rscreen() {
 	local host=$1
 	local session_name=${2:-hbliu}
+
+    if [[ "$host" =~ ^([0-9]+-){3}([0-9]+)$ ]]; then
+        host="${host//-/.}"
+    fi
+
     # ssh "$host" -t "screen -dR $session_name"
     ssh "$host" -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; screen -dR $session_name"
 }

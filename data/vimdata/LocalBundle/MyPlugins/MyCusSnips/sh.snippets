@@ -2,7 +2,7 @@ snippet getopt "Description" b
 local OPT OPTARG OPTIND
 while getopts '$1' OPT; do
 	case $OPT in
-		?) ;;
+		h) usage ;;
 	esac
 done
 shift $(($OPTIND - 1))

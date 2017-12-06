@@ -1,0 +1,32 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-12-05
+# Last Modified Date: 2017-12-05
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+usage() {
+cat << EOF
+Usage: $(basename $0) 
+
+Options:
+  -h show this help
+  -t get node by node type
+EOF
+exit 0
+}
+
+main() {
+    local OPT OPTARG OPTIND
+    local type
+    while getopts 't:h' OPT; do
+        case $OPT in
+            h) usage ;;
+            t) type=$OPTARG ;;
+        esac
+    done
+    shift $(($OPTIND - 1))
+
+    kubectl get nodes -l "beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=$type"
+}
+
+main $@
