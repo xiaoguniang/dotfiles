@@ -15,6 +15,18 @@ EOF
 exit 0
 }
 
+getHostType() {
+    local default_types="c4.4xlarge c4.8xlarge t2.medium"
+
+    for ec2type in $default_types; do
+        if [[ "$ec2type" =~ $1 ]]; then
+            echo $ec2type
+            return 0
+        fi
+    done
+    echo "$1"
+}
+
 main() {
     local OPT OPTARG OPTIND
     local type
@@ -25,6 +37,8 @@ main() {
         esac
     done
     shift $(($OPTIND - 1))
+
+    type=$(getHostType $type)
 
     kubectl get nodes -l "beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=$type"
 }

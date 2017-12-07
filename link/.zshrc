@@ -50,12 +50,20 @@ pre_require() {
 		return
 	fi
 	local root="$HOME/.github"
-	local username=$(echo $url | rev | cut -d'/' -f2 | rev)
-	local project=$(echo $url | rev | cut -d'/' -f1 | rev)
+
+    if [[ "$url" =~ ^git ]]; then
+        local username=$(echo $url | cut -d':' -f2 | cut -d'/' -f1)
+        local project=$(echo $url | cut -d':' -f2 | cut -d'/' -f2)
+    else
+        local username=$(echo $url | rev | cut -d'/' -f2 | rev)
+        local project=$(echo $url | rev | cut -d'/' -f1 | rev)
+    fi
+
+    project="${project%%.git}"
 
 	local dir="$root/$username"
 	if [[ ! -d "$dir/$project" ]]; then
-		mkdir -p "$dir" && cd "$dir" && git clone "$url"
+		mkdir -p "$dir" && cd "$dir" && git clone --depth=1 "$url"
 	fi
 
 	echo $dir/$project
@@ -267,7 +275,6 @@ vimprofiler() {
 	local dir=$(pre_require "https://github.com/bchretien/vim-profiler")
 	$dir/vim-profiler.py $*
 }
-
 
 # for edit in nvim; do
 	# if which $edit &> /dev/zero; then
