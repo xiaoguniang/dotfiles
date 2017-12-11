@@ -60,6 +60,22 @@ if _, err := os.Stat("/path/to/whatever"); os.IsNotExist(err) {
 }
 endsnippet
 
+snippet stof "convert string to float" b
+${2:f}, _ := strconv.ParseFloat(${1:str}, 64)
+endsnippet
+
+snippet slice "define slice" b
+${2:arr} := []${1:int} {}
+endsnippet
+
+snippet newmap "create new map" b
+cusMap := make(map[int]string)
+endsnippet
+
+snippet strip "string strip" b
+${1:s} := strings.Replace($1, "%", "", -1)
+endsnippet
+
 snippet getbody "get http body" b
 bodyBytes, err := ioutil.ReadAll(res.Body)
 res.Body.Close()
