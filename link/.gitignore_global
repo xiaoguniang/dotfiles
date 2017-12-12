@@ -15,9 +15,6 @@ node_modules
 .cproject
 .project
 .settings
-github.com
-golang.org
-gopkg.in/
 src/go/pkg
 src/go/bin
 127.0.0.1:*

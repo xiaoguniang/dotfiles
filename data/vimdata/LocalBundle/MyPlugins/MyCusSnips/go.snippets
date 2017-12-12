@@ -68,8 +68,49 @@ snippet slice "define slice" b
 ${2:arr} := []${1:int} {}
 endsnippet
 
-snippet newmap "create new map" b
-cusMap := make(map[int]string)
+snippet makemap "create new map" b
+cusMap := make(map[${1:int}]${2:string})
+endsnippet
+
+snippet log "set log level" b
+import (
+	log "github.com/sirupsen/logrus"
+)
+
+log.Debug("Test")
+log.SetLevel(DebugLevel)
+endsnippet
+
+snippet config "go config" b
+import (
+	"github.com/spf13/viper"
+)
+
+func initConfig() {
+	viper.SetConfigName("config")
+	viper.AddConfigPath(".")
+	viper.SetConfigType("yaml")
+
+	err := viper.ReadInConfig()
+	if err != nil {
+		log.Fatalln("Fail to read config file")
+	}
+
+	host := viper.GetString("db.host")
+}
+endsnippet
+
+snippet infun "inside function" b
+    foo := func(s string) {
+        fmt.Println(s)
+    }
+endsnippet
+
+snippet strfile "read file as string" b
+content, err := ioutil.ReadFile(viper.GetString("test.csvfile"))
+if err != nil {
+	log.Fatalf("Fail to open test file errmsg: %s\n", err)
+}
 endsnippet
 
 snippet strip "string strip" b
@@ -100,6 +141,11 @@ func getCurrentDir() string {
 	_, filename, _, _ := runtime.Caller(0)
 	return filepath.Dir(filename)
 }
+endsnippet
+
+snippet strtotime "convert string to go time" b
+str := "2017-12-12T00:00:00.000Z"
+t, _ := time.Parse(time.RFC3339, str)
 endsnippet
 
 snippet template "go template"
