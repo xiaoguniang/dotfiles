@@ -148,6 +148,14 @@ str := "2017-12-12T00:00:00.000Z"
 t, _ := time.Parse(time.RFC3339, str)
 endsnippet
 
+snippet timeformat "format print time" b
+str := time.Now().UTC().Format(time.RFC3339)
+endsnippet
+
+snippet timestamp2time "unix seconds to go time" b
+goTime := time.Unix(timestamp, 0)
+endsnippet
+
 snippet template "go template"
 template, err := template.New("SlackMsgTemplate").Parse("{{.Content}} is here")
 if err != nil {
