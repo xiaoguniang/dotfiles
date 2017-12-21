@@ -20,13 +20,25 @@ hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= 
 EOF
 "
 
+getRealHost() {
+    local prefix="ip-"
+    local suffix=".ec2.internal"
+    local host=$1
+
+    if [[ "$host" =~ ^($prefix)?([0-9]+-){3}([0-9]+)($suffix)?$ ]]; then
+        host=${host#$prefix}
+        host=${host%$suffix}
+        host="${host//-/.}"
+    fi
+
+    echo $host
+}
+
 rscreen() {
 	local host=$1
 	local session_name=${2:-hbliu}
 
-    if [[ "$host" =~ ^([0-9]+-){3}([0-9]+)$ ]]; then
-        host="${host//-/.}"
-    fi
+    host=$(getRealHost $host)
 
     # ssh "$host" -t "screen -dR $session_name"
     ssh "$host" -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; screen -dR $session_name"
