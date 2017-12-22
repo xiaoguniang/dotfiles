@@ -1,0 +1,21 @@
+#!/bin/bash
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2017-12-22
+# Last Modified Date: 2017-12-22
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+getRealHost() {
+    local prefix="ip-"
+    local suffix=".ec2.internal"
+    local host=$1
+
+    if [[ "$host" =~ ^($prefix)?([0-9]+-){3}([0-9]+)($suffix)?$ ]]; then
+        host=${host#$prefix}
+        host=${host%$suffix}
+        host="${host//-/.}"
+    fi
+
+    echo $host
+}
+
+getRealHost $@

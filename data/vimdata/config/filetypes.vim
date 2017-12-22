@@ -110,4 +110,8 @@ let g:go_term_width = 15
 
 " Plug 'https://github.com/tmux-plugins/vim-tmux' " tmux.conf
 
+" swift "{{{
+Plug 'https://github.com/keith/swift.vim', {'for': 'swift'}
+"}}}
+
 " vim:set fdm=marker:
