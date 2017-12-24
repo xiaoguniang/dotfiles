@@ -24,7 +24,7 @@ Plug 'https://github.com/tpope/vim-endwise' " wisely add endfunction/endif/more 
 
 if has('mac')
     Plug 'https://github.com/ybian/smartim.git' ", {'on': 'SmartIM'}
-	" let g:smartim_disable = 1
+    " let g:smartim_disable = 1
     let g:smartim_debug = 1
     command! -nargs=0 SmartIM let g:smartim_disable = 0
     command! -nargs=0 SmartIMdisable let g:smartim_disable = 1
