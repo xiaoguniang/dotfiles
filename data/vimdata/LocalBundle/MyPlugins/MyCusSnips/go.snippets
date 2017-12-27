@@ -136,6 +136,10 @@ bodyBytes, err := ioutil.ReadAll(resp.Body)
 resp.Body.Close()
 endsnippet
 
+snippet join "string join" b
+strings.Join(${1:slice}, ${2:","})
+endsnippet
+
 snippet getcurdir "get current diretory" b
 func getCurrentDir() string {
 	_, filename, _, _ := runtime.Caller(0)
