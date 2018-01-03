@@ -3,6 +3,16 @@ noremap <silent> <Up> <C-y>
 noremap <silent> <Down> <C-e>
 "}}}
 
+
+" cmdline setting "{{{
+cnoremap <C-A> <Home>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+cnoremap <M-d> <S-Right><C-w>
+" select last paste content
+nnoremap <expr> ,gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+"}}}
+
 " Insert Mode rsi "{{{
 inoremap <M-f> <S-Right>
 inoremap <M-b> <S-Left>
@@ -232,6 +242,11 @@ endfunction
 command! -nargs=? PDate call TimestampToDate(<f-args>)
 
 nmap <silent> ,pd :call TimestampToDate(expand("<cword>"))<cr>
+"}}}
+
+" cfile settings"{{{
+nmap <silent> ,gf ,cd:vsplit <cfile><cr>
+nmap <silent> ,gt :tabnew <cfile><cr>
 "}}}
 
 " vim:set fdm=marker:

@@ -24,63 +24,44 @@ source $PLUG_DIR/plug.vim
 call plug#begin(expand($BUNDLE))
 Plug expand('$CUSDATA/LocalBundle/tags4proj')
 Plug expand('$CUSDATA/LocalBundle/MyPlugins')
-" Plug 'git@git.dev.fwmrm.net:vim/deoplete-fwlqs.git'
 Plug expand('$CUSDATA/LocalBundle/paste')
 
-" Highligts multiple words
-Plug 'https://github.com/dimasg/vim-mark'
+Plug 'https://github.com/vim-scripts/ExtractMatches'
+Plug 'https://github.com/AndrewRadev/linediff.vim'
+Plug 'https://github.com/tpope/vim-repeat.git'
+Plug 'https://github.com/vim-scripts/VisIncr.git'
+Plug 'https://github.com/dimasg/vim-mark' " Highligts multiple words
+Plug 'https://github.com/janko-m/vim-test'
+Plug 'https://github.com/chrisbra/NrrwRgn.git'
 
 " Plug 'https://github.com/ianva/vim-youdao-translater.git', {'on': ['Ydc', 'Yde', 'Ydv']}
 " Plug 'https://github.com/vim-scripts/DirDiff.vim.git', {'on': ['DirDiff']}
 
 " BundleList "{{{
-Plug 'https://github.com/vim-scripts/ingo-library' " need by PatternsOnText
+" Plug 'https://github.com/vim-scripts/ingo-library' " need by PatternsOnText
 " Plug 'https://github.com/vim-scripts/PatternsOnText'
-Plug 'https://github.com/vim-scripts/ExtractMatches'
 " Plug 'https://github.com/mtth/scratch.vim'
-Plug 'https://github.com/AndrewRadev/linediff.vim'
-Plug 'https://github.com/wincent/vim-clipper'
-Plug 'chrisbra/vim-diff-enhanced'
+" Plug 'chrisbra/vim-diff-enhanced'
 " NeoBundle 'https://github.com/junegunn/goyo.vim'
 " NeoBundle 'https://github.com/junegunn/limelight.vim'
-Plug 'https://github.com/junegunn/vim-easy-align'
-Plug 'https://github.com/tpope/vim-surround.git'
-Plug 'https://github.com/tpope/vim-repeat.git'
 " Plug 'https://github.com/christoomey/vim-titlecase'
-Plug 'https://github.com/vim-scripts/VisIncr.git'
-Plug 'https://github.com/triglav/vim-visual-increment'
-Plug 'https://github.com/Raimondi/delimitMate.git'
-" Plug 'https://github.com/bruno-/vim-man'
-Plug 'https://github.com/zenbro/mirror.vim'
-Plug 'https://github.com/hiberabyss/vim-gradle'
+" Plug 'https://github.com/triglav/vim-visual-increment'
 " NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'
 " NeoBundle 'https://github.com/MattesGroeger/vim-bookmarks'
-
-" Test " {{{
-Plug 'https://github.com/janko-m/vim-test'
-Plug 'https://github.com/alepez/vim-gtest'
-"}}}
-
-" Coding plugins "{{{
-" NeoBundle 'https://github.com/neovimhaskell/haskell-vim'
-" NeoBundle 'https://github.com/eagletmt/neco-ghc'
-"}}}
 
 " NeoBundle 'https://github.com/xolox/vim-notes.git'
 " Plug 'https://github.com/tpope/vim-speeddating.git'
 " NeoBundle 'https://github.com/benmills/vimux.git'
-Plug 'https://github.com/chrisbra/NrrwRgn.git'
 " NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'
 
 " NeoBundle 'https://github.com/junkblocker/patchreview-vim'
-" NeoBundle 'https://github.com/roxma/vim-tmux-clipboard'
 "}}}
 " Plug 'https://github.com/kshenoy/vim-signature.git', { 'on': ['SignatureToggle']}
 " Plug 'https://github.com/junegunn/vim-peekaboo'
 
-Plug 'https://github.com/saltstack/salt-vim', {'for': 'sls'}
-
 " source $VIMCONFIG/sqlclient.vim
+" source $VIMCONFIG/VersionControlSystem.vim
+
 source $VIMCONFIG/ctrlp.vim
 source $VIMCONFIG/unite.vim
 source $VIMCONFIG/ide.vim
@@ -94,10 +75,8 @@ source $VIMCONFIG/website.vim
 source $VIMCONFIG/writting.vim
 source $VIMCONFIG/notes.vim
 source $VIMCONFIG/git.vim
-" source $VIMCONFIG/VersionControlSystem.vim
 
 source $VIMCONFIG/textobj.vim
-
 source $VIMCONFIG/filetypes.vim
 source $VIMCONFIG/utilities.vim
 
@@ -125,18 +104,6 @@ nmap ,pU :PlugUpdate<cr>
 
 source $VIMCONFIG/mappings.vim
 source $VIMCONFIG/commands.vim
-
-" NrrwRgn "{{{
-function! FilterComment()
-	let comment_string = &commentstring
-	let comment_string = split(split(comment_string, '%')[0])[0]
-	let filter_pattern = "^" .comment_string. "\\|^$"
-	execute(":v/" .filter_pattern. "/NRP")
-	execute(":NRMulti")
-endfunction
-
-command! -nargs=0 FilterComment call FilterComment()
-"}}}
 
 " vim test"{{{
 " nmap <silent> <leader>N :TestNearest<CR>
@@ -211,10 +178,6 @@ let g:nvimgdb_host_cmd = {
             \ }
 "}}}
 
-" EasyAlign "{{{
-vmap <Enter> <Plug>(EasyAlign)
-"}}}
-
 " limelight"{{{
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
@@ -243,7 +206,7 @@ xmap <Leader>ll <Plug>(Limelight)
 nmap <Leader>L :Limelight!<cr>
 "}}}
 
-" goyo"{{{
+" goyo "{{{
 function! s:goyo_enter()
   silent !tmux set status off
   set noshowmode
@@ -268,152 +231,6 @@ endfunction
 " let g:goyo_linenr = 0
 "}}}
 
-" cmdline setting"{{{
-cnoremap <C-A> <Home>
-cnoremap <M-b> <S-Left>
-cnoremap <M-f> <S-Right>
-cnoremap <M-d> <S-Right><C-w>
-" select last paste content
-" nnoremap <expr> ,gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-"}}}
-
-" Mouse"{{{
-set mouse=n
-" nmap ,m :set mouse=n<cr>:call ShowMsg("Enable Mouse")<cr>
-" nmap ,M :set mouse=<cr>:call ShowMsg("Disable Mouse")<cr>
-"}}}
-
-" Cpp Settings "{{{
-function! JumpToClassMemberByFunction()
-    let cword = expand('<cword>')
-    normal [[
-    let line = getline('.')
-    if line[0] == '{'
-        let line = getline(line('.') - 1)
-    endif
-    
-    if strlen(line) <= 0 | return | endif
-
-    let class_name = matchstr(line, '\v(struct|class)\s+\zs\w+')
-    if empty(class_name)
-        let class_name = matchstr(line, '\w\+::')
-    else
-        let class_name .= '::'
-    endif
-    if empty(class_name) | return | endif
-
-    let tagname = class_name . cword
-    execute(':keepjumps tj ' . tagname)
-endfunction
-
-function! TaglistTagJump(tag_item, ...)
-    let edit_cmd = "e"
-    let is_preview = edit_cmd =~# "ped"
-
-    if a:0 > 0 | let edit_cmd = a:1 | endif
-
-    let buf_num = bufnr(a:tag_item["filename"])
-    if !is_preview && buf_num > 0
-        execute("keepjumps buffer " . buf_num)
-    else
-        execute("keepjumps " . edit_cmd . ' ' . a:tag_item["filename"])
-    endif
-
-    let save_magic = &magic
-    set nomagic
-    if edit_cmd =~# "ped" | wincmd p | endif
-    execute("keepjumps 0;" . a:tag_item["cmd"])
-    let &magic = save_magic
-endfunction
-
-function! GetFuncTags(tagname)
-    let tag_items = taglist("^" . a:tagname . "$")
-    let tag_fun = []
-
-    for item in tag_items
-        if item["kind"] == "f"
-            call add(tag_fun, item)
-        endif
-    endfor
-
-    return tag_fun
-endfunction
-
-function! TagJump(tagcmd, tagname)
-    let tag_fun = GetFuncTags(a:tagname)
-    if a:tagcmd !~# 'ptj' && len(tag_fun) == 1
-        call TaglistTagJump(tag_fun[0])
-    else
-        execute(a:tagcmd . ' ' . a:tagname)
-    endif
-endfunction
-
-function! JumpToClassMem(count, tagcmd)
-    let save_keyword = &iskeyword
-    setl iskeyword+=:
-    let cword = expand('<cword>')
-    let &iskeyword = save_keyword
-    let cword = substitute(cword, ':$', '', '')
-
-    if a:count == 0
-        call TagJump(a:tagcmd, cword)
-    else
-        execute(a:count . 'tag' . ' ' . cword)
-    endif
-endfunction
-
-function! JumpToClassMemberByDecl(tagcmd)
-    let save_keyword = &iskeyword
-    setl iskeyword+=.,-,>,:
-    let cword = expand('<cword>')
-    let &iskeyword = save_keyword
-
-    let var = matchstr(cword, '\v(\w|::)+\ze(->|\.)*')
-    let member = matchstr(cword, matchstr(cword, '\(->\|\.\)\zs\w\+'))
-
-    if v:count > 0 || (!empty(var) && var[0] =~# '\u')
-        call JumpToClassMem(v:count, a:tagcmd) 
-        return
-    endif
-
-    let class_name = ''
-    if searchdecl(var, 0, 1) == 0
-        let line = substitute(getline('.'), 'const', '', 'g')
-        let class_name =  matchstr(line, '\v(\w|::)+\ze(\s|[*&])+' . var . '\_s*[,;=)]\C')
-        execute("normal \<c-o>")
-    endif
-
-    if empty(class_name) || class_name == 'auto'
-        call JumpToClassMem(v:count, a:tagcmd)
-        return
-    endif
-
-    if !empty(member) | let class_name .= '::' | endif
-    let tagname = class_name . member
-
-    call TagJump(a:tagcmd, tagname)
-endfunction
-
-function! CppFoldMethod(size, ignore_tagbar)
-    if getfsize(expand('%')) > a:size * 1024
-        execute("setl fmr={,}|setl fdm=marker")
-        if a:ignore_tagbar != 0
-            let b:tagbar_ignore = a:ignore_tagbar
-        endif
-    else
-        execute("setl fdm=syntax")
-    endif
-endfunction
-
-nmap <silent> ,b[ :call JumpToClassMemberByFunction()<cr>
-nmap <silent> ,bd :call JumpToClassMemberByDecl('tj')<cr>
-nmap <silent> ,bc :<C-U>call JumpToClassMem(v:count)<cr>
-
-autocmd! BufReadPre *.h call CppFoldMethod(100, 1)
-autocmd! BufReadPre *.cpp,*.inl,*.c call CppFoldMethod(100, 0)
-autocmd! FileType cpp setl completefunc=RtagsCompleteFunc
-"}}}
-
 " Tags and Cscope Manage"{{{
 function! AddCscopeCon()
     if filereadable("cscope.out") && !cscope_connection(getcwd())
@@ -426,11 +243,6 @@ endfunction
 " nmap ,gc :!cscope -Rbq<cr> 
 " nmap silent <A-]> <C-w>]
 vnoremap <C-]> "vy:tag /<c-r>v<cr> " / represent not exactly match
-"}}}
-
-" cfile settings"{{{
-nmap <silent> ,gf ,cd:vsplit <cfile><cr>
-nmap <silent> ,gt :tabnew <cfile><cr>
 "}}}
 
 " fold settings"{{{

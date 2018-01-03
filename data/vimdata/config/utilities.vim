@@ -2,6 +2,12 @@ Plug 'https://github.com/arecarn/vim-selection' " Required by crunch
 Plug 'https://github.com/arecarn/vim-crunch'
 " Plug 'https://github.com/sk1418/HowMuch'
 
+if ! has('mac')
+    Plug 'https://github.com/wincent/vim-clipper'
+    " let g:ClipperAuto = 0
+endif
+Plug 'https://github.com/zenbro/mirror.vim'
+
 " Plug 'https://github.com/christoomey/vim-run-interactive'
 Plug 'https://github.com/vim-scripts/a.vim.git'
 Plug 'https://github.com/DataWraith/auto_mkdir'
@@ -35,16 +41,5 @@ let g:yaasita_slack_token = expand("$SLACK_TOKEN")
 " 		endfor
 " 	endfor
 " endfunction
-
-" sql view "{{{
-" Plug expand('$CUSDATA/LocalBundle/dbext_2500')
-" Plug 'https://github.com/cosminadrianpopescu/vim-sql-workbench'
-
-let g:sw_exe = '/Users/hbliu/Downloads/Workbench-Build122-with-optional-libs/sqlwbconsole.sh'
-let g:sw_config_dir = '/Users/hbliu/.sqlworkbench'
-
-let g:dbext_default_profile_mySQL = 'type=MYSQL:user=ads:passwd=ads:host=192.168.0.32:port=23306:dbname=fwmrm_oltp' 
-let g:dbext_default_profile_fwprd = 'type=MYSQL:user=qa:passwd=Qa0602@@:host=OLTPdb1a.fwmrm.net:dbname=fwmrm_oltp' 
-"}}}
 
 Plug 'https://github.com/hiberabyss/changesqlcase.vim', {'on': 'ChangeSqlCase'}

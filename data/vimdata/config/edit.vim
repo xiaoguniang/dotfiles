@@ -16,6 +16,15 @@ Plug 'https://github.com/sjl/gundo.vim.git', {'on' : ['GundoToggle']}
 Plug 'https://github.com/christoomey/vim-sort-motion'
 " Plug 'https://github.com/vim-scripts/DrawIt'
 
+Plug 'https://github.com/Raimondi/delimitMate.git'
+
+Plug 'https://github.com/junegunn/vim-easy-align'
+" EasyAlign "{{{
+vmap <Enter> <Plug>(EasyAlign)
+"}}}
+
+Plug 'https://github.com/tpope/vim-surround.git'
+
 Plug 'https://github.com/pelodelfuego/vim-swoop'
 
 Plug 'https://github.com/Shougo/vinarise.vim'

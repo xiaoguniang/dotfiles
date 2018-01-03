@@ -13,7 +13,7 @@ Plug 'https://github.com/thinca/vim-textobj-between'
 Plug 'https://github.com/kana/vim-textobj-indent'
 Plug 'https://github.com/kana/vim-textobj-lastpat'
 " Plug 'https://github.com/gilligan/textobj-lastpaste'
-Plug 'https://github.com/saaguero/vim-textobj-pastedtext'
+" Plug 'https://github.com/saaguero/vim-textobj-pastedtext'
 Plug 'https://github.com/bps/vim-textobj-python', {'for': 'python'}
 Plug 'https://github.com/christoomey/vim-system-copy'
 " Plug 'https://github.com/kana/vim-textobj-line'

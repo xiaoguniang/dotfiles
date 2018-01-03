@@ -11,6 +11,10 @@ endif
 execute('set undodir=' . s:vim_undodir)
 execute('set backupdir=' . s:vim_backdir)
 
+" Mouse"{{{
+set mouse=n
+"}}}
+
 " Lazy Redraw
 " set lazyredraw " :redraw to force draw
 

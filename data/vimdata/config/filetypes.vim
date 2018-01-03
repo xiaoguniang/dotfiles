@@ -1,7 +1,143 @@
+Plug 'https://github.com/saltstack/salt-vim', {'for': 'sls'}
+Plug 'https://github.com/alepez/vim-gtest', {'for': ['cpp', 'c']}
+
+Plug 'https://github.com/hiberabyss/vim-gradle', {'for': 'groovy'}
+
 Plug 'https://github.com/sheerun/vim-polyglot'
 
 " polyglot"{{{
 let g:polyglot_disabled = ['python', 'latex', 'tex']
+"}}}
+
+" Cpp Settings "{{{
+function! JumpToClassMemberByFunction()
+    let cword = expand('<cword>')
+    normal [[
+    let line = getline('.')
+    if line[0] == '{'
+        let line = getline(line('.') - 1)
+    endif
+    
+    if strlen(line) <= 0 | return | endif
+
+    let class_name = matchstr(line, '\v(struct|class)\s+\zs\w+')
+    if empty(class_name)
+        let class_name = matchstr(line, '\w\+::')
+    else
+        let class_name .= '::'
+    endif
+    if empty(class_name) | return | endif
+
+    let tagname = class_name . cword
+    execute(':keepjumps tj ' . tagname)
+endfunction
+
+function! TaglistTagJump(tag_item, ...)
+    let edit_cmd = "e"
+    let is_preview = edit_cmd =~# "ped"
+
+    if a:0 > 0 | let edit_cmd = a:1 | endif
+
+    let buf_num = bufnr(a:tag_item["filename"])
+    if !is_preview && buf_num > 0
+        execute("keepjumps buffer " . buf_num)
+    else
+        execute("keepjumps " . edit_cmd . ' ' . a:tag_item["filename"])
+    endif
+
+    let save_magic = &magic
+    set nomagic
+    if edit_cmd =~# "ped" | wincmd p | endif
+    execute("keepjumps 0;" . a:tag_item["cmd"])
+    let &magic = save_magic
+endfunction
+
+function! GetFuncTags(tagname)
+    let tag_items = taglist("^" . a:tagname . "$")
+    let tag_fun = []
+
+    for item in tag_items
+        if item["kind"] == "f"
+            call add(tag_fun, item)
+        endif
+    endfor
+
+    return tag_fun
+endfunction
+
+function! TagJump(tagcmd, tagname)
+    let tag_fun = GetFuncTags(a:tagname)
+    if a:tagcmd !~# 'ptj' && len(tag_fun) == 1
+        call TaglistTagJump(tag_fun[0])
+    else
+        execute(a:tagcmd . ' ' . a:tagname)
+    endif
+endfunction
+
+function! JumpToClassMem(count, tagcmd)
+    let save_keyword = &iskeyword
+    setl iskeyword+=:
+    let cword = expand('<cword>')
+    let &iskeyword = save_keyword
+    let cword = substitute(cword, ':$', '', '')
+
+    if a:count == 0
+        call TagJump(a:tagcmd, cword)
+    else
+        execute(a:count . 'tag' . ' ' . cword)
+    endif
+endfunction
+
+function! JumpToClassMemberByDecl(tagcmd)
+    let save_keyword = &iskeyword
+    setl iskeyword+=.,-,>,:
+    let cword = expand('<cword>')
+    let &iskeyword = save_keyword
+
+    let var = matchstr(cword, '\v(\w|::)+\ze(->|\.)*')
+    let member = matchstr(cword, matchstr(cword, '\(->\|\.\)\zs\w\+'))
+
+    if v:count > 0 || (!empty(var) && var[0] =~# '\u')
+        call JumpToClassMem(v:count, a:tagcmd) 
+        return
+    endif
+
+    let class_name = ''
+    if searchdecl(var, 0, 1) == 0
+        let line = substitute(getline('.'), 'const', '', 'g')
+        let class_name =  matchstr(line, '\v(\w|::)+\ze(\s|[*&])+' . var . '\_s*[,;=)]\C')
+        execute("normal \<c-o>")
+    endif
+
+    if empty(class_name) || class_name == 'auto'
+        call JumpToClassMem(v:count, a:tagcmd)
+        return
+    endif
+
+    if !empty(member) | let class_name .= '::' | endif
+    let tagname = class_name . member
+
+    call TagJump(a:tagcmd, tagname)
+endfunction
+
+function! CppFoldMethod(size, ignore_tagbar)
+    if getfsize(expand('%')) > a:size * 1024
+        execute("setl fmr={,}|setl fdm=marker")
+        if a:ignore_tagbar != 0
+            let b:tagbar_ignore = a:ignore_tagbar
+        endif
+    else
+        execute("setl fdm=syntax")
+    endif
+endfunction
+
+nmap <silent> ,b[ :call JumpToClassMemberByFunction()<cr>
+nmap <silent> ,bd :call JumpToClassMemberByDecl('tj')<cr>
+nmap <silent> ,bc :<C-U>call JumpToClassMem(v:count)<cr>
+
+autocmd! BufReadPre *.h call CppFoldMethod(100, 1)
+autocmd! BufReadPre *.cpp,*.inl,*.c call CppFoldMethod(100, 0)
+" autocmd! FileType cpp setl completefunc=RtagsCompleteFunc
 "}}}
 
 " Python "{{{
