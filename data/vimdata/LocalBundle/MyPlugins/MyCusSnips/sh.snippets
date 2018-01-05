@@ -77,3 +77,13 @@ endsnippet
 snippet getext "get extension of filename" w
 \${${1:filename}##*.}
 endsnippet
+
+snippet if9 "zsh if" b
+if (( ${1:${+Args[-h]}} )); then
+	$0
+fi
+endsnippet
+
+snippet zparseopts "zsh getopt" b
+zparseopts -D -E -M -A Args -- d: r h -depth:=d
+endsnippet

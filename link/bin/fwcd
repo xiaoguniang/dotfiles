@@ -19,15 +19,28 @@ dir_bookmark_list() {
 	exit 0
 }
 
+usage() {
+cat << EOF
+Usage: $(basename $0) fwcd dir_mark host (default host is nycdev03)
+
+Options:
+  -h show this help
+  -l show all directory marks
+  
+EOF
+exit 0
+}
+
 main() {
-	local host=$1
-	local dir=$2
+	local dir=$1
+	local host=${2:-nycdev03.fwmrm.net}
 	local realdir=$(get_real_path $dir)
 
 	local OPT OPTARG OPTIND
-	while getopts 'l' OPT; do
+	while getopts 'lh' OPT; do
 		case $OPT in
 			l) dir_bookmark_list ;;
+            h) usage ;;
 		esac
 	done
 	shift $(($OPTIND - 1))

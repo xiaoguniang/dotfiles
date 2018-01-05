@@ -156,5 +156,8 @@ function! NvrReturn(...)
 endfunction
 
 command! -nargs=? NvrReturn call NvrReturn(<f-args>)
+autocmd! FileType gitcommit
+            \ autocmd! BufWritePost <buffer> NvrReturn
+" autocmd! BufWritePost NvrReturn
 
 " vim:fdm=marker:

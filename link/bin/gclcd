@@ -1,0 +1,42 @@
+#!/bin/zsh
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2018-01-04
+# Last Modified Date: 2018-01-04
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+usage() {
+cat << EOF
+Usage: $(basename $0) -dhr url
+
+Options:
+  -h show this help
+  -r recursive clone
+  -d N set clone depth
+  
+EOF
+exit 0
+}
+
+gclcd() {
+    local clone_options=""
+
+    zparseopts -D -E -M -A Args -- d:=depth r h -help=h
+
+    if (( ${+Args[-h]} )); then
+        usage
+    fi
+
+    if (( ${+Args[-r]} )); then
+        clone_options="$clone_options --recursive"
+    fi
+
+    if (( ${+Args[-d]} )); then
+        clone_options="$clone_options --depth=${Args[-d]}"
+    fi
+
+    git clone "$clone_options" $* && cd "$(ls -t | head -1)"
+}
+
+gclcd $@
+
+#  vim:ft=zsh:

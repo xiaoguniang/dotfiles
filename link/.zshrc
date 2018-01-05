@@ -242,10 +242,6 @@ gbdiff() {
 	git diff `git merge-base $base_branch HEAD`
 }
 
-gclcd() {
-	git clone --recursive $* && cd "$(ls -t | head -1)"
-}
-
 gbdboth() {
 	if [[ -z "$1" ]]; then
 		echo "Usage: $0 branch # Delete both local and remote branch"
