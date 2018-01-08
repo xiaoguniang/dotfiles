@@ -12,6 +12,7 @@ jsonReq, _ := json.Marshal(${1:request})
 fmt.Print(string(jsonReq))
 endsnippet
 
+# https://golang.org/pkg/regexp/syntax/
 snippet regex "go regex" b
 re := regexp.MustCompile(`((?im)^[a-zA-Z]{2,4})-?[0-9]+`)
 transactionID := re.FindString(inputStr)

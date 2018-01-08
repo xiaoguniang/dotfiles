@@ -10,8 +10,8 @@ let g:dir_file_completion = {
 "}}}
 
 " RD report "{{{
-command! -nargs=0 TSReport RE 201 ~/gitlab/rd/ts_regression/report/
-command! -nargs=0 APIReport RE 201 ~/gitlab/rd/api_regression/report/
+" command! -nargs=0 TSReport RE 201 ~/gitlab/rd/ts_regression/report/
+" command! -nargs=0 APIReport RE 201 ~/gitlab/rd/api_regression/report/
 
 function! CopyNonFolded() range 
 	let lnum= a:firstline 
@@ -37,7 +37,7 @@ vmap ,zy :CopyFolds<cr>
 
 function! ShFileHandler(filepath)
 	if !filereadable(a:filepath)
-		setl ft=sh
+		setl ft=zsh
 		execute(':AddHeader')
 		execute(':normal G')
 	endif
@@ -141,23 +141,26 @@ autocmd FileType man,capture nmap <buffer> g/ /^\v\s+
 "}}}
 
 function! NvrReturn(...)
+    if ! exists('b:nvr')
+        return
+    endif
+
 	let resCode = 0
 	if a:0 > 0
 		let resCode = a:1
 	endif
 
-	w
-	if exists('b:nvr')
-		for chanid in b:nvr
-			silent! call rpcnotify(chanid, 'Exit', resCode)
-		endfor
-	endif
-	e # | bd #
+	" w
+    for chanid in b:nvr
+        silent! call rpcnotify(chanid, 'Exit', resCode)
+    endfor
+
+    if bufnr('#') != bufnr('%')
+        e # | bd #
+    endif
 endfunction
 
 command! -nargs=? NvrReturn call NvrReturn(<f-args>)
-autocmd! FileType gitcommit
-            \ autocmd! BufWritePost <buffer> NvrReturn
-" autocmd! BufWritePost NvrReturn
+autocmd! BufWritePost * call NvrReturn()
 
 " vim:fdm=marker:
