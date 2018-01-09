@@ -16,6 +16,24 @@ endsnippet
 snippet regex "go regex" b
 re := regexp.MustCompile(`((?im)^[a-zA-Z]{2,4})-?[0-9]+`)
 transactionID := re.FindString(inputStr)
+
+profile = regexp.MustCompile(`profile:(.+?);`).FindStringSubmatch(line)[1]
+endsnippet
+
+snippet filebyline "file by line" b
+file, err := os.Open(${1:filename})
+if err != nil {
+	log.Fatalf("Failt to open file %s, err: %s\n", $1, err)
+}
+
+reader := bufio.NewReader(file)
+
+for {
+	line, err := reader.ReadString('\n')
+	if err != nil {
+		break
+	}
+}
 endsnippet
 
 snippet getenv "Get System Environment" b
@@ -114,6 +132,10 @@ if err != nil {
 }
 endsnippet
 
+snippet args "go arguments" b
+args := os.Args
+endsnippet
+
 snippet strip "string strip" b
 ${1:s} := strings.Replace($1, "%", "", -1)
 endsnippet
@@ -157,8 +179,33 @@ snippet timeformat "format print time" b
 str := time.Now().UTC().Format(time.RFC3339)
 endsnippet
 
-snippet timestamp2time "unix seconds to go time" b
+snippet timestamp2time "unix seconds to go time"
 goTime := time.Unix(timestamp, 0)
+endsnippet
+
+snippet gorm "golang orm" b
+import (
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+)
+
+func (PerformanceRecord) TableName() string {
+	return "performance_records_opt"
+}
+
+func initDB() {
+	db, err := gorm.Open("mysql", "root:root@(192.168.0.32:4306)/test_performance?parseTime=true")
+	if err != nil {
+		log.Fatal("Fail to connect to database ", err)
+	}
+	defer db.Close()
+
+	db.AutoMigrate(&PerformanceRecord{})
+
+	if ! db.HasTable(&PerformanceRecord{}) {
+		db.Create(&PerformanceRecord{})
+	}
+}
 endsnippet
 
 snippet template "go template"
@@ -181,11 +228,11 @@ snippet getpara "get parameter from url"
 userName := r.URL.Query().Get("name")
 endsnippet
 
-snippet atoi "convert to int" b
+snippet atoi "convert to int"
 value, err := strconv.Atoi(str)
 endsnippet
 
-snippet atoi64 "convert string to int64" b
+snippet atoi64 "convert string to int64"
 ${2:num}, err := strconv.ParseInt(${1:s}, 10, 64)
 endsnippet
 
