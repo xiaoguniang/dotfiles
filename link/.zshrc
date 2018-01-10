@@ -272,12 +272,6 @@ vimprofiler() {
 	$dir/vim-profiler.py $*
 }
 
-# for edit in nvim; do
-	# if which $edit &> /dev/zero; then
-		# export EDITOR="$edit"
-		# break
-	# fi
-# done
 export EDITOR="env NVR_WAIT=1 tvim"
 # }}}
 
@@ -491,10 +485,6 @@ get_realpath() {
 
 # }}}
 
-# go settings# {{{
-# secureAddPath "$GOPATH/bin"
-# }}}
-
 # dash # {{{
 dquery() {
 	open dash://$1:$2
@@ -595,8 +585,7 @@ export FZF_DEFAULT_OPTS="--extended"
 
 # FreeWheel # {{{
 export GOPATH="$HOME/go"
-secureAddGoPath "$HOME/go" start
-secureAddPath "$HOME/go/bin" start
+secureAddPath "$GOPATH/bin" start
 secureSource "$HOME/.dotfiles/private/freewheel/plugin.zsh"
 # }}}
 
@@ -626,4 +615,6 @@ if which helm &> /dev/zero; then
 fi
 # }}}
 
+# secureAddPath "/usr/local/opt/python/libexec/bin" "start"
+# export PATH=/usr/local/opt/python/libexec/bin:$PATH
 # vim:set fdm=marker:

@@ -13,26 +13,13 @@ startup_message off
 vbell off  
 term linux
 shelltitle 'bash'
+bind x kill
 
 hardstatus alwayslastline 
 # caption always '%{= kw}%-w%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+w %=%d %M %0c %{g}%H%{-}'
 hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG}'
 EOF
 "
-
-# getRealHost() {
-    # local prefix="ip-"
-    # local suffix=".ec2.internal"
-    # local host=$1
-
-    # if [[ "$host" =~ ^($prefix)?([0-9]+-){3}([0-9]+)($suffix)?$ ]]; then
-        # host=${host#$prefix}
-        # host=${host%$suffix}
-        # host="${host//-/.}"
-    # fi
-
-    # echo $host
-# }
 
 rscreen() {
 	local host=$1
@@ -41,7 +28,7 @@ rscreen() {
     # host=$(getRealHost $host)
 
     # ssh "$host" -t "screen -dR $session_name"
-    ssh "$host" -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; screen -dR $session_name"
+    ssh "$host" -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; export LOCKPRG=/bin/true; screen -dR $session_name"
 }
 
 rscreen $*
