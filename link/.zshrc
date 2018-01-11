@@ -263,7 +263,6 @@ export TMUX_WINDOW_ID="$(tmux display -p '#S_#I' 2> /dev/zero)"
 
 alias vlarge='nvim -n -u NONE -i NONE -N'
 if which nvim &> /dev/zero; then
-	alias nvr='env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr'
 	alias vim='env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvim'
 fi
 
@@ -615,6 +614,4 @@ if which helm &> /dev/zero; then
 fi
 # }}}
 
-# secureAddPath "/usr/local/opt/python/libexec/bin" "start"
-# export PATH=/usr/local/opt/python/libexec/bin:$PATH
 # vim:set fdm=marker:

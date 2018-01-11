@@ -16,6 +16,17 @@ snippet getenv "get environment"
 os.environ['${1:HOME}']
 endsnippet
 
+snippet sprintf "python sprintf" b
+strA = "%s/%s" % (baseurl, suffix)
+endsnippet
+
+snippet regex "python regex" b
+import re
+
+matches = re.search('pattern\s*(\d+)', str(something))
+print(matches.group(1))
+endsnippet
+
 snippet getopt "argument parser" b
 import sys
 import getopt
@@ -43,10 +54,12 @@ import time
 time.sleep(${1:5})
 endsnippet
 
+# pip install beautifulsoup4
 snippet soup "Beautiful soup" b
 from bs4 import BeautifulSoup
 
 soup = BeautifulSoup(page, "lxml")
+# node[0].text
 node_list = soup.select('div#list')[0].select('div.col-xs-6')[0].find('a')
 endsnippet
 
@@ -61,14 +74,18 @@ urllib.urlretrieve(url, filename=filepath)
 endsnippet
 
 snippet urllib "get html page" b
-import urllib2
+import urllib2	#python2
+from urllib.request import urlopen	#python3
 
 page = urllib2.urlopen($1).read()
 endsnippet
 
 snippet writefile "write to file" b
 outf = open(${1:filepath}, 'w')
-print >> outf, list
+
+# write with newline
+print >>f, "text to write"         # Python 2.x
+print("text to write", file=f)     # Python 3.x
 endsnippet
 
 snippet readfile "readfile" b
