@@ -12,6 +12,25 @@ jsonReq, _ := json.Marshal(${1:request})
 fmt.Print(string(jsonReq))
 endsnippet
 
+snippet getopt "parse cli options" b
+import "flag"
+
+func initConf() {
+	flag.StringVar(&Conf.DataBaseName, "db", "test_performance", "specify the database name")
+	flag.BoolVar(&Conf.PrintUsage, "help", false, "print usage")
+	flag.BoolVar(&Conf.PrintUsage, "h", false, "print usage (shorthand)")
+
+	flag.Parse()
+
+	if Conf.PrintUsage {
+		flag.Usage()
+		os.Exit(0)
+	}
+}
+
+args := flag.Args() // arguments without option
+endsnippet
+
 # https://golang.org/pkg/regexp/syntax/
 snippet regex "go regex" b
 re := regexp.MustCompile(`((?im)^[a-zA-Z]{2,4})-?[0-9]+`)
