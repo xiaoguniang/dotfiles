@@ -33,10 +33,6 @@ function! EditCmdOutFile(...)
     execute('tabnew ' . system(cmd))
 endfunction
 
-function! EditRemoteFile(host, filename)
-    execute('tabnew scp://' .a:host. '/' .a:filename)
-endfunction
-
 function! LoadLatestFile()
 	let file_dir = expand("%:h")
 	execute("lcd " .file_dir)
@@ -72,7 +68,6 @@ function! WinRun(cmd, ...)
 endfunction
 
 command! -nargs=0 LatestFile call LoadLatestFile()
-command! -nargs=+ RE call EditRemoteFile(<f-args>)
 command! -nargs=? FWlog call EditCmdOutFile('fwlog <f-args>')
 "}}}
 

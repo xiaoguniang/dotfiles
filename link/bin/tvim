@@ -6,9 +6,15 @@
 
 main() {
     local do_nvr_wait=""
-    if [[ -n "$NVR_WAIT" ]]; then
+    # if [[ -n "$NVR_WAIT" ]]; then
+        # do_nvr_wait="--remote-wait-silent"
+    # fi
+    zparseopts -D -E -M -A Args -- w -wait=w
+
+    if (( ${+Args[-w]} )); then
         do_nvr_wait="--remote-wait-silent"
     fi
+
 	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr -s $do_nvr_wait -cc ':wincmd w' -c ":lcd $PWD" $* # -c "${defautl_cmd} $*"
 }
 
