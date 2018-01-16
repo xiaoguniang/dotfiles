@@ -34,7 +34,7 @@ gclcd() {
         clone_options="$clone_options --depth=${Args[-d]}"
     fi
 
-    git clone "$clone_options" $* && cd "$(ls -t | head -1)"
+    git clone $clone_options $* && cd "$(ls -t | head -1)"
 }
 
 gclcd $@

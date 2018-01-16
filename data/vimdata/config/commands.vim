@@ -168,7 +168,6 @@ function! EditRemoteFile(host, filename)
     execute('tabnew scp://' .a:host. '/' .a:filename)
 endfunction
 command! -nargs=+ Redit call EditRemoteFile(<f-args>)
-
 "}}}
 
 " vim:fdm=marker:

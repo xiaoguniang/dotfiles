@@ -212,6 +212,10 @@ alias mmv='noglob zmv -W'
 autoload -U zsh-mime-setup
 zsh-mime-setup
 
+# bash style word selection
+# autoload -U select-word-style
+# select-word-style bash
+
 # zle_bracketed_paste=()
 
 ZSH_HIGHLIGHT_MAXLENGTH=300
