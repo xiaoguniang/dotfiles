@@ -1,16 +1,54 @@
-#!/bin/bash
+#!/bin/zsh
 # Author            : Hongbo Liu <hbliu@freewheel.tv>
-# Date              : 2017-11-20
-# Last Modified Date: 2017-11-20
+# Date              : 2017-12-05
+# Last Modified Date: 2017-12-05
 # Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
 
-kexe() {
-	local shell=${2:-bash}
-	if [[ -z "$1" ]]; then
-		echo "Usage: kexe container_name"
-		return 1
-	fi
-	kubectl exec -it "$1" "$shell"
+usage() {
+cat << EOF
+Usage: $(basename $0)  pod_name_part command
+
+Options:
+-h  print usage
+-n  specify namespace
+EOF
+exit 0
 }
 
-kexe $@
+get_real_podname() {
+    local opt_ns=$1
+    local pod_name=$2
+    echo "$(kubectl get pod $opt_ns -o name | grep -o "${pod_name}.*")"
+}
+
+main() {
+    zparseopts -D -E -M -A Args -- n: h -namespace:=n
+
+    local pod_name="${1:-aws-ads}"
+    local shell="${2:-bash}"
+    local opt_ns=""
+
+    if (( ${+Args[-h]} )); then
+        usage
+    fi
+
+    if (( ${+Args[-n]} )); then
+        opt_ns="-n${Args[-n]}"
+    fi
+
+    local name=$(get_real_podname $opt_ns $pod_name)
+    local cnt=$(echo $name | wc -l)
+
+    if [[ "$cnt" -eq 0 ]]; then
+        echo "Error: could not get matched pod"
+        exit 1
+    elif [[ "$cnt" -gt 1 ]]; then
+        echo -e "There are multiple pods, please use more specific name:\n"
+        echo $name
+        exit 2
+    fi
+
+    kubectl exec $opt_ns -it $name $shell
+}
+
+main $@
