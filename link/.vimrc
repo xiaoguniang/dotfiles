@@ -7,7 +7,7 @@ else
     let $BUNDLE = expand("$CUSDATA/bundle")
 endif
 let $VIMCONFIG = expand("$CUSDATA/config")
-let $PLUG_DIR = expand("$CUSDATA/vim-plug")
+let $PLUG_DIR = expand("$BUNDLE/vim-plug")
 "}}}
 
 " init "{{{
@@ -20,7 +20,13 @@ source $VIMCONFIG/functions.vim
 "}}}
 
 " Include Plug "{{{
+if empty(glob(expand("$PLUG_DIR/plug.vim")))
+  silent !curl -fLo $PLUG_DIR/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+endif
 source $PLUG_DIR/plug.vim
+
 call plug#begin(expand($BUNDLE))
 Plug expand('$CUSDATA/LocalBundle/tags4proj')
 Plug expand('$CUSDATA/LocalBundle/MyPlugins')
@@ -84,12 +90,17 @@ if has('nvim')
     source $VIMCONFIG/nvim.vim
 endif
 
-" Should run at last
-call plug#end()
+call plug#end() " Should run at last
 
 " vim plug "{{{
 function! GetPlugNameFronCurrentLine(cmd)
     let plugin_name = getline(".")
+
+    if plugin_name !~ "^Plug"
+        execute(a:cmd . '!')
+        return
+    endif
+
 	let plugin_name = split(split(plugin_name, "'")[1], '/')[-1]
 	let plugin_name = substitute(plugin_name, '\.git$', '', 'g')
 	execute(a:cmd .' '. plugin_name)
@@ -99,7 +110,16 @@ nmap ,pi :w<cr>:call GetPlugNameFronCurrentLine('PlugInstall')<cr>
 nmap ,pI :PlugInstall<cr>
 nmap ,pu :call GetPlugNameFronCurrentLine('PlugUpdate')<cr>
 nmap ,pU :PlugUpdate<cr>
+
+" function! s:plug_names(...)
+  " return sort(filter(keys(g:plugs), 'stridx(v:val, a:1) == 0 && !g:plugs[v:val].loaded'))
+" endfunction
+
+" command! -nargs=+ -bar -complete=customlist,s:plug_names PlugLoad call plug#load([<f-args>])
+
+" command! -nargs=1 PlugLoad call plug#load(<f-args>)
 "}}}
+
 "}}}
 
 source $VIMCONFIG/mappings.vim

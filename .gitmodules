@@ -10,6 +10,3 @@
 [submodule "link/.gdb/libcxx-pretty-printers"]
 	path = link/.gdb/libcxx-pretty-printers
 	url = https://github.com/koutheir/libcxx-pretty-printers
-[submodule "data/vimdata/bundle/vim-plug"]
-	path = data/vimdata/vim-plug
-	url = https://github.com/junegunn/vim-plug

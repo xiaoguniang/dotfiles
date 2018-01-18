@@ -8,6 +8,10 @@ done
 shift $(($OPTIND - 1))
 endsnippet
 
+snippet install "one key install" b
+sh -c "$(wget ${1:url} -O -)"
+endsnippet
+
 snippet retry "retry until run success" b
 while ! ${1:cmd}; do
 	sleep ${2:5}
