@@ -18,7 +18,7 @@ exit 0
 get_real_podname() {
     local opt_ns=$1
     local pod_name=$2
-    echo "$(kubectl get pod $opt_ns -o name | grep -o "${pod_name}.*")"
+    echo "$(kubectl get pod $opt_ns -o name | grep "${pod_name}" | cut -d '/' -f2-)"
 }
 
 main() {
@@ -36,7 +36,7 @@ main() {
         opt_ns="-n${Args[-n]}"
     fi
 
-    local name=$(get_real_podname $opt_ns $pod_name)
+    local name="$(get_real_podname "$opt_ns" $pod_name)"
     local cnt=$(echo $name | wc -l)
 
     if [[ "$cnt" -eq 0 ]]; then
@@ -47,6 +47,8 @@ main() {
         echo $name
         exit 2
     fi
+
+    # name=$(echo "$name" | cut -d'/' -f2-)
 
     kubectl exec $opt_ns -it $name $shell
 }
