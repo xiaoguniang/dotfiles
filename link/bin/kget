@@ -9,7 +9,7 @@ cat << EOF
 Usage: $(basename $0) resource_type resource_pattern
 
 Options:
-  -h show this help
+  -h show this usage
   -n|--namespace    specify namespace
   
 EOF
@@ -24,6 +24,10 @@ main() {
 
     if (( ${+Args[-n]} )); then
         opt_ns="-n${Args[-n]}"
+    fi
+
+    if (( ${+Args[-h]} )); then
+        usage
     fi
 
     kubectl get $resource $opt_ns -o wide | grep -E "$pattern"
