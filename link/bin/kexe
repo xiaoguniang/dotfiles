@@ -48,8 +48,6 @@ main() {
         exit 2
     fi
 
-    # name=$(echo "$name" | cut -d'/' -f2-)
-
     kubectl exec $opt_ns -it $name $shell
 }
 
