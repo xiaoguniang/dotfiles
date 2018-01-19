@@ -6,18 +6,19 @@
 
 usage() {
 cat << EOF
-Usage: $(basename $0) resource_type resource_pattern
+Usage: $(basename $0) resource_type search_pattern
 
 Options:
-  -h show this usage
-  -n|--namespace    specify namespace
+  -h             show this usage
+  -a             search in all namespaces
+  -n|--namespace specify namespace
   
 EOF
 exit 0
 }
 
 main() {
-    zparseopts -D -E -M -A Args -- n: -namespace:=n
+    zparseopts -D -E -M -A Args -- n: -namespace:=n a -all-namespaces=a
     local resource="$1"
     local pattern="$2"
     local opt_ns=""
@@ -26,11 +27,15 @@ main() {
         opt_ns="-n${Args[-n]}"
     fi
 
+    if (( ${+Args[-a]} )); then
+        opt_ns_all="--all-namespaces"
+    fi
+
     if (( ${+Args[-h]} )); then
         usage
     fi
 
-    kubectl get $resource $opt_ns -o wide | grep -E "$pattern"
+    kubectl get $resource $opt_ns $opt_ns_all -o wide | grep -E "$pattern"
 }
 
 main $@
