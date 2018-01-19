@@ -1,0 +1,32 @@
+#!/bin/zsh
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2018-01-19
+# Last Modified Date: 2018-01-19
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+usage() {
+cat << EOF
+Usage: $(basename $0) resource_type resource_pattern
+
+Options:
+  -h show this help
+  -n|--namespace    specify namespace
+  
+EOF
+exit 0
+}
+
+main() {
+    zparseopts -D -E -M -A Args -- n: -namespace:=n
+    local resource="$1"
+    local pattern="$2"
+    local opt_ns=""
+
+    if (( ${+Args[-n]} )); then
+        opt_ns="-n${Args[-n]}"
+    fi
+
+    kubectl get $resource $opt_ns -o wide | grep -E "$pattern"
+}
+
+main $@
