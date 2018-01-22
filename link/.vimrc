@@ -111,13 +111,16 @@ nmap ,pI :PlugInstall<cr>
 nmap ,pu :call GetPlugNameFronCurrentLine('PlugUpdate')<cr>
 nmap ,pU :PlugUpdate<cr>
 
-" function! s:plug_names(...)
-  " return sort(filter(keys(g:plugs), 'stridx(v:val, a:1) == 0 && !g:plugs[v:val].loaded'))
-" endfunction
+function! s:plug_loaded(spec)
+  let rtp = join(filter([a:spec.dir, get(a:spec, 'rtp', '')], 'len(v:val)'), '/')
+  return stridx(&rtp, rtp) >= 0 && isdirectory(rtp)
+endfunction
 
-" command! -nargs=+ -bar -complete=customlist,s:plug_names PlugLoad call plug#load([<f-args>])
+function! s:plug_names(...)
+    return sort(filter(keys(filter(copy(g:plugs), { k, v -> !s:plug_loaded(v) })), 'stridx(v:val, a:1) != -1'))
+endfunction
 
-" command! -nargs=1 PlugLoad call plug#load(<f-args>)
+command! -nargs=+ -bar -complete=customlist,s:plug_names PlugLoad call plug#load([<f-args>])
 "}}}
 
 "}}}

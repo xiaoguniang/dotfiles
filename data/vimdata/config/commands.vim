@@ -167,7 +167,9 @@ autocmd! BufWritePost * call NvrReturn()
 function! EditRemoteFile(host, filename)
     execute('tabnew scp://' .a:host. '/' .a:filename)
 endfunction
+
 command! -nargs=+ Redit call EditRemoteFile(<f-args>)
+command! -nargs=+ Scp Dispatch scp % <f-args>
 "}}}
 
 " vim:fdm=marker:

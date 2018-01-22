@@ -27,8 +27,10 @@ rscreen() {
 
     # host=$(getRealHost $host)
 
-    # ssh "$host" -t "screen -dR $session_name"
-    ssh -o ForwardAgent=yes "$host" -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; export LOCKPRG=/bin/true; screen -dR $session_name"
+    ssh -o ForwardAgent=yes "$host" \
+        -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; \
+        export LOCKPRG=/bin/true; \ 
+        screen -dR $session_name"
 }
 
 rscreen $*
