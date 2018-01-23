@@ -21,15 +21,22 @@ hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= 
 EOF
 "
 
+FIX_AGENT_FORWARD='
+mkdir -p ~/.ssh
+if [[ -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock;
+fi
+'
+
 rscreen() {
 	local host=$1
 	local session_name=${2:-hbliu}
 
-    # host=$(getRealHost $host)
-
     ssh -o ForwardAgent=yes "$host" \
         -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; \
-        export LOCKPRG=/bin/true; \ 
+        sh -c \"$FIX_AGENT_FORWARD\" ; \
+        export SSH_AUTH_SOCK=\$HOME/.ssh/ssh_auth_sock ; \
+        export LOCKPRG=/bin/true; \
         screen -dR $session_name"
 }
 

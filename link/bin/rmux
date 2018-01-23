@@ -1,0 +1,21 @@
+#!/bin/sh
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2018-01-22
+# Last Modified Date: 2018-01-22
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+FIX_AGENT_FORWARD='
+mkdir -p ~/.ssh
+if [[ -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock;
+fi
+'
+
+rmux() {
+    ssh "$@" -t " \
+        sh -c \"$FIX_AGENT_FORWARD\" ; \
+        export SSH_AUTH_SOCK=\$HOME/.ssh/ssh_auth_sock ; \
+        env LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 tmux new -A -s def"
+}
+
+rmux $*

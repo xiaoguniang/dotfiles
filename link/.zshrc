@@ -421,10 +421,6 @@ pdbg() { python -S $DOTDATA/pydbgp/pydbgp $@ localhost:9000 }
 pdate() { gdate --date="@$1" +'%F %T %Z'}
 
 # tmux # {{{
-rmux() {
-    ssh "$@" -t 'env LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 tmux new -A -s def' 
-}
-
 tcd() {
 	cd $(tmux display-message -p -F '#{pane_current_path}' -t'!')
 }
