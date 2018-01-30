@@ -150,6 +150,10 @@ fpath=($ZSH_CUSTOM $fpath)
 
 autoload -U compinit
 compinit
+
+compdef shost=ssh
+compdef rscreen=ssh
+compdef rmux=ssh
 # }}}
 
 # ActivePerl# {{{
@@ -320,7 +324,7 @@ alias -s gz='tar -xzf'
 alias -s tgz='tar -xzf'
 alias -s tar='tar -xf'
 alias -s zip='unzip -q'
-alias -s zsh=vim
+# alias -s zsh=vim
 alias -s bz2='tar -xjf'
 alias -s c=vim
 alias -s conf=vim

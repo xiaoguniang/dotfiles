@@ -18,7 +18,7 @@ exit 0
 }
 
 main() {
-    zparseopts -D -E -M -A Args -- n: -namespace:=n a -all-namespaces=a h -help=h
+    zparseopts -D -E -M -A Args -- n: -namespace:=n a -all-namespaces=a h -help=h l -show-labels=l w -watch=w
     local resource="$1"
     local pattern="$2"
     local opt_ns=""
@@ -31,11 +31,21 @@ main() {
         opt_ns_all="--all-namespaces"
     fi
 
+    local opt_show_labels
+    if (( ${+Args[-l]} )); then
+        opt_show_labels="--show-labels"
+    fi
+
+    local opt_watch
+    if (( ${+Args[-w]} )); then
+        opt_watch="-w"
+    fi
+
     if (( ${+Args[-h]} )); then
         usage
     fi
 
-    kubectl get $resource $opt_ns $opt_ns_all -o wide | grep -E "$pattern"
+    kubectl get $resource $opt_ns $opt_ns_all $opt_show_labels $opt_watch -o wide | grep -E "$pattern"
 }
 
 main $@

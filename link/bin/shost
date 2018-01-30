@@ -1,0 +1,35 @@
+#!/bin/zsh
+# Author            : Hongbo Liu <hbliu@freewheel.tv>
+# Date              : 2018-01-30
+# Last Modified Date: 2018-01-30
+# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
+
+usage() {
+cat << EOF
+Usage: shost host
+
+Options:
+  -p ping with real hostname
+  -h show this help
+  
+EOF
+exit 0
+}
+main() {
+    zparseopts -D -E -M -A Args -- p h -help=h -ping=p
+    if (( ${+Args[-h]} )); then
+        usage
+    fi
+
+    local ssh_host=$1
+    local host=$(ssh -G $ssh_host | grep -E '^hostname' | cut -d ' ' -f2)
+
+    if (( ${+Args[-p]} )); then
+        ping $host
+        exit 0
+    fi
+
+    echo $host
+}
+
+main $@
