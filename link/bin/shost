@@ -10,13 +10,15 @@ Usage: shost host
 
 Options:
   -p ping with real hostname
+  -c port
+        test connection to port with nc
   -h show this help
   
 EOF
 exit 0
 }
 main() {
-    zparseopts -D -E -M -A Args -- p h -help=h -ping=p
+    zparseopts -D -E -M -A Args -- p h -help=h -ping=p c: -connect-port:=c
     if (( ${+Args[-h]} )); then
         usage
     fi
@@ -27,6 +29,11 @@ main() {
     if (( ${+Args[-p]} )); then
         ping $host
         exit 0
+    fi
+
+    if (( ${+Args[-c]} )); then
+        nc -zv $host ${Args[-c]}
+        exit $?
     fi
 
     echo $host

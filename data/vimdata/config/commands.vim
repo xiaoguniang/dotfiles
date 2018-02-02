@@ -56,7 +56,7 @@ command! -nargs=+ -complete=file BinEdit call EditBinaryFile(<f-args>)
 
 " slack "{{{
 function! SlackSendToUser(username)
-	call system(printf('slacksend -u %s -t %s %s &', a:username, &ft, expand('%')))
+	call system(printf('slack-cli -d %s -f %s &', a:username, expand('%')))
 endfunction
 
 command! -nargs=1 SlackSend call SlackSendToUser(<f-args>)

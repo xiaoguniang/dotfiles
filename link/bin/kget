@@ -12,6 +12,8 @@ Options:
   -h             show this usage
   -a             search in all namespaces
   -n|--namespace specify namespace
+  -w             watch the resource
+  -l             show labels
   
 EOF
 exit 0
