@@ -130,6 +130,8 @@ export LANG=en_US.UTF-8
 # Fix tar error info in Linux
 export COPYFILE_DISABLE=true
 
+export HISTCONTROL=erasedups
+
 if [[ -f "~/.zsh_local" ]]; then
 	source ~/.zsh_local
 fi
