@@ -18,9 +18,8 @@ exit 0
 }
 
 gclcd() {
-    local clone_options=""
-
     zparseopts -D -E -M -A Args -- d:=depth r h -help=h
+    local clone_options=""
 
     if (( ${+Args[-h]} )); then
         usage
@@ -34,7 +33,7 @@ gclcd() {
         clone_options="$clone_options --depth=${Args[-d]}"
     fi
 
-    git clone $clone_options $* && cd "$(ls -t | head -1)"
+    git clone $clone_options $* && cd $(ls -t | head -1)
 }
 
 gclcd $@
