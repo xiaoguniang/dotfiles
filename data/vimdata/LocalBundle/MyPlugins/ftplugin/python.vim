@@ -15,7 +15,8 @@ setl expandtab
 map <buffer> <silent> ,rr :call WinRun("python3")<cr>
 map <buffer> <silent> ,ra :call WinRun("python", 1)<cr>
 map <buffer> <silent> ,ri :call WinRun("python -i")<cr>
-map <buffer> <silent> ,ti :T ipython<cr>
+map <buffer> <silent> ,sh :T python3<cr>
+" map <buffer> <silent> ,sh :T ipython<cr>
 
 " textobj python {{{
 call textobj#user#map('python', {

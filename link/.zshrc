@@ -260,6 +260,34 @@ gbdboth() {
 	fi
 }
 
+gclcd() {
+    zparseopts -D -E -M -A Args -- d:=depth r h -help=h
+    local clone_options=""
+
+    if (( ${+Args[-h]} )); then
+cat << EOF
+Usage: $(basename $0) -dhr url
+
+Options:
+-h show this help
+-r recursive clone
+-d N set clone depth
+
+EOF
+        return
+    fi
+
+    if (( ${+Args[-r]} )); then
+        clone_options="$clone_options --recursive"
+    fi
+
+    if (( ${+Args[-d]} )); then
+        clone_options="$clone_options --depth=${Args[-d]}"
+    fi
+
+    git clone $clone_options $* && cd $(ls -t | head -1)
+}
+
 # compdef _git gbdiff=git_branch
 alias gbcur='git rev-parse --abbrev-ref HEAD'
 DISABLE_UNTRACKED_FILES_DIRTY="true"

@@ -12,6 +12,7 @@ The pod_name could only be part of the real pod name.
 
 Options:
 -h  print usage
+-c  specify container name
 -n  specify namespace
 EOF
 exit 0
@@ -24,7 +25,7 @@ get_real_podname() {
 }
 
 main() {
-    zparseopts -D -E -M -A Args -- n: h -namespace:=n
+    zparseopts -D -E -M -A Args -- n: h -namespace:=n c: -container:=c
 
     local pod_name="${1:-aws-ads}"
     local shell="${2:-bash}"
@@ -36,6 +37,11 @@ main() {
 
     if (( ${+Args[-n]} )); then
         opt_ns="-n${Args[-n]}"
+    fi
+
+    local opt_container=
+    if (( ${+Args[-c]} )); then
+        opt_container="-c${Args[-c]}"
     fi
 
     local name="$(get_real_podname "$opt_ns" $pod_name)"
@@ -50,7 +56,7 @@ main() {
         exit 2
     fi
 
-    kubectl exec $opt_ns -it $name $shell
+    kubectl exec $opt_ns $opt_container -it $name $shell
 }
 
 main $@
