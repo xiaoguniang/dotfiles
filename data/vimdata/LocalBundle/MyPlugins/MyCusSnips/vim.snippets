@@ -47,3 +47,19 @@ if v:version >= 800 || has('nvim')
 	${VISUAL}$0
 endif
 endsnippet
+
+snippet completefun "complete function" b
+function! SshHostCompletionList(lead, cmdline, ...) abort
+    let ssh_hosts = system('grep -w -i "Host" ~/.ssh/config | sed "s/Host//" | xargs -n1')
+    let hosts_list = split(ssh_hosts)
+
+    return filter(hosts_list, 'v:val =~ a:lead')
+endfunction
+endsnippet
+
+snippet once "protect script only run once" b
+if exists('b:loaded_`!v expand('%:t:r')`_vim')
+    finish
+endif
+let b:loaded_`!v expand('%:t:r')`_vim = 1
+endsnippet

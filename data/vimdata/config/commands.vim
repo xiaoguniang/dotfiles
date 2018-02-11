@@ -164,12 +164,20 @@ command! -nargs=? NvrReturn call NvrReturn(<f-args>)
 autocmd! BufWritePost * call NvrReturn()
 
 " Remote "{{{
-function! EditRemoteFile(host, filename)
-    execute('tabnew scp://' .a:host. '/' .a:filename)
+function! EditRemoteFile(file_url)
+    let host_file = split(a:file_url, ':')
+    execute('tabnew scp://' .host_file[0]. '/' .host_file[1])
 endfunction
 
-command! -nargs=+ Redit call EditRemoteFile(<f-args>)
-command! -nargs=+ Scp Dispatch scp % <f-args>
+function! SshHostCompletionList(lead, cmdline, ...) abort
+    let ssh_hosts = system('grep -w -i "Host" ~/.ssh/config | sed "s/Host//" | xargs -n1')
+    let hosts_list = split(ssh_hosts)
+
+    return filter(hosts_list, 'v:val =~ a:lead')
+endfunction
+
+command! -nargs=+ -complete=customlist,SshHostCompletionList Redit call EditRemoteFile(<f-args>)
+command! -nargs=+ -complete=customlist,SshHostCompletionList Scp Dispatch scp % <f-args>
 "}}}
 
 " vim:fdm=marker:

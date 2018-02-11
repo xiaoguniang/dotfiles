@@ -88,5 +88,11 @@ Token.Toolbar.Arg.Text = nobold
 
 # Favorite queries.
 [favorite_queries]
-adnode = "SELECT id, node_type from ad_tree_node where id in (@id)"
-getadparent = "select group_concat(parent_ad_tree_node_id) from ad_tree_node where find_in_set(id, @id)"
+adnode = "SELECT id, node_type from ad_tree_node where id in ($1)"
+getadparent = "select group_concat(parent_ad_tree_node_id) from ad_tree_node where find_in_set(id, $1)"
+
+[alias_dsn]
+# example_dsn = mysql://[user[:password]@][host][:port][/dbname]
+130 = mysql://ads:ads@192.168.0.130:3307/fwmrm_oltp
+prd = mysql://qa:Qa0602@@@nycjump01:5306/fwmrm_oltp
+stg = mysql://qa:Qa0602@@@nycjump01:6306/fwmrm_oltp

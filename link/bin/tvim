@@ -5,17 +5,26 @@
 # Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
 
 main() {
+    zparseopts -D -E -M -A Args -- w -wait=w T -Type=T
     local do_nvr_wait=""
-    # if [[ -n "$NVR_WAIT" ]]; then
-        # do_nvr_wait="--remote-wait-silent"
-    # fi
-    zparseopts -D -E -M -A Args -- w -wait=w
 
     if (( ${+Args[-w]} )); then
         do_nvr_wait="--remote-wait-silent"
     fi
 
-	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvr -s $do_nvr_wait -cc ':wincmd w' -c ":lcd $PWD" $* # -c "${defautl_cmd} $*"
+    local set_tvim_type=""
+    if (( ${+Args[-T]} )); then
+        set_tvim_type=-c':setl ft=tvim'
+    fi
+
+    if [[ -z "$TMUX" ]]; then
+        nvim $*
+        exit 0
+    fi
+
+	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} \
+        nvr -s $do_nvr_wait -cc ':1wincmd w' $set_tvim_type -c ":lcd $PWD" $*
+    # -c "${defautl_cmd} $*"
 }
 
 main $@
