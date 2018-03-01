@@ -252,4 +252,15 @@ let g:go_term_width = 15
 Plug 'https://github.com/keith/swift.vim', {'for': 'swift'}
 "}}}
 
+" haskell "{{{
+" Plug 'https://github.com/eagletmt/neco-ghc'
+Plug 'https://github.com/neovimhaskell/haskell-vim'
+let g:haskell_enable_static_pointers = 1
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_recursivedo = 1
+let g:haskell_enable_arrowsyntax = 1
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_typeroles = 1
+"}}}
+
 " vim:set fdm=marker:
