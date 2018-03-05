@@ -615,10 +615,14 @@ export FZF_DEFAULT_OPTS="--extended"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # }}}
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# go #{{{
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/Cellar/go/1.10/libexec"
+# }}}
 
 # FreeWheel # {{{
-export GOPATH="$HOME/go"
 secureAddPath "$GOPATH/bin" start
 secureSource "$HOME/.dotfiles/private/freewheel/plugin.zsh"
 # }}}

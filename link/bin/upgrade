@@ -9,6 +9,9 @@ upgradeNeovim() {
 	brew reinstall neovim --HEAD
 	pip2 install --upgrade neovim
 	pip3 install --upgrade neovim
+	pip3 install --upgrade neovim
+    pip2 install --upgrade neovim-remote
+    pip3 install --upgrade neovim-remote
 	sudo gem install neovim
 }
 

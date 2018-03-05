@@ -46,3 +46,11 @@ ${2}
 \`\`\`
 ${0}
 endsnippet
+
+snippet acimg "ascii cast image" b
+[![asciicast](`!v @*`.png)](`!v @*`)
+endsnippet
+
+snippet acscript "ascii cast script" b
+<script src="`!v @*`.js" id="asciicast-`!v split(@*, '/')[-1]`" async></script>
+endsnippet

@@ -228,7 +228,7 @@ Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
 Plug 'https://github.com/tenfyzhong/golint-fixer.vim'
 
 " vimgo "{{{
-let g:go_autodetect_gopath = 1
+let g:go_autodetect_gopath = 0
 let g:go_term_mode = "botright split"
 let g:go_fmt_autosave = 0
 let g:go_def_mapping_enabled = 1
