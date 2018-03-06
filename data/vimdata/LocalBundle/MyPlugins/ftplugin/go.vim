@@ -21,7 +21,8 @@ function! GoDebugRun()
 endfunction
 
 map <buffer> <silent> ,rr :GoRun<cr>
-nmap <buffer> <silent> ,rd :call GoDebugRun()<cr>
+" nmap <buffer> <silent> ,rd :call GoDebugRun()<cr>
+nmap <buffer> <silent> ,rd :GoDebug!<cr>
 nmap <buffer> <silent> ,rb :GoBuild<cr>
 map <buffer> <silent> ,rt :GoTest<cr>
 map <buffer> <silent> ,gi :GoImports<cr>
