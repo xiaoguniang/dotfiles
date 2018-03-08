@@ -3,6 +3,10 @@ package main
 
 endsnippet
 
+snippet maxproc "max system process" b
+runtime.GOMAXPROCS(${1:2})
+endsnippet
+
 snippet append "Slice Append"
 ${1:slice} = append($1, ${2:element})
 endsnippet

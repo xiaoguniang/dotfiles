@@ -64,6 +64,19 @@ command! -nargs=1 SlackSend call SlackSendToUser(<f-args>)
 
 function! OpenFile(filepath, args)
 	let cmd = ":tabnew"
+
+    if exists("g:ctrlp_open_cmd") && exists("g:ctrlp_open_mode") &&
+                \ has_key(g:dir_file_completion, split(g:ctrlp_open_cmd, '\t')[0])
+        if g:ctrlp_open_mode == 'v'
+            let cmd = ":vnew"
+        elseif g:ctrlp_open_mode == 'h'
+            let cmd = ":new"
+        endif
+
+        unlet g:ctrlp_open_cmd
+        unlet g:ctrlp_open_mode
+    endif
+
 	if len(a:args) > 0
 		let cmd = join(a:args)
 	endif

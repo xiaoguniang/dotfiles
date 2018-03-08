@@ -309,7 +309,6 @@ vimprofiler() {
 	$dir/vim-profiler.py $*
 }
 
-# export EDITOR="env NVR_WAIT=1 tvim"
 export EDITOR="tvim -w"
 # }}}
 

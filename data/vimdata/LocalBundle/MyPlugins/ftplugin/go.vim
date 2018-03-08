@@ -20,10 +20,10 @@ function! GoDebugRun()
 	endif
 endfunction
 
-map <buffer> <silent> ,rr :GoRun<cr>
+map <buffer> <silent> ,rr :up<cr>:GoRun<cr>
 " nmap <buffer> <silent> ,rd :call GoDebugRun()<cr>
-nmap <buffer> <silent> ,rd :GoDebug!<cr>
-nmap <buffer> <silent> ,rb :GoBuild<cr>
+nmap <buffer> <silent> ,rd :up<cr>:GoDebug!<cr>
+nmap <buffer> <silent> ,rb :up<cr>:GoBuild<cr>
 map <buffer> <silent> ,rt :GoTest<cr>
 map <buffer> <silent> ,gi :GoImports<cr>
 " nmap <buffer> <silent> gd :GoDef<CR>

@@ -6,7 +6,7 @@ Plug 'https://github.com/kassio/neoterm'
 let g:neoterm_size = '12'
 let g:neoterm_fixedsize = 1
 let g:neoterm_autoinsert = 1
-let g:neoterm_split_on_tnew = 1
+" let g:neoterm_split_on_tnew = 1
 let g:neoterm_open_in_all_tabs = 1
 " let g:neoterm_focus_when_tests_fail = 1
 let g:neoterm_keep_term_open = 1
