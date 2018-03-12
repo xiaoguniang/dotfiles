@@ -17,7 +17,7 @@ nmap <silent> ,ob :Gbrowse<cr>
 
 nmap <silent> <space>gs :Gstatus<cr><c-n>
 nmap <silent> <space>gm :Magit<cr>
-autocmd FileType gitcommit nmap <buffer> <silent> ,gp :Gpush<cr>
+autocmd FileType gitcommit nmap <buffer> <silent> gp :Gpush<cr>
 
 " vim Gitgutter"{{{
 let g:gitgutter_enabled = 0
