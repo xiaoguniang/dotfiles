@@ -4,8 +4,10 @@ PATH=/usr/bin:/bin:/usr/local/bin:$HOME/bin
 
 0         11    * * *   $HOME/bin/dotfiles p
 0         11    * * *   brew bundle dump --force --global
-# 0,5,10,20 10    * * 1-5 $HOME/bin/sep start
 0         18    * * *   $HOME/bin/sep stop
 
 # */30      9-11  * * 1-5 $HOME/bin/slack-presence -y
 # */30      20-23 * * *   $HOME/bin/slack-presence -n
+# 0,5,10,20 10    * * 1-5 $HOME/bin/sep start
+
+#  vim:ft=crontab:

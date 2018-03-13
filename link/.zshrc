@@ -364,6 +364,7 @@ alias -s txt=vim
 alias -s deb="sudo dpkg -i "
 if is_osx; then
 	alias -s pdf="open &> /dev/zero"
+    alias crontab="EDITOR=nvim crontab"
 else
 	alias getbind='bind -P | grep -v "not bound"'
 	alias -s pdf="xdg-open &> /dev/zero"
