@@ -115,7 +115,7 @@ brew "mackup"
 brew "makedepend"
 brew "markdown"
 brew "media-info"
-brew "python@2", link: true
+brew "python@2"
 brew "mercurial"
 brew "protobuf"
 brew "mosh"

@@ -48,7 +48,7 @@ tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
 tnoremap <silent> <A-[> <c-\><c-n>:Tprevious<cr>
 tnoremap <silent> <A-]> <c-\><c-n>:Tnext<cr>
 
-tnoremap <silent> <S-A-n> <c-\><c-n><c-w>c:Tnew<cr>
+tnoremap <silent> <S-A-n> <c-\><c-n><c-w>c:bo Tnew<cr>
 
 " scroll other window
 function! ScrollOtherWindow(scroll_cmd)

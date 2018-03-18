@@ -68,6 +68,11 @@ transactionID := re.FindString(inputStr)
 profile = regexp.MustCompile(`profile:(.+?);`).FindStringSubmatch(line)[1]
 endsnippet
 
+snippet readstdin "read from stdin" b
+reader := bufio.NewReader(os.Stdin)
+text, _ := reader.ReadString('\n')
+endsnippet
+
 snippet filebyline "file by line" b
 file, err := os.Open(${1:filename})
 if err != nil {

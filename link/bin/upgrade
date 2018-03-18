@@ -28,7 +28,7 @@ install_tap() {
 }
 
 upgrade_list() {
-	echo "neovim nvim ctags tmux zgen gocode wechat pinyin"
+	echo "neovim nvim ctags tmux zgen gocode wechat pinyin calibre"
 }
 
 function pinyin() {
@@ -43,6 +43,7 @@ main() {
 		gocode ) go get -u github.com/nsf/gocode ;;
 		wechat ) $HOME/github/WeChatPlugin-MacOS/Other/Install.sh ;;
 		pinyin ) pinyin ;;
+        calibre) brew cu calibre ;; 
 		i|-i|install ) install_tap ;;
 		-l) upgrade_list ;;
 		* ) usage ;;
