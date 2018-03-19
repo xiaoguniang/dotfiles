@@ -11,6 +11,9 @@ let g:neoterm_open_in_all_tabs = 1
 " let g:neoterm_focus_when_tests_fail = 1
 let g:neoterm_keep_term_open = 1
 let g:neoterm_autoscroll = 1
+
+let g:neoterm_default_mod = "botright"
+
 nmap <silent> ,to :Topen<cr>
 nmap <silent> ,t1 :Topen1<cr>
 nmap <silent> ,t2 :Topen2<cr>
