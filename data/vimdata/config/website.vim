@@ -9,6 +9,7 @@ Plug 'https://github.com/mattn/emmet-vim.git', { 'for': ['xml', 'html'] }
 
 " PlugLazy 'https://github.com/pangloss/vim-javascript.git', {'autoload':{'filetypes':['javascript']}}
 " PlugLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+
 Plug 'https://github.com/othree/javascript-libraries-syntax.vim.git', {'for': ['js', 'javascript']}
 Plug 'https://github.com/swekaj/php-foldexpr.vim', {'for': 'php'}
 Plug 'https://github.com/ternjs/tern_for_vim', {'for': ['js', 'javascript']}

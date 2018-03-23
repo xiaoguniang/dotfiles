@@ -430,13 +430,6 @@ smount() {
 	cd $MNT_DIR
 }
 
-pyserver() {
-	port=${1:-8080}
-	python -m SimpleHTTPServer $port &
-	open "http://localhost:$port/$2"
-	fg
-}
-
 pf() {
 	python -c "print $*"
 }
