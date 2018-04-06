@@ -31,6 +31,7 @@ call plug#begin(expand($BUNDLE))
 Plug expand('$CUSDATA/LocalBundle/tags4proj')
 Plug expand('$CUSDATA/LocalBundle/MyPlugins')
 Plug expand('$CUSDATA/LocalBundle/paste')
+Plug expand('$CUSDATA/LocalBundle/RemoteCompile')
 
 Plug 'https://github.com/vim-scripts/ExtractMatches'
 Plug 'https://github.com/AndrewRadev/linediff.vim'
