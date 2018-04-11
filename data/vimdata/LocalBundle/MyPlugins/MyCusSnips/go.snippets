@@ -60,6 +60,27 @@ func create(name string) {
 }
 endsnippet
 
+snippet execmd "execute command" b
+// executeCommand("ls", "-l")
+func executeCommand(name string, arg ...string) string {
+	cmd := exec.Command(name, arg...)
+	stdout, err := cmd.StdoutPipe()
+
+	if err != nil {
+		log.Fatalf("Error when execute tendermint show_node_id, %s\n", err)
+	}
+	defer stdout.Close()
+
+	if err := cmd.Start(); err != nil {
+		log.Fatalf("Execute command error, %s\n", err)
+	}
+
+	cmdOut, _ := ioutil.ReadAll(stdout)
+
+	return string(cmdOut)
+}
+endsnippet
+
 # https://golang.org/pkg/regexp/syntax/
 snippet regex "go regex" b
 re := regexp.MustCompile(`((?im)^[a-zA-Z]{2,4})-?[0-9]+`)
