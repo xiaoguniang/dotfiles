@@ -37,7 +37,7 @@ brew "castxml"
 brew "ccache"
 brew "cgdb"
 brew "cliclick"
-brew "python@2"
+brew "python@2", args: ["HEAD"], link: false
 brew "clingo", link: false
 brew "clipper", restart_service: true
 brew "cloc"

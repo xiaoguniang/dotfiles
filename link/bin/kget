@@ -14,13 +14,14 @@ Options:
   -n|--namespace specify namespace
   -w             watch the resource
   -l             show labels
-  
+  -o             specify output type, default is "wide"
+
 EOF
 exit 0
 }
 
 main() {
-    zparseopts -D -E -M -A Args -- n: -namespace:=n a -all-namespaces=a h -help=h l -show-labels=l w -watch=w
+    zparseopts -D -E -M -A Args -- n: -namespace:=n a -all-namespaces=a h -help=h l -show-labels=l w -watch=w o:
     local resource="$1"
     local pattern="$2"
     local opt_ns=""
@@ -43,11 +44,18 @@ main() {
         opt_watch="-w"
     fi
 
+    local opt_output="wide"
+    if (( ${+Args[-o]} )); then
+        opt_output="${Args[-o]}"
+        kubectl get $resource $opt_ns $opt_ns_all $opt_show_labels $opt_watch -o $opt_output
+        exit $?
+    fi
+
     if (( ${+Args[-h]} )); then
         usage
     fi
 
-    kubectl get $resource $opt_ns $opt_ns_all $opt_show_labels $opt_watch -o wide | grep -E "$pattern"
+    kubectl get $resource $opt_ns $opt_ns_all $opt_show_labels $opt_watch -o $opt_output | grep -E "$pattern"
 }
 
 main $@
