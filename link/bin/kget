@@ -47,8 +47,7 @@ main() {
     local opt_output="wide"
     if (( ${+Args[-o]} )); then
         opt_output="${Args[-o]}"
-        kubectl get $resource $opt_ns $opt_ns_all $opt_show_labels $opt_watch -o $opt_output
-        exit $?
+        pattern=""
     fi
 
     if (( ${+Args[-h]} )); then
