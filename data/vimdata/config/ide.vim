@@ -24,6 +24,7 @@ Plug 'https://github.com/hiberabyss/ProjectConfig'
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/radenling/vim-dispatch-neovim'
 
+let g:nremap = {"m": ",m"}
 let g:dispatch_neovim_fixedsize = 1
 "}}}
 

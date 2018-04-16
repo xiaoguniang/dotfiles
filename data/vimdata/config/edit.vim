@@ -9,7 +9,6 @@ Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/maxbrunsfeld/vim-yankstack'
 Plug 'https://github.com/vim-scripts/ReplaceWithRegister'
 Plug 'https://github.com/salsifis/vim-transpose'
-Plug 'https://github.com/brooth/far.vim'
 Plug 'https://github.com/benmills/vim-commadown' ", {'on': 'CommaDown'}
 Plug 'https://github.com/sjl/gundo.vim.git', {'on' : ['GundoToggle']}
 " Plug 'https://github.com/mbbill/undotree', {'on' : ['UndotreeToggle']}
@@ -88,7 +87,8 @@ let g:vinarise_enable_auto_detect = 1
 "}}}
 
 " Far {{{
-let g:far#source = 'ag'
+" Plug 'https://github.com/brooth/far.vim'
+" let g:far#source = 'ag'
 "}}}
 
 source $VIMCONFIG/complete.vim
