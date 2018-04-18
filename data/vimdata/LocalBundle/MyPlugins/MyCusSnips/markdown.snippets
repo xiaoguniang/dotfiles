@@ -50,6 +50,10 @@ snippet acimg "ascii cast image" b
 [![asciicast](`!v @*`.png)](`!v @*`)
 endsnippet
 
+snippet htmlimg "html image tag" b
+<img src="${1:./example.jpg}" width = "${2:300}" height = "${3:200}" align=center />
+endsnippet
+
 snippet acscript "ascii cast script" b
 <script src="`!v @*`.js" id="asciicast-`!v split(@*, '/')[-1]`" async></script>
 endsnippet

@@ -26,6 +26,15 @@ db:
     - "3306:3306"
 endsnippet
 
+snippet volume "docker volume setting" b
+volumes:
+  - ${1:host_dir}:${2:container_dir}
+endsnippet
+
+snippet entrypoint "docker entrypoint" b
+entrypoint: ${1:command}
+endsnippet
+
 snippet restart "docker always restart" b
 restart: always
 endsnippet

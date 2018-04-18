@@ -616,7 +616,7 @@ export FZF_DEFAULT_OPTS="--extended"
 
 # go #{{{
 export GOPATH="$HOME/go"
-export GOROOT="/usr/local/Cellar/go/1.10/libexec"
+# export GOROOT="/usr/local/Cellar/go/1.10/libexec"
 # }}}
 
 # FreeWheel # {{{
