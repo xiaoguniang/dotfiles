@@ -1,11 +1,21 @@
 let g:file_jumper_command = {
-            \ "Gbin": {'dir': expand("$HOME/bin"), 'extension': '', 'handler': 'ShFileHandler'},
-            \ "Gwiki": {'dir': g:myvimwikidir, 'extension': '.wiki', 'keymap': '<Leader>wg'},
-            \ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'extension': '.vim', 'keymap': ',gv'},
-            \ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin"), 'extension': '.vim'},
-            \ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips"), 'extension': '.snippets'},
-            \ "Gblog": {'dir': expand("$HOME/Projects/Hexo/blog/source/_posts"), 'extension': '.md'}
+            \ "Gbin": {'dir': expand("$HOME/bin")},
+            \ "Gwiki": {'dir': g:myvimwikidir, 'keymap': '<Leader>wg'},
+            \ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'keymap': ',gv'},
+            \ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin")},
+            \ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips")},
             \ }
+
+function! s:DefineDirFileCompletionCommand()
+	for cmd in keys(g:file_jumper_command)
+		execute(printf("command! -nargs=0 %s CtrlP %s", cmd, g:file_jumper_command[cmd].dir))
+		if has_key(g:file_jumper_command[cmd], 'keymap')
+			execute(printf('nmap %s :%s<cr>', g:file_jumper_command[cmd].keymap, cmd))
+		endif
+	endfor
+endfunction
+
+call s:DefineDirFileCompletionCommand()
 
 " RD report "{{{
 " command! -nargs=0 TSReport RE 201 ~/gitlab/rd/ts_regression/report/
@@ -32,14 +42,6 @@ endfu
 com! -range=% CopyFolds :<line1>,<line2>call CopyNonFolded() 
 vmap ,zy :CopyFolds<cr>
 "}}}
-
-function! ShFileHandler(filepath)
-	if !filereadable(a:filepath)
-		setl ft=zsh
-		execute(':AddHeader')
-		execute(':normal G')
-	endif
-endfunction
 
 function! EditBinaryFile(...)
 	let cmd = "tabnew"

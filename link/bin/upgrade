@@ -7,11 +7,14 @@
 
 upgradeNeovim() {
 	brew reinstall neovim --HEAD
-	pip2 install --upgrade neovim
+    pip install --upgrade pip
+
+	pip install --upgrade neovim
 	pip3 install --upgrade neovim
-	pip3 install --upgrade neovim
-    # pip2 install --upgrade neovim-remote
+
+    pip install --upgrade neovim-remote
     pip3 install --upgrade neovim-remote
+
 	sudo gem install neovim
 }
 
@@ -28,7 +31,7 @@ install_tap() {
 }
 
 upgrade_list() {
-	echo "neovim nvim ctags tmux zgen gocode wechat pinyin calibre"
+	echo "neovim nvim ctags tmux zgen gocode wechat pinyin calibre pip"
 }
 
 function pinyin() {
@@ -43,6 +46,7 @@ main() {
 		gocode ) go get -u github.com/nsf/gocode ;;
 		wechat ) cd $HOME/github/WeChatPlugin-MacOS/Other && git pull -r && yes | ./Install.sh ;;
 		pinyin ) pinyin ;;
+        pip) pip install --upgrade pip ;;
         calibre) brew cu calibre ;; 
 		i|-i|install ) install_tap ;;
 		-l) upgrade_list ;;

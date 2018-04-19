@@ -1,5 +1,6 @@
 Plug 'https://github.com/szw/vim-ctrlspace'
 Plug 'https://github.com/majutsushi/tagbar.git'
+" Plug 'https://github.com/lvht/tagbar-markdown', {'for': ['markdown', 'md']}
 Plug 'https://github.com/scrooloose/nerdtree.git' ", {'on': ['NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind', 'NERDTreeFromBookmark']}
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 " Plug 'https://github.com/scrooloose/syntastic.git', {'on': ['SyntasticCheck', 'Errors', 'SyntasticToggleMode']}
@@ -181,7 +182,6 @@ let g:tagbar_compact = 1
 " let g:tagbar_autoclose = 1
 " let g:tagbar_autofocus = 1
 
-" Add support for markdown files in tagbar.
 let g:tagbar_type_cpp = {
             \ 'ctagstype' : 'c++',
             \ 'kinds'     : [
@@ -215,6 +215,7 @@ let g:tagbar_type_cpp = {
             \ }
 \ }
 
+" Add support for markdown files in tagbar.
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
     \ 'ctagsbin' : '$CUSDATA/markdown2ctags/markdown2ctags.py',
@@ -337,30 +338,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-"}}}
-
-" Syntastic "{{{
-let g:syntastic_cpp_compiler_options = ' -std=c++11 '
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = '✗>'
-let g:syntastic_warning_symbol = '⚠>'
-let g:syntastic_style_error_symbol = 'S✗'
-let g:syntastic_style_warning_symbol = 'S⚠'
-" let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_cpp_checkers = ['']
-" let g:syntastic_c_checkers = ['']
-" let g:syntastic_check_on_wq = 1
-" let g:syntastic_asm_checkers = ['']
-" let g:syntastic_tex_checkers = ['chktex']
-"let g:syntastic_tex_checkers = ['']
-"let g:syntastic_filetype_map = { 'latex': 'tex',
-            "\ 'gentoo-metadata': 'xml' }
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['ruby', 'php', 'javascript'],
-            \ 'passive_filetypes': ['tex', 'cpp', 'c'],
-            \ }
-nmap <Leader>le :Errors<cr>
-nmap <Leader>sc :SyntasticCheck<cr>
 "}}}
 
 " neomake"{{{
