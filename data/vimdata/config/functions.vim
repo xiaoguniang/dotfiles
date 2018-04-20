@@ -3,6 +3,36 @@ function! ShowMsg(msg)
     echohl WarningMsg | echom a:msg | echohl None
 endfunction
 
+function! DecodeBase64Str(type, ...)
+    let reg_save = @@
+    if a:0
+        silent execute 'normal! gvy'
+    else
+        silent execute 'normal! `[v`]y'
+    endif
+    call ShowMsg("Base64 Decoded: " .system(printf("echo %s | base64 -D", @@)))
+
+    let @@ = reg_save
+endfunction
+nmap <silent> ,db :set opfunc=DecodeBase64Str<cr>g@
+vmap <silent> ,db :<c-u>call DecodeBase64Str(visualmode(), 1)<cr>
+
+function! DecodeHex2Str(type, ...)
+    let reg_save = @@
+
+    if a:0
+        silent execute 'normal! gvy'
+    else
+        silent execute 'normal! `[v`]y'
+    endif
+
+    call ShowMsg("Hex2Ascii: " .system(printf("python -c 'import sys; sys.stdout.write(\"%s\".decode(\"hex\"))'", @@)))
+
+    let @@ = reg_save
+endfunction
+nmap <silent> ,dh :set opfunc=DecodeHex2Str<cr>g@
+vmap <silent> ,dh :<c-u>call DecodeHex2Str(visualmode(), 1)<cr>
+
 function! WindowMaxToggle()
     if !exists('w:winmax_height') || w:winmax_height < 0
         let w:winmax_height = winheight(0)

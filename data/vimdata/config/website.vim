@@ -2,6 +2,14 @@
 Plug 'https://github.com/maksimr/vim-jsbeautify'
 Plug 'https://github.com/sukima/xmledit.git', { 'for': ['xml', 'html'] }
 Plug 'https://github.com/mattn/emmet-vim.git', { 'for': ['xml', 'html'] }
+Plug 'https://github.com/diepm/vim-rest-console'
+" let g:vrc_curl_opts = { '-s' : '', '-i' : ''}
+let g:vrc_curl_opts = { '-s' : ''}
+let g:vrc_response_default_content_type = 'application/json'
+let g:vrc_show_command = 0
+" let g:vrc_auto_format_uhex = 1
+" let g:vrc_horizontal_split = 1
+
 " Plug 'https://github.com/elzr/vim-json'
 " Plug 'https://github.com/Rykka/colorv.vim'
 " Plug 'https://github.com/Valloric/MatchTagAlways'
