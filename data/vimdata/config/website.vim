@@ -10,6 +10,9 @@ let g:vrc_show_command = 0
 " let g:vrc_auto_format_uhex = 1
 " let g:vrc_horizontal_split = 1
 
+Plug 'https://github.com/baverman/vial'
+Plug 'https://github.com/baverman/vial-http'
+
 " Plug 'https://github.com/elzr/vim-json'
 " Plug 'https://github.com/Rykka/colorv.vim'
 " Plug 'https://github.com/Valloric/MatchTagAlways'

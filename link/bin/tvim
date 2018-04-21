@@ -1,8 +1,6 @@
 #!/bin/zsh
 # Author            : Hongbo Liu <hbliu@freewheel.tv>
 # Date              : 2017-09-12
-# Last Modified Date: 2017-09-12
-# Last Modified By  : Hongbo Liu <hbliu@freewheel.tv>
 
 main() {
     zparseopts -D -E -M -A Args -- w -wait=w T -Type=T
@@ -22,8 +20,8 @@ main() {
         exit 0
     fi
 
-	env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} \
-        nvr -s $do_nvr_wait -cc ':1wincmd w' $set_tvim_type -c ":lcd $PWD" $*
+	# env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS_PREFIX}_${TMUX_WINDOW_ID} \
+    nvr  $do_nvr_wait -cc ':1wincmd w' $set_tvim_type -c ":lcd $PWD" $*
     # -c "${defautl_cmd} $*"
 }
 

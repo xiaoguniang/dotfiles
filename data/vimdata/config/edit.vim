@@ -177,4 +177,10 @@ nmap <silent> ,ah :AddHeader<cr>
 nmap [r kdd
 nmap ]r jddk
 
+" Neovim Remote "{{{
+if has('nvim')
+  let $EDITOR = 'tvim -w'
+endif
+"}}}
+
 " vim:set fdm=marker:

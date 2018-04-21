@@ -296,12 +296,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # }}}
 
 # vim# {{{
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+export NVIM_LISTEN_ADDRESS_PREFIX=/tmp/nvimsocket
 export TMUX_WINDOW_ID="$(tmux display -p '#S_#I' 2> /dev/zero)"
 
 alias vlarge='nvim -n -u NONE -i NONE -N'
 if which nvim &> /dev/zero; then
-	alias vim='env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvim'
+	# alias vim='env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS}_${TMUX_WINDOW_ID} nvim'
+	alias vim='nvim'
 fi
 
 vimprofiler() {
@@ -309,7 +310,7 @@ vimprofiler() {
 	$dir/vim-profiler.py $*
 }
 
-export EDITOR="tvim -w"
+export EDITOR="nvim"
 # }}}
 
 # calculator {{{
@@ -368,7 +369,7 @@ alias -s txt=vim
 alias -s deb="sudo dpkg -i "
 if is_osx; then
 	alias -s pdf="open &> /dev/zero"
-    alias crontab="EDITOR=nvim crontab"
+    # alias crontab="env EDITOR=nvim crontab"
 else
 	alias getbind='bind -P | grep -v "not bound"'
 	alias -s pdf="xdg-open &> /dev/zero"
