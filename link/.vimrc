@@ -33,6 +33,7 @@ Plug expand('$CUSDATA/LocalBundle/MyPlugins')
 Plug expand('$CUSDATA/LocalBundle/paste')
 Plug expand('$CUSDATA/LocalBundle/RemoteCompile')
 " Plug 'https://github.com/hiberabyss/FileJumper'
+" Plug 'https://github.com/yuratomo/w3m.vim'
 
 Plug 'https://github.com/vim-scripts/ExtractMatches'
 Plug 'https://github.com/AndrewRadev/linediff.vim'
