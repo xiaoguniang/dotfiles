@@ -2,16 +2,17 @@
 Plug 'https://github.com/maksimr/vim-jsbeautify'
 Plug 'https://github.com/sukima/xmledit.git', { 'for': ['xml', 'html'] }
 Plug 'https://github.com/mattn/emmet-vim.git', { 'for': ['xml', 'html'] }
-Plug 'https://github.com/diepm/vim-rest-console'
-" let g:vrc_curl_opts = { '-s' : '', '-i' : ''}
-let g:vrc_curl_opts = { '-s' : ''}
+" Plug 'https://github.com/diepm/vim-rest-console'
+Plug 'https://github.com/hiberabyss/vim-rest-console'
+let g:vrc_curl_opts = { '-s' : '', '-i' : ''}
+" let g:vrc_curl_opts = { '-s' : ''}
 let g:vrc_response_default_content_type = 'application/json'
-let g:vrc_show_command = 0
+let g:vrc_show_command = 1
 " let g:vrc_auto_format_uhex = 1
 " let g:vrc_horizontal_split = 1
 
-Plug 'https://github.com/baverman/vial'
-Plug 'https://github.com/baverman/vial-http'
+" Plug 'https://github.com/baverman/vial'
+" Plug 'https://github.com/baverman/vial-http'
 
 " Plug 'https://github.com/elzr/vim-json'
 " Plug 'https://github.com/Rykka/colorv.vim'
