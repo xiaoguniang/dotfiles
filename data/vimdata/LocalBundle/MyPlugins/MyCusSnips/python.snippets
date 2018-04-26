@@ -27,6 +27,26 @@ matches = re.search('pattern\s*(\d+)', str(something))
 print(matches.group(1))
 endsnippet
 
+snippet asyncfun "async call function" b
+from multiprocessing import Process
+import time
+
+def async_fun(name):
+    time.sleep(1)
+    print("hello, " + name)
+
+p = Process(target = async_fun, args = ["hbliu"])
+
+p.start()
+
+print("world")
+endsnippet
+
+snippet argv "system arguments" b
+import sys
+argv = sys.argv
+endsnippet
+
 snippet getopt "argument parser" b
 import sys
 import getopt

@@ -310,7 +310,7 @@ vimprofiler() {
 	$dir/vim-profiler.py $*
 }
 
-export EDITOR="nvim"
+export EDITOR="tvim -w"
 # }}}
 
 # calculator {{{

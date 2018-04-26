@@ -25,13 +25,18 @@ EOF
 exit 0
 }
 
+zgen_upgrade() {
+    zgen selfupdate
+    zgen update
+}
+
 install_tap() {
 	brew tap universal-ctags/universal-ctags
 	brew tap neovim/neovim
 }
 
 upgrade_list() {
-	echo "neovim nvim ctags tmux zgen gocode wechat pinyin calibre pip"
+	echo "neovim nvim ctags tmux zgen gocode wechat pinyin calibre pip zgen"
 }
 
 function pinyin() {
@@ -48,6 +53,7 @@ main() {
 		pinyin ) pinyin ;;
         pip) pip install --upgrade pip ;;
         calibre) brew cu calibre ;; 
+        zgen) zgen_upgrade ;;
 		i|-i|install ) install_tap ;;
 		-l) upgrade_list ;;
 		* ) usage ;;

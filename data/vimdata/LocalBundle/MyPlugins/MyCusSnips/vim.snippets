@@ -36,6 +36,10 @@ let g:tags4proj_tagsopt = {
 			\}
 endsnippet
 
+snippet scriptpath "get script path" b
+let scriptpath = expand("<sfile>:p:h")
+endsnippet
+
 snippet sect "vim section" b
 " ${1:section name} "{{{
 ${VISUAL}$0
