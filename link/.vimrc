@@ -101,7 +101,7 @@ call plug#end() " Should run at last
 function! GetPlugNameFronCurrentLine(cmd)
     let plugin_name = getline(".")
 
-    if plugin_name !~ "^Plug"
+    if plugin_name !~ '\v^\s*Plug'
         execute(a:cmd . '!')
         return
     endif

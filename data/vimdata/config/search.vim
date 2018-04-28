@@ -1,4 +1,4 @@
-Plug 'https://github.com/rking/ag.vim'
+" Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/mileszs/ack.vim'
 Plug 'https://github.com/dyng/ctrlsf.vim'
 Plug 'https://github.com/google/vim-searchindex'
@@ -31,13 +31,18 @@ inoremap <Leader>ft <Esc>:CtrlSFToggle<CR>
 "}}}
 
 " Ack "{{{
-cnoreabbrev Ack Ack!
+" cnoreabbrev Ack Ack!
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+nmap ,ag :Ack! -Q 
 "}}}
 
 " Ag "{{{
-let g:ag_highlight=1
-" cnoreabbrev Ag Ag!
-nmap ,ag :Ag! -Q 
+" let g:ag_highlight=1
+" " cnoreabbrev Ag Ag!
+" nmap ,ag :Ag! -Q 
 "}}}
 
 " EasyGrep "{{{

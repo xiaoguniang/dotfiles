@@ -1,6 +1,7 @@
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/machakann/vim-swap'
+let g:swoopUseDefaultKeyMap = 0
 Plug 'https://github.com/alpertuna/vim-header'
 Plug 'https://github.com/aperezdc/vim-template'
 Plug 'https://github.com/lfilho/cosco.vim'
@@ -27,6 +28,7 @@ vmap <Enter> <Plug>(EasyAlign)
 
 Plug 'https://github.com/tpope/vim-surround.git'
 
+" Search and replace
 Plug 'https://github.com/pelodelfuego/vim-swoop'
 
 Plug 'https://github.com/Shougo/vinarise.vim'
@@ -34,6 +36,7 @@ Plug 'https://github.com/Shougo/vinarise.vim'
 Plug 'https://github.com/tpope/vim-endwise' " wisely add endfunction/endif/more in vim script
 
 if has('mac')
+    Plug 'https://github.com/CodeFalling/fcitx-vim-osx'
     " Plug 'https://github.com/ybian/smartim.git' ", {'on': 'SmartIM'}
     " let g:smartim_disable = 1
     " let g:smartim_debug = 1
@@ -114,14 +117,13 @@ let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 's', 'x', 'X', 'y', 'Y']
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
     let g:deoplete#disable_auto_complete = 1
-    let g:smartim_disable = 1
+    " let g:smartim_disable = 1
 endfunction
 
 " Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
     let g:deoplete#disable_auto_complete = 0
-    let g:smartim_disable = 0
-    " unlet g:smartim_disable
+    " let g:smartim_disable = 0
 endfunction
 
 function! TextObjectMultipleCursors(type, ...)

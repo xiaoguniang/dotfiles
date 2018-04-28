@@ -29,3 +29,19 @@ afterEach(function() {
 	${VISUAL}$0
 });
 endsnippet
+
+snippet title "page title" b
+document.title
+endsnippet
+
+snippet url "document url" b
+document.location.href
+endsnippet
+
+snippet open "open url" b
+var w = window.open($1, "_self");
+endsnippet
+
+snippet urlencode "url encode" b
+encodeURIComponent("$1")
+endsnippet

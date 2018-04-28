@@ -6,7 +6,6 @@ Plug 'https://github.com/thinca/vim-unite-history.git'
 
 Plug 'https://github.com/kmnk/vim-unite-giti'
 
-" Plug 'https://github.com/Shougo/unite-outline'
 " Plug 'https://github.com/zeero/vim-ctrlp-help'
 " Plug 'https://github.com/tsukkee/unite-tag'
 " Plug 'https://github.com/Shougo/junkfile.vim'

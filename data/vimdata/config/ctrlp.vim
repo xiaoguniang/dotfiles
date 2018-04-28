@@ -94,6 +94,13 @@ nnoremap ,pf :CtrlPFunky<Cr>
 nnoremap <Leader>pu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 "}}}
 
+let g:ctrlp_prompt_mappings = {
+    \ 'ToggleType(-1)':       ['<c-b>', '<a-h>', '<c-left>'],
+    \ 'ToggleType(1)':        ['<c-f>', '<a-l>', '<c-right>'],
+    \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
+    \ 'PrtCurRight()':        ['<right>'],
+    \ }
+
 " CtrlPCmdPalette {{{
 let g:ctrlp_cmdpalette_execute = 1
 nmap <silent> <A-x> :CtrlPCmdPalette<cr>

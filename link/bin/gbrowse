@@ -12,7 +12,8 @@ function get_real_url() {
 	else
 		local project="$(echo $url | cut -d':' -f2)"
 		local host="$(echo $url | cut -d':' -f1 | cut -d'@' -f2)"
-		echo "http://$host/$project"
+        project=${project%.git}
+		echo "https://$host/$project"
 	fi
 }
 

@@ -36,7 +36,7 @@ install_tap() {
 }
 
 upgrade_list() {
-	echo "neovim nvim ctags tmux zgen gocode wechat pinyin calibre pip zgen"
+	echo "neovim nvim ctags tmux zgen gocode wechat pinyin calibre pip zgen npm"
 }
 
 function pinyin() {
@@ -54,6 +54,7 @@ main() {
         pip) pip install --upgrade pip ;;
         calibre) brew cu calibre ;; 
         zgen) zgen_upgrade ;;
+        npm) npm install -g npm ;;
 		i|-i|install ) install_tap ;;
 		-l) upgrade_list ;;
 		* ) usage ;;
