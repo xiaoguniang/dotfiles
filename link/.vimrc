@@ -44,7 +44,7 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 
 " Plug 'https://github.com/dimasg/vim-mark' " Highligts multiple words
 
-" Plug 'https://github.com/ianva/vim-youdao-translater.git', {'on': ['Ydc', 'Yde', 'Ydv']}
+Plug 'https://github.com/ianva/vim-youdao-translater.git', {'on': ['Ydc', 'Yde', 'Ydv']}
 
 " Plug 'https://github.com/vim-scripts/DirDiff.vim.git', {'on': ['DirDiff']}
 

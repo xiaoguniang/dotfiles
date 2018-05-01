@@ -21,7 +21,7 @@ main() {
     fi
 
 	# env NVIM_LISTEN_ADDRESS=${NVIM_LISTEN_ADDRESS_PREFIX}_${TMUX_WINDOW_ID} \
-    nvr  $do_nvr_wait -cc ':1wincmd w' $set_tvim_type -c ":lcd $PWD" $*
+    nvr  $do_nvr_wait -cc ':1wincmd w' $set_tvim_type -s -c ":lcd $PWD" $*
     # -c "${defautl_cmd} $*"
 }
 

@@ -69,8 +69,8 @@ let g:EasyGrepHidden = 0
 "}}}
 
 " Config File Search {{{
-command! -nargs=+ Sconfig Ag! <args> $VIMCONFIG $HOME/.vimrc
-command! -nargs=+ Swiki Ag! <args> $HOME/vimwiki
+command! -nargs=+ Sconfig Ack! <args> $VIMCONFIG $HOME/.vimrc
+command! -nargs=+ Swiki Ack! <args> $HOME/vimwiki
 "}}}
 
 " vim:fdm=marker
