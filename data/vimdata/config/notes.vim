@@ -1,4 +1,5 @@
-Plug 'https://github.com/vimwiki/vimwiki.git'
+Plug 'https://github.com/vimwiki/vimwiki.git', {'branch': 'dev'}
+" Plug 'https://github.com/xolox/vim-notes.git'
 
 " vimwiki "{{{
 let g:vimwiki_conceallevel = 0

@@ -8,6 +8,7 @@
 upgradeNeovim() {
 	brew reinstall neovim --HEAD
     pip install --upgrade pip
+    pip3 install --upgrade pip
 
 	pip install --upgrade neovim
 	pip3 install --upgrade neovim

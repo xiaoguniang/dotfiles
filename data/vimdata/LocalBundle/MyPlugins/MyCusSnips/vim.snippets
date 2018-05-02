@@ -29,6 +29,10 @@ snippet plugon "only load when run specific command"
 {'on': '${1:vim-command}'}
 endsnippet
 
+snippet plugbranch "only load when run specific command"
+{'branch': '${1:dev}'}
+endsnippet
+
 snippet ctagsopt "ctags options" b
 let g:tags4proj_tagsopt = {
 			\ 'opt': ['${1:-R}'],

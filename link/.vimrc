@@ -60,7 +60,6 @@ Plug 'https://github.com/ianva/vim-youdao-translater.git', {'on': ['Ydc', 'Yde',
 " NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'
 " NeoBundle 'https://github.com/MattesGroeger/vim-bookmarks'
 
-" NeoBundle 'https://github.com/xolox/vim-notes.git'
 " Plug 'https://github.com/tpope/vim-speeddating.git'
 " NeoBundle 'https://github.com/benmills/vimux.git'
 " NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'
