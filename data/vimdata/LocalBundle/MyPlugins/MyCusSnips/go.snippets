@@ -11,7 +11,7 @@ snippet append "Slice Append"
 ${1:slice} = append($1, ${2:element})
 endsnippet
 
-snippet tojson "convert struct to json" b
+snippet tojson "convert struct to json"
 jsonReq, _ := json.Marshal(${1:request})
 fmt.Print(string(jsonReq))
 endsnippet

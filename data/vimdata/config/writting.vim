@@ -16,4 +16,5 @@ endfunction
 
 vnoremap ,wc :call Zwc()<CR>
 
-command! -nargs=0 HexoServer :Dispatch hexo g && hexo server -o
+command! -nargs=0 HexoServer :Dispatch hexo g && hexo server
+" command! -nargs=0 HexoServer :Dispatch hexo g && hexo server -o
