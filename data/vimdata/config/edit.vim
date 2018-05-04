@@ -188,17 +188,4 @@ if has('nvim')
 endif
 "}}}
 
-function! JobTest()
-    " let job = jobstart("python3 /Users/hbliu/.dotfiles/data/vimdata/bundle/vim-youdao-translater/youdao.py hello", {'on_stdout': function('OnEvent'), 'on_stderr': function('OnEvent'), 'stdout_buffered': v:true, 'stderr_buffered': v:true})
-    " let job = jobstart(["bash", "-c", "ls"], {'on_stdout': function('OnEvent'), 'on_stderr': function('OnEvent')})
-    " let job = jobstart("sleep 5 && /bin/ls", {'on_stdout': function('OnEvent'), 'stdout_buffered': v:true, 'stderr_buffered': v:true})
-    " let job = jobstart("ping -c2 baidu.com", {'on_stdout': function('OnEvent'), 'on_stderr': function('OnEvent'), 'shell': 'shell 1'})
-    echo expand("<sfile>:p:h")
-endfunction
-
-function! OnEvent(jobid, data, event) dict
-    " call jobwait([a:jobid])
-    echo printf("jobid: %s, event: %s, data: %s", a:jobid, a:event, a:data)
-endfunction
-
 " vim:set fdm=marker:

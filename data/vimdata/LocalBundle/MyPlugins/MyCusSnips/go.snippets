@@ -326,6 +326,23 @@ func main() {
 }
 endsnippet
 
+snippet ticker "go ticker timer" b
+go func() {
+	ticker := time.NewTicker(time.Second)
+	for {
+		<- ticker.C
+		fmt.Println("ticker Started...")
+	}
+}()
+endsnippet
+
+snippet timer "go timer" b
+go func() {
+	timer := time.NewTimer(time.Second)
+	<- timer.C
+}()
+endsnippet
+
 snippet sleep "go sleep" b
 time.Sleep(${1:1} * time.Second)
 endsnippet

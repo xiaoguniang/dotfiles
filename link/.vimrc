@@ -44,8 +44,6 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 
 " Plug 'https://github.com/dimasg/vim-mark' " Highligts multiple words
 
-Plug 'https://github.com/ianva/vim-youdao-translater.git', {'on': ['Ydc', 'Yde', 'Ydv']}
-
 " Plug 'https://github.com/vim-scripts/DirDiff.vim.git', {'on': ['DirDiff']}
 
 " BundleList "{{{
@@ -188,12 +186,6 @@ if has('vim_starting')
     colorscheme solarized
 endif
 "}}}
-
-" Youdao Translater "{{{
-vnoremap <silent> ,tt <Esc>:Ydv<CR>
-nnoremap <silent> ,tt <Esc>:Ydc<CR>
-noremap <silent> ,ti <Esc>:Yde<CR>
-" }}}
 
 " neovim gdb "{{{
 let g:nvimgdb_host_cmd = {
