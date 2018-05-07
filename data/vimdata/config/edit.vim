@@ -15,6 +15,8 @@ Plug 'https://github.com/sjl/gundo.vim.git', {'on' : ['GundoToggle']}
 Plug 'https://github.com/christoomey/vim-sort-motion'
 " Plug 'https://github.com/vim-scripts/DrawIt'
 
+Plug 'https://github.com/hiberabyss/visincr'
+
 Plug 'https://github.com/wannesm/wmgraphviz.vim', {'for': ['dot', 'gv']}
 let g:WMGraphviz_output = 'jpg'
 

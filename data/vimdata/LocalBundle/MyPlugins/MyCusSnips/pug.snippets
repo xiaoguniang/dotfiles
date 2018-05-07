@@ -1,0 +1,13 @@
+snippet if "pug if" b
+if theme.post_copyright.copyright_text
+  //- != will render the html code
+  != theme.post_copyright.copyright_text
+else
+  | other string
+endsnippet
+
+snippet each "for in" b
+each post in recommended_posts(page, site)
+  li
+    a(href=post.permalink, target='_blank')= post.title
+endsnippet

@@ -38,7 +38,6 @@ Plug expand('$CUSDATA/LocalBundle/RemoteCompile')
 Plug 'https://github.com/vim-scripts/ExtractMatches'
 Plug 'https://github.com/AndrewRadev/linediff.vim'
 Plug 'https://github.com/tpope/vim-repeat.git'
-Plug 'https://github.com/vim-scripts/VisIncr.git'
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/chrisbra/NrrwRgn.git'
 
