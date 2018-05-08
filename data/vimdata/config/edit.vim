@@ -30,8 +30,8 @@ vmap <Enter> <Plug>(EasyAlign)
 Plug 'https://github.com/tpope/vim-surround.git'
 
 " Search and replace
-Plug 'https://github.com/pelodelfuego/vim-swoop'
-let g:swoopUseDefaultKeyMap = 0
+" Plug 'https://github.com/pelodelfuego/vim-swoop'
+" let g:swoopUseDefaultKeyMap = 0
 
 Plug 'https://github.com/Shougo/vinarise.vim'
 

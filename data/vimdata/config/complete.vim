@@ -1,5 +1,6 @@
 if has('nvim')
     Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'https://github.com/Shougo/context_filetype.vim'
     Plug 'https://github.com/Shougo/neco-vim'
 elseif has('lua')
     Plug 'https://github.com/Shougo/neocomplete.vim'
@@ -39,9 +40,10 @@ let g:neoinclude#paths = {'cpp': ".,include,/usr/include,/usr/local/include/c++/
 
 " deoplete "{{{
 let g:deoplete#enable_at_startup = 0
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#buffer#require_same_filetype = 0
-let g:context_filetype#same_filetypes = 1
+if !exists('g:context_filetype#same_filetypes')
+    let g:context_filetype#same_filetypes = {}
+endif
+let g:context_filetype#same_filetypes._ = '_'
 
 function! DeopleteInit()
 	" call deoplete#custom#source('clang_complete', 'rank', 9999)

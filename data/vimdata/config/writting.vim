@@ -20,7 +20,7 @@ command! -nargs=0 HexoServer :Dispatch hexo g && hexo server -o
 " command! -nargs=0 HexoServer :Dispatch hexo g && hexo server -o
 
 " Youdao Translater "{{{
-Plug 'https://github.com/ianva/vim-youdao-translater.git', {'on': ['Ydc', 'Yde', 'Ydv'], 'branch': 'dev-async'}
+Plug 'https://github.com/ianva/vim-youdao-translater.git', {'on': ['Ydc', 'Yde', 'Ydv']}
 
 vnoremap <silent> ,tt <Esc>:Ydv<CR>
 nnoremap <silent> ,tt <Esc>:Ydc<CR>

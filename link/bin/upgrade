@@ -27,8 +27,7 @@ exit 0
 }
 
 zgen_upgrade() {
-    zgen selfupdate
-    zgen update
+    zsh -l -c "zgen selfupdate && zgen update"
 }
 
 install_tap() {

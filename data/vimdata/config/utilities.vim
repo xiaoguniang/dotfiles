@@ -45,6 +45,9 @@ let g:yaasita_slack_token = expand("$SLACK_TOKEN")
 Plug 'https://github.com/hiberabyss/changesqlcase.vim', {'on': 'ChangeSqlCase'}
 
 Plug 'https://github.com/hiberabyss/vimball'
-command! -nargs=0 ExtractVimball call execute(printf("%s %s/%s", "UseVimball", expand("$BUNDLE"), expand("%:t:r")))
+command! -nargs=0 ExtractVimball call execute(printf("%s %s/%s", "UseVimball", expand("$BUNDLE"), split(expand("%:t:r"), '\.')[0]))
 
+" Plug 'https://github.com/hiberabyss/VimErrFind'
+
+" Plug 'https://github.com/hiberabyss/ZoomWin'
 " let g:vimball_home = expand("$BUNDLE")

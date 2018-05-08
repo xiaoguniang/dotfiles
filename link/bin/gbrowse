@@ -18,10 +18,34 @@ function get_real_url() {
 	fi
 }
 
+usage() {
+cat << EOF
+Usage: $(basename $0) remote_name
+
+Options:
+  -h show this help
+  -v show remote url
+  
+EOF
+exit 0
+}
+
 main() {
+    local cmd="open"
+
+    local OPT OPTARG OPTIND
+    while getopts 'hv' OPT; do
+        case $OPT in
+            h) usage ;;
+            v) cmd="echo" ;;
+        esac
+    done
+    shift $(($OPTIND - 1))
+
 	local remote_name="${1:-origin}"
 	local current_url=$(git remote get-url "$remote_name")
-	open $(get_real_url "$current_url")
+
+	$cmd $(get_real_url "$current_url")
 }
 
 main $@

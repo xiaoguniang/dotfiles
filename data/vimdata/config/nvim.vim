@@ -28,6 +28,9 @@ nmap <silent> ,t9 :Topen9<cr>
 nmap <buffer> ,rl :TREPLSendLine<cr>
 nmap <buffer> ,rs :TREPLSendSelection<cr>
 nmap <buffer> ,rf :TREPLSendFile<cr>
+
+nmap ,x <Plug>(neoterm-repl-send)
+xmap ,x <Plug>(neoterm-repl-send)
 "}}}
 
 " neovim "{{{
