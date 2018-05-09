@@ -1,0 +1,26 @@
+#!/bin/bash
+# Author            : Hongbo Liu <lhbf@qq.com>
+# Date              : 2018-05-08 23:31
+
+ip_pattern="\d\+\.\d\+\.\d\+\.\d\+"
+
+list_all() {
+
+    docker ps -q | xargs docker inspect --format '{{ .Name }} , {{ range $key,$value := .NetworkSettings.Networks }} {{$value.IPAddress}} {{ end }}'
+}
+
+main() {
+    local container_name=$1
+
+    case $1 in
+        -a )
+            list_all | tr -d '/' | column -s ',' -t
+            return
+            ;;
+    esac
+
+    docker inspect "$container_name" -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+}
+
+main $@
+

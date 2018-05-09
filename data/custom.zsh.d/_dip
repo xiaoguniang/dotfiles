@@ -1,0 +1,3 @@
+#compdef dip
+
+_arguments "1: :($(dps))"

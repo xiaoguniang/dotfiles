@@ -165,7 +165,6 @@ else
 endif
 "}}}
 
-call yankstack#setup()
 nmap Y y$
 
 " Motion Setttings"{{{

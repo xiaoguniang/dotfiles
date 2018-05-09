@@ -6,7 +6,7 @@ Plug 'https://github.com/aperezdc/vim-template'
 Plug 'https://github.com/lfilho/cosco.vim'
 Plug 'https://github.com/tpope/vim-abolish'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
-Plug 'https://github.com/maxbrunsfeld/vim-yankstack'
+" Plug 'https://github.com/maxbrunsfeld/vim-yankstack'
 Plug 'https://github.com/vim-scripts/ReplaceWithRegister'
 Plug 'https://github.com/salsifis/vim-transpose'
 Plug 'https://github.com/benmills/vim-commadown' ", {'on': 'CommaDown'}
@@ -112,7 +112,7 @@ let g:gundo_preview_bottom = 1
 "}}}
 
 " Yank stack {{{
-let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 's', 'x', 'X', 'y', 'Y']
+" let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 's', 'x', 'X', 'y', 'Y']
 "}}}
 
 " vim multiple cursors "{{{

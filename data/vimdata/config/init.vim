@@ -148,6 +148,7 @@ set shiftwidth=4
 set shiftround
 set cino=N-sg0
 set expandtab
+autocmd! FileType make setl noexpandtab
 "}}}
 
 " timout settings"{{{
