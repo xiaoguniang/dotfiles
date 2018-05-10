@@ -4,6 +4,34 @@ describe("${1:TestSuiteName}", function(){
 });
 endsnippet
 
+snippet hexolog "hexo plugin log" b
+const log = hexo.log || console;
+log.error("Hiber: " + excludePattern)
+endsnippet
+
+snippet foreach "arrary.forEach" b
+arr.forEach(function(e) {
+});
+endsnippet
+
+snippet arrarypush "arrary.push"
+array.push(element)
+endsnippet
+
+snippet arraryempty "whether arrary is empty"
+if (arr === undefined || arr.length === 0) {
+}
+endsnippet
+
+snippet str2reg "string to regex"
+var re = new RegExp("a|b", "i");
+endsnippet
+
+snippet reg2str "regex expression to strign"
+var regex = /abc/g;
+var str = regex.source;
+endsnippet
+
 snippet it "What's the action" b
 it("${1:what}", function(){
 	${VISUAL}$0

@@ -63,6 +63,7 @@ brew "dialog"
 brew "docker", link: false
 brew "docutils"
 brew "doxygen"
+brew "ethereum"
 brew "extract_url"
 brew "faac"
 brew "fabric"

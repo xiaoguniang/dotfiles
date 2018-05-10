@@ -4,6 +4,7 @@ export DOTDATA="$HOME/.dotfiles/data"
 export DEFAULT_USER=hbliu
 export ZGEN_ohmyzsh="$HOME/.zgen/robbyrussell/oh-my-zsh-master"
 export GITHUB_DIR="$HOME/github"
+export DOTFILES_PRIVATE="$DOTFILES/private"
 
 # zsh hook 
 
@@ -114,6 +115,7 @@ export XDG_CONFIG_DIRS="$DOTFILES/config"
 # export XDG_CONFIG_HOME="$DOTFILES/config"
 
 secureAddPath "$HOME/bin"
+secureAddPath "$DOTFILES_PRIVATE/bin"
 secureAddPath "$HOME/.gem/ruby/2.0.0/bin"
 secureAddPath "/usr/local/bin" start
 secureAddPath "/usr/local/sbin"
