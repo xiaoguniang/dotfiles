@@ -28,13 +28,13 @@ Plug 'https://github.com/ternjs/tern_for_vim', {'for': ['js', 'javascript']}
 
 " jsbeautify "{{{
 if has('vim_starting')
-    autocmd FileType javascript noremap <buffer>  <c-\> :call JsBeautify()<cr>
+    autocmd FileType javascript,solidity noremap <buffer>  <c-\> :call JsBeautify()<cr>
     autocmd FileType json noremap <buffer> <c-\> :call JsonBeautify()<cr>
     autocmd FileType jsx noremap <buffer> <c-\> :call JsxBeautify()<cr>
     autocmd FileType html,xml noremap <buffer> <c-\> :call HtmlBeautify()<cr>
     autocmd FileType css noremap <buffer> <c-\> :call CSSBeautify()<cr>
 
-    autocmd FileType javascript vnoremap <buffer>  <c-\> :call RangeJsBeautify()<cr>
+    autocmd FileType javascript,solidity vnoremap <buffer>  <c-\> :call RangeJsBeautify()<cr>
     autocmd FileType json vnoremap <buffer> <c-\> :call RangeJsonBeautify()<cr>
     autocmd FileType jsx vnoremap <buffer> <c-\> :call RangeJsxBeautify()<cr>
     autocmd FileType html vnoremap <buffer> <c-\> :call RangeHtmlBeautify()<cr>

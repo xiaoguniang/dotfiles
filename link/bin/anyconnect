@@ -5,7 +5,7 @@ USERNAME=$(whoami)
 PASSWORD=$(security find-generic-password -wl $KEYCHAIN_LABEL)
 VPN_URL_NYC="nycsslvpn.freewheel.tv"
 VPN_URL_PEK="peksslvpn.freewheel.tv"
-VPN_URL="$VPN_URL_PEK"
+VPN_URL="$VPN_URL_NYC"
 VPN_BIN="/opt/cisco/anyconnect/bin/vpn"
 ANYCONNECT_PATH="/Applications/Cisco/Cisco AnyConnect Secure Mobility Client.app"
 

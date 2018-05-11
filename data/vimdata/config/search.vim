@@ -68,9 +68,14 @@ let g:EasyGrepIgnoreCase = 0
 let g:EasyGrepHidden = 0
 "}}}
 
+function! BatchSearch(filepaths, ...)
+    execute(printf("Ack! '%s' %s", join(a:000, '.*'), join(a:filepaths)))
+endfunction
+
 " Config File Search {{{
-command! -nargs=+ Sconfig Ack! <args> $VIMCONFIG $HOME/.vimrc
-command! -nargs=+ Swiki Ack! <args> $HOME/vimwiki
+command! -nargs=+ Sconfig call BatchSearch([expand("$VIMCONFIG"), expand("$HOME/.vimrc")], <f-args>)
+command! -nargs=+ Swiki call BatchSearch([expand("$HOME/vimwiki")], <f-args>)
+nmap \sw :Swiki 
 "}}}
 
 " vim:fdm=marker
