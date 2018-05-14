@@ -1,5 +1,7 @@
 Plug 'https://github.com/arecarn/vim-selection' " Required by crunch
 Plug 'https://github.com/arecarn/vim-crunch'
+
+Plug 'https://github.com/hiberabyss/AnsiEsc'
 " Plug 'https://github.com/sk1418/HowMuch'
 
 if ! has('mac')
