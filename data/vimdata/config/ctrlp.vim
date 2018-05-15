@@ -38,12 +38,16 @@ let g:ctrlp_buftag_types = {
             \ 'zsh'        : '--sh-kinds=+t',
             \ 'cpp'         : '--fields=+iaKSz --extra=+q --c++-kinds=+L-p',
             \ 'sql'         : '--sql-kinds=+Insert',
+            \ 'markdown' : '--language-force=markdown --markdown-types=hik',
 			\ 'go' : '--go-kinds=+t+s+i+p',
             \ 'javascript' : {
             \ 'bin': 'jsctags',
             \ 'args': '-f -',
             \ },
-            \ 'vimwiki' : '--vimwiki-kinds=+h'
+            \ 'vimwiki' : {
+                \ 'bin' : '$CUSDATA/TagbarTools/vwtags.py',
+                \ 'args': 'default',
+            \ },
             \ }
 
 let g:ctrlp_map = ''

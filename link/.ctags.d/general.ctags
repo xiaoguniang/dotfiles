@@ -24,7 +24,6 @@
 --langmap=bib:.bib
 --regex-bib=/^@[A-Za-z]+\{([^,]*)/\1/b,bib/
 
---langdef=markdown
 --langmap=markdown:.md.mkd
 --regex-markdown=/^#[ \t]+(.*)/\1/h,Heading_L1/
 --regex-markdown=/^##[ \t]+(.*)/\1/i,Heading_L2/

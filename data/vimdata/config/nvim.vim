@@ -92,4 +92,6 @@ autocmd! BufLeave term://* stopinsert
 " autocmd! BufWinLeave term://* wincmd p
 "}}}
 
+autocmd! InsertLeave * set nopaste
+
  " vim:fdm=marker
