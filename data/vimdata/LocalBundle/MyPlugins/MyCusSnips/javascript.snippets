@@ -9,6 +9,10 @@ const log = hexo.log || console;
 log.error("Hiber: " + excludePattern)
 endsnippet
 
+snippet replace "replace string" b
+str = str.replace(/\d+\s+/, '')
+endsnippet
+
 snippet foreach "arrary.forEach" b
 arr.forEach(function(e) {
 });

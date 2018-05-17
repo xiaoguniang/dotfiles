@@ -52,4 +52,83 @@ snippet network "same as --net" b
 network_mode: "container:${1:container_name/id}"
 endsnippet
 
+snippet kservice "kubernetes services" b
+apiVersion: v1
+kind: Service
+metadata:
+  name: quorum
+  labels:
+    app: quorum
+spec:
+  # type: NodePort
+  clusterIP: None
+  ports:
+  - port: 46656
+    name: p2p
+  selector:
+    app: quorum
+endsnippet
+
+snippet kstatefulset "kubernetes deployment" b
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: quorum
+spec:
+  serviceName: quorum
+  replicas: {{ .Values.replicaCount }}
+  podManagementPolicy: Parallel
+  updateStrategy:
+    type: OnDelete
+  template:
+    metadata:
+      labels:
+        app: quorum
+    spec:
+      containers:
+      - name: quorum
+        imagePullPolicy: Always
+        image: hbliu/quorum-k8s:latest
+        restartPolicy: Never
+        env:
+        - name: NODE_PREFIX
+          value: "quorum-"
+endsnippet
+
+snippet kdeployment "kubernetes deployment" b
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: quorum
+spec:
+  serviceName: quorum
+  replicas: {{ .Values.replicaCount }}
+  podManagementPolicy: Parallel
+  updateStrategy:
+    type: OnDelete
+  template:
+    metadata:
+      labels:
+        app: quorum
+    spec:
+      initContainers:
+      - name: tm-gen-validator
+        image: {{ .Values.image.tmImage }}
+        command:
+        - bash
+        - "-c"
+        - |
+          sleep infinity
+      containers:
+      - name: quorum
+        imagePullPolicy: Always
+        image: hbliu/quorum-k8s:latest
+        restartPolicy: Never
+        env:
+        - name: NODE_NUMBER
+          value: "{{ .Values.replicaCount }}"
+        - name: NODE_PREFIX
+          value: "quorum-"
+endsnippet
+
 # vim:expandtab:

@@ -53,3 +53,13 @@ command! -nargs=0 ExtractVimball call execute(printf("%s %s/%s", "UseVimball", e
 
 " Plug 'https://github.com/hiberabyss/ZoomWin'
 " let g:vimball_home = expand("$BUNDLE")
+
+" kubernetes "{{{
+Plug 'https://github.com/c9s/helper.vim', {'on': []}
+Plug 'https://github.com/c9s/treemenu.vim', {'on': []}
+Plug 'https://github.com/c9s/vikube.vim', {'on': []}
+
+let g:vikube_default_logs_tail = 1000
+let g:vikube_disable_custom_highlight = 1
+let g:vikube_use_current_namespace = 1
+"}}}

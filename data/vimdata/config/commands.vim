@@ -134,4 +134,16 @@ command! -nargs=+ -complete=customlist,SshHostCompletionList Redit call EditRemo
 command! -nargs=+ -complete=customlist,SshHostCompletionList Scp Dispatch scp % <f-args>
 "}}}
 
+" kubernetes "{{{
+function! EnablePlugins(plugin_list)
+    execute(printf("silent PlugLoad %s", join(a:plugin_list)))
+
+    if exists(":CmdPaletteReload")
+        silent CmdPaletteReload
+    endif
+endfunction
+
+command! -nargs=0 EnableKubernetes call EnablePlugins(["helper.vim", "treemenu.vim", "vikube.vim"])
+"}}}
+
 " vim:fdm=marker:

@@ -326,10 +326,15 @@ alias c='noglob ='
 # kubernetes minikube #{{{
 alias minikenv='eval $(minikube docker-env)'
 
-export KUBECONFIG=$HOME/.kube/config
-for f in $HOME/.kube/*.config; do
-    export KUBECONFIG=$KUBECONFIG:$f
-done
+update-kubeconfig() {
+    export KUBECONFIG=$HOME/.kube/config
+    for f in $HOME/.kube/*.config; do
+        export KUBECONFIG=$KUBECONFIG:$f
+    done
+}
+
+update-kubeconfig
+
 # }}}
 
 # Aliases # {{{
