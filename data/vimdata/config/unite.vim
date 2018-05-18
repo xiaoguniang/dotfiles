@@ -30,8 +30,8 @@ autocmd VimEnter * call unite#custom#profile('default', 'context', g:unite_profi
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-imap <buffer> <c-k> <Plug>(unite_select_previous_line)
-imap <buffer> <c-j> <Plug>(unite_select_next_line)
+    imap <buffer> <c-k> <Plug>(unite_select_previous_line)
+    imap <buffer> <c-j> <Plug>(unite_select_next_line)
 endfunction
 
 " <TAB> select from actions
@@ -43,7 +43,7 @@ nmap <silent> ,ut :Unite outline<cr>
 nmap <silent> ,uy :Unite history/yank<cr>
 nmap <silent> ,up :Unite process -no-wrap<cr>
 nnoremap <silent> ,ul  :<C-u>Unite -buffer-name=search
-            \ line:forward -start-insert -direction=botright -no-quit<CR>
+            \ line:all -start-insert -direction=botright<CR>
 
 " nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
 

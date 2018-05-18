@@ -1,4 +1,4 @@
-Plug 'https://github.com/szw/vim-ctrlspace'
+" Plug 'https://github.com/szw/vim-ctrlspace'
 Plug 'https://github.com/majutsushi/tagbar.git'
 " Plug 'https://github.com/lvht/tagbar-markdown', {'for': ['markdown', 'md']}
 Plug 'https://github.com/scrooloose/nerdtree.git' ", {'on': ['NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind', 'NERDTreeFromBookmark']}
