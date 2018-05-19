@@ -144,27 +144,29 @@ nmap <silent> <Leader>il :IndentLinesToggle<cr>
 "}}}
 
 " ctrlspace 5 "{{{
-" let g:CtrlSpaceUseTabline = 1
-let g:CtrlSpaceSetDefaultMapping = 1
-let g:CtrlSpaceDefaultMappingKey = "<A-Space>"
-" let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-let g:CtrlSpaceProjectRootMarkers = [ ".git", ".hg", ".svn", ".bzr", "_darcs",
-            \ "CVS",
-            \ ".proj",
-            \ "_config.yml",
-            \ 'main.tex'
-            \ ]
-let g:CtrlSpaceIgnoredFiles = '\v((tmp|temp)[\/])|(\f*\.log|\f*\.wiki)'
 
-if executable("ag")
-    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
+" " let g:CtrlSpaceUseTabline = 1
+" let g:CtrlSpaceSetDefaultMapping = 1
+" let g:CtrlSpaceDefaultMappingKey = "<A-Space>"
+" " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+" let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+" let g:CtrlSpaceSaveWorkspaceOnExit = 1
+" let g:CtrlSpaceProjectRootMarkers = [ ".git", ".hg", ".svn", ".bzr", "_darcs",
+            " \ "CVS",
+            " \ ".proj",
+            " \ "_config.yml",
+            " \ 'main.tex'
+            " \ ]
+" let g:CtrlSpaceIgnoredFiles = '\v((tmp|temp)[\/])|(\f*\.log|\f*\.wiki)'
 
-" let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+" if executable("ag")
+    " let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+" endif
 
-hi link CtrlSpaceNormal   Normal
+" " let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+
+" hi link CtrlSpaceNormal   Normal
+
 "}}}
 
 " Tagbar "{{{

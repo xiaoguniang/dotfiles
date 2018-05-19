@@ -1,23 +1,20 @@
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-Plug 'https://github.com/tacahiroy/ctrlp-funky.git'
-Plug 'https://github.com/fisadev/vim-ctrlp-cmdpalette'
-" Plug 'https://github.com/dbeecham/ctrlp-commandpalette.vim'
-
 " CtrlP "{{{
-function! CtrlPModeSwitch()
-    let cnt = v:count
-    echomsg cnt
-    if cnt == 1
-        execute(":CtrlP")
-        return 0
-    endif
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 
-    execute(g:ctrlp_cmd)
-    while cnt > 1
-        exe "normal \<c-f>"
-        let cnt -= 1
-    endwhile
-endfunction
+let g:ctrlp_cmd = 'exe get(["CtrlPMRU", "CtrlPBuffer", "CtrlP", "CtrlPCurWD", "CtrlPCurFile", "CtrlPChange"], v:count)'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:100'
+let g:ctrlp_regexp = 1
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_max_history = &history
+let g:ctrlp_lazy_update = 0
+let g:ctrlp_extensions = ['line', 'changes', 'mixed', 'undo' ]
+let g:ctrlp_mruf_exclude = '*.o\|*.bin\|*.elf\|*.swp'
+let g:ctrlp_arg_map = 1
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_follow_symlinks = 0
+let g:ctrlp_tilde_homedir = 1
 
 if executable('ag')
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
@@ -50,36 +47,34 @@ let g:ctrlp_buftag_types = {
             \ },
             \ }
 
-let g:ctrlp_map = ''
-let g:ctrlp_cmd = 'CtrlPMRUFiles'
-let g:ctrlp_regexp = 1
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_max_history = &history
-let g:ctrlp_lazy_update = 0
-let g:ctrlp_extensions = ['line', 'changes', 'mixed', 'undo' ]
-let g:ctrlp_mruf_exclude = '*.o\|*.bin\|*.elf\|*.swp'
-let g:ctrlp_arg_map = 1
-nmap <silent> <C-P> :<C-U>call CtrlPModeSwitch()<cr>
+let g:ctrlp_prompt_mappings = {
+    \ 'ToggleType(-1)':       ['<c-b>', '<a-h>', '<c-left>'],
+    \ 'ToggleType(1)':        ['<c-f>', '<a-l>', '<c-right>'],
+    \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
+    \ 'PrtCurRight()':        ['<right>'],
+    \ }
+
+" nmap <silent> <C-P> :<C-U>call CtrlPModeSwitch()<cr>
 nmap <silent> <C-j> :CtrlPBufTag<cr>
-imap <silent> <C-j> <Down>
 nmap <silent> <Leader>pb :CtrlPBookmarkDir<cr>
 nmap <silent> <Leader>pf :CtrlPCurWD<cr>
 nmap <silent> <Leader>pl :CtrlPLine<cr>
 
-" ctrlpz "{{{
-Plug 'https://github.com/vim-scripts/ctrlp-z'
-nmap <silent> <Space>pf :CtrlPF<cr>
-nmap <silent> <Space>pz :CtrlPZ<cr>
-let g:ctrlp_z_nerdtree = 1
+nnoremap <A-f>  :<C-u>CtrlPCurWD<CR>
+nmap <A-Space> :<C-u>CtrlPBuffer<cr>
 "}}}
 
-let g:ctrlp_help_default_mode = 't'
-nmap <silent> ,ph :CtrlPHelp<cr>
-nnoremap <A-f>  :<C-u>CtrlPCurWD<CR>
+" ctrlpz "{{{
+Plug 'https://github.com/vim-scripts/ctrlp-z'
+
+let g:ctrlp_z_nerdtree = 1
+nmap <silent> <Space>pf :CtrlPF<cr>
+nmap <silent> <Space>pz :CtrlPZ<cr>
 "}}}
 
 " Ctrlp funky "{{{
+Plug 'https://github.com/tacahiroy/ctrlp-funky.git'
+
 let g:ctrlp_funky_after_jump = {
             \ 'default' : 'zxzz',
             \ 'python'  : 'zO',
@@ -98,14 +93,10 @@ nnoremap ,pf :CtrlPFunky<Cr>
 nnoremap <Leader>pu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 "}}}
 
-let g:ctrlp_prompt_mappings = {
-    \ 'ToggleType(-1)':       ['<c-b>', '<a-h>', '<c-left>'],
-    \ 'ToggleType(1)':        ['<c-f>', '<a-l>', '<c-right>'],
-    \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
-    \ 'PrtCurRight()':        ['<right>'],
-    \ }
-
 " CtrlPCmdPalette {{{
+Plug 'https://github.com/fisadev/vim-ctrlp-cmdpalette'
+" Plug 'https://github.com/dbeecham/ctrlp-commandpalette.vim'
+
 let g:ctrlp_cmdpalette_execute = 1
 nmap <silent> <A-x> :CtrlPCmdPalette<cr>
 "}}}

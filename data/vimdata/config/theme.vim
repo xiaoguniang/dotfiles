@@ -45,8 +45,9 @@ let g:airline#extensions#nrrwrgn#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buf_label_first = 1
 let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tab_type = 0
+" let g:airline#extensions#tabline#show_tab_type = 0
 " let g:airline#extensions#tabline#buf_label_first = 0
 
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -63,6 +64,7 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
 let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtree']
+let g:airline#extensions#tabline#excludes = ['term://']
 " let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_min_count = 2

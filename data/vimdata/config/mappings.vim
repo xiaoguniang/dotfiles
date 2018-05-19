@@ -84,8 +84,6 @@ nmap <silent> ]wl :lclose<cr>
 map <silent> <A-\> :call WindowMaxToggle()<cr>
 map <silent> <A-w> <ESC><C-w>w:call WindowMaxToggle()<cr>
 
-nmap ,c/ :Unite history/command<cr>
-nmap ,s/ :Unite history/search<cr>
 nmap ,cd :lcd %:p:h<CR>
 nmap <silent> ,cw :cd $ORIG_PWD<cr>
 nmap ,rc :tabnew ~/.vimrc<cr>
@@ -153,7 +151,8 @@ endfunction
 if empty($SSH_CLIENT)
     nmap <expr> <silent> ,ya ':%yank ' . g:clipboard_reg . '<CR>'
     nmap <silent> ,yc :let @+ = printf("```\n%s\n```", @+)<CR>
-    nmap <silent> ,yl :let @+ = @"<CR>
+    nmap <silent> cp" :let @+ = @"<CR>
+    nmap <silent> cp/ :let @+ = @/<CR>
     vmap <expr> <silent> ,y '"' .g:clipboard_reg. 'y'
     nmap <expr> <silent> ]v ':call PasteFromClipboard()<cr>"' .g:clipboard_reg. 'p'
     nmap <expr> <silent> [v ':call PasteFromClipboard()<cr>"' .g:clipboard_reg. 'P'

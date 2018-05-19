@@ -1,21 +1,13 @@
 " Unite List "{{{
 " Plug 'https://github.com/Shougo/denite.nvim'
-Plug 'https://github.com/Shougo/unite.vim.git'
-Plug 'https://github.com/Shougo/neoyank.vim'
-Plug 'https://github.com/thinca/vim-unite-history.git'
-
-Plug 'https://github.com/kmnk/vim-unite-giti'
-
-" Plug 'https://github.com/zeero/vim-ctrlp-help'
 " Plug 'https://github.com/tsukkee/unite-tag'
 " Plug 'https://github.com/Shougo/junkfile.vim'
 "}}}
 
-nmap <silent> ,gb :Unite giti/branch<cr>
-
 " unite "{{{
+Plug 'https://github.com/Shougo/unite.vim'
 let g:unite_source_bookmark_directory = expand("$CUSDATA/UnitBookmark/")
-let g:unite_source_history_yank_enable = 1
+" let g:unite_source_history_yank_enable = 1
 
 let g:unite_profile_default_context = {
             \ 'wrap': 1,
@@ -34,12 +26,23 @@ function! s:unite_my_settings()
     imap <buffer> <c-j> <Plug>(unite_select_next_line)
 endfunction
 
+function! LoadUniteCustomMappings()
+    let mappings = {
+                \ "<C-q>" : "<Plug>(unite_exit)",
+                \ }
+                " \ "<C-i>" : "<expr> unite#do_action('insert')",
+    for [key, value] in items(mappings)
+        execute(printf("imap <buffer> <silent> %s %s", key, value))
+    endfor
+endfunction
+
+autocmd! FileType unite call LoadUniteCustomMappings()
+
 " <TAB> select from actions
 nmap <silent> ,ub <ESC>:Unite -no-start-insert bookmark:_<cr>
 nmap <silent> ,uf :Unite buffer<cr>
 nmap <silent> ,ur :Unite register<cr>
 nmap <silent> ,uj :Unite jump<cr>
-nmap <silent> ,ut :Unite outline<cr>
 nmap <silent> ,uy :Unite history/yank<cr>
 nmap <silent> ,up :Unite process -no-wrap<cr>
 nnoremap <silent> ,ul  :<C-u>Unite -buffer-name=search
@@ -47,10 +50,26 @@ nnoremap <silent> ,ul  :<C-u>Unite -buffer-name=search
 
 " nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
 
-" nmap <silent> ,uc :<c-u>Unite history/command<cr>
-nmap <silent> ,uc :<c-u>Unite change<cr>
-nmap <silent> <space>c :<c-u>Unite command<cr>
-nmap <silent> ,us :<c-u>Unite history/search<cr>
+" nmap <silent> ,uc :<c-u>Unite change<cr>
+"}}}
+
+" neoyank "{{{
+Plug 'https://github.com/Shougo/neoyank.vim'
+
+let g:neoyank#save_registers = ['"', "0", "1", "2", "3"]
+"}}}
+
+" history "{{{
+Plug 'https://github.com/thinca/vim-unite-history'
+
+nmap ,c/ :Unite history/command<cr>
+nmap ,s/ :Unite history/search<cr>
+"}}}
+
+" giti "{{{
+Plug 'https://github.com/kmnk/vim-unite-giti'
+
+nmap <silent> ,gb :Unite giti/branch<cr>
 "}}}
 
 " vim:set fdm=marker:
