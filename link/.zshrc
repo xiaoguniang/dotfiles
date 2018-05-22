@@ -3,7 +3,7 @@ export DOTFILES="$HOME/.dotfiles"
 export DOTDATA="$HOME/.dotfiles/data"
 export DEFAULT_USER=hbliu
 export ZGEN_ohmyzsh="$HOME/.zgen/robbyrussell/oh-my-zsh-master"
-export GITHUB_DIR="$HOME/github"
+export PRE_REUIRE_DIR="$HOME/.github"
 export DOTFILES_PRIVATE="$DOTFILES/private"
 
 # zsh hook 
@@ -45,12 +45,24 @@ secureAddGoPath() {
 	fi
 }
 
+remoteSource() {
+    local url=$1
+    local file_name="${url##*/}"
+    local dest="$PRE_REUIRE_DIR"
+
+    if [[ ! -f "$dest/$file_name" ]]; then
+        wget -P $dest $url
+    fi
+
+    source "$dest/$file_name"
+}
+
 pre_require() {
 	local url=$1
 	if [[ -z $url ]]; then
 		return
 	fi
-	local root="$HOME/.github"
+	local root="$PRE_REUIRE_DIR"
 
     if [[ "$url" =~ ^git ]]; then
         local username=$(echo $url | cut -d':' -f2 | cut -d'/' -f1)
@@ -463,6 +475,10 @@ pdate() { gdate --date="@$1" +'%F %T %Z'}
 tcd() {
 	cd $(tmux display-message -p -F '#{pane_current_path}' -t'!')
 }
+
+remoteSource "https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh"
+
+# alias mux=tmuxinator
 
 # tmuxinator
 # secureSource "$GITHUB_DIR/tmuxinator/completion/tmuxinator.zsh"

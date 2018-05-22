@@ -130,7 +130,7 @@ function! SshHostCompletionList(lead, cmdline, ...) abort
     return filter(hosts_list, 'v:val =~ a:lead')
 endfunction
 
-command! -nargs=+ -complete=customlist,SshHostCompletionList Redit call EditRemoteFile(<f-args>)
+command! -nargs=+ -complete=customlist,SshHostCompletionList EditRemote call EditRemoteFile(<f-args>)
 command! -nargs=+ -complete=customlist,SshHostCompletionList Scp Dispatch scp % <f-args>
 "}}}
 
