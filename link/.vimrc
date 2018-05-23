@@ -38,7 +38,6 @@ Plug expand('$CUSDATA/LocalBundle/RemoteCompile')
 Plug 'https://github.com/vim-scripts/ExtractMatches'
 Plug 'https://github.com/AndrewRadev/linediff.vim'
 Plug 'https://github.com/tpope/vim-repeat.git'
-Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/chrisbra/NrrwRgn.git'
 
 " Plug 'https://github.com/dimasg/vim-mark' " Highligts multiple words
@@ -72,6 +71,7 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 source $VIMCONFIG/ctrlp.vim
 source $VIMCONFIG/unite.vim
 source $VIMCONFIG/ide.vim
+source $VIMCONFIG/test.vim
 
 source $VIMCONFIG/theme.vim
 source $VIMCONFIG/edit.vim
@@ -128,24 +128,6 @@ command! -nargs=+ -bar -complete=customlist,s:plug_names PlugLoad call plug#load
 
 source $VIMCONFIG/mappings.vim
 source $VIMCONFIG/commands.vim
-
-" vim test"{{{
-" nmap <silent> <leader>N :TestNearest<CR>
-function! CreateNewTest()
-    if &ft == 'javascript'
-        execute('new spec/' . expand('%:t:r') . '.spec.js')
-    endif
-endfunction
-
-command! TN call CreateNewTest()
-
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>A :TestSuite<CR>
-nmap <silent> <leader>L :TestLast<CR>
-nmap <silent> <leader>G :TestVisit<CR>
-
-let test#strategy = 'neovim'
-"}}}
 
 " Line Diff"{{{
 autocmd User LinediffBufferReady nnoremap <buffer> q :LinediffReset<cr>

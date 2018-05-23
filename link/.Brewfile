@@ -181,7 +181,7 @@ brew "texi2html"
 brew "the_platinum_searcher"
 brew "the_silver_searcher"
 brew "tmate"
-brew "tmux", args: ["HEAD"]
+brew "tmux"
 brew "tmux-xpanes"
 brew "tor"
 brew "tree"

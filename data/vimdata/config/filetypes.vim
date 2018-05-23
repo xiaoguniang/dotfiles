@@ -263,4 +263,8 @@ let g:haskell_enable_pattern_synonyms = 1
 let g:haskell_enable_typeroles = 1
 "}}}
 
+" graphql "{{{
+Plug 'https://github.com/jparise/vim-graphql'
+"}}}
+
 " vim:set fdm=marker:
