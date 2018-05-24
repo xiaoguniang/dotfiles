@@ -1,4 +1,3 @@
-Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/machakann/vim-swap'
 Plug 'https://github.com/alpertuna/vim-header'
@@ -140,7 +139,17 @@ let g:multi_cursor_start_key='g<C-n>'
 let g:multi_cursor_start_word_key='<C-n>'
 "}}}
 
+" SplitJoin "{{{
+Plug 'https://github.com/AndrewRadev/splitjoin.vim'
+
 let g:splitjoin_align = 1
+
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+
+nmap ,gj :SplitjoinJoin<cr>
+nmap ,gs :SplitjoinSplit<cr>
+"}}}
 
 nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
 

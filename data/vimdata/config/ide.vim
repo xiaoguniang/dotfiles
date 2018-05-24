@@ -4,7 +4,6 @@ Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/scrooloose/nerdtree.git' ", {'on': ['NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind', 'NERDTreeFromBookmark']}
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 " Plug 'https://github.com/scrooloose/syntastic.git', {'on': ['SyntasticCheck', 'Errors', 'SyntasticToggleMode']}
-Plug 'https://github.com/w0rp/ale'
 " Plug 'https://github.com/neomake/neomake'
 Plug 'https://github.com/Yggdroot/indentLine', {'on' : 'IndentLinesToggle'}
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
@@ -57,11 +56,14 @@ endif
 "}}}
 
 " ale "{{{
+Plug 'https://github.com/w0rp/ale'
+
 let g:ale_set_highlights = 0
 let g:ale_linters = {
 			\ 'cpp': ['clang', 'cppcheck', 'cpplint', 'g++'],
-			\ 'go' : ['gofmt', 'golint', 'gometalinter', 'go vet', 'staticcheck']
+			\ 'go' : ['gofmt', 'golint', 'gometalinter', 'go vet', 'staticcheck'],
 			\ }
+
 			" \ 'python' : ['mypy', 'pylint']
 "}}}
 

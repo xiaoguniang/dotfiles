@@ -54,6 +54,26 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtCurRight()':        ['<right>'],
     \ }
 
+function! TermOpenFunc(action, line)
+    if a:action =~ '^[e]$' && a:line =~ '^term://'
+        call ctrlp#exit()
+
+        let win_size = 12
+        if exists('g:neoterm_size')
+            let win_size = g:neoterm_size
+        endif
+
+        execute("botright new")
+        execute("resize " .win_size)
+        let term_bufnr = bufnr(a:line)
+        execute("b" . term_bufnr)
+    else
+        call call('ctrlp#acceptfile', [a:action, a:line])
+    endif
+endfunction
+
+let g:ctrlp_open_func = { 'buffers': 'TermOpenFunc' }
+
 " nmap <silent> <C-P> :<C-U>call CtrlPModeSwitch()<cr>
 nmap <silent> <C-j> :CtrlPBufTag<cr>
 nmap <silent> <Leader>pb :CtrlPBookmarkDir<cr>
@@ -99,6 +119,7 @@ Plug 'https://github.com/fisadev/vim-ctrlp-cmdpalette'
 
 let g:ctrlp_cmdpalette_execute = 1
 nmap <silent> <A-x> :CtrlPCmdPalette<cr>
+vmap <silent> <A-x> :<c-u>CtrlPCmdPalette<cr>
 "}}}
 
 " vim:set fdm=marker:

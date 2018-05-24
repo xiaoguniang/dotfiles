@@ -2,10 +2,10 @@
 Plug 'https://github.com/maksimr/vim-jsbeautify'
 Plug 'https://github.com/sukima/xmledit.git', { 'for': ['xml', 'html'] }
 Plug 'https://github.com/mattn/emmet-vim.git', { 'for': ['xml', 'html'] }
-" Plug 'https://github.com/diepm/vim-rest-console'
 
 " rest-console "{{{
 Plug 'https://github.com/hiberabyss/vim-rest-console'
+" Plug 'https://github.com/diepm/vim-rest-console'
 
 let g:vrc_curl_opts = { '-s' : '', '-i' : ''}
 let g:vrc_response_default_content_type = 'application/json'

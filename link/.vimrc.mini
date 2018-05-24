@@ -2,3 +2,42 @@ set autoindent
 set number
 set relativenumber
 set shiftwidth=4
+
+let $CUSDATA = expand("$HOME/.dotfiles/data/vimdata")
+let $BUNDLE = expand("$CUSDATA/bundle")
+let $PLUG_DIR = expand("$BUNDLE/vim-plug")
+
+if empty(glob(expand("$PLUG_DIR/plug.vim")))
+  silent !curl -fLo $PLUG_DIR/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+endif
+source $PLUG_DIR/plug.vim
+
+call plug#begin(expand($BUNDLE))
+
+Plug 'https://github.com/w0rp/ale'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+
+call plug#end() " Should run at last
+
+function! TermOpenFunc(action, line)
+    if a:action =~ '^[e]$' && a:line =~ '^term://'
+        call ctrlp#exit()
+
+        let win_size = 12
+        if exists('g:neoterm_size')
+            let win_size = g:neoterm_size
+        endif
+
+        execute("botright new")
+        execute("resize " .win_size)
+        let term_bufnr = bufnr(a:line)
+        execute("b" . term_bufnr)
+    else
+        call call('ctrlp#acceptfile', [a:action, a:line])
+    endif
+endfunction
+
+let g:ctrlp_open_func = { 'buffers': 'TermOpenFunc' }
+
