@@ -12,13 +12,25 @@ Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/jsfaint/gen_tags.vim'
 Plug 'https://github.com/tyru/capture.vim'
 
-Plug 'https://github.com/hiberabyss/NeovimGdb'
 Plug 'https://github.com/dbgx/lldb.nvim'
 
 " Plug 'https://github.com/xolox/vim-session'
 " Plug 'https://github.com/xolox/vim-misc'
 
 Plug 'https://github.com/hiberabyss/ProjectConfig'
+
+" neovim gdb "{{{
+Plug 'https://github.com/hiberabyss/NeovimGdb'
+
+let g:nvimgdb_host_cmd = {
+            \ 'dr01' : ['cads', 'gdb -f ./ads'],
+            \ 'd32' : ['cads', 'gdb -f ./ads'],
+            \ '1085' : ['cd ~/hbliu', 'sudo gdb --pid `cat /ads-debug/run/ads-eng.pid` -f'],
+            \ 'ts1' : ['Docker', 'gdb -q -f --pid `pgrep transcoding`'],
+            \ 'ts' : ['Docker', 'gdb -q -f --pid `pgrep transcoding`'],
+            \ }
+"}}}
+
 
 " Run Command "{{{
 Plug 'https://github.com/tpope/vim-dispatch.git'
@@ -67,12 +79,11 @@ let g:ale_linters = {
 			" \ 'python' : ['mypy', 'pylint']
 "}}}
 
+" YouCompleteMe "{{{
 " let g:loaded_youcompleteme = 1
-
 " Plug 'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py --clang-completer --system-libclang --gocode-completer'}
 " Plug 'https://github.com/rdnetto/YCM-Generator', 'stable'
 
-" YouCompleteMe "{{{
 " let g:ycm_global_ycm_extra_conf = expand("$CUSDATA/conf/ycm/cpp/.ycm_extra_conf.py")
 " let g:ycm_global_ycm_extra_conf = expand("$CUSDATA/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py")
 
@@ -356,7 +367,7 @@ let g:interpreter_cmd = {
 
 if exists('g:interpreter_cmd')
 	for [ft, cmd] in items(g:interpreter_cmd)
-		execute('autocmd FileType ' .ft. ' nmap <buffer> <silent> ,rr :call WinRun("' .cmd. '")<cr>')
+		execute('autocmd FileType ' .ft. ' nmap <buffer> <silent> ,rr :call util#WinRun("' .cmd. '")<cr>')
 	endfor
 endif
 "}}}

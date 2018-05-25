@@ -3,7 +3,6 @@ noremap <silent> <Up> <C-y>
 noremap <silent> <Down> <C-e>
 "}}}
 
-
 " cmdline setting "{{{
 cnoremap <C-A> <Home>
 cnoremap <M-b> <S-Left>
@@ -45,8 +44,8 @@ function! UnloadMotionMap()
     endfor
 endfunction
 
-nmap <silent> ,qm :call LoadMotionMap()<cr>:call ShowMsg("Enable Motion Keybingds")<CR>
-nmap <silent> ,qM :call UnloadMotionMap()<cr>:call ShowMsg("Disable Motion Keybingds")<CR>
+nmap <silent> ,qm :call LoadMotionMap()<cr>:call util#ShowMsg("Enable Motion Keybingds")<CR>
+nmap <silent> ,qM :call UnloadMotionMap()<cr>:call util#ShowMsg("Disable Motion Keybingds")<CR>
 
 autocmd FileType help,man call LoadMotionMap()
 "}}}
@@ -67,10 +66,10 @@ let g:winMoveKeyMap = {
 
 function! LoadWinMoveMap()
 	for [k, v] in items(g:winMoveKeyMap)
-		execute(printf("inoremap <silent> %s <ESC>:call RestoreWindowSize()<cr><C-w>%s", k, v))
-		execute(printf("nnoremap <silent> %s :call RestoreWindowSize()<cr><C-w>%s", k, v))
+		execute(printf("inoremap <silent> %s <ESC>:call util#RestoreWindowSize()<cr><C-w>%s", k, v))
+		execute(printf("nnoremap <silent> %s :call util#RestoreWindowSize()<cr><C-w>%s", k, v))
 		if has('nvim')
-			execute(printf("tnoremap <silent> %s \<C-\><C-n>:call RestoreWindowSize()<cr><C-w>%s", k, v))
+			execute(printf("tnoremap <silent> %s \<C-\><C-n>:call util#RestoreWindowSize()<cr><C-w>%s", k, v))
 		endif
 	endfor
 endfunction
@@ -81,8 +80,8 @@ nmap <silent> ]wq :cclose<cr>
 nmap <silent> [wl :lopen<cr>
 nmap <silent> ]wl :lclose<cr>
 
-map <silent> <A-\> :call WindowMaxToggle()<cr>
-map <silent> <A-w> <ESC><C-w>w:call WindowMaxToggle()<cr>
+map <silent> <A-\> :call util#WindowMaxToggle()<cr>
+map <silent> <A-w> <ESC><C-w>w:call util#WindowMaxToggle()<cr>
 
 nmap ,cd :lcd %:p:h<CR>
 nmap <silent> ,cw :cd $ORIG_PWD<cr>
@@ -121,7 +120,7 @@ function! BufferNowaitMap()
     nnoremap <silent> <buffer> <C-v> <C-W><Enter><C-W>H
 
     nmap <nowait> <buffer> <silent> q :q<cr>
-    nmap <nowait> <buffer> <silent> x :call WindowMaxToggle()<cr>
+    nmap <nowait> <buffer> <silent> x :call util#WindowMaxToggle()<cr>
     setl wrap
 endfunction
 
@@ -156,7 +155,7 @@ if empty($SSH_CLIENT)
     vmap <expr> <silent> ,y '"' .g:clipboard_reg. 'y'
     nmap <expr> <silent> ]v ':call PasteFromClipboard()<cr>"' .g:clipboard_reg. 'p'
     nmap <expr> <silent> [v ':call PasteFromClipboard()<cr>"' .g:clipboard_reg. 'P'
-    nmap <expr> <silent> ,yp ':let @" = expand("%:p")<cr>:let @' .g:clipboard_reg. ' = @"<cr>:call ShowMsg("File Path Copied!")<cr>'
+    nmap <expr> <silent> cpp ':let @" = expand("%:p")<cr>:let @' .g:clipboard_reg. ' = @"<cr>:call util#ShowMsg("File Path Copied!")<cr>'
 else
     nmap <silent> ,ya :%yank<cr>:Clip<cr>
     nmap <silent> ,yy yy:Clip<cr>
@@ -228,25 +227,15 @@ nmap <Space>gC :call CloseTab('!')<cr>
 " utility map"{{{
 nmap <silent> ,cf :CheckPath<cr>
 
-function! TimestampToDate(...)
-    let timestamp = expand("<cword>")
-    if a:0 > 0
-        let timestamp = a:1
-    endif
-
-    let origin_TZ = $TZ
-    let $TZ = "UTC"
-    call ShowMsg(strftime("%Y-%m-%d %T %z", timestamp[0:9]))
-    let $TZ = origin_TZ
-endfunction
-command! -nargs=? PDate call TimestampToDate(<f-args>)
-
-nmap <silent> ,pd :call TimestampToDate(expand("<cword>"))<cr>
+nmap <silent> ,pd :call util#TimestampToDate(expand("<cword>"))<cr>
 "}}}
 
-" cfile settings"{{{
-nmap <silent> ,gf ,cd:vsplit <cfile><cr>
-nmap <silent> ,gt :tabnew <cfile><cr>
+" decode encode "{{{
+nmap <silent> ]6 :set opfunc=util#DecodeBase64Str<cr>g@
+vmap <silent> ]6 :<c-u>call util#DecodeBase64Str(visualmode(), 1)<cr>
+
+nmap <silent> ,dh :set opfunc=util#DecodeHex2Str<cr>g@
+vmap <silent> ,dh :<c-u>call util#DecodeHex2Str(visualmode(), 1)<cr>
 "}}}
 
 " vim:set fdm=marker:

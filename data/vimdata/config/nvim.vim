@@ -48,7 +48,7 @@ tnoremap <silent> <S-A-q> <c-\><c-n>:bd!<cr>:sleep 80m<cr>:Ttoggle<cr>
 tnoremap <silent> <S-A-p> <c-\><c-n>:execute(printf(":T cd %s", getcwd()))<cr>
 
 tnoremap <A-o> <c-\><c-n>:Unite -no-start-insert buffer:t<cr>
-tnoremap <silent> <A-\> <c-\><c-n>:call WindowMaxToggle()<cr>i
+tnoremap <silent> <A-\> <c-\><c-n>:call util#WindowMaxToggle()<cr>i
 " tnoremap <A-o> <c-\><c-n>:CtrlSpace a/term/<cr>
 
 tnoremap <silent> <A-[> <c-\><c-n>:Tprevious<cr>

@@ -1,0 +1,18 @@
+#!/bin/bash
+# Author            : Hongbo Liu <lhbf@qq.com>
+# Date              : 2018-05-25 16:48
+
+is_osx() {
+    [[ "$OSTYPE" =~ ^darwin ]] || return 1
+}
+
+copypath() {
+    local file_path=${1:-.}
+    if is_osx; then
+        grealpath -z "$file_path" | pbcopy
+    else
+        realpath -z "$file_path" | xsel -b
+    fi
+}
+
+copypath "$@"

@@ -3,4 +3,4 @@
 " endif
 " let b:loaded_swift_vim = 1
 
-map <buffer> <silent> ,rr :call WinRun("swift")<cr>
+map <buffer> <silent> ,rr :call util#WinRun("swift")<cr>

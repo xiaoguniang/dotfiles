@@ -24,7 +24,7 @@ map <buffer> <silent> ,rr :up<cr>:GoRun<cr>
 " nmap <buffer> <silent> ,rd :call GoDebugRun()<cr>
 nmap <buffer> <silent> ,rd :up<cr>:GoDebug!<cr>
 nmap <buffer> <silent> ,rb :up<cr>:GoBuild<cr>
-nmap <buffer> <silent> ,rf :up<cr>:call WinRun('go run')<cr>
+nmap <buffer> <silent> ,rf :up<cr>:call util#WinRun('go run')<cr>
 map <buffer> <silent> ,rt :GoTest<cr>
 map <buffer> <silent> ,gi :GoImports<cr>
 " nmap <buffer> <silent> gd :GoDef<CR>

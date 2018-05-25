@@ -15,8 +15,6 @@ if has('vim_starting')
     let $ORIG_PWD = getcwd()
     source $VIMCONFIG/init.vim
 endif
-
-source $VIMCONFIG/functions.vim
 "}}}
 
 " Include Plug "{{{
@@ -28,8 +26,8 @@ endif
 source $PLUG_DIR/plug.vim
 
 call plug#begin(expand($BUNDLE))
-Plug expand('$CUSDATA/LocalBundle/tags4proj')
 Plug expand('$CUSDATA/LocalBundle/MyPlugins')
+Plug expand('$CUSDATA/LocalBundle/tags4proj')
 Plug expand('$CUSDATA/LocalBundle/paste')
 Plug expand('$CUSDATA/LocalBundle/RemoteCompile')
 " Plug 'https://github.com/hiberabyss/FileJumper'
@@ -92,38 +90,12 @@ if has('nvim')
 endif
 
 call plug#end() " Should run at last
-
-" vim plug "{{{
-function! GetPlugNameFronCurrentLine(cmd)
-    let plugin_name = getline(".")
-
-    if plugin_name !~ '\v^\s*Plug'
-        execute(a:cmd . '!')
-        return
-    endif
-
-	let plugin_name = split(split(plugin_name, "'")[1], '/')[-1]
-	let plugin_name = substitute(plugin_name, '\.git$', '', 'g')
-	execute(a:cmd .' '. plugin_name)
-endfunction
-
-nmap ,pi :w<cr>:call GetPlugNameFronCurrentLine('PlugInstall')<cr>
-nmap ,pI :PlugInstall<cr>
-nmap ,pu :call GetPlugNameFronCurrentLine('PlugUpdate')<cr>
-nmap ,pU :PlugUpdate<cr>
-
-function! s:plug_loaded(spec)
-  let rtp = join(filter([a:spec.dir, get(a:spec, 'rtp', '')], 'len(v:val)'), '/')
-  return stridx(&rtp, rtp) >= 0 && isdirectory(rtp)
-endfunction
-
-function! s:plug_names(...)
-    return sort(filter(keys(filter(copy(g:plugs), { k, v -> !s:plug_loaded(v) })), 'stridx(v:val, a:1) != -1'))
-endfunction
-
-command! -nargs=+ -bar -complete=customlist,s:plug_names PlugLoad call plug#load([<f-args>])
 "}}}
 
+" vim plug "{{{
+nmap ,pi :w<cr>:call plug#GetPlugNameFronCurrentLine('PlugInstall')<cr>
+nmap ,pu :call plug#GetPlugNameFronCurrentLine('PlugUpdate')<cr>
+command! -nargs=+ -bar -complete=customlist,plug#plug_names PlugLoad call plug#load([<f-args>])
 "}}}
 
 source $VIMCONFIG/mappings.vim
@@ -166,16 +138,6 @@ if has('vim_starting')
     set background=dark
     colorscheme solarized
 endif
-"}}}
-
-" neovim gdb "{{{
-let g:nvimgdb_host_cmd = {
-            \ 'dr01' : ['cads', 'gdb -f ./ads'],
-            \ 'd32' : ['cads', 'gdb -f ./ads'],
-            \ '1085' : ['cd ~/hbliu', 'sudo gdb --pid `cat /ads-debug/run/ads-eng.pid` -f'],
-            \ 'ts1' : ['Docker', 'gdb -q -f --pid `pgrep transcoding`'],
-            \ 'ts' : ['Docker', 'gdb -q -f --pid `pgrep transcoding`'],
-            \ }
 "}}}
 
 " limelight"{{{

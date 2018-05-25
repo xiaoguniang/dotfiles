@@ -489,14 +489,6 @@ remoteSource "https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/com
 
 alias clip="nc localhost 8377"
 
-copypath() {
-    if is_osx; then
-        grealpath -z "$1" | pbcopy
-    else
-        realpath -z "$1" | xsel -b
-    fi
-}
-
 swname() {
 	tmpname=$(basename $(mktemp -u))
 	mv $1 $tmpname

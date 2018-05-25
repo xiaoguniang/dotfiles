@@ -1,39 +1,7 @@
-" RD report "{{{
-" command! -nargs=0 TSReport RE 201 ~/gitlab/rd/ts_regression/report/
-" command! -nargs=0 APIReport RE 201 ~/gitlab/rd/api_regression/report/
-
-function! CopyNonFolded() range 
-	let lnum= a:firstline 
-	let buffer=[] 
-	while lnum <= a:lastline 
-		if (foldclosed(lnum) == -1) 
-			let buffer += getline(lnum, lnum) 
-			let lnum += 1 
-		else 
-			let buffer += [ foldtextresult(lnum) ] 
-			let lnum = foldclosedend(lnum) + 1 
-		endif 
-	endwhile 
-	top new 
-	set bt=nofile 
-	call append(".",buffer) 
-	0d_ 
-endfu 
-
-com! -range=% CopyFolds :<line1>,<line2>call CopyNonFolded() 
+com! -range=% CopyFolds :<line1>,<line2>call util#CopyNonFolded() 
 vmap ,zy :CopyFolds<cr>
-"}}}
 
-function! EditBinaryFile(...)
-	let cmd = "tabnew"
-	if a:0 > 1
-		let cmd = join(a:000[1:])
-	endif
-	let cmd = cmd . '| Vinarise'
-	execute(printf("%s %s", cmd, a:1))
-endfunction
-
-command! -nargs=+ -complete=file BinEdit call EditBinaryFile(<f-args>)
+command! -nargs=+ -complete=file BinEdit call util#EditBinaryFile(<f-args>)
 
 " slack "{{{
 function! SlackSendToUser(username)
@@ -43,7 +11,8 @@ endfunction
 command! -nargs=1 SlackSend call SlackSendToUser(<f-args>)
 "}}}
 
-function! CaptureWithCmd(cmd, bang, ...)
+" capture "{{{
+function! s:CaptureWithCmd(cmd, bang, ...)
 	let default_cmd = "bel new"
 	if exists('g:capture_open_command')
 		let default_cmd = g:capture_open_command
@@ -57,46 +26,22 @@ function! CaptureWithCmd(cmd, bang, ...)
 	let g:capture_open_command = default_cmd
 endfunction
 
-" capture "{{{
 autocmd FileType capture call LoadMotionMap()
-command! -nargs=+ -bang -complete=shellcmd Ecapture call CaptureWithCmd('bel new', "<bang>", '!', <f-args>)
-command! -nargs=+ -complete=shellcmd Evcapture call CaptureWithCmd('bel vnew', "<bang>", '!', <f-args>)
-command! -nargs=+ -complete=shellcmd Etcapture call CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)
+command! -nargs=+ -bang -complete=shellcmd Ecapture call s:CaptureWithCmd('bel new', "<bang>", '!', <f-args>)
+command! -nargs=+ -complete=shellcmd Evcapture call s:CaptureWithCmd('bel vnew', "<bang>", '!', <f-args>)
+command! -nargs=+ -complete=shellcmd Etcapture call s:CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)
 
-command! -nargs=+ -complete=command Tcapture call CaptureWithCmd('tabnew', "<bang>", <f-args>)
+command! -nargs=+ -complete=command Tcapture call s:CaptureWithCmd('tabnew', "<bang>", <f-args>)
 "}}}
 
 " man "{{{
-" function! s:NewTabManPage()
-	
-" endfunction
 command! -range=0 -complete=customlist,man#complete -nargs=* Tman execute(":tab Man " . <q-args>)
 command! -range=0 -complete=customlist,man#complete -nargs=* Vman execute(":vertical botright Man " . <q-args>)
 autocmd FileType man,capture nmap <buffer> g/ /^\v\s+
 "}}}
 
-function! NvrReturn(...)
-    if ! exists('b:nvr')
-        return
-    endif
-
-	let resCode = 0
-	if a:0 > 0
-		let resCode = a:1
-	endif
-
-	" w
-    for chanid in b:nvr
-        silent! call rpcnotify(chanid, 'Exit', resCode)
-    endfor
-
-    if bufnr('#') != bufnr('%')
-        e # | bd #
-    endif
-endfunction
-
-command! -nargs=? NvrReturn call NvrReturn(<f-args>)
-autocmd! BufWritePost * call NvrReturn()
+command! -nargs=? NvrReturn call util#NvrReturn(<f-args>)
+autocmd! BufWritePost * call util#NvrReturn()
 
 " Remote "{{{
 function! EditRemoteFile(file_url)
@@ -126,5 +71,10 @@ endfunction
 
 command! -nargs=0 EnableKubernetes call EnablePlugins(["helper.vim", "treemenu.vim", "vikube.vim"])
 "}}}
+
+command! -nargs=0 LatestFile call util#LoadLatestFile()
+command! -nargs=? FWlog call util#EditCmdOutFile('fwlog <f-args>')
+
+command! -nargs=? PDate call util#TimestampToDate(<f-args>)
 
 " vim:fdm=marker:
