@@ -1,0 +1,6 @@
+#!/bin/bash
+# Author            : Hongbo Liu <lhbf@qq.com>
+# Date              : 2018-05-24 13:33
+
+dir=$(dirname $1)
+cat $dir/tags

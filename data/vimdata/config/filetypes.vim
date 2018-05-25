@@ -267,4 +267,11 @@ let g:haskell_enable_typeroles = 1
 Plug 'https://github.com/jparise/vim-graphql'
 "}}}
 
+" vim "{{{
+Plug 'https://github.com/mhinz/vim-lookup'
+
+autocmd FileType vim nnoremap <buffer><silent> <c-]>  :call lookup#lookup()<cr>
+autocmd FileType vim nnoremap <buffer><silent> <c-t>  :call lookup#pop()<cr>
+"}}}
+
 " vim:set fdm=marker:

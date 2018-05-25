@@ -34,13 +34,9 @@ let g:ctrlp_buftag_types = {
             \ 'man'        : '--man-kinds=+s',
             \ 'zsh'        : '--sh-kinds=+t',
             \ 'cpp'         : '--fields=+iaKSz --extra=+q --c++-kinds=+L-p',
-            \ 'sql'         : '--sql-kinds=+Insert',
             \ 'markdown' : '--language-force=markdown --markdown-types=hik',
 			\ 'go' : '--go-kinds=+t+s+i+p',
-            \ 'javascript' : {
-            \ 'bin': 'jsctags',
-            \ 'args': '-f -',
-            \ },
+            \ 'help' : '--language-force=vimhelp',
             \ 'vimwiki' : {
                 \ 'bin' : '$CUSDATA/TagbarTools/vwtags.py',
                 \ 'args': 'default',
@@ -72,7 +68,13 @@ function! TermOpenFunc(action, line)
     endif
 endfunction
 
-let g:ctrlp_open_func = { 'buffers': 'TermOpenFunc' }
+function! CtrlpFileOpenFunc(action, line)
+    echom getcwd()
+endfunction
+
+let g:ctrlp_open_func = {
+            \ 'buffers': 'TermOpenFunc',
+            \ }
 
 " nmap <silent> <C-P> :<C-U>call CtrlPModeSwitch()<cr>
 nmap <silent> <C-j> :CtrlPBufTag<cr>
@@ -82,6 +84,27 @@ nmap <silent> <Leader>pl :CtrlPLine<cr>
 
 nnoremap <A-f>  :<C-u>CtrlPCurWD<CR>
 nmap <A-Space> :<C-u>CtrlPBuffer<cr>
+"}}}
+
+" FileJumper "{{{
+let g:file_jumper_command = {
+            \ "Gbin": {'dir': expand("$HOME/bin")},
+            \ "Gwiki": {'dir': expand("$HOME/vimwiki"), 'keymap': '<Leader>wg'},
+            \ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'keymap': ',gv'},
+            \ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin")},
+            \ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips")},
+            \ }
+
+function! s:DefineDirFileCompletionCommand()
+	for cmd in keys(g:file_jumper_command)
+		execute(printf("command! -nargs=0 %s CtrlP %s", cmd, g:file_jumper_command[cmd].dir))
+		if has_key(g:file_jumper_command[cmd], 'keymap')
+			execute(printf('nmap %s :%s<cr>', g:file_jumper_command[cmd].keymap, cmd))
+		endif
+	endfor
+endfunction
+
+call s:DefineDirFileCompletionCommand()
 "}}}
 
 " ctrlpz "{{{
@@ -120,6 +143,13 @@ Plug 'https://github.com/fisadev/vim-ctrlp-cmdpalette'
 let g:ctrlp_cmdpalette_execute = 1
 nmap <silent> <A-x> :CtrlPCmdPalette<cr>
 vmap <silent> <A-x> :<c-u>CtrlPCmdPalette<cr>
+"}}}
+
+" ctrlp help "{{{
+Plug 'https://github.com/zeero/vim-ctrlp-help'
+
+let g:ctrlp_help_vsplit_width = 80
+nmap <silent> <Space>h :CtrlPHelp<cr>
 "}}}
 
 " vim:set fdm=marker:

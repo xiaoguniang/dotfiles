@@ -1,22 +1,3 @@
-let g:file_jumper_command = {
-            \ "Gbin": {'dir': expand("$HOME/bin")},
-            \ "Gwiki": {'dir': g:myvimwikidir, 'keymap': '<Leader>wg'},
-            \ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'keymap': ',gv'},
-            \ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin")},
-            \ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips")},
-            \ }
-
-function! s:DefineDirFileCompletionCommand()
-	for cmd in keys(g:file_jumper_command)
-		execute(printf("command! -nargs=0 %s CtrlP %s", cmd, g:file_jumper_command[cmd].dir))
-		if has_key(g:file_jumper_command[cmd], 'keymap')
-			execute(printf('nmap %s :%s<cr>', g:file_jumper_command[cmd].keymap, cmd))
-		endif
-	endfor
-endfunction
-
-call s:DefineDirFileCompletionCommand()
-
 " RD report "{{{
 " command! -nargs=0 TSReport RE 201 ~/gitlab/rd/ts_regression/report/
 " command! -nargs=0 APIReport RE 201 ~/gitlab/rd/api_regression/report/

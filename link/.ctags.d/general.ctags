@@ -31,3 +31,7 @@
 
 --langmap=sql:+.sql
 --regex-sql=/^[ \t]*INSERT[ \t]+INTO(.*)/\1/k,Insert/i
+
+--langdef=vimhelp
+--langmap=vimhelp:
+--regex-vimhelp=/\*(.*)\*/\1/t,Tags/

@@ -361,4 +361,9 @@ if exists('g:interpreter_cmd')
 endif
 "}}}
 
+" vim debugger "{{{
+" Plug 'https://github.com/vim-scripts/genutils'
+" Plug 'https://github.com/albfan/vim-breakpts'
+"}}}
+
 " vim:set fdm=marker:

@@ -248,6 +248,7 @@ vnoremap <C-]> "vy:tag /<c-r>v<cr> " / represent not exactly match
 " fold settings"{{{
 if has('vim_starting')
     set foldlevelstart=3
+    set foldcolumn=0
     " set fdm=syntax
 endif
 
