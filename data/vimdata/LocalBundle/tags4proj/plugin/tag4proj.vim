@@ -133,12 +133,5 @@ function! JumpToDefinition(tag)
 	execute('tag ' . a:tag)
 endfunction
 
-" nmap <silent> <buffer> <C-]> :call JumpToDefinition(expand('<cword>'))<cr>
-
-" function! JumpToDeclaration(tag)
-	" let result = taglist(tag)
-" endfunction
-
-command! -nargs=0 -bar TprojGenAll call GenerateTagsAll()
-" command! -nargs=0 -bar TprojGenDelta call GenerateTagsDelta()
+command! -nargs=0 -bar GenerateProjectTags call GenerateTagsAll()
 "}}}

@@ -1,6 +1,9 @@
 GPATH
 GRTAGS
 GTAGS
+tags
+.gutctags
+.notags
 *.o
 *.swo
 *.swp

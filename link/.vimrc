@@ -27,7 +27,6 @@ source $PLUG_DIR/plug.vim
 
 call plug#begin(expand($BUNDLE))
 Plug expand('$CUSDATA/LocalBundle/MyPlugins')
-Plug expand('$CUSDATA/LocalBundle/tags4proj')
 Plug expand('$CUSDATA/LocalBundle/paste')
 Plug expand('$CUSDATA/LocalBundle/RemoteCompile')
 " Plug 'https://github.com/hiberabyss/FileJumper'
@@ -51,12 +50,10 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 " NeoBundle 'https://github.com/junegunn/limelight.vim'
 " Plug 'https://github.com/christoomey/vim-titlecase'
 " Plug 'https://github.com/triglav/vim-visual-increment'
-" NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'
 " NeoBundle 'https://github.com/MattesGroeger/vim-bookmarks'
 
 " Plug 'https://github.com/tpope/vim-speeddating.git'
 " NeoBundle 'https://github.com/benmills/vimux.git'
-" NeoBundle 'https://github.com/ludovicchabant/vim-gutentags'
 
 " NeoBundle 'https://github.com/junkblocker/patchreview-vim'
 "}}}
