@@ -24,3 +24,5 @@ fi
 export __PROFILE=".profile Loaded"
 
 [[ -s "/Users/hbliu/.gvm/scripts/gvm" ]] && source "/Users/hbliu/.gvm/scripts/gvm"
+
+export PATH="$HOME/.cargo/bin:$PATH"

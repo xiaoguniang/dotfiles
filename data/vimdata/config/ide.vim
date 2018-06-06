@@ -49,13 +49,22 @@ let g:dispatch_neovim_fixedsize = 1
 "}}}
 
 " lsp "{{{
-" Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+
+" let g:LanguageClient_loadSettings = 1
+" let g:LanguageClient_settingsPath = expand('$HOME/.cquery.json')
 
 " let g:LanguageClient_serverCommands = {
 			" \ 'javascript': ['$HOME/github/javascript-typescript-langserver/lib/language-server-stdio.js'],
+			" \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
 			" \ }
 
-let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_loadSettings = 1
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+" nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 "}}}
 
 " code format "{{{

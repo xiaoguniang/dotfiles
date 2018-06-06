@@ -53,7 +53,6 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 " NeoBundle 'https://github.com/MattesGroeger/vim-bookmarks'
 
 " Plug 'https://github.com/tpope/vim-speeddating.git'
-" NeoBundle 'https://github.com/benmills/vimux.git'
 
 " NeoBundle 'https://github.com/junkblocker/patchreview-vim'
 "}}}
@@ -106,17 +105,7 @@ vmap <Leader>ld :Linediff<cr>
 "}}}
 
 " text edit "{{{
-" nmap ,a; A;<ESC>
-
 nmap <silent> ,af :exec append(line('$'), " vim:fdm=marker")<cr>G\cc
-"}}}
-
-" vimux config "{{{
-nmap <Leader>vp :VimuxPromptCommand<CR>
-nmap <Leader>vl :VimuxRunLastCommand<CR>
-nmap <Leader>vi :VimuxInspectRunner<CR>
-nmap <Leader>vq :VimuxCloseRunner<CR>
-nmap <Leader>vz :VimuxZoomRunner<CR>
 "}}}
 
 " xmledit"{{{

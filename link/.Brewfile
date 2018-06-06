@@ -176,6 +176,7 @@ brew "sqlmap"
 brew "ssh-copy-id"
 brew "swift", link: true
 brew "swiftlint"
+brew "sysdig"
 brew "telnet"
 brew "texi2html"
 brew "the_platinum_searcher"
