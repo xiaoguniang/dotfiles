@@ -78,9 +78,8 @@ let g:ctrlp_open_func = {
 
 " nmap <silent> <C-P> :<C-U>call CtrlPModeSwitch()<cr>
 nmap <silent> <C-j> :CtrlPBufTag<cr>
+nmap <silent> ,gl :CtrlPLine<cr>
 nmap <silent> <Leader>pb :CtrlPBookmarkDir<cr>
-nmap <silent> <Leader>pf :CtrlPCurWD<cr>
-nmap <silent> <Leader>pl :CtrlPLine<cr>
 
 nnoremap <A-f>  :<C-u>CtrlPCurWD<CR>
 nmap <A-Space> :<C-u>CtrlPBuffer<cr>
@@ -150,6 +149,10 @@ Plug 'https://github.com/zeero/vim-ctrlp-help'
 
 let g:ctrlp_help_vsplit_width = 80
 nmap <silent> <Space>h :CtrlPHelp<cr>
+"}}}
+
+" register "{{{
+" Plug 'https://github.com/mattn/ctrlp-register'
 "}}}
 
 " vim:set fdm=marker:

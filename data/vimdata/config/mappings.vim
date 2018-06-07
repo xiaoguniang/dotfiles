@@ -238,4 +238,10 @@ nmap <silent> ,dh :set opfunc=util#DecodeHex2Str<cr>g@
 vmap <silent> ,dh :<c-u>call util#DecodeHex2Str(visualmode(), 1)<cr>
 "}}}
 
+" fold "{{{
+command! -nargs=1 -bar RepeatFunc call fold#CallRepeat(<f-args>)
+nmap <silent> ,zj :<c-u>RepeatFunc fold#NavigateFolds(1, 1)<cr>  
+nmap <silent> ,zk :<c-u>RepeatFunc fold#NavigateFolds(0, 1)<cr>
+"}}}
+
 " vim:set fdm=marker:

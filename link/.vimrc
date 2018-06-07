@@ -1,11 +1,7 @@
 " Variables "{{{
 let $DOTPATH = expand("$HOME/.dotfiles")
 let $CUSDATA = expand("$HOME/.dotfiles/data/vimdata")
-if isdirectory(expand("$HOME/.vim/bundle"))
-    let $BUNDLE = expand("$HOME/.vim/bundle")
-else
-    let $BUNDLE = expand("$CUSDATA/bundle")
-endif
+let $BUNDLE = expand("$CUSDATA/bundle")
 let $VIMCONFIG = expand("$CUSDATA/config")
 let $PLUG_DIR = expand("$BUNDLE/vim-plug")
 "}}}
@@ -202,44 +198,10 @@ endif
 
 "set fdo-=search " 'foldopen' To search only in open folds 
 
-function! CallRepeat(funcHandler)
-    let countRepeat = v:count1
-    while countRepeat > 0
-        execute('call ' . a:funcHandler)
-        let countRepeat -= 1
-    endwhile
-endfunction
-
-function! NavigateFolds(direction, foldStatus)
-    if a:direction " == "next"
-        normal zj
-        let posDelta = 1
-    else
-        normal zk
-        let posDelta = -1
-    endif
-    let curLineNum = line('.')
-
-    if a:foldStatus " == "closed"
-        while foldclosed(curLineNum) == -1
-            let curLineNum += posDelta
-        endwhile
-    else
-        while foldclosed(curLineNum) != -1
-            let curLineNum += 1
-        endwhile
-    endif
-    call cursor(curLineNum, 0)
-endfunction
-
 nmap ,fs :setl fdm=syntax<cr>
 nmap ,f[ :setl fmr={,}<cr>:setl fdm=marker<cr>
 nmap ,fn :setl fdm=manual<cr>
 
-" nnoremap <Tab> za
-command! -nargs=1 -bar RepeatFunc call CallRepeat(<f-args>)
-nmap <silent> ,zj :<c-u>RepeatFunc NavigateFolds(1, 1)<cr>  
-nmap <silent> ,zk :<c-u>RepeatFunc NavigateFolds(0, 1)<cr>
 "}}}
 
 " scratch "{{{
