@@ -35,7 +35,7 @@ let g:ctrlp_buftag_types = {
             \ 'zsh'        : '--sh-kinds=+t',
             \ 'cpp'         : '--fields=+iaKSz --extra=+q --c++-kinds=+L-p',
             \ 'markdown' : '--language-force=markdown --markdown-types=hik',
-			\ 'go' : '--go-kinds=+t+s+i+p',
+            \ 'go' : '--go-kinds=+t+s+i+p',
             \ 'help' : '--language-force=vimhelp',
             \ 'vimwiki' : {
                 \ 'bin' : '$CUSDATA/TagbarTools/vwtags.py',
@@ -51,7 +51,7 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 function! TermOpenFunc(action, line)
-    if a:action =~ '^[e]$' && a:line =~ '^term://'
+    if a:action =~? '^[e]$' && a:line =~ '^term://'
         call ctrlp#exit()
 
         let win_size = 12
@@ -66,10 +66,6 @@ function! TermOpenFunc(action, line)
     else
         call call('ctrlp#acceptfile', [a:action, a:line])
     endif
-endfunction
-
-function! CtrlpFileOpenFunc(action, line)
-    echom getcwd()
 endfunction
 
 let g:ctrlp_open_func = {
@@ -88,15 +84,36 @@ nmap <A-Space> :<C-u>CtrlPBuffer<cr>
 " FileJumper "{{{
 let g:file_jumper_command = {
             \ "Gbin": {'dir': expand("$HOME/bin")},
-            \ "Gwiki": {'dir': expand("$HOME/vimwiki"), 'keymap': '<Leader>wg'},
+            \ "Gwiki": {'dir': expand("$HOME/vimwiki"), 'keymap': '<Leader>wg', 'ext': '.wiki'},
             \ "Gvimconfig": {'dir': expand('$VIMCONFIG'), 'keymap': ',gv'},
             \ "Gftplugin": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/ftplugin")},
-            \ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips")},
+            \ "Gsnips": {'dir': expand("$CUSDATA/LocalBundle/MyPlugins/MyCusSnips"), 'ext': '.snippets'},
+			\ "Grest": {"dir": expand("$CUSDATA/REST"), 'ext': '.rest'},
             \ }
+
+function! FileJumperHandler(dir, ext, ...)
+	if a:0 == 0
+		execute("CtrlP " .a:dir)
+		return
+	endif
+
+	let cmd = "vnew"
+	if a:0 > 1
+		let cmd = join(a:000[1:])
+	endif
+
+	if a:0 > 0
+		execute(printf("%s %s/%s%s", cmd, a:dir, a:1, a:ext))
+	endif
+endfunction
 
 function! s:DefineDirFileCompletionCommand()
 	for cmd in keys(g:file_jumper_command)
-		execute(printf("command! -nargs=0 %s CtrlP %s", cmd, g:file_jumper_command[cmd].dir))
+		let extension = ""
+		if has_key(g:file_jumper_command[cmd], 'ext')
+			let extension = g:file_jumper_command[cmd].ext
+		endif
+		execute(printf("command! -nargs=* %s call FileJumperHandler('%s', '%s', <f-args>)", cmd, g:file_jumper_command[cmd].dir, extension))
 		if has_key(g:file_jumper_command[cmd], 'keymap')
 			execute(printf('nmap %s :%s<cr>', g:file_jumper_command[cmd].keymap, cmd))
 		endif

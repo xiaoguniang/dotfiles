@@ -1,0 +1,15 @@
+# http://nycadsdebug.fwmrm.net:1080
+# http://nycadsdebug02.fwmrm.net:1085
+http://LAXADS103:1080
+
+-A freewheel
+-x socks5://nycjump01:8088
+--
+
+--
+
+# http://LAXADS103:1080
+
+GET /dispatch?command=server::info
+
+GET /dispatch?command=server::stats2

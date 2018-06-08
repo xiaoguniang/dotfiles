@@ -1,6 +1,8 @@
 " cursor line settings
 " set colorcolumn=81
-hi ColorColumn ctermbg=black guibg=lightgrey
+
+highlight ColorColumn ctermbg=black guibg=lightgrey
+
 " hi Normal ctermbg=NONE
 " set noshowcmd
 " set cursorbind " two window in same line and columon
@@ -85,3 +87,4 @@ nmap <silent> ,af :AirlineRefresh<cr>
 "}}}
 
 Plug 'https://github.com/powerman/vim-plugin-AnsiEsc', {'on': 'AnsiEsc'}
+

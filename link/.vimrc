@@ -201,7 +201,6 @@ endif
 nmap ,fs :setl fdm=syntax<cr>
 nmap ,f[ :setl fmr={,}<cr>:setl fdm=marker<cr>
 nmap ,fn :setl fdm=manual<cr>
-
 "}}}
 
 " scratch "{{{
