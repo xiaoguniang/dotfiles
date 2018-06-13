@@ -21,13 +21,14 @@ VOLUMN_MAP=" \
 	"
 
 EXTRA_PORT_MAP=" \
-	-p 29006:3306 -p 29022:22 -p 29099:8999 \
-	-p 29010:9000 -p 29011:9001 \
+	-p 3306 -p 22 -p 8999 -p 9000 -p 9001 \
+    -p 9092 -p 2181
 	"
 
 DEFAULT_PORT_MAP=" \
 	-p 23306:3306 -p 28999:8999 -p 20022:22 \
 	-p 29000:9000 -p 29001:9001 -p 29002:9002 \
+    -p 9092 -p 2181
 	"
 
 startDocker() {
@@ -80,6 +81,9 @@ case $1 in
 		$SUDO docker stop $RUN_CONTAINER_NAME
 		$SUDO docker rm $RUN_CONTAINER_NAME
 		exit ;;
+    port|p)
+        docker ps --format='{{.Names}}\t{{.Ports}}' | grep "$CONTAINER_NAME"
+        ;;
     * ) ;;
 esac
 

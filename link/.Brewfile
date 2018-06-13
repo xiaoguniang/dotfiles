@@ -85,7 +85,7 @@ brew "gd"
 brew "gdb"
 brew "git-crypt"
 brew "git-extras"
-brew "global"
+brew "global", args: ["with-ctags", "with-pygments"]
 brew "gnu-tar", args: ["with-default-names"]
 brew "libgpg-error"
 brew "libksba"

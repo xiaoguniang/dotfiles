@@ -35,6 +35,7 @@ let g:ctrlp_buftag_types = {
             \ 'zsh'        : '--sh-kinds=+t',
             \ 'cpp'         : '--fields=+iaKSz --extra=+q --c++-kinds=+L-p',
             \ 'markdown' : '--language-force=markdown --markdown-types=hik',
+			\ 'proto' : '',
             \ 'go' : '--go-kinds=+t+s+i+p',
             \ 'help' : '--language-force=vimhelp',
             \ 'vimwiki' : {
@@ -77,7 +78,6 @@ nmap <silent> <C-j> :CtrlPBufTag<cr>
 nmap <silent> ,gl :CtrlPLine<cr>
 nmap <silent> <Leader>pb :CtrlPBookmarkDir<cr>
 
-nnoremap <A-f>  :<C-u>CtrlPCurWD<CR>
 nmap <A-Space> :<C-u>CtrlPBuffer<cr>
 "}}}
 

@@ -236,6 +236,8 @@ let g:go_metalinter_autosave = 0
 let g:go_metalinter_enabled = ['vet', 'errcheck']
 let g:go_metalinter_autosave_enabled = ['vet']
 
+let g:go_term_enabled = 1
+
 let g:go_list_type = "quickfix"
 
 let g:go_term_height = 15
