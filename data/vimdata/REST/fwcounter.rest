@@ -1,0 +1,15 @@
+http://192.168.0.32:29000
+-A freewheel
+--
+
+--
+GET /dispatch?command=server::info
+
+GET /dispatch?command=server::config
+
+GET /dispatch?command=server::connections
+
+--
+GET /counter?command=list&type=ad
+
+GET /counter
