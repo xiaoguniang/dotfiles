@@ -28,7 +28,7 @@ EXTRA_PORT_MAP=" \
 DEFAULT_PORT_MAP=" \
 	-p 23306:3306 -p 28999:8999 -p 20022:22 \
 	-p 29000:9000 -p 29001:9001 -p 29002:9002 \
-    -p 9092 -p 2181
+    -p 29092:9092 -p 22181:2181
 	"
 
 startDocker() {
@@ -56,35 +56,59 @@ createOrStartDocker() {
 		return 0
 	fi
 
-	if !($SUDO docker ps -a | grep "$container_name" &> /dev/zero); then
+	if !($SUDO docker ps -a | grep "\<$container_name\>" &> /dev/zero); then
 		if ! $SUDO docker run -d --name=$container_name --privileged $port_map -ti $VOLUMN_MAP $IMAGE_NAME /entry.sh; then
 			return 2
 		else
 			$SUDO docker exec $container_name bash -c "sh /hbliu/setup"
 		fi
-	elif !($SUDO docker ps | grep "$container_name" &> /dev/zero); then
+	elif !($SUDO docker ps | grep "\<$container_name\>" &> /dev/zero); then
 		startDocker
 	fi
 
 	createShell
 }
 
-RUN_CONTAINER_NAME=$CONTAINER_NAME
-RUN_PORT_MAP=$DEFAULT_PORT_MAP
+usage() {
+cat << EOF
+Usage: $(basename $0) command
 
-case $1 in
-	r|reg|regression)
-		RUN_CONTAINER_NAME=$CONTAINER_EXTRA
-		RUN_PORT_MAP=$EXTRA_PORT_MAP
-		;;
-	remove|rm)
-		$SUDO docker stop $RUN_CONTAINER_NAME
-		$SUDO docker rm $RUN_CONTAINER_NAME
-		exit ;;
-    port|p)
-        docker ps --format='{{.Names}}\t{{.Ports}}' | grep "$CONTAINER_NAME"
-        ;;
-    * ) ;;
-esac
+Options:
+  -h		show this help
+  p|port	show container port map
+  
+EOF
+exit 0
+}
 
-container_name=$RUN_CONTAINER_NAME port_map=$RUN_PORT_MAP createOrStartDocker
+main() {
+	RUN_CONTAINER_NAME=$CONTAINER_NAME
+	RUN_PORT_MAP=$DEFAULT_PORT_MAP
+
+	case $1 in
+		-h|--help)
+			usage
+			;;
+		remove|rm)
+			if [[ -n "$2" ]]; then
+				RUN_CONTAINER_NAME=${CONTAINER_NAME}_$2
+			fi
+			$SUDO docker stop $RUN_CONTAINER_NAME
+			$SUDO docker rm $RUN_CONTAINER_NAME
+			exit ;;
+		port|p)
+			docker ps --format='{{.Names}}\t{{.Ports}}' | grep "$CONTAINER_NAME"
+			exit 0
+			;;
+		* )
+			if [[ -n "$1" ]]; then
+				RUN_CONTAINER_NAME=${CONTAINER_NAME}_$1
+				RUN_PORT_MAP=$EXTRA_PORT_MAP
+			fi
+			;;
+	esac
+
+	container_name=$RUN_CONTAINER_NAME port_map=$RUN_PORT_MAP createOrStartDocker
+}
+
+main $@

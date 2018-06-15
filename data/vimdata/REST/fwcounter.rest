@@ -13,3 +13,6 @@ GET /dispatch?command=server::connections
 GET /counter?command=list&type=ad
 
 GET /counter
+
+--
+# global counter

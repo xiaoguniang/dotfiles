@@ -44,9 +44,13 @@ command! -nargs=? NvrReturn call util#NvrReturn(<f-args>)
 autocmd! BufWritePost * call util#NvrReturn()
 
 " Remote "{{{
-function! EditRemoteFile(file_url)
+function! EditRemoteFile(file_url, ...)
     let host_file = split(a:file_url, ':')
-    execute('tabnew scp://' .host_file[0]. '/' .host_file[1])
+	let port = ""
+	if a:0 > 0
+		let port = ":" .a:1
+	endif
+    execute(printf('tabnew scp://%s%s/%s', host_file[0], port, host_file[1]))
 endfunction
 
 function! SshHostCompletionList(lead, cmdline, ...) abort
