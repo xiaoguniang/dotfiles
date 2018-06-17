@@ -76,6 +76,7 @@ Usage: $(basename $0) command
 Options:
   -h		show this help
   p|port	show container port map
+  ip)		show container ip address
   
 EOF
 exit 0
@@ -98,6 +99,10 @@ main() {
 			exit ;;
 		port|p)
 			docker ps --format='{{.Names}}\t{{.Ports}}' | grep "$CONTAINER_NAME"
+			exit 0
+			;;
+		ip)
+			docker ps | grep "${CONTAINER_NAME}" | cut -d' ' -f1 | xargs docker inspect --format '{{ .Name }} , {{  .NetworkSettings.IPAddress }} '
 			exit 0
 			;;
 		* )
