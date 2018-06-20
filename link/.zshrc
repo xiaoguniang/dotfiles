@@ -372,6 +372,9 @@ alias ycmconf='~/.dotfiles/data/MyVimData/bundle/YCM-Generator/config_gen.py'
 alias smux='teamocil 2>/dev/zero'
 alias lcd='cd $(ls -t | head -1)'
 
+alias lcogo='leetcode show -gx -e tvim -l golang'
+alias lco='leetcode show -gx -e tvim'
+
 alias -s pptx="xdg-open &> /dev/zero"
 alias -s gz='tar -xzf'
 alias -s tgz='tar -xzf'

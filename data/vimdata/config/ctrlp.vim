@@ -69,13 +69,15 @@ function! TermOpenFunc(action, line)
     endif
 endfunction
 
-function! CreateNewFile(action, line)
-    echom "VimWiki Dir"
+" function! CreateNewFile(action, line)
+    " echom "VimWiki Dir"
 
-    return expand("$HOME/vimwiki/hbliu.wiki")
-endfunction
+    " return expand("$HOME/vimwiki/hbliu.wiki")
+" endfunction
 
-let g:ctrlp_create_func = "CreateNewFile"
+" let g:ctrlp_create_func = {
+            " \ 'files': "CreateNewFile",
+            " \ }
 
 let g:ctrlp_open_func = {
             \ 'buffers': 'TermOpenFunc',
