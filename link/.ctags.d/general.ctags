@@ -35,3 +35,6 @@
 --langdef=vimhelp
 --langmap=vimhelp:
 --regex-vimhelp=/\*(.*)\*/\1/t,Tags/
+
+--langdef=sshconfig
+--regex-sshconfig=/^Host[[:space:]]+(.*)/\1/h/i,Host/

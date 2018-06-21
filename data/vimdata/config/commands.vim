@@ -20,7 +20,10 @@ function! s:CaptureWithCmd(cmd, bang, ...)
 	let g:capture_open_command = a:cmd
 
 	execute(printf(':Capture%s %s', a:bang, join(a:000)))
-	execute("resize " .min([line('$') + 1, winheight('.')]))
+    if winnr('$') > 1
+        execute("resize " .min([line('$') + 1, winheight('.')]))
+    endif
+    set buflisted
 	" resize min([line('$') + 1, winheight('.')])
 
 	let g:capture_open_command = default_cmd

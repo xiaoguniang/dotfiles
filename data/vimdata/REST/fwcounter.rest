@@ -10,8 +10,11 @@ GET /dispatch?command=server::config
 GET /dispatch?command=server::connections
 
 --
+# counter2
 # http://192.168.0.32:32775
-GET /counter?command=list&type=ad
+GET /counter?command=list&type=ad&scope=local
+
+GET /counter?command=list&type=ad&scope=global
 
 GET /counter
 

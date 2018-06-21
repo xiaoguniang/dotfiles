@@ -36,6 +36,7 @@ let g:ctrlp_buftag_types = {
             \ 'cpp'         : '--fields=+iaKSz --extra=+q --c++-kinds=+L-p',
             \ 'markdown' : '--language-force=markdown --markdown-types=hik',
 			\ 'proto' : '',
+			\ 'sshconfig' : '--language-force=sshconfig',
             \ 'go' : '--go-kinds=+t+s+i+p',
             \ 'help' : '--language-force=vimhelp',
             \ 'vimwiki' : {
