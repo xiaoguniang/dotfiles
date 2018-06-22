@@ -3,6 +3,7 @@ http://192.168.0.32:29000
 --
 
 --
+http://192.168.0.32:32796
 GET /dispatch?command=server::info
 
 GET /dispatch?command=server::config
@@ -10,13 +11,26 @@ GET /dispatch?command=server::config
 GET /dispatch?command=server::connections
 
 --
-# counter2
-# http://192.168.0.32:32775
+# counter1
+http://192.168.0.32:32796
 GET /counter?command=list&type=ad&scope=local
 
 GET /counter?command=list&type=ad&scope=global
-
-GET /counter
-
 --
-# global counter
+# counter2
+http://192.168.0.32:32803
+GET /counter?command=list&type=ad&scope=local
+
+GET /counter?command=list&type=ad&scope=global
+--
+# ads1: 32810 ads2: 32817
+http://192.168.0.32:32810
+GET /counter?command=list&type=ad&scope=local
+
+GET /counter?command=list&type=ad&scope=global
+--
+# ads2
+http://192.168.0.32:32817
+GET /counter?command=list&type=ad&scope=local
+
+GET /counter?command=list&type=ad&scope=global

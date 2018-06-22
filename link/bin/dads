@@ -2,8 +2,7 @@
 
 CODE_DIR="$HOME/FreeWheel"
 IMAGE_NAME="registry.docker.dev.fwmrm.net/ads/ads-regression:latest"
-CONTAINER_NAME="regression_hbliu"
-CONTAINER_EXTRA="regression_hbliu_extra"
+CONTAINER_NAME="regression_$(whoami)"
 
 is_osx() {
 	[[ "$OSTYPE" =~ ^darwin ]] || return 1
@@ -11,7 +10,6 @@ is_osx() {
 
 if ! is_osx; then
 	SUDO="sudo"
-	CODE_DIR="$HOME/FreeWheel"
 fi
 
 VOLUMN_MAP=" \
@@ -96,7 +94,8 @@ main() {
 			fi
 			$SUDO docker stop $RUN_CONTAINER_NAME
 			$SUDO docker rm $RUN_CONTAINER_NAME
-			exit ;;
+			exit 0
+			;;
 		port|p)
 			docker ps --format='{{.Names}}\t{{.Ports}}' | grep "$CONTAINER_NAME"
 			exit 0
