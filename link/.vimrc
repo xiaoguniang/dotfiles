@@ -1,9 +1,9 @@
 " Variables "{{{
-let $DOTPATH = expand("$HOME/.dotfiles")
-let $CUSDATA = expand("$HOME/.dotfiles/data/vimdata")
-let $BUNDLE = expand("$CUSDATA/bundle")
-let $VIMCONFIG = expand("$CUSDATA/config")
-let $PLUG_DIR = expand("$BUNDLE/vim-plug")
+let $DOTPATH = expand('$HOME/.dotfiles')
+let $CUSDATA = expand('$HOME/.dotfiles/data/vimdata')
+let $BUNDLE = expand('$CUSDATA/bundle')
+let $VIMCONFIG = expand('$CUSDATA/config')
+let $PLUG_DIR = expand('$BUNDLE/vim-plug')
 "}}}
 
 " init "{{{
@@ -14,10 +14,12 @@ endif
 "}}}
 
 " Include Plug "{{{
-if empty(glob(expand("$PLUG_DIR/plug.vim")))
+if empty(glob(expand('$PLUG_DIR/plug.vim')))
   silent !curl -fLo $PLUG_DIR/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+  augroup plug_install
+      autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+  augroup END
 endif
 source $PLUG_DIR/plug.vim
 
@@ -177,19 +179,17 @@ endfunction
 
 " Tags and Cscope Manage"{{{
 function! AddCscopeCon()
-    if filereadable("cscope.out") && !cscope_connection(getcwd())
-        execute("cs add cscope.out " . getcwd() )
+    if filereadable('cscope.out') && !cscope_connection(getcwd())
+        execute('cs add cscope.out ' . getcwd() )
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
     endif
 endfunction
 
-" nmap ,gc :!cscope -Rbq<cr> 
-" nmap silent <A-]> <C-w>]
 vnoremap <C-]> "vy:tag /<c-r>v<cr> " / represent not exactly match
 "}}}
 
-" fold settings"{{{
+" fold settings "{{{
 if has('vim_starting')
     set foldlevelstart=3
     set foldcolumn=0

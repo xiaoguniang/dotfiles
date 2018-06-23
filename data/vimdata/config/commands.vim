@@ -19,17 +19,22 @@ function! s:CaptureWithCmd(cmd, bang, ...)
 	endif
 	let g:capture_open_command = a:cmd
 
-	execute(printf(':Capture%s %s', a:bang, join(a:000)))
+    let l:ext_cmd = join(a:000)
+
+	execute(printf(':Capture%s %s', a:bang, l:ext_cmd))
+	execute(printf(':file Capture: %s', l:ext_cmd))
+
     if winnr('$') > 1
         execute("resize " .min([line('$') + 1, winheight('.')]))
     endif
-    set buflisted
-	" resize min([line('$') + 1, winheight('.')])
+
+    execute(printf("nmap <buffer> <silent> r :<c-u>%%d<cr>:0r %s<cr>gg", l:ext_cmd))
 
 	let g:capture_open_command = default_cmd
 endfunction
 
 autocmd FileType capture call LoadMotionMap()
+
 command! -nargs=+ -bang -complete=shellcmd Ecapture call s:CaptureWithCmd('bel new', "<bang>", '!', <f-args>)
 command! -nargs=+ -complete=shellcmd Evcapture call s:CaptureWithCmd('bel vnew', "<bang>", '!', <f-args>)
 command! -nargs=+ -complete=shellcmd Etcapture call s:CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)

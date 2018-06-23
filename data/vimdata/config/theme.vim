@@ -50,7 +50,9 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buf_label_first = 1
 let g:airline#extensions#tabline#show_splits = 0
 " let g:airline#extensions#tabline#show_tab_type = 0
+
 " let g:airline#extensions#tabline#buf_label_first = 0
+" let g:airline#extensions#tabline#show_tabs = 1
 
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -69,8 +71,8 @@ let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtr
 let g:airline#extensions#tabline#excludes = ['term://']
 " let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#buffer_min_count = 2
-let g:airline#extensions#tabline#tab_min_count = 1
+let g:airline#extensions#tabline#buffer_min_count = 0
+let g:airline#extensions#tabline#tab_min_count = 0
 
 " let g:airline#extensions#ctrlspace#enabled = 1
 let g:airline#extensions#capslock#enabled = 1

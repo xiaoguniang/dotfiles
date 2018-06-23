@@ -197,6 +197,11 @@ nmap <silent> ,l/ /<Up><cr>
 
 " tab page manipulate"{{{
 function! CloseTab(cmdFlg)
+    if tabpagenr('$') <= 1
+        execute('bd' .a:cmdFlg)
+        return
+    endif
+
     let closeCmd = 'tabclose' . a:cmdFlg
 
     if tabpagenr() != tabpagenr('$')
@@ -217,11 +222,19 @@ if v:version >= 800 || has('nvim')
 	autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
 endif
 
-map <silent> <A-'> :exe "tabn " . g:Lasttab<cr>
-imap <silent> <A-'> <ESC>:exe "tabn " . g:Lasttab<cr>
+function! s:SwitchLastTab()
+    if tabpagenr('$') > 1
+        execute("tabn " .g:Lasttab)
+    else
+        execute('e #')
+    endif
+endfunction
 
-nmap <Space>gc :call CloseTab('')<cr>
-nmap <Space>gC :call CloseTab('!')<cr>
+map <silent> <A-'> :call <SID>SwitchLastTab()<cr>
+imap <silent> <A-'> <ESC>:call <SID>SwitchLastTab()<cr>
+
+nmap <Space>c :call CloseTab('')<cr>
+nmap <Space>C :call CloseTab('!')<cr>
 "}}}
 
 " utility map"{{{
