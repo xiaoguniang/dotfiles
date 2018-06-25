@@ -29,6 +29,7 @@ function! s:CaptureWithCmd(cmd, bang, ...)
     endif
 
     execute(printf("nmap <buffer> <silent> r :<c-u>%%d<cr>:0r %s<cr>gg", l:ext_cmd))
+    nmap <buffer> R :%d<cr>:Capture 
 
 	let g:capture_open_command = default_cmd
 endfunction
@@ -36,8 +37,9 @@ endfunction
 autocmd FileType capture call LoadMotionMap()
 
 command! -nargs=+ -bang -complete=shellcmd Ecapture call s:CaptureWithCmd('bel new', "<bang>", '!', <f-args>)
-command! -nargs=+ -complete=shellcmd Evcapture call s:CaptureWithCmd('bel vnew', "<bang>", '!', <f-args>)
-command! -nargs=+ -complete=shellcmd Etcapture call s:CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)
+command! -nargs=+ -bang -complete=shellcmd Evcapture call s:CaptureWithCmd('bel vnew', "<bang>", '!', <f-args>)
+command! -nargs=+ -bang -complete=shellcmd Etcapture call s:CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)
+" command! -nargs=+ -complete=shellcmd Ercapture call s:CaptureWithCmd('tabnew', "<bang>", '!', <f-args>)
 
 command! -nargs=+ -complete=command Tcapture call s:CaptureWithCmd('tabnew', "<bang>", <f-args>)
 "}}}

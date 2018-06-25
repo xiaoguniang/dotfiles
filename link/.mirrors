@@ -8,7 +8,6 @@
   r01: r01/FreeWheel
 ~/.dotfiles:
   32: 32/.dotfiles
-  r01: r01/.dotfiles
 ~:
   32: 32/
   r01: r01/

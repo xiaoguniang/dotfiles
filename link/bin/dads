@@ -8,19 +8,14 @@ is_osx() {
 	[[ "$OSTYPE" =~ ^darwin ]] || return 1
 }
 
-if ! is_osx; then
-	SUDO="sudo"
-fi
-
 VOLUMN_MAP=" \
 	-v $CODE_DIR:/code/ -v $HOME/docker/:/data \
 	-v $HOME/.dotfiles/private/docker:/hbliu \
-	-v $HOME/.dotfiles/link/.zgen/robbyrussell/oh-my-zsh-master:/.oh-my-zsh \
 	"
 
 EXTRA_PORT_MAP=" \
 	-p 3306 -p 22 -p 8999 -p 9000 -p 9001 \
-    -p 9092 -p 2181
+    -p 9092 -p 2181 \
 	"
 
 DEFAULT_PORT_MAP=" \
@@ -28,6 +23,22 @@ DEFAULT_PORT_MAP=" \
 	-p 29000:9000 -p 29001:9001 -p 29002:9002 \
     -p 29092:9092 -p 22181:2181
 	"
+
+init() {
+    OHMYZSH="$HOME/.dotfiles/link/.zgen/robbyrussell/oh-my-zsh-master"
+    if [[ -d "$OHMYZSH" ]]; then
+        VOLUMN_MAP="$VOLUMN_MAP -v $OHMYZSH:/.oh-my-zsh"
+    fi
+
+    if ! is_osx; then
+        SUDO="sudo"
+    fi
+
+    local port_file="$HOME/.dads.conf"
+    if [[ -f "$port_file" ]]; then
+        DEFAULT_PORT_MAP=$(cat $port_file)
+    fi
+}
 
 startDocker() {
 	if [[ -z "$container_name" ]]; then
@@ -81,6 +92,8 @@ exit 0
 }
 
 main() {
+    init
+
 	RUN_CONTAINER_NAME=$CONTAINER_NAME
 	RUN_PORT_MAP=$DEFAULT_PORT_MAP
 

@@ -32,8 +32,6 @@ Plug 'https://github.com/tpope/vim-surround.git'
 " Plug 'https://github.com/pelodelfuego/vim-swoop'
 " let g:swoopUseDefaultKeyMap = 0
 
-Plug 'https://github.com/Shougo/vinarise.vim'
-
 Plug 'https://github.com/tpope/vim-endwise' " wisely add endfunction/endif/more in vim script
 
 if has('mac')
@@ -68,7 +66,9 @@ nmap <silent> ,es :execute("Gsnips " . &ft . " vnew")<cr>
 
 
 " Vinarise "{{{
-let g:vinarise_enable_auto_detect = 1
+Plug 'https://github.com/Shougo/vinarise.vim'
+
+let g:vinarise_enable_auto_detect = 0
 "}}}
 
 " swap "{{{

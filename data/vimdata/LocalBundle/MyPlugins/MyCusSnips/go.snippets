@@ -7,6 +7,26 @@ snippet maxproc "max system process" b
 runtime.GOMAXPROCS(${1:2})
 endsnippet
 
+snippet max "int max" b
+func max(x, y int) int {
+    if x >= y {
+        return x
+    }
+
+    return y
+}
+endsnippet
+
+snippet min "int min" b
+func min(x, y int) int {
+    if x <= y {
+        return x
+    }
+
+    return y
+}
+endsnippet
+
 snippet append "Slice Append"
 ${1:slice} = append($1, ${2:element})
 endsnippet
