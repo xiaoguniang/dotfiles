@@ -10,7 +10,9 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/tomtom/tcomment_vim'
 " Plug 'https://github.com/jsfaint/gen_tags.vim'
+
 Plug 'https://github.com/tyru/capture.vim'
+let g:capture_override_buffer = 'replace'
 
 Plug 'https://github.com/dbgx/lldb.nvim'
 
