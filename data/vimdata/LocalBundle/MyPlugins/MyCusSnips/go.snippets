@@ -326,6 +326,10 @@ snippet atoi "convert to int"
 value, err := strconv.Atoi(str)
 endsnippet
 
+snippet itoa "convert int to string" b
+str := strconv.Itoa($1)
+endsnippet
+
 snippet atoi64 "convert string to int64"
 ${2:num}, err := strconv.ParseInt(${1:s}, 10, 64)
 endsnippet
