@@ -63,3 +63,7 @@ let g:vikube_default_logs_tail = 1000
 let g:vikube_disable_custom_highlight = 1
 let g:vikube_use_current_namespace = 1
 "}}}
+
+" window resize "{{{
+Plug 'https://github.com/simeji/winresizer'
+"}}}
