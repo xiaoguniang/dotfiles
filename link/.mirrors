@@ -1,8 +1,7 @@
 ~/gitlab/rd:
   201: 201/~/gitlab/rd
-~/gitlab/AdserverRegressionTestTool:
+~/.github/adstest/regression:
   d32: root@d32//regression/regression/regression
-  dr01: root@dr01//regression/regression/regression
 ~/FreeWheel:
   32: 32/FreeWheel
   r01: r01/FreeWheel
