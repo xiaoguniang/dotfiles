@@ -1,4 +1,4 @@
-Plug 'https://github.com/Lokaltog/vim-easymotion.git'
+Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
 Plug 'https://github.com/terryma/vim-expand-region'
 " Plug 'https://github.com/vim-scripts/camelcasemotion.git'

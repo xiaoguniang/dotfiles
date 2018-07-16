@@ -1,10 +1,9 @@
-" Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/mileszs/ack.vim'
 Plug 'https://github.com/dyng/ctrlsf.vim'
 Plug 'https://github.com/google/vim-searchindex'
-" Plug 'https://github.com/mhinz/vim-grepper'
+Plug 'https://github.com/mhinz/vim-grepper'
 Plug 'https://github.com/sk1418/QFGrep'
-Plug 'https://github.com/dkprice/vim-easygrep'
+" Plug 'https://github.com/dkprice/vim-easygrep'
 " Plug 'https://github.com/salsifis/vim-qfmanip'
 
 " ctrlSF"{{{
@@ -22,12 +21,13 @@ nnoremap <Leader>ft :CtrlSFToggle<CR>
 inoremap <Leader>ft <Esc>:CtrlSFToggle<CR>
 "}}}
 
-" vim grepper {{{
-" nmap ,s  <plug>(GrepperOperator)
-" xmap ,s  <plug>(GrepperOperator)
-" let g:grepper           = {}
-" let g:grepper.highlight = 1
-" let g:grepper.prompt = 0
+" vim grepper "{{{
+nmap ,s  <plug>(GrepperOperator)
+xmap ,s  <plug>(GrepperOperator)
+nmap <silent> <Leader>vv :<c-u>Grepper -cword<cr>
+let g:grepper = {}
+let g:grepper.highlight = 1
+let g:grepper.prompt = 0
 "}}}
 
 " Ack "{{{
@@ -37,12 +37,6 @@ if executable('ag')
 endif
 
 nmap ,ag :Ack! -Q 
-"}}}
-
-" Ag "{{{
-" let g:ag_highlight=1
-" " cnoreabbrev Ag Ag!
-" nmap ,ag :Ag! -Q 
 "}}}
 
 " EasyGrep "{{{
