@@ -45,7 +45,7 @@ else
 	" Plug 'https://github.com/vim-scripts/fcitx.vim.git'
 endif
 
-if (has('python') || has('python3')) && empty($SSH_CLIENT)
+if (has('python') || has('python3'))
 Plug 'https://github.com/SirVer/ultisnips.git'
 " Plug 'https://github.com/reconquest/vim-pythonx'
 endif
