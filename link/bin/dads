@@ -9,8 +9,8 @@ is_osx() {
 }
 
 VOLUMN_MAP=" \
-	-v $CODE_DIR:/code/ -v $HOME/docker/:/data \
-	-v $HOME/.dotfiles/private/docker:/hbliu \
+	-v $CODE_DIR:/code/ \
+    -v $HOME/.dotfiles/private/docker:/data \
 	"
 
 EXTRA_PORT_MAP=" \
@@ -69,7 +69,7 @@ createOrStartDocker() {
 		if ! $SUDO docker run -d --name=$container_name --privileged $port_map -ti $VOLUMN_MAP $IMAGE_NAME /entry.sh; then
 			return 2
 		else
-			$SUDO docker exec $container_name bash -c "sh /hbliu/setup"
+			$SUDO docker exec $container_name bash -c "sh /data/setup"
 		fi
 	elif !($SUDO docker ps | grep "\<$container_name\>" &> /dev/zero); then
 		startDocker
