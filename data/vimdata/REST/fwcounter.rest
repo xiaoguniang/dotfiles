@@ -1,6 +1,6 @@
-http://192.168.0.32:29000
+http://172.17.1.91:9000
 -A freewheel
--x socks5://192.168.0.32:8088
+-x socks5://192.168.0.32:20088
 --
 
 --
@@ -12,32 +12,32 @@ GET /dispatch?command=server::config
 GET /dispatch?command=server::connections
 
 --
-# counter1
-http://192.168.0.32:32796
-GET /counter?command=list&type=ad&scope=local
+# new counter1
+http://0.0.0.0:9120
 
 GET /counter?command=list&type=ad&scope=global
 --
-# counter2
-http://192.168.0.32:32803
-GET /counter?command=list&type=ad&scope=local
+# new counter2
+http://0.0.0.0:9130
+
+GET /counter?command=list&type=ad&scope=global
+--
+# old counter
+http://0.0.0.0:9200
 
 GET /counter?command=list&type=ad&scope=global
 --
 # ads1: 32810 ads2: 32817
-http://192.168.0.32:32810
+http://0.0.0.0:9000
+
 GET /counter?command=list&type=ad&scope=local
-
-GET /counter?command=list&type=ad&scope=global
---
-# counter1
-http://172.17.2.33:9120
-GET /counter?command=list&type=ad&scope=local
-
-GET /counter?command=list&type=ad&scope=global
-
-GET /dispatch?command=server::info
 
 GET /dispatch?command=server::stats
+--
+# ads2
 
-GET /dispatch?command=pusher::save_repository&type=repa
+http://0.0.0.0:9110
+
+GET /counter?command=list&type=ad&scope=local
+
+GET /dispatch?command=server::stats
