@@ -1,0 +1,11 @@
+http://stgads002:1080
+-A freewheel
+-x socks5://stgdev03.stg.fwmrm.net:20088
+--
+
+http://stgads002:1080
+
+GET /dispatch?command=server::info
+
+GET /counter?command=list&type=ad&scope=global
+--
