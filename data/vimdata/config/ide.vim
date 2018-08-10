@@ -22,7 +22,8 @@ Plug 'https://github.com/dbgx/lldb.nvim'
 Plug 'https://github.com/hiberabyss/ProjectConfig'
 
 " tags management "{{{
-Plug expand('$CUSDATA/LocalBundle/tags4proj')
+" Plug expand('$CUSDATA/LocalBundle/tags4proj')
+Plug 'https://github.com/hiberabyss/tags4proj.git'
 " Plug 'https://github.com/jsfaint/gen_tags.vim'
 " Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
