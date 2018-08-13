@@ -50,6 +50,10 @@ remoteSource() {
     local file_name="${url##*/}"
     local dest="$PRE_REUIRE_DIR"
 
+    if ! which wget &> /dev/zero; then
+        return 1
+    fi
+
     if [[ ! -f "$dest/$file_name" ]]; then
         wget -P $dest $url
     fi
@@ -340,9 +344,11 @@ alias minikenv='eval $(minikube docker-env)'
 
 update-kubeconfig() {
     export KUBECONFIG=$HOME/.kube/config
-    for f in $HOME/.kube/*.config; do
-        export KUBECONFIG=$KUBECONFIG:$f
-    done
+    if [[ -d "$HOME/.kube" ]]; then
+        for f in $HOME/.kube/*.config; do
+            export KUBECONFIG=$KUBECONFIG:$f
+        done
+    fi
 }
 
 update-kubeconfig
