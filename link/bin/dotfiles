@@ -211,13 +211,6 @@ function private_header() { e_header "Linking files into home directory"; }
 function private_test() {
   [[ "$1" -ef "$2" ]] && echo "same file"
 }
-function private_do() {
-  if [[ -e "$HOME/$1${LOCAL_MAGIC}" ]]; then
-    return 0
-  fi
-  e_success "Linking ~/$1."
-  ln -sf ${2#$HOME/} ~/
-}
 
 # Copy, link, init, etc.
 function do_stuff() {
@@ -317,10 +310,23 @@ UpdateRepo() {
   fi
 }
 
+function private_link() {
+  local src_dir="$PRIVATE_DIR/link"
+
+  if [[ ! -d "$src_dir" ]]; then
+      return 1
+  fi
+
+  for f in $src_dir/*; do
+      e_success "Linking private $f"
+      ln -sf $f ~/
+  done
+}
+
 Install() {
   local with_private=false
   local OPT OPTARG OPTIND
-  while getopts '-p' OPT; do
+  while getopts 'p' OPT; do
     case $OPT in
       p) with_private="true" ;;
       ?) ;;
@@ -349,7 +355,7 @@ Install() {
   # do_stuff "copy"
   do_stuff "link"
   if [[ "$with_private" == "true" ]]; then
-    do_stuff "private"
+      private_link
   fi
   do_stuff "init"
 

@@ -640,11 +640,15 @@ export FZF_DEFAULT_OPTS="--extended"
 # go #{{{
 export GOPATH="$HOME/go"
 # export GOROOT="/usr/local/Cellar/go/1.10/libexec"
+secureAddPath "$GOPATH/bin" start
 # }}}
 
 # FreeWheel # {{{
-secureAddPath "$GOPATH/bin" start
-secureSource "$HOME/.dotfiles/private/freewheel/plugin.zsh"
+# secureSource "$HOME/.dotfiles/private/freewheel/plugin.zsh"
+# }}}
+
+# tencent #{{{
+secureSource "$HOME/.dotfiles/private/tencent/plugin.zsh"
 # }}}
 
 # qemu #{{{
