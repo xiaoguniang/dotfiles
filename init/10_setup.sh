@@ -5,7 +5,7 @@
 # Email: hbliu@freewheel.com
 # CreatTime: 2015-10-13 22:21:44 CST
 
-ZSH_BIN="/bin/zsh"
+ZSH_BIN="$(which zsh)"
 ZGENRC="$HOME/.dotfiles/data/zgen/zgen.zsh"
 ZGEN_DIR="$HOME/.zgen"
 

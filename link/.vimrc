@@ -58,7 +58,7 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 " Plug 'https://github.com/junegunn/vim-peekaboo'
 
 " source $VIMCONFIG/sqlclient.vim
-" source $VIMCONFIG/VersionControlSystem.vim
+source $VIMCONFIG/VersionControlSystem.vim
 
 source $VIMCONFIG/ctrlp.vim
 source $VIMCONFIG/unite.vim
@@ -78,6 +78,8 @@ source $VIMCONFIG/git.vim
 source $VIMCONFIG/textobj.vim
 source $VIMCONFIG/filetypes.vim
 source $VIMCONFIG/utilities.vim
+
+" source $VIMCONFIG/tencent.vim
 
 if has('nvim')
     source $VIMCONFIG/nvim.vim
