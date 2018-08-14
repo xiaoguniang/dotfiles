@@ -24,10 +24,10 @@ fi
 git submodule update --recursive
 
 install_zsh_plugins() {
-	source "$ZGENRC"
-	zgen update
-	~/.dotfiles/link/.zgen/junegunn/fzf-master/install --all
-	sudo $ZGEN_DIR/petronny/pinyin-completion-master/setup.py install
+    source "$ZGENRC"
+    zgen update
+    ~/.zgen/junegunn/fzf-master/install --all
+    (cd $ZGEN_DIR/petronny/pinyin-completion-master && ./setup.py install)
 }
 
 install_tmux_plugins() {
