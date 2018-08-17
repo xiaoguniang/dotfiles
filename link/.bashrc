@@ -142,4 +142,4 @@ export TERM="xterm-256color"
 
 export __BASHRC=".bashrc Loaded"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-test -s ~/bin/bladefunctions && . ~/bin/bladefunctions || true
+# test -s ~/bin/bladefunctions && . ~/bin/bladefunctions || true

@@ -1,0 +1,9 @@
+#!/bin/bash
+# Author            : Hongbo Liu <lhbf@qq.com>
+# Date              : 2018-08-17 14:59
+
+get_relative_dir() {
+    echo "${PWD/$HOME/~}"
+}
+
+ssh spa68 "bash -c \" cd $(get_relative_dir) && $* \" "

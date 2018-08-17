@@ -15,6 +15,9 @@ term linux
 shelltitle 'bash'
 bind x kill
 
+defutf8 on
+defencoding utf8
+
 hardstatus alwayslastline 
 # caption always '%{= kw}%-w%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+w %=%d %M %0c %{g}%H%{-}'
 hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %C%A%{-}'
@@ -34,8 +37,8 @@ rscreen() {
 
     ssh -o ForwardAgent=yes "$host" \
         -t "if ! grep $MAGIC_STR $SCREENRC_PATH &> /dev/zero; then sh -c \"$APPEND_SCREENRC\"; fi ; \
-        sh -c \"$FIX_AGENT_FORWARD\" ; \
         export SSH_AUTH_SOCK=\$HOME/.ssh/ssh_auth_sock ; \
+        sh -c \"$FIX_AGENT_FORWARD\" ; \
         export LOCKPRG=/bin/true; \
         screen -dR $session_name"
 }
