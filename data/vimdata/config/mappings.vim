@@ -3,6 +3,8 @@ noremap <silent> <Up> <C-y>
 noremap <silent> <Down> <C-e>
 "}}}
 
+vnoremap <C-]> "vy:tag /<c-r>v<cr> " / represent not exactly match
+
 " cmdline setting "{{{
 cnoremap <C-A> <Home>
 cnoremap <M-b> <S-Left>

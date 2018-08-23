@@ -1,0 +1,5 @@
+#!/bin/bash
+# Author            : Hongbo Liu <lhbf@qq.com>
+# Date              : 2018-08-22 18:30
+
+ssh -t cdg2 "ssh $*"

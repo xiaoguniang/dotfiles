@@ -44,7 +44,6 @@ Plug 'https://github.com/chrisbra/NrrwRgn.git'
 " Plug 'https://github.com/vim-scripts/PatternsOnText'
 " Plug 'https://github.com/mtth/scratch.vim'
 " Plug 'chrisbra/vim-diff-enhanced'
-" NeoBundle 'https://github.com/junegunn/goyo.vim'
 " NeoBundle 'https://github.com/junegunn/limelight.vim'
 " Plug 'https://github.com/christoomey/vim-titlecase'
 " Plug 'https://github.com/triglav/vim-visual-increment'
@@ -152,43 +151,6 @@ let g:limelight_default_coefficient = 0.7
 let g:limelight_priority = -1
 xmap <Leader>ll <Plug>(Limelight)
 nmap <Leader>L :Limelight!<cr>
-"}}}
-
-" goyo "{{{
-function! s:goyo_enter()
-  silent !tmux set status off
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  Limelight
-endfunction
-
-function! s:goyo_leave()
-  silent !tmux set status on
-  set showmode
-  set showcmd
-  set scrolloff=5
-  Limelight!
-endfunction
-
-" autocmd! User GoyoEnter nested call <SID>goyo_enter()
-" autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-" let g:goyo_width = 80
-" let g:goyo_height = 85%
-" let g:goyo_linenr = 0
-"}}}
-
-" Tags and Cscope Manage"{{{
-function! AddCscopeCon()
-    if filereadable('cscope.out') && !cscope_connection(getcwd())
-        execute('cs add cscope.out ' . getcwd() )
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-endfunction
-
-vnoremap <C-]> "vy:tag /<c-r>v<cr> " / represent not exactly match
 "}}}
 
 " fold settings "{{{
