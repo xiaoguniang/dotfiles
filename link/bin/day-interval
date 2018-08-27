@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author            : Hongbo Liu <lhbf@qq.com>
+# Date              : 2018-08-24 18:17
+
+time1=$(gdate -d"$1" +%s)
+
+if [[ -z "$2" ]]; then
+    time2=$(gdate +%s -d "$(gdate +%F)")
+else
+    time2=$(gdate -d"$2" +%s)
+fi
+
+echo $(((time1 - time2)/ (3600 * 24)))

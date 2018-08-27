@@ -6,7 +6,7 @@ elseif has('lua')
     Plug 'https://github.com/Shougo/neocomplete.vim'
 endif
 
-Plug expand('$CUSDATA/LocalBundle/deoplete-fwlqs')
+" Plug expand('$CUSDATA/LocalBundle/deoplete-fwlqs')
 
 Plug 'https://github.com/Shougo/neoinclude.vim'
 Plug 'https://github.com/wellle/tmux-complete.vim'
@@ -96,7 +96,7 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 inoremap <expr> <c-x><c-k> fzf#complete('cat /usr/share/dict/words')
 
-nnoremap <A-f>  :<C-u>FZF<CR>
+nnoremap <A-f> :<C-u>FZF<CR>
 
 autocmd! FileType fzf nmap <buffer> <silent> q :quit<cr>
 "}}}

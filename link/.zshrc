@@ -648,7 +648,9 @@ secureAddPath "$GOPATH/bin" start
 # }}}
 
 # tencent #{{{
-secureSource "$HOME/.dotfiles/private/tencent/plugin.zsh"
+TENCENT_ROOT="$HOME/.dotfiles/private/tencent"
+secureAddPath "$TENCENT_ROOT/bin"
+secureSource "$TENCENT_ROOT/plugin.zsh"
 # }}}
 
 # qemu #{{{

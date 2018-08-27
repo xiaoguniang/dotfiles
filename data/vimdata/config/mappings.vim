@@ -86,6 +86,7 @@ map <silent> <A-\> :call util#WindowMaxToggle()<cr>
 map <silent> <A-w> <ESC><C-w>w:call util#WindowMaxToggle()<cr>
 
 nmap ,cd :lcd %:p:h<CR>
+nmap <silent> ,cr :execute(printf("cd %s", g:project_root))<cr>
 nmap <silent> ,cw :cd $ORIG_PWD<cr>
 nmap ,rc :tabnew ~/.vimrc<cr>
 
@@ -130,11 +131,12 @@ endfunction
 
 " au CmdwinEnter [:>] iunmap <Tab>
 " au CmdwinEnter [:>] nunmap <Tab>
-autocmd! CmdwinEnter [:/?>] call BufferNowaitMap()
 " autocmd! QuickFixCmdPost lopen call BufferNowaitMap()
 " autocmd! QuickFixCmdPre lopen call BufferNowaitMap()
-autocmd! BufReadPost quickfix call BufferNowaitMap()
-autocmd! BufReadPost location call BufferNowaitMap()
+
+autocmd! CmdwinEnter [:/?>] call BufferNowaitMap()
+autocmd BufReadPost quickfix call BufferNowaitMap()
+autocmd BufReadPost location call BufferNowaitMap()
 "}}}
 
 " Clipboard Management"{{{

@@ -1,0 +1,3 @@
+#compdef jmp
+
+_arguments "1: jump to tencent machines :(hdfs db)"

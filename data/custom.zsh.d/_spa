@@ -1,0 +1,3 @@
+#compdef spa
+
+_arguments "1: tencent spa utilies :($(spa -l))"
