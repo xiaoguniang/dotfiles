@@ -40,3 +40,4 @@ adsdoc:~/Tencent/adsdoc_proj
 sql-pivot:~/Tencent/Pivot
 spaproto:~/Tencent/qzone_adsdev_proj/trunk/app/qzap/proto
 git:~/Tencent/Git
+txbin:~/.dotfiles/private/tencent/bin

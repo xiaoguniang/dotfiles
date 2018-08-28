@@ -180,6 +180,7 @@ nnoremap <expr> N  'nN'[v:searchforward]
 
 nmap <silent> [[ m':call search('{', 'b')<CR>:keepjumps normal w99[{<CR>
 nmap <silent> ][ m':call search('}')<CR>b99]}
+
 nmap <silent> ]] j0[[%m':call search('{')<CR>
 nmap <silent> [] k$][%m':call search('}')<CR>
 
