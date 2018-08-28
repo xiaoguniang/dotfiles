@@ -1,3 +1,4 @@
 #compdef spa
 
 _arguments "1: tencent spa utilies :($(spa -l))"
+_arguments "3: retrieval client arguments :(--is_show_imageinfo --sql)"

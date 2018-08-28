@@ -39,3 +39,4 @@ zshcustom:~/.dotfiles/data/custom.zsh.d
 adsdoc:~/Tencent/adsdoc_proj
 sql-pivot:~/Tencent/Pivot
 spaproto:~/Tencent/qzone_adsdev_proj/trunk/app/qzap/proto
+git:~/Tencent/Git
