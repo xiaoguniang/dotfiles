@@ -1,0 +1,3 @@
+#compdef spalz
+
+_arguments "1: Luo Zi Task management :($(spalz -l))" ": Task List :($(spalz task -l))" ": Get Task ID :(get g)"
