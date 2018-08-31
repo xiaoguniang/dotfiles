@@ -21,5 +21,7 @@ is_osx || return 1
 brew tap neovim/neovim
 brew install neovim
 
+brew install luarocks
+
 brew tap universal-ctags/universal-ctags
 brew install universal-ctags
