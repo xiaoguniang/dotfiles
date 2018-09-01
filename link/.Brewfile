@@ -118,6 +118,7 @@ brew "libyaml"
 brew "libzip"
 brew "links", args: ["with-jpeg", "with-libtiff", "with-x11"]
 brew "llvm@5"
+brew "luarocks"
 brew "lz4"
 brew "mackup"
 brew "macvim"
