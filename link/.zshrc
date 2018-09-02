@@ -552,12 +552,12 @@ alias dcoffee="dquery coffee"
 # }}}
 
 # python # {{{
-export PYTHONSTARTUP="$HOME/.ipython/pythonrc.py"
+# export PYTHONSTARTUP="$HOME/.ipython/pythonrc.py"
 # export IPYTHONDIR="$DOTDATA/python"
 export IPYTHONDIR="$HOME/.ipython"
 unset IPYTHONDIR
 
-secureAddPath "/usr/local/opt/python/libexec/bin" "start"
+# secureAddPath "/usr/local/opt/python/libexec/bin" "start"
 # }}}
 
 # vimwiki # {{{
