@@ -679,4 +679,6 @@ if which helm &> /dev/zero; then
 fi
 # }}}
 
+setopt extendedglob
+
 # vim:set fdm=marker:
