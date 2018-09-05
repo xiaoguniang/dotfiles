@@ -1,3 +1,3 @@
-#compdef dsh
+#compdef dexe
 
 _arguments "1: :($(dps))"

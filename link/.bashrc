@@ -135,11 +135,9 @@ POWERLINE_SH="$HOME/github/powerline/powerline/bindings/bash/powerline.sh"
 	# source $POWERLINE_SH
 # fi
 
-export GITBACKUP="$HOME/.backup_cus"
 export EDITOR="vim"
 export PATH+=:.
 export TERM="xterm-256color"
 
-export __BASHRC=".bashrc Loaded"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # test -s ~/bin/bladefunctions && . ~/bin/bladefunctions || true
