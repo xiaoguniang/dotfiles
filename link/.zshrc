@@ -419,6 +419,12 @@ bindkey ^X\; vi-repeat-find
 bindkey ^X, vi-rev-repeat-find
 # bindkey \^C capitalize-word # default: kill-whole-line ^x^k
 
+_x-backward-kill-word() {
+    WORDCHARS='*?_-[]~\!#$%^(){}<>./|`@#$%^*()+:?' zle backward-kill-word
+}
+zle -N _x-backward-kill-word 
+bindkey '^[w' _x-backward-kill-word
+
 function _copy-to-clipboard {
     print -rn -- $BUFFER | pbcopy
     [ -n "$TMUX" ] && tmux display-message 'Line copied to clipboard!'
@@ -650,7 +656,6 @@ secureAddPath "$GOPATH/bin" start
 # tencent #{{{
 TENCENT_ROOT="$HOME/.dotfiles/private/tencent"
 secureAddPath "$TENCENT_ROOT/bin"
-secureSource "$TENCENT_ROOT/plugin.zsh"
 # }}}
 
 # qemu #{{{

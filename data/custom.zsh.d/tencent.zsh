@@ -1,0 +1,1 @@
+../../private/tencent/plugin.zsh

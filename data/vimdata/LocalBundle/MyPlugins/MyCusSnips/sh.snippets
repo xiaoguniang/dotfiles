@@ -90,4 +90,11 @@ endsnippet
 
 snippet zparseopts "zsh getopt" b
 zparseopts -D -E -M -A Args -- d: r h -depth:=d
+
+for opt in "${(k@)Args}"; do
+	case $opt in
+		-h ) dump_doc_usage ;;
+		-n ) echo "${Args[$opt]}" ;;
+	esac
+done
 endsnippet

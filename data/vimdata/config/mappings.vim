@@ -207,7 +207,11 @@ function! CloseTab(cmdFlg)
         return
     endif
 
-    let closeCmd = 'tabclose' . a:cmdFlg
+    let cmd = 'tabclose'
+    if winnr('$') == 1
+        let cmd = 'bd'
+    endif
+    let closeCmd = cmd . a:cmdFlg
 
     if tabpagenr() != tabpagenr('$')
         let closeCmd .= '|tabprev'

@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author            : Hongbo Liu <lhbf@qq.com>
+# Date              : 2018-09-05 17:56
+
+set -x
+svn_info="$(svn info $1)"
+if [[ -z "$svn_info" ]]; then
+    svn_info="$(svn info)"
+fi
+
+url=$(echo "$svn_info" | grep "^URL: " | cut -d ' ' -f2)
+
+open $url

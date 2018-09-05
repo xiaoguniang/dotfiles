@@ -67,3 +67,5 @@ let g:vikube_use_current_namespace = 1
 " window resize "{{{
 Plug 'https://github.com/simeji/winresizer'
 "}}}
+
+Plug 'https://github.com/Asheq/close-buffers.vim'
