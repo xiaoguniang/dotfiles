@@ -78,7 +78,7 @@ source $VIMCONFIG/textobj.vim
 source $VIMCONFIG/filetypes.vim
 source $VIMCONFIG/utilities.vim
 
-" source $VIMCONFIG/tencent.vim
+source $VIMCONFIG/tencent.vim
 
 if has('nvim')
     source $VIMCONFIG/nvim.vim

@@ -1,3 +1,31 @@
 #compdef spalz
 
-_arguments "1: Luo Zi Task management :($(spalz -l))" ": Task List :($(spalz task -l))" ": Get Task ID :(get g)"
+# _arguments "1: Luo Zi Task management :($(spalz -l))" ": Task List :($(spalz task -l))" ": Get Task ID :(get g)"
+
+# subcommands = ('job:job management' 'task:' 'upload:' 'api:')
+
+local -a subcommands
+
+subcommands=($(spalz -l))
+tasks=($(spalz task -l))
+task_op=('get:Get Task ID and copy into clipboard' 'info:Get Task Info')
+_arguments "1: Luo Zi :->arg1" ": Task List :->arg2" ": :->arg3"
+
+case $state in
+    arg1 )
+        _describe "SubCommand" subcommands
+        ;;
+    arg2 ) case $words[2] in
+            task|t|upload|up )
+                _describe "Task List" tasks --
+                ;;
+        esac
+        ;;
+    arg3 )
+        case $words[2] in
+            task|t )
+                _describe "Task Operation" task_op --
+                ;;
+        esac
+        ;;
+esac

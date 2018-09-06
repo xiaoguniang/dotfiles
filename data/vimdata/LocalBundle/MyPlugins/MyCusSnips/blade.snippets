@@ -1,0 +1,11 @@
+snippet cc "blade cc_ item" b
+cc_${1:library}(
+    name = '${2:name}',
+    srcs = [
+        '$2.cc',
+    ],
+    deps = [
+        '$3',
+    ],
+)
+endsnippet
